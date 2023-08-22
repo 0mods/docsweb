@@ -6,6 +6,9 @@ on:
       - main
   pull_request:
 
+permissions:
+  id-token: write
+
 #jobs:
 #  deploy:
 #    runs-on: ubuntu-22.04
@@ -77,3 +80,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+        
