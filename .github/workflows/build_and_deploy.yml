@@ -60,7 +60,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-          cache: yarn
+      - name: Get Yarn Cache
+        id: yarn_cache
+        run: echo "YARN_CACHE_DIR=$(yarn cache dir)" >> "${GITHUB_OUTPUT}"
       - name: Install dependencies
         run: yarn install --frozen-lockfile --non-interactive
       - name: Build
