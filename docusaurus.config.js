@@ -10,9 +10,8 @@ const config = {
   baseUrl: '/',
   organizationName: '0mods', // Usually your GitHub org/user name.
   projectName: 'docsweb', // Usually your repo name.
-  deploymentBranch: 'gh-pages',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
@@ -25,7 +24,7 @@ const config = {
         direction: 'ltr',
         htmlLang: 'en-US',
         calendar: 'gregory',
-        path: '/',
+        path: 'en',
       },
       ru: {
         label: 'Русский',
@@ -64,12 +63,6 @@ const config = {
       navbar: {
         title: 'Wikipedia',
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Docs',
-          },
           {
             href: 'https://github.com/0mods/docsweb',
             label: 'GitHub',
