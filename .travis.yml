@@ -3,7 +3,7 @@ node_js:
   - 18
 branches:
   only:
-    - main
+    - gh-pages
 cache:
   yarn: true
 script:
