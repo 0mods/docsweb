@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - gh-pages
-    paths:
-      - '.github/workflows/build_and_deploy.yml'
-      - 'website/**'
   pull_request:
 
 jobs:
