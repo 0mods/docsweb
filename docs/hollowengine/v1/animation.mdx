@@ -1,0 +1,18 @@
+---
+sidebar_position: 7
+---
+
+# 2.2 | Dialogues | Animation
+## Create simple scripting animations
+The working principle of any animation is to change the state of the object (moba/pictures) over time.
+Accordingly, if you want to make an animation of the character increase, it is done as follows:
+```kotlin
+for(i in 0..100) {
+    object.scale = 1.0f + i / 100f //add the current size to the original size, because if i=50 it will be: 1f + 0.5f, at i=75: 1f + 0.75f, etc.
+    wait(0.1f) // wait 1/10 seconds
+}
+```
+
+This is the most primitive way to animate anything, and you can also [move](./transform) characters on the screen in the same way.
+For example, if you move every 10 seconds of a character to a random value of x and y, you can animate the shaking and the like.
+It is likely that in the future there will be a simpler way to create such animations, interpolating into a couple of lines :)
