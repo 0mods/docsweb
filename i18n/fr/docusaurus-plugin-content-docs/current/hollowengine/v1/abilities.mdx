@@ -1,0 +1,29 @@
+---
+sidebar_position: 3
+---
+
+# 1.1 | Moteur de script | Capacités
+
+## Capacités du moteur de script
+
+Le moteur de script HollowEngine lui-même ajoute quelques annotations aux scripts pour faciliter le développement, ce sont les principales.
+
+**DISPONIBLE DEPUIS v1.1!!! **
+
+L’annotation `@Import("path/to/my/script.type.kts")`vous permet d’importer n’importe quel script du répertoire `hollowengine”
+
+Il est utilisé très simplement, imaginez que nous avons deux scripts dans le dossier de script creux: `test.se.kts` et `test_library.kts`.
+Lorsque le premier est un événement d’intrigue, le second est une bibliothèque avec diverses méthodes qui simplifient votre vie:)
+Et pour pouvoir utiliser les méthodes du second dans le premier script, vous devez utiliser cette annotation pour le fichier (script):
+`@file:Import("test_library.kts")`
+
+De plus, si vous avez un script dans un dossier et une bibliothèque dans un autre, par exemple, “hollowengine/scripts/story/test.se.kts”
+et `hollowengine/libs/test_library.kts`, puis spécifiez le chemin relatif à la `hollowengine`
+dossier racine: `@file:Import("libs/test_library.kts")`
+
+## Exécuter après un script de fin
+
+**SEULEMENT POUR LES ÉVÉNEMENTS NARRATIFS!**
+
+L’annotation `@StartAfter("path/to/script.kts")`vous permet de définir après quel événement le script sera démarré.
+Le chemin du fichier est spécifié comme ci-dessus.

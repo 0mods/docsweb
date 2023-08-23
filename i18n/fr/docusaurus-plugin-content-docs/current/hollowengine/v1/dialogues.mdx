@@ -1,0 +1,103 @@
+---
+sidebar_position: 5
+---
+
+# 2.0 | Dialogues | Commencer
+
+## Dialogue File
+
+Avant de passer au dialogue, je vous suggère de vous familiariser avec le [moteur de script](./introducing).
+
+À propos des fichiers de script, vous pouvez apprendre [ici](./scriptfiles)
+
+## Création du caractère
+
+### À propos de HDCharacter
+
+HDCharacter est une classe pour créer des caractères dans les dialogues.
+
+A deux constructeurs:
+- `HDCharacter(type)` 
+- `HDCharacter(location, characterName, nbt)`
+
+À propos des constructeurs:
+
+| Constructeur |   Variable    |               Description               | Par défaut  | Exemple                                                                              |   Type    |
+|:------------:|:-------------:|:---------------------------------------:|:-----------:|:-------------------------------------------------------------------------------------|:---------:|
+|   Premier    |     type      |            Définit l’entité.            |             | MyLivingEntity(<br/>Minecraft.getInstance().level, <br/>MyEntityTypes.MyLiving<br/>) |  Requis   |
+|              |               |                                         |             |                                                                                      |           |
+|   Deuxième   |   location    |        Définit l’entité par id.         |             | "minecraft:villager"                                                                 |  Requis   |
+|   Deuxième   | characterName | Définit le nom du caractère d’affichage | "%default%" | "Eric"                                                                               | Optionnel |
+|   Deuxième   |      nbt      |  Définit les balises NBT pour l’entité  |     ""      | "{VillagerData:{profession:farmer,level:2,type:savanna}}"                            | Optionnel |
+
+### Faire un personnage
+```kotlin
+val vitalik = HDCharacter("minecraft:villager", "Vitalik", "{VillagerData:{profession:farmer,level:2,type:savanna}}")
+```
+
+### Phrases de caractères
+Maintenant, nous pouvons faire parler le personnage, par exemple:
+```kotlin
+vitalik say "Bonjour, Mon nom est Vitalik, je vais prendre le monde!"
+```
+Eh bien, c’est prêt! Vous pouvez écrire les dialogues pour les personnages... Mais quelque chose manque...
+
+## Story Choice
+On n’a pas le choix, mais c’est très facile:
+```kotlin
+choice(
+    "Non, Vitalik, je peux protéger ce monde" to {
+        vitalik say "Je me battrai pour mes phrases grinçantes"
+    },
+    "Non, Vitalik, je vais d’abord prendre le monde !" to {
+        vitalik say "Bon sang :("
+    }
+)
+```
+
+## Joueur du joueur et ses phrases
+Script a déjà `player` variable, donc vous pouvez l’utiliser:
+```kotlin
+player say "I j-joue-e-eur-r-r"
+```
+
+## Exemple
+Par exemple, vous pouvez copier-coller ce code:
+```kotlin
+val vitalik = HDCharacter("minecraft:villager", "Vitalik", "{VillagerData:{profession:farmer,level:2,type:savanna}}")
+
+vitalik say "Bienvenue à HollowEngine Dialogue!"
+vitalik say "Mon nom est Vitalik, BarMaxx m’a fait!"
+
+choice(
+    "Qu’est-ce que tu fais ?" to {
+        vitalik say "Je peux compter jusqu’à 100!"
+        for (i in 1..100) vitalik say "$i"
+        player say "D’accord......"
+    },
+    "Et je ${player.name.string}" to {
+        vitalik say "C’est cool, et qu’est-ce que tu fais?"
+        
+        choice(
+            "Je peux écrire un dialogue" to {
+                vitalik say "Et je ne sais pas, enseigne-moi, s’il te plaît, s’il te plaît, s’il te plaît, s’il te plaît, s’il te plaît!"
+                player say "Pourquoi n’allez-vous pas en enfer? Allez apprendre un code source"
+                vitalik say "D'accord, merci"
+            }
+        ) 
+        
+        player say "Je dois dire quelque chose, mais je ne sais pas quoi..."
+    }
+)
+
+say("", "Et ils ont vécu longtemps et longtemps")
+say("Joueur et Vitalik", "C’est qui ?!")
+```
+Résultat approximatif:
+
+![exemple](../../../static/img/hollowengine/primer.jpg)
+
+## Instauration d'un dialogue
+
+Pour commencer le dialogue, écrivez ensuite: `/hollowengine open-dialogue dialogueid.hsd.kts`.
+Si vous spécifiez un nom de joueur ou un type `@a` tag après le nom, la boîte de dialogue commencera avec un joueur/groupe spécifique.

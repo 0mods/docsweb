@@ -16,7 +16,7 @@ const config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ru'],
+    locales: ['en', 'ru', 'fr'],
     path: 'i18n',
     localeConfigs: {
       en: {
@@ -32,6 +32,13 @@ const config = {
         htmlLang: 'ru-RU',
         calendar: 'gregory',
         path: 'ru',
+      },
+      fr: {
+        label: 'Français',
+        direction: 'ltr',
+        htmlLang: 'fr-FR',
+        calendar: 'gregory',
+        path: 'fr',
       },
     },
   },
@@ -83,6 +90,10 @@ const config = {
               {
                 label: 'English',
                 to: '/',
+              },
+              {
+                label: 'Français',
+                to: 'fr'
               },
               {
                 label: 'Русский',
