@@ -1,0 +1,30 @@
+{
+  "version.label": {
+    "message": "Prochain",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.HollowEngine": {
+    "message": "HollowEngine",
+    "description": "The label for category HollowEngine in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.HollowEngine.link.generated-index.description": {
+    "message": "The HollowEngine Docs",
+    "description": "The generated-index page description for category HollowEngine in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.x Version": {
+    "message": "1.x Version",
+    "description": "The label for category 1.x Version in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.1.x Version.link.generated-index.description": {
+    "message": "Documentation pour HE 1.x",
+    "description": "The generated-index page description for category 1.x Version in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.2.x Version": {
+    "message": "2.x Version",
+    "description": "The label for category 2.x Version in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.2.x Version.link.generated-index.description": {
+    "message": "Documentation pour HE 2.0",
+    "description": "The generated-index page description for category 2.x Version in sidebar tutorialSidebar"
+  }
+}
