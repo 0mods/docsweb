@@ -6,10 +6,10 @@ const config = {
   title: 'Wikipedia',
   tagline: 'The wiki for 0mods\'s project\'s',
   favicon: 'img/favicon.ico',
-  url: 'http://0mods.team',
+  url: 'https://0mods.team',
   baseUrl: '/',
-  organizationName: '0mods', // Usually your GitHub org/user name.
-  projectName: 'docsweb', // Usually your repo name.
+  organizationName: '0mods',
+  projectName: 'docsweb',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -51,12 +51,12 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/0mods/docsweb/tree/main/',
         },
-        blog: false,
+        blog: {
+          showReadingTime: true
+        },
         theme: {
           customCss: require.resolve('./src/css/suite.css'),
         },
@@ -114,7 +114,11 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Discord',
+                label: 'HollowEngine Discord',
+                href: 'https://discord.gg/qKpPhkwGCY'
+              },
+              {
+                label: '0mods Discord',
                 href: 'https://discord.gg/YCj7JBNVAt',
               },
             ],
@@ -125,6 +129,10 @@ const config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/0mods/docsweb',
+              },
+              {
+                label: 'Blog',
+                href: '/blog'
               },
             ],
           },
