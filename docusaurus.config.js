@@ -51,11 +51,12 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
-          editUrl: 'https://github.com/0mods/docsweb/tree/main/',
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          editUrl:
+            'https://github.com/0mods/docsweb/tree/main/',
         },
-        blog: {
-          showReadingTime: true,
-        },
+        blog: false,
         theme: {
           customCss: require.resolve('./src/css/suite.css'),
         },
@@ -67,17 +68,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Modded Documentation',
+        title: 'Wikipedia',
         items: [
           {
             href: 'https://github.com/0mods/docsweb',
             label: 'GitHub',
             position: 'right',
-          },
-          {
-            label: 'Blog',
-            position: 'left',
-            href: '/blog',
           },
           {
             type: 'localeDropdown',
@@ -92,20 +88,16 @@ const config = {
             title: 'Language',
             items: [
               {
-                label: 'Blog',
-                to: '/blog'
-              },
-              {
                 label: 'English',
                 to: '/',
               },
               {
                 label: 'Français',
-                to: './fr/'
+                to: 'fr'
               },
               {
                 label: 'Русский',
-                to: './ru/'
+                to: 'ru'
               },
             ]
           },
@@ -131,10 +123,6 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                href: '/blog'
-              },
-              {
                 label: 'GitHub',
                 href: 'https://github.com/0mods/docsweb',
               },
@@ -144,7 +132,6 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} HollowHorizon and AlgorithmLX.`,
       },
       prism: {
-
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
