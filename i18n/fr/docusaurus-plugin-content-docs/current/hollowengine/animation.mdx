@@ -6,7 +6,7 @@ sidebar_position: 7
 ## Créer des animations de script simples
 Le principe de fonctionnement de toute animation est de changer l’état de l’objet (moba / images) au fil du temps.
 Par conséquent, si vous voulez faire une animation de l’augmentation du personnage, cela se fait comme suit:
-```kotlin
+```jsx
 for(i in 0..100) {
     object.scale = 1.0f + i / 100f //ajouter la taille actuelle à la taille d’origine, car si i = 50, ce sera : 1f + 0.5f, à i = 75 : 1f + 0.75f, etc.
     wait(0.1f) // attendre 1/10 secondes

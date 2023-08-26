@@ -6,7 +6,7 @@ sidebar_position: 7
 ## Create simple scripting animations
 The working principle of any animation is to change the state of the object (moba/pictures) over time.
 Accordingly, if you want to make an animation of the character increase, it is done as follows:
-```kotlin
+```jsx
 for(i in 0..100) {
     object.scale = 1.0f + i / 100f //add the current size to the original size, because if i=50 it will be: 1f + 0.5f, at i=75: 1f + 0.75f, etc.
     wait(0.1f) // wait 1/10 seconds

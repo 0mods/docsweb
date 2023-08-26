@@ -8,11 +8,11 @@
     "description": "The label for category HollowEngine in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.HollowEngine.link.generated-index.description": {
-    "message": "Документация по дВиЖкУгОлУбЯ",
+    "message": "Документация по HollowEngine",
     "description": "The generated-index page description for category HollowEngine in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Legacy Version": {
-    "message": "Версия Legacy",
+    "message": "Legacy Версия",
     "description": "The label for category Legacy Version in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Legacy Version.link.generated-index.description": {
@@ -20,7 +20,7 @@
     "description": "The generated-index page description for category Legacy Version in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Original Version": {
-    "message": "Версия Original",
+    "message": "Оригинальная версия",
     "description": "The label for category Original Version in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.Original Version.link.generated-index.description": {

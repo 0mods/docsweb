@@ -6,6 +6,10 @@ sidebar_position: 5
 
 ## Dialogue File
 
+:::danger
+Dialogues est désactivé dans une version originale
+:::
+
 Avant de passer au dialogue, je vous suggère de vous familiariser avec le [moteur de script](./introducing).
 
 À propos des fichiers de script, vous pouvez apprendre [ici](./scriptfiles)
@@ -31,20 +35,20 @@ A deux constructeurs:
 |   Deuxième   |      nbt      |  Définit les balises NBT pour l’entité  |     ""      | "{VillagerData:{profession:farmer,level:2,type:savanna}}"                            | Optionnel |
 
 ### Faire un personnage
-```kotlin
+```jsx
 val vitalik = HDCharacter("minecraft:villager", "Vitalik", "{VillagerData:{profession:farmer,level:2,type:savanna}}")
 ```
 
 ### Phrases de caractères
 Maintenant, nous pouvons faire parler le personnage, par exemple:
-```kotlin
+```jsx
 vitalik say "Bonjour, Mon nom est Vitalik, je vais prendre le monde!"
 ```
 Eh bien, c’est prêt! Vous pouvez écrire les dialogues pour les personnages... Mais quelque chose manque...
 
 ## Story Choice
 On n’a pas le choix, mais c’est très facile:
-```kotlin
+```jsx
 choice(
     "Non, Vitalik, je peux protéger ce monde" to {
         vitalik say "Je me battrai pour mes phrases grinçantes"
@@ -57,13 +61,13 @@ choice(
 
 ## Joueur du joueur et ses phrases
 Script a déjà `player` variable, donc vous pouvez l’utiliser:
-```kotlin
+```jsx
 player say "I j-joue-e-eur-r-r"
 ```
 
 ## Exemple
 Par exemple, vous pouvez copier-coller ce code:
-```kotlin
+```jsx
 val vitalik = HDCharacter("minecraft:villager", "Vitalik", "{VillagerData:{profession:farmer,level:2,type:savanna}}")
 
 vitalik say "Bienvenue à HollowEngine Dialogue!"

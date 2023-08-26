@@ -6,6 +6,10 @@ sidebar_position: 5
 
 ## Dialogue File
 
+:::danger
+Dialogues is disabled in an Original version
+:::
+
 Before moving on to dialogue, I suggest you familiarize yourself with the [script engine](./introducing).
 
 About Script Files, you can learn [here](./scriptfiles)
@@ -15,6 +19,10 @@ About Script Files, you can learn [here](./scriptfiles)
 ### About HDCharacter
 
 HDCharacter is a class for creating characters in dialogues.
+
+:::caution
+HDCharacter can be removed in an Original version
+:::
 
 Has two constructors:
 - `HDCharacter(type)` 
@@ -31,20 +39,20 @@ About constructors:
 |   Second    |      nbt      |  Sets NBT Tags for Entity   |     ""      | "{VillagerData:{profession:farmer,level:2,type:savanna}}"                            | Optional |
 
 ### Making a Character
-```kotlin
+```jsx
 val vitalik = HDCharacter("minecraft:villager", "Vitalik", "{VillagerData:{profession:farmer,level:2,type:savanna}}")
 ```
 
 ### Character phrases
 Now we can make the character speak, for example:
-```kotlin
+```jsx
 vitalik say "Hello, My name is Vitalik, I will take the world!"
 ```
 Well, it's ready! You can write the dialogues for characters... But something is missing...
 
 ## Story Choice
 There’s no choice, but it’s very easy:
-```kotlin
+```jsx
 choice(
     "No, Vitalik, I can protect this world" to {
         vitalik say "I will fight for my cringe phrases"
@@ -57,13 +65,13 @@ choice(
 
 ## Player character and his phrases
 Script already have `player` variable, so you can use it:
-```kotlin
+```jsx
 player say "I p-p-playe-e-er-r"
 ```
 
 ## Example
 For example, you can copy-paste this code:
-```kotlin
+```jsx
 val vitalik = HDCharacter("minecraft:villager", "Vitalik", "{VillagerData:{profession:farmer,level:2,type:savanna}}")
 
 vitalik say "Welcome to HollowEngine Dialogue!"
@@ -95,7 +103,7 @@ say("Player & Vitalik", "Who it's say?!")
 ```
 Approximate result:
 
-![example](../../../static/img/hollowengine/primer.jpg)
+![example](../../static/img/hollowengine/primer.jpg)
 
 ## Starting Dialogue
 
