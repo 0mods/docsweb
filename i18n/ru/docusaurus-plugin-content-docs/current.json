@@ -8,23 +8,23 @@
     "description": "The label for category HollowEngine in sidebar tutorialSidebar"
   },
   "sidebar.tutorialSidebar.category.HollowEngine.link.generated-index.description": {
-    "message": "Документация HollowEngine",
+    "message": "Документация по дВиЖкУгОлУбЯ",
     "description": "The generated-index page description for category HollowEngine in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.1.x Version": {
-    "message": "Версия 1.x",
-    "description": "The label for category 1.x Version in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Legacy Version": {
+    "message": "Версия Legacy",
+    "description": "The label for category Legacy Version in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.1.x Version.link.generated-index.description": {
-    "message": "Документация для HE 1.x",
-    "description": "The generated-index page description for category 1.x Version in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Legacy Version.link.generated-index.description": {
+    "message": "Документация для HE Legacy",
+    "description": "The generated-index page description for category Legacy Version in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.2.0 Version": {
-    "message": "Версия 2.0",
-    "description": "The label for category 2.0 Version in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Original Version": {
+    "message": "Версия Original",
+    "description": "The label for category Original Version in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.2.0 Version.link.generated-index.description": {
-    "message": "Документация для HE 2.0",
-    "description": "The generated-index page description for category 2.0 Version in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Original Version.link.generated-index.description": {
+    "message": "Документация для HE Original",
+    "description": "The generated-index page description for category Original Version in sidebar tutorialSidebar"
   }
 }

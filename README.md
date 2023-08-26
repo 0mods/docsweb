@@ -1,3 +1,3 @@
-It's a readme! Hey!
+# 0mods Docs
 
-maybe later I wrote a description 
+Dev side of 0mods docs

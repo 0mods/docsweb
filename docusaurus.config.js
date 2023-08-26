@@ -93,11 +93,11 @@ const config = {
               },
               {
                 label: 'Français',
-                to: 'fr/'
+                to: 'fr'
               },
               {
                 label: 'Русский',
-                to: 'ru/'
+                to: 'ru'
               },
             ]
           },
