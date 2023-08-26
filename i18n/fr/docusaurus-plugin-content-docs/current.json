@@ -11,20 +11,20 @@
     "message": "The HollowEngine Docs",
     "description": "The generated-index page description for category HollowEngine in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.1.x Version": {
-    "message": "1.x Version",
-    "description": "The label for category 1.x Version in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Legacy Version": {
+    "message": "Legacy Version",
+    "description": "The label for category Legacy Version in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.1.x Version.link.generated-index.description": {
-    "message": "Documentation pour HE 1.x",
-    "description": "The generated-index page description for category 1.x Version in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Legacy Version.link.generated-index.description": {
+    "message": "Documentation pour HE Legacy",
+    "description": "The generated-index page description for category Legacy Version in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.2.x Version": {
-    "message": "2.x Version",
-    "description": "The label for category 2.x Version in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Original Version": {
+    "message": "Original Version",
+    "description": "The label for category Original Version in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.2.x Version.link.generated-index.description": {
+  "sidebar.tutorialSidebar.category.Original Version.link.generated-index.description": {
     "message": "Documentation pour HE 2.0",
-    "description": "The generated-index page description for category 2.x Version in sidebar tutorialSidebar"
+    "description": "The generated-index page description for category Original Version in sidebar tutorialSidebar"
   }
 }
