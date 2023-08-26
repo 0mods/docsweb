@@ -1,0 +1,112 @@
+---
+slug: animation-script
+title: Example Script with Animations
+authors: [hollow, algorithmlx]
+tags: [scripts]
+---
+
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
+Script of going npc and starting animation
+```mdx-code-block
+<Tabs>
+<TabItem value="legacy" label="Legacy">
+```
+
+```jsx
+import net.minecraft.core.BlockPos
+import ru.hollowhorizon.hc.client.gltf.animations.PlayType
+import ru.hollowhorizon.hollowengine.common.npcs.IHollowNPC
+
+team.sendMessage("Hello World! ${this.world.level}")
+
+//Creating a new NPC
+val npc: IHollowNPC = makeNPC(
+    NPCSettings("Виталик"),
+    this.world.level, //Level, where a script has been started
+    BlockPos(-88, 71, 154) //Random pos with player
+)
+
+team.sendMessage("[debug] NPC created")
+
+//New task, go to the nearest player in the team
+npc.makeTask {
+    movement.go(team).await() //await() it means that the code will not go further until the npc reaches the goal
+}
+
+npc say "Hi :)"
+
+npc.makeTask {
+    movement.go(2, -60, 1).await() //await() it means that the code will not go further until the npc reaches the goal
+}
+
+npc say "Ha, I can animate"
+
+npc.play("animation.npcsteve.happy", playType = PlayType.LOOPED)
+
+wait(1.5f)
+
+npc stop "animation.npcsteve.happy"
+
+npc say "Well, that's it, bye!"
+
+//New challenge, avoid all players in the team
+npc.makeTask {
+    movement.avoid(team)
+        .async() //async() means that the task will be executed asynchronously (the code will continue to go further, even if the goal is not reached)
+}
+wait(10f)
+```
+
+```mdx-code-block
+</TabItem>
+<TabItem value="original" label="Original">
+```
+
+```jsx
+import net.minecraft.core.BlockPos
+import ru.hollowhorizon.hc.client.gltf.animations.PlayType
+
+//Creating a new NPC
+val npc = NPCEntity.getOrCreate(
+    NPCSettings("Vitalik", "hollowengine:models/entity/player_model.gltf"),
+    SpawnLocation(
+        pos = BlockPos(2, -60, 1)
+    )
+)
+
+//New task, go to the nearest player in the team
+npc.makeTask {
+    movement.go(team).await() //await() it means that the code will not go further until the npc reaches the goal
+}
+
+npc say "Hi :)"
+
+npc.makeTask {
+    movement.go(2, -60, 1).await() //await() it means that the code will not go further until the npc reaches the goal
+}
+
+npc say "Ha, I can animate"
+
+npc.play("animation.npcsteve.happy", playType = PlayType.LOOPED)
+
+wait(1.5f)
+
+npc stop "animation.npcsteve.happy"
+
+npc say "Well, that's it, bye!"
+
+//New challenge, avoid all players in the team
+npc.makeTask {
+    movement.avoid(team)
+        .async() //async() means that the task will be executed asynchronously (the code will continue to go further, even if the goal is not reached)
+}
+wait(10f)
+```
+```mdx-code-block
+</TabItem>
+</Tabs>
+```

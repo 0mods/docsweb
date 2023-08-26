@@ -8,8 +8,6 @@ sidebar_position: 3
 
 The HollowEngine scripting engine itself adds a few annotations to scripts for ease of development, these are the main ones.
 
-**AVAILABLE SINCE v1.1!!!**
-
 Annotation `@Import("path/to/my/script.type.kts")` grants you to import any script from `hollowengine` directory
 
 It is used quite simply, imagine we have two scripts in the hollow script folder: `test.se.kts` and `test_library.kts`. 
@@ -23,7 +21,7 @@ root folder: `@file:Import("libs/test_library.kts")`
 
 ## Run after an end script
 
-**ONLY FOR STORY EVENTS!**
-
+:::danger ONLY FOR STORY EVENTS!
 Annotation `@StartAfter("path/to/script.kts")` allows you to set after which event the script will be started.
 The file path is specified as above.
+:::

@@ -1,0 +1,29 @@
+---
+slug: craft-script
+title: Example Script with crafts
+authors: [hollow]
+tags: [scripts, recipes, examples]
+---
+
+:::info Examples
+```jsx
+CraftingTable.replaceShaped(item("minecraft:diamond_pickaxe", 4)) {
+    grid( //crafting grid
+        "xxx",
+        " y ",
+        " y "
+    )
+
+    where { //items
+        'x' - item("minecraft:diamond_block") //if you need a tag, not a subject, then you write tag("...")
+        'y' - item("minecraft:cobblestone")
+    }
+
+    extra["stage"] = "expert" // temporarily
+}
+
+Furnace.addRecipe(item("minecraft:dirt"), item("minecraft:diamond"))
+
+Furnace.addRecipe(item("minecraft:diamond"), item("minecraft:dirt"))
+```
+:::
