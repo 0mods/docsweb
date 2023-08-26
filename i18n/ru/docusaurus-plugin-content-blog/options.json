@@ -8,7 +8,9 @@
     "description": "The description for the blog used in SEO"
   },
   "sidebar.title": {
+
     "message": "Последние публикации",
+
     "description": "The label for the left sidebar"
   }
 }
