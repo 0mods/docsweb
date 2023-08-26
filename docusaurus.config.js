@@ -68,8 +68,13 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Wikipedia',
+        title: 'Modded Documentation',
         items: [
+          {
+            label: 'Blog',
+            href: '/blog',
+            position: 'left',
+          },
           {
             href: 'https://github.com/0mods/docsweb',
             label: 'GitHub',

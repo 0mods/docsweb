@@ -17,11 +17,11 @@
   },
   "link.item.label.English": {
     "message": "English",
-    "description": "The label of footer link with label=English linking to /en/."
+    "description": "The label of footer link with label=English linking to /"
   },
   "link.item.label.Русский": {
     "message": "Русский",
-    "description": "The label of footer link with label=Русский linking to /ru/."
+    "description": "The label of footer link with label=Русский linking to ru"
   },
   "link.item.label.HollowEngine": {
     "message": "HollowEngine",
@@ -38,5 +38,21 @@
   "copyright": {
     "message": "Все права защищены © 2023 HollowHorizon и AlgorithmLX.",
     "description": "The footer copyright"
+  },
+  "link.item.label.Français": {
+    "message": "Français",
+    "description": "The label of footer link with label=Français linking to fr"
+  },
+  "link.item.label.HollowEngine Discord": {
+    "message": "HollowEngine Discord",
+    "description": "The label of footer link with label=HollowEngine Discord linking to https://discord.gg/qKpPhkwGCY"
+  },
+  "link.item.label.0mods Discord": {
+    "message": "0mods Discord",
+    "description": "The label of footer link with label=0mods Discord linking to https://discord.gg/YCj7JBNVAt"
+  },
+  "link.item.label.Blog": {
+    "message": "Blog",
+    "description": "The label of footer link with label=Blog linking to /blog"
   }
 }
