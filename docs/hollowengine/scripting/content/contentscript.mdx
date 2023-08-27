@@ -1,0 +1,93 @@
+---
+sidebar-position: 1
+---
+
+# Scripts: Content
+
+## Description
+
+This type of script is run during recipe reloading, with its help you can add your own recipes for various mechanisms.
+At the moment, only: Workbench, Oven and json recipes are supported, but if necessary, you can add your own.
+In the future, each type of recipe will be placed in its own categories, like `vanilla` or `applied energetics 2`.
+
+## Methods (Common)
+
+`item(name: String, count: Int, tag: String): ItemStack`: returns an ItemStack (item) that can be used for crafting
+- `name`: the name of the item. For example: `"minecraft:diamond"`.
+- `count`: the number of items. For example: `64`.
+- `tag`: tags of an item, like its strength. For example: `"{Damage:10}"`.
+
+:::tip Command to get the item id
+In order not to write code with an item every time, you can take the item itself in your hand and write `/hollowengine hand`,
+the method will appear in the chat and will be copied automatically.
+:::
+
+`tag(name: String)`: tag of items, for example `tag("minecraft:items/gold_ores")` - this means that any gold ore can be used in the recipe, both deep, and ordinary, and from the container.
+
+`removeById(name: String)`: removes a recipe by its name, a name like `minecraft:diamond_pickaxe` (but it is the name of the recipe, not the subject), hints with the names of specific recipes are in jei.
+
+`removeByOutput(item: ItemStack, type: RecipeType<*>, checkTag: Boolean)`: removes a recipe based on the result of crafting, type is the type of recipe (crafting, melting, etc.), there can be a lot of types, including from the mod, so to clarify the specific type, see the sources of the desired mod on github, checkTag (default: `false`) - do I need to compare tag items or delete items regardless of their tags
+
+`addfromjson(name: String, recipe: String)`: adds a json recipe that can be specified as a string with the name name (for example: "hollowengine:recipes/my_super_hard_recipe")
+
+`addRecipe(recipe: Recipe<*>)` - adds a ready-made recipe, each recipe is created in its own way, see how a specific mod does it (classes inherited from Recipe) and do the same.
+
+## Methods (CraftingTable)
+
+`CraftingTable.removeByOutput(result: ItemStack)` - deletes the recipe for the crafting table.
+
+`CraftingTable.shaped(result: ItemStack, group: String = "", craft: CraftingTable.() -> Unit)` - adds a shaped recipe for a workbench, a result is the result of crafting, a group is the recipe group (for a vanilla recipe book), craft is the crafting creation space.
+`CraftingTable.replaceShaped(result: ItemStack, group: String = "", craft: CraftingTable.() -> Unit)` - adds a shaped recipe, but removes the previous ones.
+
+`CraftingTable.shapeless(result: ItemStack, group: String = "", craft: CraftingTable.() -> Unit)` - adds a shapeless recipe for a workbench, result - a crafting result, group - a recipe group (for a vanilla recipe book), craft - a crafting creation space.
+`CraftingTable.replaceShapeless(result: ItemStack, group: String = "", craft: CraftingTable.() -> Unit)` - adds a shapeless recipe, but removes the previous ones.
+
+### Crafting Creation Space
+
+It makes all the recipe settings with its own methods:
+
+`grid(vararg rows: String)` - A grid of objects. You can do both 3x3 and 2x2 or 3x1/1x3. Inside, you need to specify the characters that will be replaced with objects
+
+`where(context: ItemContext.() -> Unit)` - adjusts the values of all items, which symbol to replace with which item
+
+### Item context
+
+in it, you can specify a symbol to the value of the object: `'#' - item("minecraft:diamond")`
+
+### The context of a shapeless recipe
+
+it simply specifies items or tags separated by commas: `items(item(...), item(...), item(...), item(...))`
+
+### Примеры:
+
+```jsx
+CraftingTable.removeByOutput(item("minecraft:iron_axe")
+
+CraftingTable.replaceShaped(item("minecraft:diamond_pickaxe", 4)) {
+    grid(
+        "xxx",
+        " y ",
+        " y "
+    )
+
+    where {
+        'x' - item("minecraft:diamond_block")
+        'y' - item("minecraft:cobblestone")
+    }
+}
+
+CraftingTable.shapeless(item("minecraft:dirt")) {
+	items(
+		item("minecraft:iron_ingot"),
+		item("minecraft:gold_ingot"),
+		item("minecraft:emerald"),
+	)
+}
+```
+
+## Methods (Furnace)
+
+`Furnace.removeRecipt(output: ItemStack)` - removes the recipe for the stove, output is the result of melting.
+
+`Furnace.addRecipe(output: ItemStack, input: ItemStack, group: String = "", exp: Float, time: Int)` - adds a recipe for the stove, output is the result of melting, input is what will be melted, exp is the experience for each melting (note, this is a Float, there should be 'f' at the end of the number, for example `10f`), time is the melting time in ticks (20 ticks = 1 second)
+`Furnace.replaceRecipe(output: ItemStack, input: ItemStack, group: String = "", exp: Float, time: Int)` - by analogy, it replaces the recipe with another one.

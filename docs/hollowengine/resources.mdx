@@ -1,0 +1,32 @@
+---
+sidebar_position: 2
+---
+
+# HollowEngine Resources
+
+In your projects, you will often need to add your own resources; be it models, textures, translation files, etc.
+Therefore, HollowEngine has two special folders for resources.
+
+## Client Assets
+
+Resources that store all sorts of data for the client you can say "Resource packs". All models, textures, and other client resources are stored here.
+They need to be stored along the way: `(папка с игрой)/hollowengine/assets/(название мода)/`.
+
+The name of the mod is the mod to which these resources will be assigned, i.e., in fact, you can replace textures and models of other mods, or add your own. We recommend using the name "hollowengine".
+
+Each server/build player must have these resources.
+
+## Server Data
+
+Resources that store all sorts of data for the server, i.e. "data packs". Item tags, recipes, structures, etc. are stored here.
+They need to be stored along the way: `(папка с игрой)/hollowengine/data/(название мода)`.
+
+Similarly with client resources, here you can replace or add new resources to a specific mod.
+
+These resources are not required for the client, they can not be added to the client assembly (if you are developing a server).
+
+## Примечания
+
+- When changing client resources, in order for them to be updated in the game, you need to press a keyboard shortcut `F3 + T`, for the game to reload the resource sets.
+- When changing server resources, it is necessary to register the command '/reload'.
+- You can also use other resource loader mods like Open Loader or KubeJS.
