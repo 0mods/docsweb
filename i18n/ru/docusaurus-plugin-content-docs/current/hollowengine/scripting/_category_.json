@@ -1,0 +1,8 @@
+{
+  "label": "Скрипты",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Здесь написано о всех скриптах доступных в HollowEngine и их использовании."
+  }
+}

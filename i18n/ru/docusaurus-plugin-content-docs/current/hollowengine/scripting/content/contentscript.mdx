@@ -1,0 +1,88 @@
+# Скрипты: Контент
+
+## Описание
+
+Данный вид скрипта запускается во время перезагрузки рецептов, с его помощью вы можете добавлять собственные рецепты для различных механизмов.
+На данный момент поддерживаются только: Верстак, Печь и json рецепты, но при необходимости вы можете добавить свои.
+В будущем каждый вид рецепта будет вынесен в свои категории, вроде `vanilla` или `applied energistics 2`.
+
+## Методы (Общие)
+
+`item(name: String, count: Int, tag: String): ItemStack`: возвращает ItemStack (предмет), который можно будет использовать для крафта
+- name: имя предмета. Например: "minecraft:diamond".
+- count: количество предметов. Например: 64.
+- tag: теги предмета, вроде его прочности. Например: "{Damage:10}".
+
+:::tip Команда получения id предмета
+Чтобы не писать каждый раз код с предметом вы можете взять сам предмет в руку и прописать `/hollowengine hand`, метод появится в чате и автоматически скопируется.
+:::
+
+`tag(name: String)`: тег предметов, например `tag("minecraft:items/gold_ores")` - это значит, что в рецепте можно будет использовать любую золотую руду и глубинную, и обычную, и из незера. 
+
+`removeById(name: String)`: удаляет рецепт по его названию, название вроде `minecraft:diamond_pickaxe` (но именно название рецепта, а не предмета), подсказки с названиями конкретных рецептов есть в jei.
+
+`removeByOutput(item: ItemStack, type: RecipeType<*>, checkTag: Boolean)`: удаляет рецепт по результату крафта, type - тип рецепта (крафт, плавление, и т.п.), типов может быть очень много, в том числе и из мода, так что для уточнения конкретного типа смотрите исходники нужного мода на github, checkTag (по умолчанию: `false`) - нужно ли сравнивать теги предметов или удалять предметы вне зависимости от их тегов
+
+`addFromJson(name: String, recipe: String)`: добавляет json-рецепт, который можно указать в виде строки с названием name (например: "hollowengine:recipes/my_super_hard_recipe")
+
+`addRecipe(recipe: Recipe<*>)` - добавляет готовый рецепт, каждый конкретный рецепт создаётся по своему, смотрите как это делает конкретный мод (классы наследованные от Recipe) и делайте также.
+
+## Методы (CraftingTable)
+
+`CraftingTable.removeByOutput(result: ItemStack)` - удаляет рецепт для верстака.
+
+`CraftingTable.shaped(result: ItemStack, group: String = "", craft: CraftingTable.() -> Unit)` - добавляет форменый рецепт для верстака, result - результат крафта, group - группа рецепта (для ванильной книги рецептов), craft - пространство создания крафта.
+`CraftingTable.replaceShaped(result: ItemStack, group: String = "", craft: CraftingTable.() -> Unit)` - добавляет форменный рецепт, но удаляет предыдущие.
+
+`CraftingTable.shapeless(result: ItemStack, group: String = "", craft: CraftingTable.() -> Unit)` - добавляет бесформенный рецепт для верстака, result - результат крафта, group - группа рецепта (для ванильной книги рецептов), craft - пространство создания крафта.
+`CraftingTable.replaceShapeless(result: ItemStack, group: String = "", craft: CraftingTable.() -> Unit)` - добавляет бесформенный рецепт, но удаляет предыдущие.
+
+### Пространство создания крафта
+
+В нём производится вся настройка рецепта со своими методами:
+
+`grid(vararg rows: String)` - сетка предметов. Можно делать как 3x3, так и 2x2 или 3x1/1x3. внутри нужно указывать символы, которые будут заменены на предметы
+
+`where(context: ItemContext.() -> Unit)` - настраивает значения всех предметов, какой символ на какой предмет заменить
+
+### Контекст предмета
+
+в нём можно указывать символ к значению предмета: `'#' - item("minecraft:diamond")`
+
+### Контекст бесформенного рецепта
+
+в нём просто указываются предметы или теги через запятую: `items(item(...), item(...), item(...), item(...))`
+
+### Примеры:
+
+```jsx
+CraftingTable.removeByOutput(item("minecraft:iron_axe")
+
+CraftingTable.replaceShaped(item("minecraft:diamond_pickaxe", 4)) {
+    grid(
+        "xxx",
+        " y ",
+        " y "
+    )
+
+    where {
+        'x' - item("minecraft:diamond_block")
+        'y' - item("minecraft:cobblestone")
+    }
+}
+
+CraftingTable.shapeless(item("minecraft:dirt")) {
+	items(
+		item("minecraft:iron_ingot"),
+		item("minecraft:gold_ingot"),
+		item("minecraft:emerald"),
+	)
+}
+```
+
+## Методы (Furnace)
+
+`Furnace.removeRecipt(output: ItemStack)` - удаляет рецепт для печки, output - результат плавки.
+
+`Furnace.addRecipe(output: ItemStack, input: ItemStack, group: String = "", exp: Float, time: Int)` - добавляет рецепт для печки, output - результат плавки, input - то что будет переплавлено, exp - опыт за каждую переплавку (учтите, это Float, на конце числа должно быть 'f', например `10f`), time - время плавки в тиках (20 тиков = 1 секунда)
+`Furnace.replaceRecipe(output: ItemStack, input: ItemStack, group: String = "", exp: Float, time: Int)` - по аналогии, заменяет рецепт на другой.
