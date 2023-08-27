@@ -1,0 +1,46 @@
+---
+sidebar_position: 1
+---
+
+# Scripts: Introduction
+
+## Скриптовый KotlinScript
+HollowEngine uses the advanced KotlinScript scripting engine, specially rewritten for use in mods. KotlinScript is a programming language that allows you to create scripts in Kotlin with some simplifications.
+For example, you don't need to create separate classes or methods - everything you write in the script will be run as a separate method.
+However, you can still adhere to all the principles of OOP, create classes, methods, inherit from other classes, etc.
+
+If you are not familiar with the Kotlin language and programming in general,
+we highly recommend that you first familiarize yourself with the [basics] (https://kotlinlang.org/docs/getting-started.html ),
+try to understand at least such concepts as variables, methods, branches, loops, etc. Without this knowledge,
+it will be very difficult for you to write even the simplest things and ready-made ** script examples for you not much help in this **.
+
+
+## What scripts are there?
+First of all, before you start writing scripts, you need to figure out what they are at all, here is a table with all their types
+
+:::info Расширения скриптов
+|        Type         |  Extension  |                                         Description                                          |     Comment      |
+|:-------------------:|:-----------:|:--------------------------------------------------------------------------------------------:|:----------------:|
+|         Mod         |   mod.kts   |  It starts when the game starts. Allows you to do the same thing that can be done in mods.   |     Released     |
+|     Story Event     |   se.kts    | It is started by the command. Allows you to create all sorts of triggers, events, NPCs, etc. |     Released     |
+|      Dialogues      |   hsd.kts   |                  It is started by the command. Allows you to make dialogs.                   |     Disabled     |
+|       Content       | content.kts |                  Allows you to create your own and change existing recipes.                  |     Released     |
+| Spongepowered Mixin |  mixin.kts  |                  Allows you to change the game code directly in the script.                  | In Developerment |
+:::
+
+## How to create a script?
+
+First of all, install the mod and enter the world.
+After that, the hollowengine folder will appear in the folder with the game (by default: .minecraft).
+In it, you can create scripts.
+I recommend distributing files into different folders,
+for example: `hollowengine/scripts/modpack/chapter_1/prologue/....`
+
+File names must have the form `name.type.kts`, where name is the name of the script, type is the type of script (see the table above), `.kts` is the end of the script, and it should be called that.
+
+After the launch, there will be a compilation; it can take from 5 seconds to 3-5 minutes,
+depending on the size of the script and the performance of the PC. After the first compilation, the script is packaged in a jar and run instantly.
+(In the future, it will be possible to run them as separate mini-mods) When you change the script and run it again, the script is compiled again.
+
+## Known problems
+- at the moment, all critical problems have been eliminated, if detected, inform the [Discord](https://discord.gg/qKpPhkwGCY) or [GitHub Issues](https://github.com/HollowHorizon/HollowEngine/issues).

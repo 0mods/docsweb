@@ -1,0 +1,50 @@
+---
+sidebar_position: 1
+---
+
+# Scripts: Mods
+
+## Description
+
+This type of script is intended for various purposes that need to be released before the game is loaded:
+- add game content : blocks, objects, entities, dimensions, etc.;
+- register certain Forge or ModBus events;
+- create any configs.
+
+## Variables
+
+### Events
+
+`FORGE_BUS` - a variable containing the Forge event handler. Similar to the call `MinecraftForge.EVENT_BUS`.
+`MOD_BUS` - a variable containing the mod's event handler. Similar to the call `FMLJavaModLoadingContext.get().getModEventBus()`.
+
+:::info Example of processing a Forge event
+```jsx
+import net.minecraftforge.client.event.ScreenEvent
+
+//When opening any interface
+fun onScreenOpen(event: ScreenEvent.Opening) {
+	//Here is your event handling code
+}
+
+//Passing your event to the Forge event handler
+FORGE_BUS.addListener(this::onScreenOpen)
+
+```
+:::
+
+### Other
+`dist` - the side on which the code is running, a physical client or server.
+
+:::info Usage example
+```jsx
+if(dist.isClient) {
+	//Если скрипт запущен на клиенте
+}
+
+```
+:::
+
+## Notes
+- ModBus events are tied to the HollowEngine mod, so keep this in mind when developing.
+- Most likely in the near future, mod scripts will be divided into 2 parts, client and server. In this case, it will be possible not to leave the server room with clients.
