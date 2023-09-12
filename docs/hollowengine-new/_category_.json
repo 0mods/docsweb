@@ -1,8 +1,7 @@
 {
-  "label": "HollowEngine - GUIDE",
+  "label": "HollowEngine - GUIDE (Ru Only)",
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Небольшой(возможно) фанатский гайд по HollowEngine."
-  }
+    "description": "Небольшой гайд по HollowEngine."
 }
