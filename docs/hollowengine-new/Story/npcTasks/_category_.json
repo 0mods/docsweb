@@ -1,0 +1,10 @@
+{
+  "label": "Задачи для NPC",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+
+    "description": "Здесь расписанны все существующие makeTask{}."
+
+  }
+}
