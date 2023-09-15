@@ -6,8 +6,7 @@ sidebar_position: 1
 
 ---
 
-### Запомни
-
+:::note Важно
 - В скрипте почти после каждого действия, тебе надо будет в конце писать это: `wait(<number>f)`
   - Пример:
   ```jsx
@@ -17,12 +16,16 @@ sidebar_position: 1
 
 `<number>` - Любая(-ое) цифра / число.
 
-По истечению времени (1f = 1 сек) все npc исчезнут(уладяться).
+По истечению времени (1f = 1 сек) скрипт пойдёт дольше.
+
+Если после `wait()` у вас ничего нету, NPC просто пропадут.
+:::
 
 ---
 
 ## Установка нужных бибилиотек
 
+:::caution Сначала прочти это
 Перед тем как начать писать, скопируй это:
 
 ```jsx
@@ -36,6 +39,7 @@ import ru.hollowhorizon.hollowengine.common.npcs.SpawnLocation
 ```
 
 Это - Нужные библиотеки для работы скрипта. В будущем их будет снановитсья больше)
+:::
 
 ---
 
@@ -45,7 +49,7 @@ import ru.hollowhorizon.hollowengine.common.npcs.SpawnLocation
 
 ```jsx
 val <npcID> = NPCEntity.getOrCreate(
-    NPCSettings("<displayName>", "hollowengine:<linkToModel>.gltf"),
+    NPCSettings("<displayName>", "<modID>:<linkToModel>.gltf"),
     SpawnLocation(
         pos = BlockPos(<x>, <y>, <z>)
         )
@@ -53,13 +57,14 @@ val <npcID> = NPCEntity.getOrCreate(
 wait(<number>f)
 ```
 
-> Не спеши копировать и вставлять так вот, прочитай это:
-
+:::info Не спеши копировать и вставлять так вот, прочитай это
 - `<npcID>` - это имя NPC для кода. У каждого NPC должен быть уникальное имя. через него ты будешь с ним взаимодействовать,
 
 - `<displayName>` - Текст, отображаемое над головой NPC как у игроков,
 
-- `hollowengine:<LinkToModel>.gltf` - Работает на основе [ResourceLocation](../extra/resourceLocation),
+- `<modID>` - это можеть быть и minecraft, mekanism, iceandfire и тд. Всегда маленькими буквами. "В нашем случая подходит hollowengine",
+
+- `<LinkToModel>.gltf` - Работает на основе [ResourceLocation](../extra/resourceLocation),
 
 - `<x>, <y>, <z>` - Координаты где должен заспавниться NPC,
 
@@ -68,6 +73,7 @@ wait(<number>f)
     - `<numbers>` - Любая(-ое) цифра / число,
     
     - `f` - float. Обязательно должно быть после цифры / числа без пробела: 10f, 8.32f.
+:::
 
 У тебя что-то должно получиться наподобии этого:
 
@@ -89,10 +95,8 @@ wait(10f)
 
 ---
 
-![Спавн NPC в мире](../../../static/img/he-guide/spawnNPC.gif)
+![Спавн NPC в мире](../../../../static/img/he-guide/spawnNPC.gif)
 
-```В демонстрации используется Своя модель и анимации. Как добавить свои модель и анимации``` -> [Кастом модели и анимации](../extra/custom-Models-and-Anims)
+```В демонстрации используется Своя модель и анимации. Как добавить свои модель и анимации``` -> [Кастом модели и анимации](../../Resourses/custom-Models-and-Anims)
 
 ---
-
-Дальше: [Передвижение NPC](./move-npc)
