@@ -18,7 +18,7 @@ sidebar_position: 1
 
 По истечению времени (1f = 1 сек) скрипт пойдёт дольше.
 
-Если после `wait()` у вас ничего нету, NPC просто пропадут.
+Если после `wait()` у вас ничего нет, NPC просто пропадут.
 :::
 
 ---
@@ -62,9 +62,13 @@ wait(<number>f)
 
 - `<displayName>` - Текст, отображаемое над головой NPC как у игроков,
 
-- `<modID>` - это можеть быть и minecraft, mekanism, iceandfire и тд. Всегда маленькими буквами. "В нашем случая подходит hollowengine",
+- `<modID>` - это можеть быть и minecraft, mekanism, iceandfire и тд. Всегда маленькими буквами. "В нашем случае подходит hollowengine",
 
-- `<LinkToModel>.gltf` - Работает на основе [ResourceLocation](../extra/resourceLocation),
+- `<LinkToModel>.gltf` - Работает на основе [ResourceLocation](../../Resourses/resourceLocation),
+
+- `<npcID>` - это имя NPC для кода. У каждого NPC должен быть уникальное имя. через него ты будешь с ним взаимодействовать,
+
+- `<displayName>` - Текст, отображаемое над головой NPC как у игроков,
 
 - `<x>, <y>, <z>` - Координаты где должен заспавниться NPC,
 
