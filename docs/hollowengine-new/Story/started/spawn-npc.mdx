@@ -2,7 +2,8 @@
 sidebar_position: 1
 ---
 
----
+# Спавним NPC
+
 :::note Важно
 - В скрипте почти после каждого действия, тебе надо будет в конце писать это: `wait(<number>f)`
   - Пример:
@@ -36,6 +37,7 @@ import ru.hollowhorizon.hollowengine.common.npcs.SpawnLocation
 ```
 
 Это - Нужные библиотеки для работы скрипта. В будущем их будет становится больше)
+
 :::
 
 ---
@@ -49,8 +51,8 @@ val <npcID> = NPCEntity.getOrCreate(
     NPCSettings("<displayName>", "<modID>:<linkToModel>.gltf"),
     SpawnLocation(
         pos = BlockPos(<x>, <y>, <z>)
-        )
     )
+)
 wait(<number>f)
 ```
 
@@ -91,8 +93,9 @@ val vit = NPCEntity.getOrCreate(
     NPCSettings("Виталик", "hollowengine:models/entity/player_model.gltf"),
     SpawnLocation(
         pos = BlockPos(0, -59, 0)
-        )
     )
+)
+
 wait(10f)
 ```
 
