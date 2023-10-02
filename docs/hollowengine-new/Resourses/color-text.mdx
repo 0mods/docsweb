@@ -1,0 +1,32 @@
+---
+sidebar_position: 5
+---
+
+# Цветной текст
+
+Допустим тебе надо чтобы NPC имел ник "Женя", но чтоб ещё был цветным:
+```jsx
+val jenya = NPCEntity.getOrCreate(
+    NPCSettings("Женя", "hollowengine:models/entity/jenya-top.gltf"),
+    SpawnLocation(
+        pos = BlockPos(0, -59, 0)
+```
+Предположим, у нас есть такой кусок. И вот там, где написано `"Женя"`, нам нужно:
+- В начале перед текстом написать `\u00A7`(Это символ §) `<symbol>`
+- В конце, там где должно закончиться изменения текста, прописываем это `\u00A7r`
+
+:::info Инфо
+- `<symbol>` - с этим вы можете ознакомиться здесь: [Цветной текст, переход на внешний источник](https://minecraft.tools/ru/color-code.php)
+:::
+
+Примерно у вас должно выглядеть так:
+```jsx
+val jenya = NPCEntity.getOrCreate(
+    NPCSettings("\u00A76 Женя \u007Ar", "hollowengine:models/entity/jenya-top.gltf"),
+    SpawnLocation(
+        pos = BlockPos(0, -59, 0)
+```
+
+---
+
+Так же вы можете использовать такое редактирование и в диалогах.
