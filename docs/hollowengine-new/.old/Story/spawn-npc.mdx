@@ -1,0 +1,108 @@
+---
+sidebar_position: 1
+---
+
+# Спавним NPC
+
+:::note Важно
+- В скрипте почти после каждого действия, тебе надо будет в конце писать это: `wait(<number>f)`
+  - Пример:
+  ```jsx
+  npc say "hello world"
+  wait(1f)
+  ```
+
+`<number>` - Любая(-ое) цифра / число.
+
+По истечению времени (1f = 1 сек) скрипт пойдёт дольше.
+
+Если после `wait()` у вас ничего нет, NPC просто пропадут.
+:::
+
+---
+
+## Установка нужных библиотек
+
+:::caution Сначала прочти это
+Перед тем как начать писать, скопируй это:
+
+```jsx
+import net.minecraft.core.BlockPos
+import ru.hollowhorizon.hc.client.gltf.Transform
+import ru.hollowhorizon.hc.client.gltf.animations.PlayType
+import ru.hollowhorizon.hollowengine.common.entities.NPCEntity
+import ru.hollowhorizon.hollowengine.common.npcs.IHollowNPC
+import ru.hollowhorizon.hollowengine.common.npcs.NPCSettings
+import ru.hollowhorizon.hollowengine.common.npcs.SpawnLocation
+```
+
+Это - Нужные библиотеки для работы скрипта. В будущем их будет становится больше)
+
+:::
+
+---
+
+# Спавним NPC
+
+Вот шаблон скрипта:
+
+```jsx
+val <npcID> = NPCEntity.getOrCreate(
+    NPCSettings("<displayName>", "<modID>:<linkToModel>.gltf"),
+    SpawnLocation(
+        pos = BlockPos(<x>, <y>, <z>)
+    )
+)
+wait(<number>f)
+```
+
+:::info Не спеши копировать и вставлять так вот, прочитай это
+- `<npcID>` - это имя NPC для кода. У каждого NPC должен быть уникальное имя. через него ты будешь с ним взаимодействовать,
+
+- `<displayName>` - Текст, отображаемое над головой NPC как у игроков,
+
+- `<modID>` - это может быть и minecraft, mekanism, iceandfire и тд. Всегда маленькими буквами. "В нашем случае подходит hollowengine",
+
+- `<LinkToModel>.gltf` - Работает на основе [ResourceLocation](../../Resourses/resourceLocation),
+
+- `<npcID>` - это имя NPC для кода. У каждого NPC должен быть уникальное имя. через него ты будешь с ним взаимодействовать,
+
+- `<displayName>` - Текст, отображаемое над головой NPC как у игроков,
+
+- `<x>, <y>, <z>` - Координаты где должен заспавниться NPC,
+
+- `wait(<number>f)` - Время ожидания перед следующим действием:
+    
+    - `<numbers>` - Любая(-ое) цифра / число,
+    
+    - `f` - float. Обязательно должно быть после цифры / числа без пробела: 10f, 8.32f.
+:::
+
+У тебя что-то должно получиться наподобие этого:
+
+```jsx
+import net.minecraft.core.BlockPos
+import ru.hollowhorizon.hc.client.gltf.Transform
+import ru.hollowhorizon.hc.client.gltf.animations.PlayType
+import ru.hollowhorizon.hollowengine.common.entities.NPCEntity
+import ru.hollowhorizon.hollowengine.common.npcs.IHollowNPC
+import ru.hollowhorizon.hollowengine.common.npcs.NPCSettings
+import ru.hollowhorizon.hollowengine.common.npcs.SpawnLocation
+
+val vit = NPCEntity.getOrCreate(
+    NPCSettings("Виталик", "hollowengine:models/entity/player_model.gltf"),
+    SpawnLocation(
+        pos = BlockPos(0, -57, 0)
+    )
+)
+
+wait(10f)
+```
+
+---
+
+![Спавн NPC в мире](../../../static/img/he-guide/spawnNPC.gif)
+
+```В демонстрации используется Своя модель и анимации. Как добавить свои модель и анимации``` -> [Внешний вид NPC](../../Resourses/custom-Models-and-Anims)
+
+---

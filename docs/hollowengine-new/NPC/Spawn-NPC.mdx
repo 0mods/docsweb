@@ -1,0 +1,69 @@
+---
+sidebar_position: 0
+---
+
+# Спавн NPC
+
+***
+
+## Установка библиотек
+
+:::caution Библиотеки
+Для начало, открой свой скрипт и в начале импортируй эти библиотеки | (Просто скопируй)
+```jst
+import net.minecraft.core.BlockPos
+import ru.hollowhorizon.hc.client.gltf.Transform
+import ru.hollowhorizon.hc.client.gltf.animations.PlayType
+import ru.hollowhorizon.hollowengine.common.entities.NPCEntity
+import ru.hollowhorizon.hollowengine.common.npcs.IHollowNPC
+import ru.hollowhorizon.hollowengine.common.npcs.NPCSettings
+import ru.hollowhorizon.hollowengine.common.npcs.SpawnLocation
+```
+Это базовые библиотеки которые нужны для простого спавна NPC. Без этих библиотек, у тебя просто будут ошибки.
+:::
+
+---
+
+## Спавним NPC и мире
+
+:::note Для спавна NPC...
+Нам потребуется эта часть скрипта | Это макет скрипта.
+```jsx
+val <npcID> = NPCEntity.getOrCreate(
+    NPCSettings("<displayName>", "hollowengine:<path/to/file>.gltf"),
+    SpawnLocation(
+        pos = BlockPos(<x>, <y>, <z>)
+        )
+    )
+```
+Обозначения:
+> - `<npcID>` - Уникальное имя NPC для скрипта. Через него ты обращаешься к конкретному NPC.
+> - `<displayName>` - Текст, высвечиваемый сверху как ники у игроков.
+> - `hollowengine:<path/to/file>.gltf` - Путь до файла. Работает по принципу ResourceLocation. | [О ResourceLocation...](../Resources/ResourceLocation).
+> - `<x>, <y>, <z>` - Координаты. Работает только с ЦЕЛЫМИ значениями.
+:::
+
+***
+
+Пример, как должен выглядеть данный скрипт | Модель с имением `vitalik-model.gltf` **не существует** в моде. Используйте `player_model.gltf`
+```jsx
+import net.minecraft.core.BlockPos
+import ru.hollowhorizon.hc.client.gltf.Transform
+import ru.hollowhorizon.hc.client.gltf.animations.PlayType
+import ru.hollowhorizon.hollowengine.common.entities.NPCEntity
+import ru.hollowhorizon.hollowengine.common.npcs.IHollowNPC
+import ru.hollowhorizon.hollowengine.common.npcs.NPCSettings
+import ru.hollowhorizon.hollowengine.common.npcs.SpawnLocation
+
+val vitalik = NPCEntity.getOrCreate(
+    NPCSettings("Виталик", "hollowengine:models/entity/vitalik-model.gltf"),
+    SpawnLocation(
+        pos = BlockPos(0, -59, 0)
+        )
+    )
+```
+
+После написания скрипта, можете сохранить его `<fileName>.se.kts`, после в мире прописать данную команду: `/hollowengine start-script <scriptName>.se.kts`
+
+![NPC появился в мире](../../../static/img/he-guide/NPC-Spawn.gif)
+`В демонстрации используется Своя модель. Вы не сможете её никак использовать т.к. в файлах нет данной модели.`
