@@ -11,6 +11,10 @@ const config = {
   organizationName: '0mods',
   projectName: 'docsweb',
 
+  markdown: {
+    mermaid: true
+  },
+
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
@@ -42,6 +46,10 @@ const config = {
       },
     },
   },
+
+  plugins: [
+    '@docusaurus/theme-mermaid',
+  ],
 
   presets: [
     [
@@ -77,7 +85,8 @@ const config = {
           },
           {
             href: 'https://github.com/0mods/docsweb',
-            label: 'GitHub',
+            className: "header-github-link",
+            "aria-label": "GitHub Repository",
             position: 'right',
           },
           {
@@ -89,23 +98,7 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          {
-            title: 'Language',
-            items: [
-              {
-                label: 'English',
-                to: '/',
-              },
-              {
-                label: 'Français',
-                to: 'fr'
-              },
-              {
-                label: 'Русский',
-                to: 'ru'
-              },
-            ]
-          },
+
           {
             title: 'Docs',
             items: [
