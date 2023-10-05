@@ -1,0 +1,75 @@
+---
+sidebar_position: 1
+---
+
+# Await() или Async()
+
+> Для наглядности приведу это:
+
+:::note Допустим...
+У нас есть данный скрипт | Можете скопировать для проверки
+```jsx
+import net.minecraft.core.BlockPos
+import ru.hollowhorizon.hc.client.gltf.Transform
+import ru.hollowhorizon.hc.client.gltf.animations.PlayType
+import ru.hollowhorizon.hollowengine.common.entities.NPCEntity
+import ru.hollowhorizon.hollowengine.common.npcs.IHollowNPC
+import ru.hollowhorizon.hollowengine.common.npcs.NPCSettings
+import ru.hollowhorizon.hollowengine.common.npcs.SpawnLocation
+
+val kolya = NPCEntity.getOrCreate(
+    NPCSettings("Коля", "hollowengine:models/entity/vitalik-model.gltf"),
+    SpawnLocation(
+        pos = BlockPos(11, -53, -51)
+        )
+    )
+wait(0.25f)
+val nikita = NPCEntity.getOrCreate(
+    NPCSettings("Никита", "hollowengine:models/entity/vitalik-model.gltf"),
+    SpawnLocation(
+        pos = BlockPos(14, -53, -51)
+        )
+    )
+wait(0.25f)
+val alex = NPCEntity.getOrCreate(
+    NPCSettings("Алексей", "hollowengine:models/entity/vitalik-model.gltf"),
+    SpawnLocation(
+        pos = BlockPos(17, -53, -51)
+        )
+    )
+wait()
+
+kolya.makeTask{
+    movement.go(11, -54, -63).<taskMode>
+    }
+nikita.makeTask{
+    movement.go(14, -54, -63).<taskMode>
+    }
+alex.makeTask{
+    movement.go(17, -54, -63).<taskMode>
+    }
+```
+
+:::
+
+***
+
+## Await() | `await()`
+
+:::tip await()
+
+![Идут по очереди](../../../static/img/he-guide/NPC-Walk-Await().gif)
+
+:::
+
+***
+
+## Async() | `async()`
+
+:::tip async()
+
+![Идут вместе](../../../static/img/he-guide/NPC-Walk-Async().gif)
+
+:::
+
+***
