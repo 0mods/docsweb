@@ -17,9 +17,10 @@ createCameraPath{}
 :::info у камеры есть такие параметры как
 ```jsx
 createCameraPath{
-    spline(<time>, interpolation = <interpolations>
+    spline(<time>,
         vec(<pitch_start>, <yaw_start>), vec(<pitch_end>, <yaw_end>)
-        pos(x, y, z) // double
+        pos(x, y, z), // double. Если посте этого есть ежё позиции, то в конце этой строчки ставьте ",".
+        interpolation = <interpolations>
         // И так сколькт вам нужно точек поворота
     )
 }
