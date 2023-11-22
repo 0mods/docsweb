@@ -3,8 +3,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Modded Wikipedia',
-  tagline: 'The wiki for 0mods\'s project\'s',
+  title: 'Docs For Mods',
+  tagline: 'The wiki for 0mods\'s project\'s and not only :)',
   favicon: 'img/favicon.ico',
   url: 'https://0mods.team',
   baseUrl: '/',
