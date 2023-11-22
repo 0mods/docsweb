@@ -1,0 +1,8 @@
+{
+  "label": "Туториалы",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Здесь будут примеры скриптов."
+  }
+}

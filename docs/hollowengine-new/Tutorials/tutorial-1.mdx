@@ -1,0 +1,26 @@
+---
+sidebar_position: 0
+---
+
+# Туториал №1
+
+:::note действия
+> Мы спавним базового NPC, ожидаем 2 сек, говорим ему дойти до какой-то точки (позиции), затем посмотрит в сторону игрока, проходит 3 сек и исчезанет.
+
+```jsx
+val npc NPCEntity.creating{
+    settings = NPCSettings()
+    location = SpawnLocation("minecraft:overworld", pos(0, -58, 0))
+}
+wait { 2.sec }
+
+npc moveToPos { pos(-10, -58, 6) }
+npc lookAtTeam { team }
+wait { 3.sec }
+
+npc.despawn()
+```
+
+:::
+
+---
