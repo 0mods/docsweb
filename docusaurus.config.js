@@ -135,6 +135,9 @@ const config = {
             ],
           },
         ],
+        algolia: {
+      contextualSearch: true,
+    },
         copyright: `Copyright © ${new Date().getFullYear()} HollowHorizon and AlgorithmLX.`,
       },
       prism: {
