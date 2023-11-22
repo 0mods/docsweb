@@ -76,7 +76,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Modded Documentation',
+        title: 'Docs For Mods',
         items: [
           {
             label: 'Blog',
@@ -135,9 +135,7 @@ const config = {
             ],
           },
         ],
-        algolia: {
-      contextualSearch: true,
-    },
+        
         copyright: `Copyright © ${new Date().getFullYear()} HollowHorizon and AlgorithmLX.`,
       },
       prism: {
