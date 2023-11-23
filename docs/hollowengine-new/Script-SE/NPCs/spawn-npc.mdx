@@ -46,8 +46,7 @@ val <npcID> by NPCEntity.creating {
 :::info Для спавна базового NPC, оставь поле `NPCSettings()` - пустым.
 Вот пример, как должен выгдядеть скрипт спавна "Базового NPC":
 ```jsx
-val npc by NPCEntity.creating{
-    settings()
+val npc by NPCEntity.creating {
     location = SpawnLocation("minecraft:overworld", pos(0, -58, 0))
 }
 ```
