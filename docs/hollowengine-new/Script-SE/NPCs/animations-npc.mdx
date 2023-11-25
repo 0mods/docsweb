@@ -2,11 +2,11 @@
 sidebar_position: 2
 ---
 
-# Анимации у NPC
+# NPC's Animations
 
 ## Once
 
-:::info Воспроизводит анимацию 1 раз | Шаблон
+:::info Plays the animation once | Template
 ```jsx
 <npcID> playOnce { "<animationName>" }
 ```
@@ -14,7 +14,7 @@ sidebar_position: 2
 
 ## Looped
 
-:::info Воспроизводит анимацию в цикле(бесконечно) | Шаблон
+:::info Plays the animation in a loop(infinite) | Template
 ```jsx
 <npcID> playLooped { "<animationName>" }
 ```
@@ -22,7 +22,7 @@ sidebar_position: 2
 
 ## Stop
 
-:::info Останавливает воспроизведение анимации | Шаблон
+:::info Stops the animation | Template
 ```jsx
 <npcID> stop { <active_animationName> }
 ```
@@ -30,7 +30,7 @@ sidebar_position: 2
 
 ## Animation Setting
 
-:::info Настрой воспроизведение анимации детально | Шаблоны
+:::info Fine-tune animation playback settings | Templates
 ```jsx
 <npcID>.play {
     "<animationName>", <playType>, <priority_float>, <speed>
@@ -40,9 +40,9 @@ sidebar_position: 2
 
 ### PlayTypes
 
-> - playType = PlayType.ONCE | Воспроизводит 1 раз
-> - plaType = PlayType.LOOPED | Воспроизводит в цикле(бесконечно)
-> - playType = PlayType.LAST_FRAME | Воспроизводит 1 раз, после застывает на последнем кадре
-> - playType = PlayType.REVERSED | Воспроизводит сначала в одну сторону(вперёд), после в другую(назад) 1 раз
+> - playType = PlayType.ONCE | Plays once
+> - plaType = PlayType.LOOPED | Plays in a loop(infinite)
+> - playType = PlayType.LAST_FRAME | Plays once, but holds on the last frame
+> - playType = PlayType.REVERSED | Plays forward once, then backward once.
 
 ---

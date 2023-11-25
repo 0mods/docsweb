@@ -2,37 +2,37 @@
 sidebar_position: 2
 ---
 
-# Туториал 3
+# Tutorial №3
 
-:::note "Создадим простенький диалог в спец. окне и последствиями"
+:::note "Let's create a simple dialogue in a special window along with its consequences."
 
 ```kotlin
 dialogue{
-	npc say{"Привет"}
+	npc say{"Hi!"}
 	choise{
-		"Приветик!"{
-			team.sendAsPlayer{"Давно не виделись!"}
-			npc say{"Как дела хоть?"}
+		"Hello!!"{
+			team.sendAsPlayer{"It's been a long time!"}
+			npc say{"What's up?"}
 			choise{
-				"Всё просто супер"{
-					npc say{"Рад слышать это)"}
+				"Everything's super!"{
+					npc say{"Glad to hear that.)"}
 				}
-				"Убейте меня."{
-					npc say{"Ну.. сам попросил."}
+				"Kill me."{
+					npc say{"You asked for it."}
 					wait{1.sec}
-					npc say{"Потом не ной!"}
+					npc say{"Don't cry later!"}
 				}
 			}
 		}
-		"Эм.." {
+		"Umm.." {
 			npc playLooped{"face-what"}
-			npc say{"Что-то случилось"}
+			npc say{"Did something happen?"}
 			choise{
-				"А? да неет.."{
-					team.sendAsPlayer{"Да не, всё ок. Просто голова чёт заболела"}
+				"What? Oh nothing.."{
+					team.sendAsPlayer{"Everything's okay. I'm just ill."}
 				}
-				"Ты кто?"{
-					npc say{"я в тотальном шоке."}
+				"Who are you?"{
+					npc say{"i'm in a total shock."}
 				}
 			}
 		}

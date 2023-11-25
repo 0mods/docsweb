@@ -2,50 +2,50 @@
 sidebar_position: 3
 ---
 
-# Конфигурация NPC
+# NPC's configuration
 
-:::info Всё перечисленное здесь, пишется...
+:::info Everything listed, is written...
 ```jsx
 <npcID>.configure {
-    // т.е. здесь!
+    // here!
 }
 ```
 :::
 
-## Установке текстуры / скина
+## Setting the texture / skin
 
-:::note Установить новую текстуру
+:::note Set a new texture
 ```jsx
-    textures["<texture>"] = "<path/to/new_texture>" // Заменяем текущую текстуру на навую
+    textures["<texture>"] = "<path/to/new_texture>" // Replacing the current texture to the new texture
 ```
-> Обозначения:
-> - `texture` - Имя текстуры, которая сейчас на модели.
-> - `<path/to/new_texture>` - Путь к новой текстуре. Начинаться должен с `<modID>:`.
->  - `modID` - `ID` мода.
+> Designations:
+> - `texture` - Name of the texture, what's on the model.
+> - `<path/to/new_texture>` - Path to the new texture. Needs to start with `<modID>:`.
+>  - `modID` - `ID` of the mod.
 :::
 
 ---
 
-:::note Установить новый скин
+:::note Set a new skin
 ```jsx
-    textures["<texture>"] - skin("<nickname>") // Работает только с ОФИЦИАЛЬНЫМИ скинами Mojang. Вводите корректно имя, иначе -> краш
+    textures["<texture>"] - skin("<nickname>") // Only works with the OFFICIAL Mojang skins. Write the name correctly, if not -> crash
 ```
 > Обозначения:
-> - `texture` - Имя текстуры, которая сейчас на модели.
-> - `nickname` - Ник игрока, у которого есть лицензия.
+> - `texture` - Name of the texture, that is on the model.
+> - `nickname` - Nickname of a player, who has a license.
 :::
 
 ---
 
-## Установка стандартных анимаций
+## Setting standard animations
 
-:::note Замени стандартную анимацию
+:::note Replace the standard animation
 ```jsx
-    animation[AnimationType.<type>] = "<new_animationName>" // Замена стандартной анимации на новую
+    animation[AnimationType.<type>] = "<new_animationName>" // The replacement of the current animation to the new animation
 ```
-> Обозначения:
-> - `type` - [Тип анимации](../../Tools/standartAnimationType)
-> - `new_animationName` - Название анимации
+> Designations:
+> - `type` - [Animation Type](../../Tools/standartAnimationType)
+> - `new_animationName` - Animation's name
 :::
 
 ---

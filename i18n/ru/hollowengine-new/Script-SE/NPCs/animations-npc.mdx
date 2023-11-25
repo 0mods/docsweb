@@ -1,0 +1,48 @@
+---
+sidebar_position: 2
+---
+
+# Анимации у NPC
+
+## Once
+
+:::info Воспроизводит анимацию 1 раз | Шаблон
+```jsx
+<npcID> playOnce { "<animationName>" }
+```
+:::
+
+## Looped
+
+:::info Воспроизводит анимацию в цикле(бесконечно) | Шаблон
+```jsx
+<npcID> playLooped { "<animationName>" }
+```
+:::
+
+## Stop
+
+:::info Останавливает воспроизведение анимации | Шаблон
+```jsx
+<npcID> stop { <active_animationName> }
+```
+:::
+
+## Animation Setting
+
+:::info Настрой воспроизведение анимации детально | Шаблоны
+```jsx
+<npcID>.play {
+    "<animationName>", <playType>, <priority_float>, <speed>
+}
+```
+:::
+
+### PlayTypes
+
+> - playType = PlayType.ONCE | Воспроизводит 1 раз
+> - plaType = PlayType.LOOPED | Воспроизводит в цикле(бесконечно)
+> - playType = PlayType.LAST_FRAME | Воспроизводит 1 раз, после застывает на последнем кадре
+> - playType = PlayType.REVERSED | Воспроизводит сначала в одну сторону(вперёд), после в другую(назад) 1 раз
+
+---

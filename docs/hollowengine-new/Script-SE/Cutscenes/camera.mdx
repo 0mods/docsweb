@@ -2,41 +2,42 @@
 sidebar_position: 1
 ---
 
-# Камера
+# Camera
 
-## Создать камеру
+## Create a Camera
 
-:::info Добавить камеру
+:::info Add a camera
 ```jsx
 createCameraPath{
-    // Здесь всё что ниже
+    // Everything below this
 }
+
 ```
 :::
 
-## Настройка камеры
+## Settings of the Camera
 
-:::info у камеры есть такие параметры как
+:::info The camera has parameters such as
 ```jsx
     spline(<time>,
-        vec(<pitch_start>, <yaw_start>), vec(<pitch_end>, <yaw_end>) // Поворот камеры от Начала, до Конца пути
-        pos(x, y, z), // double. Если после этого есть ещё позиции, то в конце этой строчки ставьте ","
-        interpolation = Interpolation.<interpolationType> // Как вы хотиле сглажывать перемещение камеры. Если не указывать интерполяцию - по дефолту применится LINEAR
-        // И так сколько вам нужно точек позиции камеры
+        vec(<pitch_start>, <yaw_start>), vec(<pitch_end>, <yaw_end>) // Camera rotation from Start to End of the path
+        pos(x, y, z), // double. If there are more positions after this, put "," at the end of this line
+        interpolation = Interpolation.<interpolationType> // How you want to smooth camera movement. If you don't specify interpolation, LINEAR will be applied by default
+        // And so on for as many camera position points as you need
     )
-    // При необходимости можете создаешь ещё 1 путь
+    // If necessary, you can create another path
 ```
-> Обозначения:
-> - `time` - Устанавливает общее время движение камеры.
->   - `<num>` - Время в тиках.
->   - `<num>.sec` - Время в секундах.
->   - `<num>.min`, - Время в минутах.
->   - `<num>.hour`, - Время в часах.
->   - Так же вы можете совмещать их, используя `+`, пример: `1.hour + 15.min + 30.sec + 45`.
-> - `interpolation = <interpolations>` - Устанавливает интерполяцию движения. (Проще говоря, ускаряем или замедляет в определённые моменты в зависимости от выбранной интерполяции).
->  - `interpolationType` - [Список интерполяций](../Tools/interpolations)
-> - `vec(<pitch_start>, <yaw_start>), vec(<pitch_end>, <yaw_end>)` - Устанавает поворот камеры в начале (`_start`) и в конце (`_end`).
-> - `pos(x, y, z)` - Устанавливает точку позиции. Работает только с нецелыми числами.
+> Designations:
+> - `time` - Sets the total time for camera movement.
+>   - `<num>` - Time in ticks.
+>   - `<num>.sec` - Time in seconds.
+>   - `<num>.min`, - Time in minutes.
+>   - `<num>.hour`, - Time in hours.
+>   - You can also combine them, using `+`, for example: `1.hour + 15.min + 30.sec + 45`.
+> - `interpolation = <interpolations>` - Sets the interpolation of movement. (In simpler terms, it speeds up or slows down at certain moments depending on the chosen interpolation).
+>  - `interpolationType` - [List of interpolations](../Tools/interpolations)
+> - `vec(<pitch_start>, <yaw_start>), vec(<pitch_end>, <yaw_end>)` - Sets the camera rotation at the start (`_start`) and at the end (`_end`).
+> - `pos(x, y, z)`  - Sets the position point. Works only with non-integer numbers.
 :::
 
 ---

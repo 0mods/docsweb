@@ -1,8 +1,8 @@
 {
-  "label": "Туториалы",
+  "label": "Tutorial",
   "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "Здесь будут примеры скриптов."
+    "description": "Here are some examples of scripts."
   }
 }

@@ -1,0 +1,8 @@
+{
+  "label": "Script - SE",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "`.se.kts` - Этот тип скрипта включается в себя весь сюжет."
+  }
+}

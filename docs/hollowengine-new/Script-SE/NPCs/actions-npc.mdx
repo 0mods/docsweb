@@ -2,13 +2,13 @@
 sidebar_position: 1
 ---
 
-# Действия для NPC
+# Actions for NPCs
 
-## Передвижение
+## Movement
 
 ### Positon
 
-:::info NPC будет двигаться до этих координат | Шаблон
+:::info NPC will move to these coordinates | Template
 ```jsx
 <npcID> moveToPos { pos(x, y, z) }
 ```
@@ -16,7 +16,7 @@ sidebar_position: 1
 
 ### Team
 
-:::info NPC будет двигать до ближайшего игрока в команде | Шаблон
+:::info NPC will move to the nearest player in the team | Template
 ```jsx
 <npcID> moveToTeam { team }
 ```
@@ -24,21 +24,21 @@ sidebar_position: 1
 
 ### Any NPC
 
-:::info NPC будет двигать до другого NPC | Шаблон
+:::info NPC will move to another NPC | Template
 ```jsx
-<npcID> movdToEntity { <any_npcID> }
+<npcID> moveToEntity { <any_npcID> }
 ```
 :::
 
-![NPC движется до точки](../../.resourses/npc-move.gif)
+![NPC moves to the point](../../.resourses/npc-move.gif)
 
 ---
 
-## Посмотреть
+## Look
 
 ### Pos
 
-:::info NPC посмотрит на указанные координаты | Шаблон
+:::info NPC looks at specified coordinates | Template
 ```jsx
 <npcID> lookAtPos { pos(x, y, z) }
 ```
@@ -46,7 +46,7 @@ sidebar_position: 1
 
 ### Team
 
-:::info NPC посмотрит на ближайшего игрока в команде | Шаблон
+:::info NPC looks at the nearest player in the team | Template
 ```jsx
 <npcID> lookAtTeam { team }
 ```
@@ -54,82 +54,82 @@ sidebar_position: 1
 
 ### Any NPC
 
-:::info NPC посмотрит на другого NPC | Шаблон
+:::info NPC looks at another NPC | Template
 ```jsx
 <npcID> lookAtEntity { <any_npcID> }
 ```
 :::
 
-![NPC смотрить в точку](../../.resourses/npc-look.gif)
+![NPC looks at a point](../../.resourses/npc-look.gif)
 
 ---
 
-# Сказать от лица NPC
+# Speaking on Behalf of an NPC
 
-:::info NPC скажет эти слова | Щалон
+:::info To make an NPC speak, use this | Template
 ```jsx
 <npcID> say { "<text>" }
 ```
 :::
 
-![NPC сказал "говно"](../../.resourses/npc-say.gif)
+![NPC сказал "derp"](../../.resourses/npc-say.gif)
 
 ---
 
-## Действия с предметом
+## Actions with items
 
-### Выкинуть предмет(бросить)
+### Drop an item
 
-:::info Укажи NPC, какой предмет нужно выкинуть(бросить)
+:::info Specify the item, that NPC should drop
 ```jsx
-<npcID> dropItem { item("<itemID>") } // На данный момент работает криво, кидает только на Юг. Ждём патча.
+<npcID> dropItem { item("<itemID>") } // For now it works roughly, Send only in South. Waiting for a patch.
 ```
-Предмет можно указать лёгким способом. Просто возьмите в основную руку нужный предмет и после пропишите команду `/hollowengine hand`, у вас скопируется данные о предмете вместе с `item`. Вам прсото нужно будет вставить это и всё.
+It is very simple to specify the item. Just take the necessary item in your main hand and then type the command `/hollowengine hand`, it will copy the item data along with `item`. You just need to paste it, and that's it.
 :::
 
-### Взять предмет в руку
+### Hold the item in the hand
 
 :::caution
-`item("<itemID>")` можно получить через: `/hollowengine hand`; Простосто возьмите в руку нужный предмет и пропишите эту команд, после она скопируется и вы можете вставить её туда, где нужно.
+`item("<itemID>")` can be obtained through: `/hollowengine hand`; Just take the desired item in your hand and use this command, it will be copied, and you can paste it wherever needed.
 :::
 
-#### Способ №1
+#### Method №1
 
 
 
-:::info Просто выкинуть ему предмет. Он подберёт его и возьмёт в правую руку.
+:::info Just drom him the item. He'll pick up it in his right hand.
 ```jsx
-// Ничего не требуется.
+// Nothing is needed.
 ```
 :::
 
-![NPC взял предмет в руку-1](../../.resourses/npc-give-item1.gif)
+![NPC got an item-1](../../.resourses/npc-give-item1.gif)
 
 
-#### Способ №2
+#### Method №2
 
-:::info Выдать ему определённый предмет в определённую руку через скрипт
+:::info Give him a specified item in a specified hand with a script.
 ```jsx
-<npcID> giveLeftHand { item("<itemID>") } // Выдать предмет в левую руку
+<npcID> giveLeftHand { item("<itemID>") } // Give item to the left hand
 // or
-<npcID> giveRightHand { item("<itemID>") } // Выдать предмет в правую руку
+<npcID> giveRightHand { item("<itemID>") } // Give item to the right hand
 ```
-`item("<itemID>")` можно получить через: `/hollowengine hand`; Простосто возьмите в руку нужный предмет и пропишите эту команд, после она скопируется и вы можете вставить её туда, где нужно.
+`item("<itemID>")` can be obtained through: `/hollowengine hand`; Just take the desired item in your hand and use this command, it will be copied, and you can paste it wherever needed.
 :::
 
-![NPC взял предмет в руку-2](../../.resourses/npc-give-item2.gif)
+![NPC got an item-2](../../.resourses/npc-give-item2.gif)
 
 ---
 
-## Взаимодействие с миром
+## Interaction with the world
 
-### Использовать блок
+### Interact with a block
 
-:::info НПС сможет взаимодействовать с миром
+:::info NPC can interact with the world
 ```jsx
-<npcID>.useBlock { pos(x, y, z) } // Взаимодействовать с блоком, который находится на координатах x, y, z
+<npcID>.useBlock { pos(x, y, z) } // Interact with a block, that is located on coordinates x, y, z
 ```
-> `pos(x, y, z)` - Позиция блока, с которым нужно взаимодействовать. Принимает целые числа int.
+> `pos(x, y, z)` - Position of the block, that should be interacted with. Accepts whole numbers (int).
 :::
 
 ---

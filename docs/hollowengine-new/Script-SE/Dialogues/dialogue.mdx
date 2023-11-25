@@ -2,43 +2,45 @@
 sidebar_position: 0
 ---
 
-# Диалоги
+# Dialogues
 
-:::caution Перед началом
-Если вы используете какого-то NPC, то диалог должен идти после того, как вы создали нужных NPC.
+:::caution Before starting
+If you are using any NPC, the dialogue should come after you have created the necessary NPCs.
 :::
-## Начало диалога
 
-:::info Чтобы начать диалог, нужно
+## Start of Dialogue
+
+:::info To start a dialogue, you need
 ```jsx
 dialogue {
-    // Здесь действия...
+    // Actions go here...
 }
+
 ```
 :::
 
-### Действия
+### Actions
 
-:::info Есть на данный момент эти действия
-> - `<npcID> say "<text>"` - Слова от лица указанного NPC.
-> - [Анимации NPC](../NPCs/actions-npc).
-> - `team.send { "<text>" }` - Слова от лица главоря команды.
+:::info Currently, these actions are available:
+> - `<npcID> say "<text>"` - Words from the specified NPC.
+> - [NPC's Animations](../NPCs/actions-npc).
+> - `team.send { "<text>" }` - Words from the leader of the team.
 :::
 
 ---
 
-## Выбор и последствия
+## Choices and Consequences
 
-:::info Выбор создаётся внутри `dialogue{...}`
+:::info Choices are created inside `dialogue{...}`
 ```jsx
 choice {
-    "Ваш вариант 1" {
-        // Последствия...
+    "Your choice 1" {
+        // Consequences...
     }
-    "Ваш вариант 2" {
-        // Последствия...
+    "Your choice 2" {
+        // Consequences...
     }
-    // И так далее...
+    // And so on...
 }
 ```
 :::

@@ -2,11 +2,11 @@
 sidebar_position: 0
 ---
 
-# Спавн NPC
+# Spawn NPC
 
-## Шаблон
+## Template
 
-:::info Это шаблон
+:::info This is a template
 
 ```jsx
 val <npcID> by NPCEntity.creating{
@@ -15,22 +15,22 @@ val <npcID> by NPCEntity.creating{
 }
 ```
 
-- Обозначения:
-> - `npcID` - Уникальный ID для вашего NPC. Через него вы, обращаетесь к конкретному NPC. 
-> - `displayName` - Имя, отображаемое над головой NPC. Как ник у игрока. 
-> - `path/to/model` - Укажите путь до модели. 
-> - `attributes` - Аттрибуты для NPC, по типу: Здоровье, скорость и т.д. 
-> - `Pair(<float1>, <float2>)` - Размер хитбокса NPC. 
->   - `float1` - Ширина. 
->   - `float2` - Высота. 
-> - `<boolean>` - Отображение `displayName` над головой NPC. 
->   - `false` - не отображать, 
->   - `true` - отображать. 
-> - `dimension` - Измерение, в котором будет спавниться NPC. Указывать надо сначала с `modID`, пример: `minecraft:overworld`. 
-> - `pos(x, y, z)` - Позиция спавна NPC. 
-> - `vec(pitch, yaw)` - Углы поворота при спавне NPC. 
+- Designations:
+> - `npcID` - Your NPC's ID. Through it, you address a specific NPC.
+> - `displayName` - A name, shown above NPC's head. Just like a player's nickname.
+> - `path/to/model` - Insert the path to the model.
+> - `attributes` - Attributes for the NPC, for example: Health, speed and so on.
+> - `Pair(<float1>, <float2>)` - NPC's hitbox.
+>   - `float1` - Width.
+>   - `float2` - Height.
+> - `<boolean>` - Show `displayName` above the NPC's head.
+>   - `false` - don't show,
+>   - `true` - show.
+> - `dimension` - The dimension, in which the NPC will spawn. You need to start with `modID`, for example: `minecraft:overworld`.
+> - `pos(x, y, z)` - NPC's spawn position.
+> - `vec(pitch, yaw)` - NPC's spawn angle.
 
-- Необязательные значения:
+- Unnessecary variables:
 > - `attributes`. 
 > - `Pair(),` 
 > - `showName`.
@@ -38,45 +38,45 @@ val <npcID> by NPCEntity.creating{
 
 ---
 
-## Базовый NPC
+## Basic NPC
 
-:::info Для спавна базового NPC, оставь поле `NPCSettings()` - пустым.
-Вот пример, как должен выгдядеть скрипт спавна "Базового NPC":
+:::info To spawn a basic NPC, leave the field `NPCSettings()` - empty.
+Here is an example, how the "Basic NPC" spawn script should look like:
 ```jsx
 val npc by NPCEntity.creating{
     settings()
     location = SpawnLocation("minecraft:overworld", pos(0, -58, 0))
 }
 ```
-![Спавн базового NPC](../../.resourses/spawn-basic-npc.gif)
+![Basic NPC's Spawn](../../.resourses/spawn-basic-npc.gif)
 :::
 
 ---
 
-## Кастомный NPC
+## Custom NPC
 
-:::info Основым нужно, чтобы ты указал путь к модели.
+:::info It is essential, that you specify the path to the model.
 ```jsx
 val npc by NPCEntity.creating{
-    settings("Виталик 2", "hollowengine:models/entity/temp2.gltf")
+    settings("Vitalik", "hollowengine:models/entity/temp2.gltf")
     location = SpawnLocation("minecraft:overworld", pos(0, -58, 0))
 }
 ```
-![Спавн кастомного NPC](../../.resourses/spawn-custom-npc.gif)
+![Custom NPC's Spawn](../../.resourses/spawn-custom-npc.gif)
 :::
 
 ---
 
-### Аттрибуты
+### Attributes
 
-:::info Все существующие аттрибуты, вы можете узнать через команду `/attribute`
-От вас лишь требуется указать, там где `attributes`, это:
+:::info Every existing attributes, you can find using the command `/attribute`
+In your case, you only need to specify where `attributes`, is, which is:
 ```jsx
 Attributes("<attributeName>" to <float>)
 ```
-> Обозначения:
-> - `attributeName` - название аттрибута.
-> - `float` - Число/Цифра, где в конце стоит `f`, пример: `10f`
+> Designations:
+> - `attributeName` - name of the attribute.
+> - `float` - Number/Digit, where in the end there is `f`, example: `10f`
 :::
 
 ---
