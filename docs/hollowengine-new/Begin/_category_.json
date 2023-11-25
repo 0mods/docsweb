@@ -1,8 +1,8 @@
 {
-  "label": "Начало",
+  "label": "Getting Started",
   "position": 1,
   "link": {
     "type": "generated-index",
-    "description": "Для начала тебе нужно узнать: Что да как работает тут."
+    "description": "To get started, you need to understand how things work here."
   }
 }

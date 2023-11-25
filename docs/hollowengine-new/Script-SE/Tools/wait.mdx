@@ -2,32 +2,32 @@
 sidebar_position: 1
 ---
 
-# Продолжение скрипта
+# Continuation of the script
 
 ## По таймеру
 
-:::info Ты можешь поставить ожидание после каждого действия, перед тем, как перейти к следующему.
+:::info You can add a pause after each action before moving on to the next one.
 ```jsx
 wait{ <time> }
 ```
 > `time`:
-> - `<num>` - в тиках.
-> - `<num>.sec` - в секундах.
-> - `<num>.min` - в минутах.
-> - `<num>.hour` - в часах.
+> - `<num>` - in ticks.
+> - `<num>.sec` - in seconds.
+> - `<num>.min` - in minutes.
+> - `<num>.hour` - in hours.
 > ---
-> Так же вы можете соединять их через `+`, пример: `10 + 20.sec + 3.min + 5.hour`
+> Also you can connect them with `+`, for example: `10 + 20.sec + 3.min + 5.hour`
 :::
 
 ---
 
-# По нажатию кнопки
+# By pressing a keybind
 
-:::info Скрипт будет ждать, пока не будет нажата указанная кнопка
+:::info Script will wait, until a specified keybind will be pressed.
 ```jsx
 keybind { Keybind.<key> }
 ```
-> `key` - Кнопки на клавиатуре. [Узнать больше...](https://github.com/HollowHorizon/HollowEngine/blob/1.19.2/src/main/java/ru/hollowhorizon/hollowengine/common/util/Keybind.kt)
+> `key` - Buttons on the keyboard. [To learn more...](https://github.com/HollowHorizon/HollowEngine/blob/1.19.2/src/main/java/ru/hollowhorizon/hollowengine/common/util/Keybind.kt)
 :::
 
 ---

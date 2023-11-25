@@ -1,8 +1,8 @@
 {
-  "label": "Катсцены",
+  "label": "Cutscenes",
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Здесь рассписано всё о катсценах для ваших сюжетов."
+    "description": "Here, everything about cutscenes for your plots is described."
   }
 }
