@@ -2,28 +2,28 @@
 sidebar_position: 0
 ---
 
-# Создание и спавн NPC
-Обучаем, как создавать и спавнить NPC
+# Создание NPC
+
 ## Шаблон
 
 :::info Это шаблон
 
 ```jsx
 val <npcID> by NPCEntity.creating {
-    settings = NPCSettings(<displayName>, <model>, <attributes>, <size>, <showName>)
+    settings = NPCSettings(<nick>, <model>, <attributes>, <hitboxSize>, <showNick>)
     location = SpawnLocation("<dimension>", pos(<x>, <y>, <z>), vec(<pitch>, <yaw>))
 }
 ```
 
 - Обозначения:
 > - `npcID` - Уникальный ID для вашего NPC. Через него вы, обращаетесь к конкретному NPC. 
-> - `displayName` - Имя NPC.
+> - `nick` - Имя NPC.
 > - `model` - Путь до модели. Указывается как `modid:путь/к/модели`. Если вы используете свои модели, то лучше всего указывать в поле `modid` - `hollowengine`, если же у вас стоит другой мод, в котором есть gltf модели, то указываете его идентификатор (modid). 
 > - `attributes` - Атрибуты для NPC, по типу: Здоровье, скорость и т.д. Для этого используйте Attributes(Pair("Атрибут1", `<значение>`)). 
-> - `size` - Размер хитбокса NPC. Используется как Pair(`<float1>`, `<float2>`)
+> - `hitboxSize` - Размер хитбокса NPC. Используется как Pair(`<float1>`, `<float2>`)
 >   - `float1` - Ширина. 
 >   - `float2` - Высота. 
-> - `showName` - Отображение `displayName` над головой NPC. 
+> - `showNick` - Отображение `displayName` над головой NPC. 
 >   - `false` - не отображать, 
 >   - `true` - отображать. 
 > - `dimension` - Измерение, в котором будет спавниться NPC. Указывать надо сначала с `modID`, пример: `minecraft:overworld`. 
@@ -33,11 +33,11 @@ val <npcID> by NPCEntity.creating {
 - Необязательные значения:
 > - `attributes`. 
 > - `Pair(),` 
-> - `showName`.
+> - `showNick`.
 :::
 
 :::tip Ура! Меньше писать!!
-Заместо Pair, можно использовать инфикс `to`, например: Attributes(<значение1> to <значение2>)
+Заместо `Pair()`, можно использовать инфикс `to`, например: `Attributes(<float1> to <float2>)`
 :::
 ---
 
