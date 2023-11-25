@@ -16,21 +16,21 @@ val <npcID> by NPCEntity.creating{
 ```
 
 - Designations:
-> - `npcID` - Your NPC's ID. Through it, you address a specific NPC.
-> - `displayName` - A name, shown above NPC's head. Just like a player's nickname.
-> - `path/to/model` - Insert the path to the model.
-> - `attributes` - Attributes for the NPC, for example: Health, speed and so on.
-> - `Pair(<float1>, <float2>)` - NPC's hitbox.
+> - `npcID` - Unique ID for your NPC. You use this ID to refer to a specific NPC.
+> - displayName` - The name displayed above the NPC's head, similar to a player's nickname.
+> - `path/to/model` - Specify the path to the model.
+> - `attributes` - NPC attributes, such as health, speed, etc.
+> - `Pair(<float1>, <float2>)` - NPC hitbox size.
 >   - `float1` - Width.
 >   - `float2` - Height.
-> - `<boolean>` - Show `displayName` above the NPC's head.
->   - `false` - don't show,
->   - `true` - show.
-> - `dimension` - The dimension, in which the NPC will spawn. You need to start with `modID`, for example: `minecraft:overworld`.
-> - `pos(x, y, z)` - NPC's spawn position.
-> - `vec(pitch, yaw)` - NPC's spawn angle.
+> - `<boolean>` - Display of `displayName` above the NPC's head.
+>   - `false` - Do not display.
+>   - `true` - Display.
+> - `dimension` - `dimension` - Dimension in which the NPC will spawn. Specify it with the `modID` first, for example: `minecraft:overworld`.
+> - `pos(x, y, z)` - NPC spawn position.
+> - `vec(pitch, yaw)` - Rotation angles when the NPC spawns.
 
-- Unnessecary variables:
+- Optional Values:
 > - `attributes`. 
 > - `Pair(),` 
 > - `showName`.
