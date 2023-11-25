@@ -2,6 +2,7 @@
 sidebar_position: 0
 ---
 
+
 # Creation and NPC's Spawn
 
 ## Template
@@ -11,6 +12,9 @@ sidebar_position: 0
 ```jsx
 val <npcID> by NPCEntity.creating{
     settings = NPCSettings("<displayName>", "hollowengine:<path/to/model>.gltf",   Attributes(<attributes>), Pair(<float1>, <float2>), <boolean>)
+=======
+val <npcID> by NPCEntity.creating {
+    settings = NPCSettings(<nick>, <model>, <attributes>, <hitboxSize>, <showNick>)
     location = SpawnLocation("<dimension>", pos(<x>, <y>, <z>), vec(<pitch>, <yaw>))
 }
 ```
@@ -34,7 +38,7 @@ val <npcID> by NPCEntity.creating{
 > - `attributes`. 
 > - `Pair(),` 
 > - `showName`.
-:::
+
 
 :::tip Hooray! Less writing!!
 Instead of `Pair`, you can use the infix `to` operator, for example: `Attributes(<value1> to <value2>)`.
