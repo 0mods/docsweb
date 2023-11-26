@@ -5,13 +5,19 @@ sidebar_position: 0
 # Mod Dependencies
 
 :::caution The mod `Hollow Engine` requires the following mods to function:
-> ```txt
-> - Hollow Core | Not the `original`/`lite`/'no-compiler' version
-> - Kotlin for Forge
-> * FTB Teams
-> |- FTB Library
-> \- Architectury
-> ```
+```memraid 
+   graph TD;
+   HollowEngine --> HollowCore;
+   HollowEngine --> FTBTeams;
+   FTBTeams --> FTBLibrary;
+   FTBTeams --> Architectury;
+   FTBLibrary --> Architectury;
+   HollowEngine --> KotlinForForge;
+   HollowCore --> KotlinForForge;
+```
+ℹ️ FTBTeams is Optional library! Install, if you want to make a story ℹ️
+
+⚠️ HollowCore needs classic version, without marker(i.e **no-compiler**, **lite**, **original**) ⚠️
 :::
 
 ---
