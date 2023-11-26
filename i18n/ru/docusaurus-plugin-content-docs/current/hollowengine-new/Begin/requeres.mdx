@@ -7,13 +7,12 @@ sidebar_position: 0
 :::caution Для работы мода `Hollow Engine` требуются такие моды, как:
 ```mermaid 
 graph TD;
-   HollowEngine-->HollowCore;
-   HollowEngine-->FTBTeams;
-   HollowEngine-->Photon;
-   Photon-->FTBTeams;
-   FTBTeams-->FTBLibrary;
-   FTBLibrary-->Architectury;
-   HollowCore-->KotlinForForge;
+   HollowEngine-->[Необходимо] HollowCore;
+   HollowEngine-->[По желанию] FTBTeams;
+   HollowEngine-->[По желанию, если FTBTeams установлен] Photon;
+   FTBTeams-->[Необходимо] FTBLibrary;
+   FTBLibrary-->[Необходимо] Architectury;
+   HollowCore-->[Необходимо] KotlinForForge;
 ```
 ℹ️ FTBTeams - не обязательная библиотека! Устанавливайте, если хотите писать сюжет ℹ️
 
