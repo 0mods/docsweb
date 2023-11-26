@@ -5,13 +5,20 @@ sidebar_position: 0
 # Зависимости мода
 
 :::caution Для работы мода `Hollow Engine` требуются такие моды, как:
-> ```txt
-> - Hollow Core | Не `original`/`lite`/'no-compiler' версия
-> - Kotlin for Forge
-> * FTB Teams
-> |- FTB Library
-> \- Architectury
-> ```
+```memraid 
+   graph TD;
+   HollowEngine --> HollowCore;
+   HollowEngine --> FTBTeams;
+   FTBTeams --> FTBLibrary;
+   FTBTeams --> Architectury;
+   FTBLibrary --> Architectury;
+   HollowEngine --> KotlinForForge;
+   HollowCore --> KotlinForForge;
+```
+ℹ️ FTBTeams - не обязательная библиотека! Устанавливайте, если хотите писать сюжет ℹ️
+
+⚠️ Нужно устанавливать классическую версию HollowCore, без пометки(т.е. не **no-compiler**, **lite**, **original**) ⚠️
+:::
 :::
 
 ---
