@@ -9,12 +9,12 @@ What I need?
 :::caution The mod `Hollow Engine` requires the following mods to function:
 ```mermaid 
 graph TD;
-   HollowEngine-->[Required] HollowCore;
-   HollowEngine-->[Optional] FTBTeams;
-   HollowEngine-->[Optional, if FTBTeams installed] Photon;
-   FTBTeams-->[Required] FTBLibrary;
-   FTBLibrary-->[Required] Architectury;
-   HollowCore-->[Required] KotlinForForge;
+   A[HollowEngine]-->|Required| B[HollowCore];
+   A-->|Optional| C[FTBTeams];
+   A-->|Optional, if FTBTeams installed| D[Photon];
+   C-->|Required| E[FTBLibrary];
+   E-->|Required| F[Architectury];
+   B-->|Required| G[KotlinForForge];
 ```
 ℹ️ FTBTeams is optional library! Install, if you want to make a story ℹ️
 
