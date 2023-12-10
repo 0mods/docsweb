@@ -62,7 +62,7 @@ val npc by NPCEntity.creating{
 :::info Основым нужно, чтобы ты указал путь к модели.
 ```jsx
 val npc by NPCEntity.creating{
-    settings("Виталик 2", "models:template/temp2.gltf", Attributes(), Pair(1f, 1f), true)
+    settings = NPCSettings("Виталик 2", "models:template/temp2.gltf", Attributes(), Pair(1f, 1f), true)
     location = SpawnLocation("minecraft:overworld", pos(0, -58, 0))
 }
 ```
