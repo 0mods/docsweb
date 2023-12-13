@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Continuation of the script
 
-## По таймеру
+## With a Timer
 
 :::info You can add a pause after each action before moving on to the next one.
 ```jsx
@@ -29,5 +29,15 @@ keybind { Keybind.<key> }
 ```
 > `key` - Buttons on the keyboard. [To learn more...](https://github.com/HollowHorizon/HollowEngine/blob/1.19.2/src/main/java/ru/hollowhorizon/hollowengine/common/util/Keybind.kt)
 :::
+# By going to specified coordinates
 
+:::info Script will wait, until the player will be in the specified coordinates.
+```jsx
+team waitPos {
+    pos = pos(1, 2, 3) //coordinates
+    radius = 25.0 //radius to the point
+    inverse = true // if it's true, then you need to step away from the point by a distance for the code to continue
+}
+```
+:::
 ---
