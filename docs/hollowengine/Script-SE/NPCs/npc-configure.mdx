@@ -1,0 +1,47 @@
+---
+sidebar_position: 3
+---
+
+# NPC's configuration
+
+:::info Everything listed, is written...
+```kts
+<npcID>.configure {
+    // here!
+}
+```
+:::
+
+## Setting the texture / skin
+
+:::note Set a new texture
+```kts
+    textures["<texture>"] = "<path/to/new_texture>" // Replacing the current texture to the new texture
+```
+> Designations:
+> - `texture` - Name of the texture, what's on the model.
+> - `<path/to/new_texture>` - Path to the new texture. Needs to start with `<modID>:`.
+>  - `modID` - `ID` of the mod.
+:::
+
+---
+
+:::note Set a new skin
+```kts
+    textures["<texture>"] - skin("<nickname>") // Only works with the OFFICIAL Mojang skins. Write the name correctly, if not -> crash
+```
+
+---
+
+## Setting standard animations
+
+:::note Replace the standard animation
+```kts
+    animations[AnimationType.<type>] = "<new_animationName>" // The replacement of the current animation to the new animation
+```
+> Designations:
+> - `type` - [Animation Type](../../Tools/standartAnimationType)
+> - `new_animationName` - Animation's name
+:::
+
+---

@@ -3,28 +3,84 @@
     "message": "Далее",
     "description": "The label for version current"
   },
-  "sidebar.tutorialSidebar.category.HollowEngine": {
-    "message": "HollowEngine",
-    "description": "The label for category HollowEngine in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.HollowEngine Guide": {
+    "message": "Гайд по HollowEngine",
+    "description": "The label for category HollowEngine Guide in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.HollowEngine.link.generated-index.description": {
-    "message": "Документация по HollowEngine",
-    "description": "The generated-index page description for category HollowEngine in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.HollowEngine Guide.link.generated-index.description": {
+    "message": "Гайд по моду HollowEngine. Автор - _BENDY659_",
+    "description": "The generated-index page description for category HollowEngine Guide in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Legacy Version": {
-    "message": "Legacy Версия",
-    "description": "The label for category Legacy Version in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Getting Started": {
+    "message": "Начало",
+    "description": "The label for category Getting Started in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Legacy Version.link.generated-index.description": {
-    "message": "Документация для HE Legacy",
-    "description": "The generated-index page description for category Legacy Version in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Getting Started.link.generated-index.description": {
+    "message": "Для начала тебе нужно узнать: Что да как работает тут",
+    "description": "The generated-index page description for category Getting Started in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Original Version": {
-    "message": "Оригинальная версия",
-    "description": "The label for category Original Version in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Script - SE": {
+    "message": "Скрипт - SE",
+    "description": "The label for category Script - SE in sidebar tutorialSidebar"
   },
-  "sidebar.tutorialSidebar.category.Original Version.link.generated-index.description": {
-    "message": "Документация для HE Original",
-    "description": "The generated-index page description for category Original Version in sidebar tutorialSidebar"
+  "sidebar.tutorialSidebar.category.Script - SE.link.generated-index.description": {
+    "message": "`.se.kts` - Этот тип скрипта включается в себя весь сюжет.",
+    "description": "The generated-index page description for category Script - SE in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Working with NPCs": {
+    "message": "Работаем с НИПами",
+    "description": "The label for category Working with NPCs in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Working with NPCs.link.generated-index.description": {
+    "message": "Здесь расписаны о том, - Как работать с НИПами",
+    "description": "The generated-index page description for category Working with NPCs in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Dialogues": {
+    "message": "Диалоги",
+    "description": "The label for category Dialogues in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Dialogues.link.generated-index.description": {
+    "message": "Здесь расписаны всё о диалогах для ваших сюжетов.",
+    "description": "The generated-index page description for category Dialogues in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Cutscenes": {
+    "message": "Катсцены",
+    "description": "The label for category Cutscenes in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Cutscenes.link.generated-index.description": {
+    "message": "Здесь расписано всё о катсценах для ваших сюжетов.",
+    "description": "The generated-index page description for category Cutscenes in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Instruments [Additionally]": {
+    "message": "Инструменты [Дополнительно]",
+    "description": "The label for category Instruments [Additionally] in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Instruments [Additionally].link.generated-index.description": {
+    "message": "Здесь расписаны вещи, которые не попали под остальные категории, но могут пригодиться вам",
+    "description": "The generated-index page description for category Instruments [Additionally] in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Script - MOD": {
+    "message": "Скрипт - MOD",
+    "description": "The label for category Script - MOD in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Script - MOD.link.generated-index.description": {
+    "message": "`.mod.kts` - Этот тип скрипта поможет создавать полноценные моды для ваших сюжетов.",
+    "description": "The generated-index page description for category Script - MOD in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Script - CONTENT": {
+    "message": "Скрипт - CONTENT",
+    "description": "The label for category Script - CONTENT in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Script - CONTENT.link.generated-index.description": {
+    "message": "`.content.kts` - Этот тип скрипта поможет работать к примеру с крафтами предметов.",
+    "description": "The generated-index page description for category Script - CONTENT in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Miscellaneous": {
+    "message": "Прочее",
+    "description": "The label for category Miscellaneous in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Miscellaneous.link.generated-index.description": {
+    "message": "Всё что не подошло к остальным категориям...",
+    "description": "The generated-index page description for category Miscellaneous in sidebar tutorialSidebar"
   }
 }

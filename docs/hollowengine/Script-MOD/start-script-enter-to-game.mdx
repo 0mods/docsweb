@@ -1,0 +1,38 @@
+---
+sidebar_position: 2
+---
+
+# Automatic Script Launch.
+
+:::caution Reminder:
+> Scripts of this category `Script - MOD` - are written in `.mod.kts`!
+:::
+
+---
+
+:::note You can specify which script to load, when the player joins the world
+> It will work only on the first entry into the world.
+
+```kts
+import dev.ftb.mods.ftbteams.FTBTeamsAPI
+import net.minecraft.server.level.ServerPlayer
+import net.minecraft.stats.Stats
+import net.minecraftforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent
+import ru.hollowhorizon.hollowengine.common.files.DirectoryManager.fromReadablePath
+import ru.hollowhorizon.hollowengine.common.scripting.story.runScript
+// All the above are necessary imports.
+
+fun onPlayerJoin(event: PlayerLoggedInEvent) { // Function - When a player connects to the world
+    val player = event.entity as ServerPlayer // Create a Player variable
+    if(player.stats.getValue(Stats.CUSTOM.get(Stats.PLAY_TIME)) == 0) {
+        runScript(player.server, FTBTeamsAPI.getPlayerTeam(player), "path/to/script".fromReadablePath()) // Run the specified script
+    }
+}
+
+FORGE_BUS.register(::onPlayerJoin)
+```
+> Designations:
+> `path/to/script` - Specify the path to the script.
+:::
+
+---
