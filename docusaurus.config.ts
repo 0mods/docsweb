@@ -49,7 +49,7 @@ const config: Config = {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/0mods/docsweb/tree/main/',
+            'https://github.com/0mods/docsweb/edit/main/',
         },
         blog: {
           showReadingTime: true,
@@ -66,6 +66,7 @@ const config: Config = {
       appId: 'J4EPI2AB9Q',
       apiKey: 'eeaf4148668553faa14ef6c18735ac32',
       indexName: 'zero-docs',
+      contextualSearch: true,
     },
     liveCodeBlock: {
       playgroundPosition: 'bottom',
