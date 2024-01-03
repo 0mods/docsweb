@@ -64,8 +64,8 @@ const config: Config = {
   themeConfig: {
     algolia: {
       appId: 'J4EPI2AB9Q',
-      apiKey: 'eeaf4148668553faa14ef6c18735ac32',
-      indexName: 'zero-docs',
+      apiKey: '799b95d8982e03183311bf7da6f9a8bc',
+      indexName: 'docsweb',
       contextualSearch: true,
     },
     liveCodeBlock: {

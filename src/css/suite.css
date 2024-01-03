@@ -18,23 +18,35 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 51, 102, 0.1);
 }
-
+/*:root[data-theme='light'] {
+  --docsearch-searchbox-background: #4f93be;
+  --docsearch-searchbox-focus-background: #40a8ea;
+  --docsearch-text-color: #40a8ea;
+  --docsearch-muted-color: #40a8ea;
+}*/
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #19826b;
+  --ifm-color-primary-dark: #1d9b7f;
+  --ifm-color-primary-darker: #1b8b73;
+  --ifm-color-primary-darkest: #166b59;
+  --ifm-color-primary-light: #20a487;
+  --ifm-color-primary-lighter: #2bb799;
+  --ifm-color-primary-lightest: #399b86;
   --docusaurus-highlighted-code-line-bg: rgba(0, 51, 102, 0.3);
+  background-color: hsla( 225deg ,15%,14%,1);
+
 }
 
 [data-theme='dark'] .navbar {
-  background-color: rgba(16, 44, 84, 0.8);
+  background-color: #4051b5;
 }
 
-/*[data-theme='dark'] .card {*/
-/*  background-color: rgba(16, 44, 84, 0.8);*/
-/*}*/
+[data-theme='light'] .navbar {
+  --docsearch-primary-color: rgb(50, 109, 151);
+  background-color: #526cfe;
+}
+
+[data-theme='dark'] .card {
+  background-color: #2b323f;
+}
