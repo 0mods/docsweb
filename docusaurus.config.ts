@@ -63,8 +63,8 @@ const config: Config = {
 
   themeConfig: {
     algolia: {
-      appId: 'J4EPI2AB9Q',
-      apiKey: '799b95d8982e03183311bf7da6f9a8bc',
+      appId: 'R2IYF7ETH7',
+      apiKey: '599cec31baffa4868cae4e79f180729b',
       indexName: 'docsweb',
       contextualSearch: true,
     },
