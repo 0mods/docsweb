@@ -9,7 +9,7 @@ sidebar_position: 1
 ### Positon
 
 :::info NPC будет двигаться до этих координат | Шаблон
-```kts
+```jsx
 <npcID> moveToPos { pos(x, y, z) }
 ```
 :::
@@ -17,7 +17,7 @@ sidebar_position: 1
 ### Team
 
 :::info NPC будет двигать до ближайшего игрока в команде | Шаблон
-```kts
+```jsx
 <npcID> moveToTeam { team }
 ```
 :::
@@ -26,14 +26,14 @@ sidebar_position: 1
 ### Any NPC
 
 :::info NPC будет двигать до другого NPC | Шаблон
-```kts
+```jsx
 <npcID> movdToEntity { <any_npcID> }
 ```
 
 ### Entity или NPC
 
 :::info NPC будет двигать до другого NPC | Шаблон
-```kts
+```jsx
 <npcID> movdToEntity { <entity> }
 ```
 > Поняние:
@@ -50,7 +50,7 @@ sidebar_position: 1
 ### Pos
 
 :::info NPC посмотрит на указанные координаты | Шаблон
-```kts
+```jsx
 <npcID> lookAtPos { pos(x, y, z) }
 ```
 :::
@@ -58,7 +58,7 @@ sidebar_position: 1
 ### Team
 
 :::info NPC посмотрит на ближайшего игрока в команде | Шаблон
-```kts
+```jsx
 <npcID> lookAtTeam { team }
 ```
 :::
@@ -67,14 +67,14 @@ sidebar_position: 1
 ### Any NPC
 
 :::info NPC посмотрит на другого NPC | Шаблон
-```kts
+```jsx
 <npcID> lookAtEntity { <any_npcID> }
 ```
 
 ### Entity или NPC
 
 :::info NPC посмотрит на другого NPC | Шаблон
-```kts
+```jsx
 <npcID> lookAtEntity { <entity> }
 ```
 > Поняние:
@@ -86,10 +86,10 @@ sidebar_position: 1
 
 ---
 
-# Сказать от лица NPC
+## Сказать от лица NPC
 
 :::info NPC скажет эти слова | Щалон
-```kts
+```jsx
 <npcID> say { "<text>" }
 ```
 :::
@@ -103,7 +103,7 @@ sidebar_position: 1
 ### Выкинуть предмет(бросить)
 
 :::info Укажи NPC, какой предмет нужно выкинуть(бросить)
-```kts
+```jsx
 <npcID> dropItem { item("<itemID>") } // На данный момент работает криво, кидает только на Юг. Ждём патча.
 ```
 Предмет можно указать лёгким способом. Просто возьмите в основную руку нужный предмет и после пропишите команду `/hollowengine hand`, у вас скопируется данные о предмете вместе с `item`. Вам прсото нужно будет вставить это и всё.
@@ -115,23 +115,10 @@ sidebar_position: 1
 `item("<itemID>")` можно получить через: `/hollowengine hand`; Простосто возьмите в руку нужный предмет и пропишите эту команд, после она скопируется и вы можете вставить её туда, где нужно.
 :::
 
-#### Способ №1
-
-
-
-:::info Просто выкинуть ему предмет. Он подберёт его и возьмёт в правую руку.
-```kts
-// Ничего не требуется.
-```
-:::
-
-![NPC взял предмет в руку-1](../../.resourses/npc-give-item1.gif)
-
-
 #### Способ №2
 
 :::info Выдать ему определённый предмет в определённую руку через скрипт
-```kts
+```jsx
 <npcID> giveLeftHand { item("<itemID>") } // Выдать предмет в левую руку
 // or
 <npcID> giveRightHand { item("<itemID>") } // Выдать предмет в правую руку
@@ -148,10 +135,30 @@ sidebar_position: 1
 ### Использовать блок
 
 :::info НПС сможет взаимодействовать с миром
-```kts
+```jsx
 <npcID>.useBlock { pos(x, y, z) } // Взаимодействовать с блоком, который находится на координатах x, y, z
 ```
 > `pos(x, y, z)` - Позиция блока, с которым нужно взаимодействовать. Принимает целые числа int.
+:::
+
+## Атаковать цель
+
+:::note Атаковать сущность
+```jsx
+<npcID>.setTargetEntity{<entity>}
+```
+:::
+
+:::note Атаковать другого НПС
+```jsx
+<npcID>.setTargetEntity <any_npcID>
+```
+:::
+
+:::note Атаковать игрока
+```jsx
+<npcID>.setTargetTeam{team}
+```
 :::
 
 ---

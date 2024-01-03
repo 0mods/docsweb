@@ -6,81 +6,60 @@ sidebar_position: 0
 
 ## Шаблон
 
-:::info Это шаблон
+:::info Шаблон для спавна NPC
+Этот шаблон вкл в себя все параметры, которые поддерживаются при создании НПС:
 
-```kts
+```jsx
 val <npcID> by NPCEntity.creating{
-    settings = NPCSettings("<nick>", "<model>", <attributes>, <hitboxSize>, <showNick>)
-    location = SpawnLocation("<dimension>", pos(<x>, <y>, <z>), vec(<pitch>, <yaw>))
+ 	name = "<text>" // Ник НПС
+    model = "<path/to/model>" // Путь до модели. В начале пишется modID, а после уже сам путь
+    textures["<texture>"] = "<path/to/new_texture>" // Устанавливает текстуру для НПС
+    attributes = Attributes("<attribute>" to <float>) // Атрибуты. Их можно получить через команду `/attribute <player>`
+    size = <width> to <height> // Размер хитбокса
+    showName = <false/true> // Отображение Ника НПС над его головой
+    transform = Transform{} // Изменить Отображение модели по: Смещение, поворот, размер
+    animation[AnimationType.<defaultAnimationID>] = "<newAnimationName>" // Замена дефолтной анимации на свою(кастомную, другую)
+    world = "<dimensionID>" // Измерение спанва
+    pos = pos(<x>, <y>, <z>) // Пизиция спавна. Либо все значения это int, либо все значения это double
+    rotation = vec(<pitch>, <yaw>) // Поворот головы
 }
 ```
-
-- Обозначения:
-> - `npcID` - Уникальный ID для вашего NPC. Через него вы, обращаетесь к конкретному NPC. 
-> - `nick` - Имя, отображаемое над головой NPC. Как ник у игрока. 
-> - `model` - Укажите путь до модели. 
-> - `attributes` - Аттрибуты для NPC, по типу: здоровье, скорость и т.д. 
-> - `hitboxSize` - Размер хитбокса NPC. Указывается как `Pair(<float1>, <float2>)`
->   - `float1` - Ширина. 
->   - `float2` - Высота. 
-> - `showNick` - Отображение `displayName` над головой NPC. 
->   - `false` - не отображать, 
->   - `true` - отображать. 
-> - `dimension` - Измерение, в котором будет спавниться NPC. Указывать надо сначала с `modID`, пример: `minecraft:overworld`. 
-> - `pos(<x>, <y>, <z>)` - Позиция спавна NPC. Работает с нецелыми значениями - Double.  
-> - `vec(<pitch>, <yaw>)` - Углы поворота при спавне NPC. 
-
-- Необязательные значения:
-> - `attributes`. 
-> - `Pair(),` 
-> - `showName`.
-:::
-
-:::info Ура!!! Меньше писанины
-> Можно не указывать `Pair(<float1>, <float2>)`, а заменить его на `<незнаю, про эту часть писал не я>`.
 :::
 
 ---
 
 ## Базовый NPC
 
-:::info Для спавна базового NPC, оставь поле `NPCSettings()` - пустым.
+:::info Для спавна базового NPC, укажите максимум только кноординаты спавна
 Вот пример, как должен выгдядеть скрипт спавна "Базового NPC":
-```kts
+
+```jsx
 val npc by NPCEntity.creating{
-    settings = NPCSettings() // Вроде, можно даже не указывать это вообще
-    location = SpawnLocation("minecraft:overworld", pos(0, -58, 0))
+    world = "minecraft:overworld" // Тобиж
+    pos = pos(0, -57, 0) // Если будет pos(<int>, <double>, <int>) - работать не будет
 }
 ```
-![Спавн базового NPC](../../.resourses/spawn-basic-npc.gif)
+
+![Спавн базового NPC](https://raw.githubusercontent.com/HollowHorizon/HollowEngineDocs/main/docs/hollowengine-guide/.resourses/spawn-basic-npc.gif)
+
 :::
 
 ---
 
 ## Кастомный NPC
 
-:::info Основым нужно, чтобы ты указал путь к модели.
-```kts
+:::info Основым нужно, чтобы ты, как минимум, указан имя НПС, путь к модели и при необходимости путь к текстуре для модели
+
+```jsx
 val npc by NPCEntity.creating{
-    settings = NPCSettings("Виталик 2", "models:template/temp2.gltf", Attributes(), Pair(1f, 1f), true)
-    location = SpawnLocation("minecraft:overworld", pos(0, -58, 0))
+    name = "Вася"
+    model = "hollowengine:template/better_temp.gltf"
+    textures["better_texture"] = "textures:character/human_1.png"
 }
 ```
-![Спавн кастомного NPC](../../.resourses/spawn-custom-npc.gif)
-:::
 
----
+![Спавн кастомного NPC](https://raw.githubusercontent.com/HollowHorizon/HollowEngineDocs/main/docs/hollowengine-guide/.resourses/spawn-custom-npc.gif)
 
-### Аттрибуты
-
-:::info Все существующие аттрибуты, вы можете узнать через команду `/attribute`
-От вас лишь требуется указать, там где `attributes`, это:
-```kts
-Attributes("<attributeName>" to <float>)
-```
-> Обозначения:
-> - `attributeName` - название аттрибута.
-> - `float` - Число/Цифра, где в конце стоит `f`, пример: `10f`
 :::
 
 ---
