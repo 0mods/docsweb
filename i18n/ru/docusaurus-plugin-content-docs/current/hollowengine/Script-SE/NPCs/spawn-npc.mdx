@@ -2,7 +2,7 @@
 sidebar_position: 0
 ---
 
-# Спавн NPC
+# Спавним НИПа
 
 ## Шаблон
 
@@ -30,17 +30,16 @@ val <npcID> by NPCEntity.creating{
 
 ## Базовый NPC
 
-:::info Для спавна базового NPC, укажите максимум только кноординаты спавна
-Вот пример, как должен выгдядеть скрипт спавна "Базового NPC":
+:::info Для спавна базового NPC, просто пропустите параметр `model = "<path/to/model>"`:
 
 ```jsx
 val npc by NPCEntity.creating{
-    world = "minecraft:overworld" // Тобиж
+    world = "minecraft:overworld" // Измерение "Верхни мир"
     pos = pos(0, -57, 0) // Если будет pos(<int>, <double>, <int>) - работать не будет
 }
 ```
 
-![Спавн базового NPC](https://raw.githubusercontent.com/HollowHorizon/HollowEngineDocs/main/docs/hollowengine-guide/.resourses/spawn-basic-npc.gif)
+![Спавн базового NPC](../../.resourses/spawn-basic-npc.gif)
 
 :::
 
@@ -52,14 +51,35 @@ val npc by NPCEntity.creating{
 
 ```jsx
 val npc by NPCEntity.creating{
-    name = "Вася"
-    model = "hollowengine:template/better_temp.gltf"
-    textures["better_texture"] = "textures:character/human_1.png"
+	name = "Жора"
+	model = "models:freddy/glam_fred.gltf"
+	world = "minecraft:overworld"
+	pos = pos(0.5, -58.0, 0.5)
+	showName = false
 }
 ```
 
-![Спавн кастомного NPC](https://raw.githubusercontent.com/HollowHorizon/HollowEngineDocs/main/docs/hollowengine-guide/.resourses/spawn-custom-npc.gif)
+![Спавн кастомного NPC](../../.resourses/spawn-custom-npc.gif)
 
 :::
 
 ---
+
+Полный используемый скрипт:
+```jsx
+// Базовый НИП
+val basic by NPCEntity.creating{ // Создаём нового НИПа
+	name = "Женя" // С именем Женя
+	world = "minecraft:overworld" // В измерении Верхний мир
+	pos = pos(0.5, -58.0, 0.5) // В позиции x=0.5, y=-58.0, z=0.5
+}
+
+// Кастомный НИП
+val custom by NPCEntity.creating{ // Создаём нового НИПа
+	name = "Женя" // С именем Женя
+	model = "models:amogus_model.gltf" // С моделью, которая находится в пути `hollowengine/assets/models/amogus_model.gltf`
+	showName = false // Отображать ник - нет
+	world = "minecraft:overworld" // В измерении Верхний мир
+	pos = pos(1.5, -58.0, 1.5) // В позиции x=1.5, y=-58.0, z=1.5
+}
+```
