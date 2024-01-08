@@ -65,4 +65,34 @@ choice {
 :::
 
 ---
+
 `![](../../.resourses/dialogue.)`
+
+---
+
+Пример скрипта:
+```jsx
+dialogue{
+    npc say{"Привет пупсик!"}
+    
+    choice {
+        "Привет пупсик" {
+            npc.play{
+                animation = "dance"
+                layerMode = LayerMode.OVERWRITE
+                playType = PlayType.LOOPED
+            }
+            npc say{"Ей, ДЕНС"}
+            
+            team.sendAsPlayer{"ДААА!!!"}
+        }
+        
+        "Фу, уже неактуал" {
+            npc say{"Фу, новомодный"}
+            wait{5}
+            
+            npc say{"Уйди от меня"}
+        }
+    }
+}
+```

@@ -56,3 +56,17 @@ sidebar_position: 2
 :::
 
 ---
+
+Примеры:
+```jsx
+npc playOnce{"hello"}
+npc stop{"hello"}
+npc playLooped{"dance5"}
+npc stop{"dance5"}
+
+npc.play{
+    animation = "sleeping"
+    layerMode = LayerMode.OVERWRITE
+    °playType = PlayMode.LAST_FRAME
+}
+```

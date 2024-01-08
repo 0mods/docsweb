@@ -87,3 +87,18 @@ sidebar_position: 3
 :::
 
 ---
+
+Примеры скрипта:
+```jsx
+npc.vonfigure{
+    textures["based_texture"] = "textures:template/update_texture.png"
+    textures["basic_skin"] = skin("_BENDY659_")
+    animation[AnimationType.IDLE] = "betterIdle"
+    
+    transform = Transform(
+        px = 1f, pY = 2f, pZ = 1f,
+        rX = 10f, rY = 50f, rZ = -84f,
+        sX = 10f, sY = 5f, sZ = 6f
+    )
+}
+```
