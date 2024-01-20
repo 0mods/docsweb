@@ -7,7 +7,7 @@ sidebar_position: 3
 :::info Всё перечисленное здесь, пишется...
 ```jsx
 <npcID>.configure {
-    // т.е. здесь!
+  // т.е. здесь!
 }
 ```
 :::
@@ -16,7 +16,7 @@ sidebar_position: 3
 
 :::note Установить новую текстуру
 ```jsx
-    textures["<texture>"] = "<path/to/new_texture>" // Заменяем текущую текстуру на навую
+  textures["<texture>"] = "<path/to/new_texture>" // Заменяем текущую текстуру на навую
 ```
 > Обозначения:
 > - `texture` - Имя текстуры, которая сейчас на модели.
@@ -28,7 +28,7 @@ sidebar_position: 3
 
 :::note Установить новый скин
 ```jsx
-    textures["<texture>"] - skin("<nickname>") // Работает только с ОФИЦИАЛЬНЫМИ скинами Mojang. Вводите корректно имя, иначе -> краш
+  textures["<texture>"] - skin("<nickname>") // Работает только с ОФИЦИАЛЬНЫМИ скинами Mojang. Вводите корректно имя, иначе -> краш
 ```
 > Обозначения:
 > - `texture` - Имя текстуры, которая сейчас на модели.
@@ -41,7 +41,8 @@ sidebar_position: 3
 
 :::note Замени стандартную анимацию
 ```jsx
-    animation[AnimationType.<type>] = "<new_animationName>" // Замена стандартной анимации на новую
+  // Замена стандартной анимации на новую
+  animation[AnimationType.<type>] = "<new_animationName>"
 ```
 > Обозначения:
 > - `type` - [Тип анимации](../../Tools/standartAnimationType)
@@ -56,47 +57,57 @@ sidebar_position: 3
 
 :::note Все изменения происходят:
 ```jsx
-    transform = Transform(
-        // Тут!
-    )
+  transform = Transform(
+      // Тут!
+  )
 ```
 :::
 
 :::note Изменить положение
 ```jsx
-        pX = <float>, // Изменить положение по X
-        pY = <float>, // Изменить положение по Y
-        pZ = <float>  // Изменить положение по Z
+      tX = <float>, // Изменить положение по X
+      tY = <float>, // Изменить положение по Y
+      tZ = <float>  // Изменить положение по Z
 ```
 :::
 
 :::note Изменить поворот
 ```jsx
-        rX = <float>, // Изменить поворот по X
-        rY = <float>, // Изменить поворот по Y
-        rZ = <float>  // Изменить поворот по Z
+      rX = <float>, // Изменить поворот по X
+      rY = <float>, // Изменить поворот по Y
+      rZ = <float>  // Изменить поворот по Z
 ```
 :::
 
 :::note Изменить размер
 ```jsx
-        sX = <float>, // Изменить размер по X
-        sY = <float>, // Изменить размер по Y
-        sZ = <float>  // Изменить размер по Z
+      sX = <float>, // Изменить размер по X
+      sY = <float>, // Изменить размер по Y
+      sZ = <float>  // Изменить размер по Z
 ```
 :::
 
 ---
 
+## Изменить ось поворота головы
+
+:::note Если голова поворачивается не в ту сторону, куда направлен взгляд
+```jsx
+  // Если голова поворачивается не правильно
+  switchHeadRot = <false/true>
+```
+
+---
+
 Примеры скрипта:
 ```jsx
-npc.vonfigure{
+npc.configure{
     textures["based_texture"] = "textures:template/update_texture.png"
     textures["basic_skin"] = skin("_BENDY659_")
     animation[AnimationType.IDLE] = "betterIdle"
     
     transform = Transform(
-        px = 1f, pY = 2f, pZ = 1f,
+        tx = 1f, tY = 2f, tZ = 1f,
         rX = 10f, rY = 50f, rZ = -84f,
         sX = 10f, sY = 5f, sZ = 6f
     )

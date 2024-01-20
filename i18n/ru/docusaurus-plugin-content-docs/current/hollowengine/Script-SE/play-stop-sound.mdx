@@ -1,0 +1,34 @@
+---
+sidebar_position: 10
+---
+
+# Звуки
+
+:::note Звуки
+```jsx
+// Воспроизвести звук
+playSound{
+    sound = "<path/to/sound>" // Звук
+    volume = <float> // Громкость
+    pitch = <float> // Тональность
+}
+
+// Остановить звук
+stopSound{"<sound>"}
+```
+:::
+
+---
+
+Полный используемый скрипт:
+
+```jsx
+playSound{
+    sound = "hollowengine:random/kurica-sir-ananas"
+    volume = 0.16f
+    pitch = 1f
+}
+wait{5.sec}
+
+stopSound{"hollowengine:random/kurica-sir-ananas"}
+```

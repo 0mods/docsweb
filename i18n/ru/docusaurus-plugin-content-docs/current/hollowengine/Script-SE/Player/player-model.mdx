@@ -1,0 +1,46 @@
+---
+sidebar_position: 1
+---
+
+# Игрок
+
+## Создать переменную для игрока
+
+:::note ужно, чтобы можно было обращаться к игроку
+```jsx
+val <id> by team[{"<Nick>"}] // Через id мы будет обращаться к игроку "Nick"
+```
+:::
+
+## Модель игрока
+
+:::note Установить модель игрока
+```jsx
+player.configure{
+    model = "<path/to/model>"
+    
+    // Если голова поворачивается неправильно
+    switchHeadRot = <boolean>
+}
+```
+
+![новая модель игрока](../../.resourses/)
+
+:::
+
+---
+
+Полный используемый скрипт:
+
+```jsx
+val p by team[{"_BENDY659_"}]
+
+p.configure{
+  model = "hc:models/entity/hilda_regular.glb"
+  switchHeadRot = true
+
+  transform = Transform(
+    sX = 1.4f, sY = 1.4f, sZ = 1.4f, rY = 180f
+  )
+}
+```
