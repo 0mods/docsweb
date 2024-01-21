@@ -59,13 +59,13 @@ removeById("minecraft:*") // Я удалил рецепт *
 
 ### По Json файлу
 
-:::info \<invalid_name_addByJson\>
+:::info -
 
 ```jsx
 addFromJson(<newRecipeName>, <newRecipeData>) // Пока ничего неизвестно
 ```
 
-<invalid_description_addByJson.desc>
+-
 :::
 
 ---
