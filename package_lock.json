@@ -5016,7 +5016,7 @@
     "node_modules/clsx": {
       "version": "2.0.0",
       "resolved": "https://registry.npmjs.org/clsx/-/clsx-2.0.0.tgz",
-      "integrity": "sha512-PrYqtepbSWwrFmtHX0IHv3zUEbWn1psIqaIZyjB3b9wEGpRAkpyeKbCCCkCXJYiHZPjK7jckJvf2sEB/8VKPgQ==",
+      "integrity": "sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==",
       "engines": {
         "node": ">=6"
       }
