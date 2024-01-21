@@ -12,7 +12,7 @@ const config: Config = {
   projectName: 'docsweb',
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'ignore',
 
   plugins: ['@docusaurus/theme-mermaid', "@docusaurus/theme-live-codeblock"],
   markdown: {
