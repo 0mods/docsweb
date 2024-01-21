@@ -1,8 +1,0 @@
-{
-  "label": "Script - CONTENT",
-  "position": 3,
-  "link": {
-    "type": "generated-index",
-    "description": "`.content.kts` - Этот тип скрипта поможет работать к примеру с крафтами предметов."
-  }
-}
