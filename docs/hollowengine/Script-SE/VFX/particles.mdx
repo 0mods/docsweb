@@ -26,7 +26,7 @@ particle{
     gravity = <float> // Гравитация
     noClip = <boolean> // Колизия
     spritePicker = SpritePicker.<Type> // Режим смены спрайтов
-    lifetime = <Int, tick> // Время жизни частицы
+    lifetime = <Int> // Время жизни частицы, в тиках
     
     spawn() // Спавн частиц
   }
@@ -78,7 +78,7 @@ particle = "<type>" // Тип партика.
     randomMotion(speed: Double)
 ```
 ---
-### Рандомное смещение (Появление частиц в случ радиусе от центра спавна частиц)
+### Рандомное смещение (Появление частиц в случае радиусе от центра спавна частиц)
 ```jsx
     // По осям X, Y, Z (детальная)
     randomOffset(X: Double, Y: Double, Z: Double)
@@ -86,7 +86,7 @@ particle = "<type>" // Тип партика.
     // или
     
     // По Горизонтали и Вертикали
-    randomOfset(speedHorizontal: Float, speedVertical: Float)
+    randomOfset(speedHorizontal: Double, speedVertical: Double)
     
     // или
     
@@ -166,7 +166,7 @@ particle = "<type>" // Тип партика.
     gravity = <float>
 ```
 ---
-### Колизия
+### Коллизия
 ```jsx
     // Просчитывание сталкивания с блоками
     noClip = <boolean>
@@ -175,11 +175,11 @@ particle = "<type>" // Тип партика.
 ### Режим смены кадров(спрайтов)
 ```jsx
     // В каком режиме будут меняться кадры
-    spritePicker = SpritePicker.<Type>
-    // - SpritePicker.FIRST_INDEX - Первый кадр
-    // - SpritePicker.LAST_INDEX - Последний кадр
-    // - SpritePicker.WHIT_AGE - Менять в зависимости от время жизни частицы
-    // - SpritePicker.RANDOM_SPRITE - Рандомный(Случайный) кадр
+    spritesPicker = SpritesPicker.<Type>
+    // - SpritesPicker.FIRST_INDEX - Первый кадр
+    // - SpritesPicker.LAST_INDEX - Последний кадр
+    // - SpritesPicker.WHIT_AGE - Менять в зависимости от время жизни частицы
+    // - SpritesPicker.RANDOM_SPRITE - Рандомный(Случайный) кадр
 ```
 ---
 ### Спавн партоклов
