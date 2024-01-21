@@ -1,8 +1,8 @@
 {
-  "label": "Instruments [Additionally]",
-  "position": 3,
+  "label": "Инструменты [Дополнительно]",
+  "position": 9,
   "link": {
     "type": "generated-index",
-    "description": "Here are listed things that didn't fall into the other categories but might be useful to you."
+    "description": "Здесь рассписаны вещи, которые не попали под остальные категории, но могут пригодиться вам"
   }
 }

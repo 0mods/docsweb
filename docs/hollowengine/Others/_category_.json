@@ -1,8 +1,8 @@
 {
-  "label": "Miscellaneous",
+  "label": "Прочее",
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Everything that doesn't fit into other categories..."
+    "description": "Всё что не подошло к остальным категориям..."
   }
 }

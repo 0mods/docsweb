@@ -2,88 +2,84 @@
 sidebar_position: 0
 ---
 
+# Спавним НИПа
 
-# Creation and NPC's Spawn
+## Шаблон
 
-## Template
+:::info Шаблон для спавна NPC
+Этот шаблон вкл в себя все параметры, которые поддерживаются при создании НПС:
 
-:::info This is a template
-
-```kts
+```jsx
 val <npcID> by NPCEntity.creating{
-    settings = NPCSettings("<displayName>", "hollowengine:<path/to/model>.gltf",   Attributes(<attributes>), Pair(<float1>, <float2>), <boolean>)
-=======
-val <npcID> by NPCEntity.creating {
-    settings = NPCSettings(<nick>, <model>, <attributes>, <hitboxSize>, <showNick>)
-    location = SpawnLocation("<dimension>", pos(<x>, <y>, <z>), vec(<pitch>, <yaw>))
+ 	name = "<text>" // Ник НПС
+    model = "<path/to/model>" // Путь до модели. В начале пишется modID, а после уже сам путь
+    textures["<texture>"] = "<path/to/new_texture>" // Устанавливает текстуру для НПС
+    attributes = Attributes("<attribute>" to <float>) // Атрибуты. Их можно получить через команду `/attribute <player>`
+    size = <width> to <height> // Размер хитбокса
+    showName = <false/true> // Отображение Ника НПС над его головой
+    transform = Transform{} // Изменить Отображение модели по: Смещение, поворот, размер
+    switchHeadRot = <false/true> // Если голова поворачивается неправильно
+    animation[AnimationType.<defaultAnimationID>] = "<newAnimationName>" // Замена дефолтной анимации на свою(кастомную, другую)
+    world = "<dimensionID>" // Измерение спанва
+    pos = pos(<x>, <y>, <z>) // Пизиция спавна. Либо все значения это int, либо все значения это double
+    rotation = vec(<pitch>, <yaw>) // Поворот головы
 }
 ```
-
-- Designations:
-> - `npcID` - Unique ID for your NPC. You use this ID to refer to a specific NPC.
-> - displayName` - The name displayed above the NPC's head, similar to a player's nickname.
-> - `path/to/model` - Specify the path to the model.
-> - `attributes` - NPC attributes, such as health, speed, etc.
-> - `Pair(<float1>, <float2>)` - NPC hitbox size.
->   - `float1` - Width.
->   - `float2` - Height.
-> - `<boolean>` - Display of `displayName` above the NPC's head.
->   - `false` - Do not display.
->   - `true` - Display.
-> - `dimension` - `dimension` - Dimension in which the NPC will spawn. Specify it with the `modID` first, for example: `minecraft:overworld`.
-> - `pos(x, y, z)` - NPC spawn position.
-> - `vec(pitch, yaw)` - Rotation angles when the NPC spawns.
-
-- Optional Values:
-> - `attributes`. 
-> - `Pair(),` 
-> - `showName`.
-
-
-:::tip Hooray! Less writing!!
-Instead of `Pair`, you can use the infix `to` operator, for example: `Attributes(<value1> to <value2>)`.
 :::
+
 ---
 
-## Basic NPC
+## Базовый NPC
 
-:::info To spawn a basic NPC, leave the field `NPCSettings()` - empty.
-Here is an example, how the "Basic NPC" spawn script should look like:
-```kts
+:::info Для спавна базового NPC, просто пропустите параметр `model = "<path/to/model>"`:
+```jsx
 val npc by NPCEntity.creating{
-    settings()
-    location = SpawnLocation("minecraft:overworld", pos(0, -58, 0))
+    world = "minecraft:overworld" // Измерение "Верхни мир"
+    pos = pos(0, -57, 0) // Если будет pos(<int>, <double>, <int>) - работать не будет
 }
 ```
-![Basic NPC's Spawn](../../.resourses/spawn-basic-npc.gif)
+
+![Спавн базового NPC](../../.resourses/spawn-basic-npc.gif)
+
 :::
 
 ---
 
-## Custom NPC
+## Кастомный NPC
 
-:::info It is essential, that you specify the path to the model.
-```kts
+:::info Основым нужно, чтобы ты, как минимум, указан имя НПС, путь к модели и при необходимости путь к текстуре для модели
+```jsx
 val npc by NPCEntity.creating{
-    settings("Vitalik", "hollowengine:models/entity/temp2.gltf")
-    location = SpawnLocation("minecraft:overworld", pos(0, -58, 0))
+	name = "Жора"
+	model = "models:freddy/glam_fred.gltf"
+	world = "minecraft:overworld"
+	pos = pos(0.5, -58.0, 0.5)
+	showName = false
 }
 ```
-![Custom NPC's Spawn](../../.resourses/spawn-custom-npc.gif)
+
+![Спавн кастомного NPC](../../.resourses/spawn-custom-npc.gif)
+
 :::
 
 ---
 
-### Attributes
+Полный используемый скрипт:
+```jsx
+// Базовый НИП
+val basic by NPCEntity.creating{ // Создаём нового НИПа
+	name = "Женя" // С именем Женя
+	world = "minecraft:overworld" // В измерении Верхний мир
+	pos = pos(0.5, -58.0, 0.5) // В позиции x=0.5, y=-58.0, z=0.5
+}
 
-:::info Every existing attributes, you can find using the command `/attribute`
-In your case, you only need to specify where `attributes`, is, which is:
-```kts
-Attributes("<attributeName>" to <float>)
+// Кастомный НИП
+val custom by NPCEntity.creating{ // Создаём нового НИПа
+	name = "Женя" // С именем Женя
+	model = "models:amogus_model.gltf" // С моделью, которая находится в пути `hollowengine/assets/models/amogus_model.gltf`
+	showName = false // Отображать ник - нет
+	world = "minecraft:overworld" // В измерении Верхний мир
+	pos = pos(1.5, -58.0, 1.5) // В позиции x=1.5, y=-58.0, z=1.5
+}
 ```
-> Designations:
-> - `attributeName` - name of the attribute.
-> - `float` - Number/Digit, where in the end there is `f`, example: `10f`
-:::
-
----
+ 

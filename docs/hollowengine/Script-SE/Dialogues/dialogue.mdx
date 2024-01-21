@@ -2,47 +2,99 @@
 sidebar_position: 0
 ---
 
-# Dialogues
+# Диалоги
 
-:::caution Before starting
-If you are using any NPC, the dialogue should come after you have created the necessary NPCs.
+:::caution Перед началом
+Если вы используете какого-то NPC, то диалог должен идти после того, как вы создали нужных NPC.
 :::
+## Начало диалога
 
-## Start of Dialogue
-
-:::info To start a dialogue, you need
-```kts
+:::info Чтобы начать диалог, нужно
+```jsx
 dialogue {
-    // Actions go here...
+    // Здесь действия...
 }
-
 ```
 :::
 
-### Actions
+### Действия
 
-:::info Currently, these actions are available:
-> - `<npcID> say "<text>"` - Words from the specified NPC.
-> - [NPC's Animations](../NPCs/actions-npc).
-> - `team.send { "<text>" }` - Words from the leader of the team.
+:::info Есть на данный момент эти действия
+> - `<npcID> say "<text>"` - Слова от лица указанного NPC.
+> - [Анимации NPC](../NPCs/actions-npc).
+> - `team.send { "<text>" }` - Слова от лица главоря команды.
 :::
 
 ---
 
-## Choices and Consequences
+## Выбор и последствия
 
-:::info Choices are created inside `dialogue { ... }`
-```kts
+:::info Выбор создаётся внутри `dialogue{...}`
+```jsx
 choice {
-    "Your choice 1" {
-        // Consequences...
+    "Ваш вариант 1" {
+        // Последствия...
     }
-    "Your choice 2" {
-        // Consequences...
+    "Ваш вариант 2" {
+        // Последствия...
     }
-    // And so on...
+    // И так далее...
 }
 ```
 :::
 
+---
+
+## Сказать от кого-то
+
+:::info Так же вы можете сказать от чьего-то лица
+
+```jsx
+    team.send {"<text>"} // Сказать от лица главоря команды
+```
+:::
+
+:::info Или вы может скать даже от несуществуего персонажа
+
+```jsx
+    send { // Указывайте вручную: NAME - Имя, TEXT - текст, который нужно показать
+	name = "<NAME>"
+	text = "<TEXT>"
+    }
+```
+:::
+
+---
+
 `![](../../.resourses/dialogue.)`
+
+---
+
+Пример скрипта:
+```jsx
+dialogue{
+    npc say{"Привет пупсик!"}
+    
+    choice {
+        "Привет пупсик" {
+            npc.play{
+                animation = "dance"
+                layerMode = LayerMode.OVERWRITE
+                playType = PlayType.LOOPED
+            }
+            npc say{"Ей, ДЕНС"}
+            
+            team.sendAsPlayer{"ДААА!!!"}
+        }
+        
+        "Фу, уже неактуал" {
+            npc say{"Фу, новомодный"}
+            wait{5}
+            
+            npc say{"Уйди от меня"}
+        }
+    }
+}
+```
+
+---

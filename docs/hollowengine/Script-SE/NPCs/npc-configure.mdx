@@ -2,46 +2,114 @@
 sidebar_position: 3
 ---
 
-# NPC's configuration
+# Конфиг НИПа
 
-:::info Everything listed, is written...
-```kts
+:::info Всё перечисленное здесь, пишется...
+```jsx
 <npcID>.configure {
-    // here!
+  // т.е. здесь!
 }
 ```
 :::
 
-## Setting the texture / skin
+## Установке текстуры / скина
 
-:::note Set a new texture
-```kts
-    textures["<texture>"] = "<path/to/new_texture>" // Replacing the current texture to the new texture
+:::note Установить новую текстуру
+```jsx
+  textures["<texture>"] = "<path/to/new_texture>" // Заменяем текущую текстуру на навую
 ```
-> Designations:
-> - `texture` - Name of the texture, what's on the model.
-> - `<path/to/new_texture>` - Path to the new texture. Needs to start with `<modID>:`.
->  - `modID` - `ID` of the mod.
+> Обозначения:
+> - `texture` - Имя текстуры, которая сейчас на модели.
+> - `<path/to/new_texture>` - Путь к новой текстуре. Начинаться должен с `<modID>:`.
+>  - `modID` - `ID` мода.
 :::
 
 ---
 
-:::note Set a new skin
-```kts
-    textures["<texture>"] - skin("<nickname>") // Only works with the OFFICIAL Mojang skins. Write the name correctly, if not -> crash
+:::note Установить новый скин
+```jsx
+  textures["<texture>"] - skin("<nickname>") // Работает только с ОФИЦИАЛЬНЫМИ скинами Mojang. Вводите корректно имя, иначе -> краш
 ```
-
----
-
-## Setting standard animations
-
-:::note Replace the standard animation
-```kts
-    animations[AnimationType.<type>] = "<new_animationName>" // The replacement of the current animation to the new animation
-```
-> Designations:
-> - `type` - [Animation Type](../../Tools/standartAnimationType)
-> - `new_animationName` - Animation's name
+> Обозначения:
+> - `texture` - Имя текстуры, которая сейчас на модели.
+> - `nickname` - Ник игрока, у которого есть лицензия.
 :::
 
 ---
+
+## Установка стандартных анимаций
+
+:::note Замени стандартную анимацию
+```jsx
+  // Замена стандартной анимации на новую
+  animation[AnimationType.<type>] = "<new_animationName>"
+```
+> Обозначения:
+> - `type` - [Тип анимации](../../Tools/standartAnimationType)
+> - `new_animationName` - Название анимации
+:::
+
+---
+
+## Установить трансформацию модели
+
+> Изменить положение, поворот, размер
+
+:::note Все изменения происходят:
+```jsx
+  transform = Transform(
+      // Тут!
+  )
+```
+:::
+
+:::note Изменить положение
+```jsx
+      tX = <float>, // Изменить положение по X
+      tY = <float>, // Изменить положение по Y
+      tZ = <float>  // Изменить положение по Z
+```
+:::
+
+:::note Изменить поворот
+```jsx
+      rX = <float>, // Изменить поворот по X
+      rY = <float>, // Изменить поворот по Y
+      rZ = <float>  // Изменить поворот по Z
+```
+:::
+
+:::note Изменить размер
+```jsx
+      sX = <float>, // Изменить размер по X
+      sY = <float>, // Изменить размер по Y
+      sZ = <float>  // Изменить размер по Z
+```
+:::
+
+---
+
+## Изменить ось поворота головы
+
+:::note Если голова поворачивается не в ту сторону, куда направлен взгляд
+```jsx
+  // Если голова поворачивается не правильно
+  switchHeadRot = <false/true>
+```
+
+---
+
+Примеры скрипта:
+```jsx
+npc.configure{
+    textures["based_texture"] = "textures:template/update_texture.png"
+    textures["basic_skin"] = skin("_BENDY659_")
+    animation[AnimationType.IDLE] = "betterIdle"
+    
+    transform = Transform(
+        tx = 1f, tY = 2f, tZ = 1f,
+        rX = 10f, rY = 50f, rZ = -84f,
+        sX = 10f, sY = 5f, sZ = 6f
+    )
+}
+```

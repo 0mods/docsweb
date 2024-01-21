@@ -2,24 +2,23 @@
 sidebar_position: 0
 ---
 
-# Mod Dependencies
+# Зависимости мода
 
-What I need?
-
-:::caution The mod `Hollow Engine` requires the following mods to function:
+:::caution Для работы мода `Hollow Engine` требуются такие моды, как:
 ```mermaid 
-graph TD
-   A[HollowEngine]-->|Required| B[HollowCore];
-   A-->|Optional| C[FTBTeams];
-   C-->|Required| E[FTBLibrary];
-   E-->|Required| F[Architectury];
-   B-->|Required| G[KotlinForForge];
+graph TD;
+   A[HollowEngine]-->|Обязательная| B[HollowCore];
+   A-->|Опциональная| C[FTBTeams];
+   C-->|Обязательная| E[FTBLibrary];
+   E-->|Обязательная| F[Architectury];
+   B-->|Обязательная| G[KotlinForForge];
 ```
-ℹ️ FTBTeams is optional library! Install, if you want to make a story ℹ️
+ℹ️ FTBTeams - не обязательная библиотека! Устанавливайте, если хотите писать сюжет ℹ️
 
-ℹ️Photon is optional library! Install, if you want to make special effects for NPC (Required FTBTeams for creating NPCs) ℹ️
+ℹ️ Photon - не обязательная библиотека! Устанавливайте, если хотите делать спецэффекты для NPC (Требуется FTBTeams, для создания NPC) ℹ️
 
-⚠️ HollowCore needs classic version, without marker(i.e. **no-compiler**, **lite**, **original**) ⚠️
+⚠️ Нужно устанавливать классическую версию HollowCore, без пометки(т.е. не **no-compiler**, **lite**, **original**) ⚠️
 :::
 
 ---
+ 

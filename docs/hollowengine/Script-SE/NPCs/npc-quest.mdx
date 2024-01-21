@@ -2,25 +2,78 @@
 sidebar_position: 4
 ---
 
-# Quests
+# Задание
 
-:::info If you need to give something to the NPC, so the story can continue
-```kts
+:::info Если нужно что-то сдать НИПу, чтобы сюжет пошёл дальше
+```jsx
 <npcID>.requestItems {
-    // Write here, what you need to give to the NPC
+    // Здесь пишем то, что нужно сдать НИПу
 }
 ```
 :::
 
-## Give items
+## Принести предмет
 
-:::note Give a particular item
-```kts
-    +item("<itemID>", <count>) // Give [itemID] in the quantity [count]
+:::note Принести определённый предмет
+```jsx
+    +item("<itemID>", <count>) // Принести [itemID] в количестве [count]
 ```
-> Designations:
-> - `itemID` - Just take the desired item in your hand and use the command '/hollowengine hand', it will be copied, and you can paste it wherever needed.
-> - `count` - Quantity of items.
+> Обозначения:
+> - `itemID` - Его можете получить, взяв нужный предмет в руки и прописав команду `/hollowengine hand` и после оно скопируется.
+> - `count` - Кол-во предметов.
 :::
 
+![Дветочек для дамы](../../.resourses/npc-quest.gif)
+
 ---
+
+Полный используемый скрипт:
+```jsx
+// Функция
+fun lets() {
+	keybind{Keybind.H}
+}
+//----
+team.send{"Ready..."}
+lets()
+
+// Базовый НИП
+val basic by NPCEntity.creating{ // Создаём нового НИПа
+	name = "Женя" // С именем Женя
+	showName = false // Отображать ник - нет
+	world = "minecraft:overworld" // В измерении Верхний мир
+	pos = pos(0.5, -58.0, 0.5) // В позиции x=0.5, y=-58.0, z=0.5
+}
+
+// Кастомный НИП
+val custom by NPCEntity.creating{ // Создаём нового НИПа
+	name = "Катя" // С именем Катя
+	model = "hc:models/entity/hilda_regular.glb" // С моделью, которая находится в пути `hollowengine/assets/models/entity/hilda_regular.glb`
+	transform = Transform(
+		sX = 1.5f, sY = 1.5f, sZ = 1.5f, rY = 180f
+	)
+	showName = false // Отображать ник - нет
+	switchHeadRot = true
+	world = "minecraft:overworld" // В измерении Верхний мир
+	pos = pos(1.5, -58.0, 1.5) // В позиции x=1.5, y=-58.0, z=1.5
+}
+lets()
+
+basic setLookingTeam{team}
+basic say{"Эй! поди сюда!"}
+team.waitPos{
+	vec = pos(1, -58, -1)
+	radius = 2.0
+}
+basic say{"Найди Кате цветов! БЫСТРЕЕ!!"}
+
+custom.requestItems{
+	+item("minecraft:poppy", 5)
+}
+
+custom say{"Ой, пасиба)"}
+
+lets()
+basic.despawn()
+custom.despawn()
+```

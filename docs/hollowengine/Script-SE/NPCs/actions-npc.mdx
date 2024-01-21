@@ -2,131 +2,317 @@
 sidebar_position: 1
 ---
 
-# Actions for NPCs
+# Действия для НИПа
 
-## Movement
+## Передвижение
 
-### Positon
+### До позиции
 
-:::info NPC will move to these coordinates | Template
-```kts
-<npcID> moveToPos { pos(x, y, z) }
+:::note НИП будет двигаться до этих координат | Шаблон
+```jsx
+<npcID> moveToPos { pos(<x>, <y>, <z>) }
 ```
 :::
 
-### Team
+### До команды
 
-:::info NPC will move to the nearest player in the team | Template
-```kts
+:::note НИП будет двигать до ближайшего игрока в команде | Шаблон
+```jsx
 <npcID> moveToTeam { team }
 ```
 :::
 
-### Any NPC
+### До сущности(или НИПа)
 
-:::info NPC will move to another NPC | Template
-```kts
-<npcID> moveToEntity { <any_npcID> }
+:::note НИП будет двигать до другого НИП | Шаблон
+```jsx
+// Идти до - сущности бесконечно
+// Если нужно чтобы НИП сдедовал за другим НИП, то просто укажите npcID другого без {}
+<npcID> moveToEntity { <entity> }
 ```
 :::
 
-![NPC moves to the point](../../.resourses/npc-move.gif)
+### До биома
+
+:::note НИП будет двигаться до биома | Шаблон
+```jsx
+<npcID> moveToBiome{"<biomeID>"}
+```
+:::
+
+![Передвижение НИПа](../../.resourses/npc-moveToPos.gif)
+
+### Бесконечно - До позиции
+
+:::note НИП будет двигаться до цели - бесконечно | Шаблон
+```jsx
+// Идти до - координат <x>, <y>, <z> бесконечно
+<npcID> setMovingPos { pos(<x>, <y>, <z>) } 
+
+// Чтобы перестать идти
+<npcID> setMovingPos { null }
+```
+:::
+
+### Бесконечно - До сущности
+
+:::note НИП будет двигаться до сущности - бесконечно | Шаблон
+```jsx
+// Идти до - сущности бесконечно
+// Если нужно чтобы НИП сдедовал за другим НИП, то просто укажите npcID другого без {}
+<npcID> setMovingEntity { entity }
+
+// Чтобы перестать идти
+<npcID> setMovingEntity { null }
+```
+:::
+
+### Бесконечно - До команды
+
+:::note НИП будет двигаться до ближайшего игрока из команды - бесконечно | Щаблон
+```jsx
+// Идти до - команды бесконечно
+<npcID> setMovingTeam { team }
+
+// Чтобы перестать идти
+<npcID> setMovingTeam { null }
+```
+:::
+
+![Передвижение НИПа](../../.resourses/npc-moveToTeam-inf.gif)
 
 ---
 
-## Look
+## Смотреть
 
-### Pos
+### В сторону позиции
 
-:::info NPC looks at specified coordinates | Template
-```kts
-<npcID> lookAtPos { pos(x, y, z) }
+:::note НИП посмотрит на указанные координаты | Шаблон
+```jsx
+<npcID> lookAtPos { pos(<x>, <y>, <z>) }
 ```
 :::
 
-### Team
+### В сторону команды
 
-:::info NPC looks at the nearest player in the team | Template
-```kts
+:::note НИП посмотрит на ближайшего игрока в команде | Шаблон
+```jsx
 <npcID> lookAtTeam { team }
 ```
 :::
 
-### Any NPC
+### На сущность(или НИП)
 
-:::info NPC looks at another NPC | Template
-```kts
-<npcID> lookAtEntity { <any_npcID> }
+:::note НИП посмотрит на другого НИП | Шаблон
+```jsx
+// Смотреть на - сущность
+// Если нужно чтобы НИП смотрел на другого НИП, то просто укажите npcID другого без {}
+<npcID> lookAtEntity { <entity> }
 ```
 :::
 
-![NPC looks at a point](../../.resourses/npc-look.gif)
+![НИП смотрит в сторону](../../.resourses/npc-lookAtPos.gif)
+
+### Бесконечно - В сторону позиции
+
+:::note НИП Посмотрит на указанные координаты - бесконечно | Шаблон
+```jsx
+// Смотреть на - координаты <x>, <y>, <z> бесконечно
+<npcID> setLookingPos { pos(<x>, <y>, <z>) }
+
+// Чтобы перестать смотреть
+<npcID> setMovingTeam { null }
+```
+:::
+
+### Бесконечно - В сторону команды
+
+:::note НИП посмотрит на ближайшего игрока в команде - бесконечно | Шаблон
+```jsx
+// Смотреть на - команду
+<npcID> setLookingTeam { team }
+
+// Чтобы перестать смотреть
+<npcID> setMovingTeam { null }
+```
+:::
+
+### Бесконечно - В сторону сущности(или НИПа)
+
+:::note НИП будет смотреть на сущность - бесконечно | Шаблон
+```jsx
+// Смотреть на - сущность бесконечно
+// Если нужно чтобы НИП смотрел на другого НИП, то просто укажите npcID другого без {}
+<npcID> setLookingEntity { entity }
+
+// Чтобы перестать смотреть
+<npcID> setMovingTeam { null }
+```
+:::
+
+![НИП смотрит в сторону2](../../.resourses/npc-lookAtTeam-inf.gif)
 
 ---
 
-# Speaking on Behalf of an NPC
+# Сказать от лица НИПа
 
-:::info To make an NPC speak, use this | Template
-```kts
+:::note НИП скажет эти слова | Шаблон
+```jsx
 <npcID> say { "<text>" }
 ```
 :::
 
-![NPC says "derp"](../../.resourses/npc-say.gif)
+![НИП сказал СССЫЫЫЫЫ](../../.resourses/npc-say.gif)
 
 ---
 
-## Actions with items
+## Действия с предметом
 
-### Drop an item
+### Выкинуть предмет(бросить)
 
-:::info Specify the item, that NPC should drop
-```kts
-<npcID> dropItem { item("<itemID>") } // For now it works roughly, Send only in South. Waiting for a patch.
+:::note Укажи НИПу, какой предмет нужно выкинуть(бросить)
+```jsx
+<npcID> dropItem { item("<itemID>") } // На данный момент работает криво, кидает только на Юг. Ждём патча.
 ```
-It is very simple to specify the item. Just take the necessary item in your main hand and then type the command `/hollowengine hand`, it will copy the item data along with `item`. You just need to paste it, and that's it.
+	
+Предмет можно указать лёгким способом. Просто возьмите в основную руку нужный предмет и после пропишите команду `/hollowengine hand`, у вас скопируется данные о предмете вместе с `item`. Вам прсото нужно будет вставить это и всё.
 :::
 
-### Hold the item in the hand
+![Посмотри на меня через эту штуку](../../.resourses/npc-dropItem.gif)
 
-:::caution
-`item("<itemID>")` can be obtained through: `/hollowengine hand`; Just take the desired item in your hand and use this command, it will be copied, and you can paste it wherever needed.
+### Взять предмет в руку
+
+:::info "`item("<itemID>")` можно получить через: `/hollowengine hand`"
+Просто возьмите в руку нужный предмет и пропишите эту команд, после она скопируется и вы можете вставить её туда, где нужно.
 :::
 
-#### Method №1
-
-:::info Just drom him the item. He'll pick up it in his right hand.
-```kts
-// Nothing is needed.
-```
-:::
-
-![NPC got an item-1](../../.resourses/npc-give-item1.gif)
-
-#### Method №2
-
-:::info Give him a specified item in a specified hand with a script.
-```kts
-<npcID> giveLeftHand { item("<itemID>") } // Give item to the left hand
+:::note Выдать ему определённый предмет в определённую руку через скрипт
+```jsx
+<npcID> giveLeftHand { item("<itemID>") } // Выдать предмет в левую руку
 // or
-<npcID> giveRightHand { item("<itemID>") } // Give item to the right hand
+<npcID> giveRightHand { item("<itemID>") } // Выдать предмет в правую руку
 ```
-`item("<itemID>")` can be obtained through: `/hollowengine hand`; Just take the desired item in your hand and use this command, it will be copied, and you can paste it wherever needed.
+`item("<itemID>")` можно получить через: `/hollowengine hand`; Простосто возьмите в руку нужный предмет и пропишите эту команд, после она скопируется и вы можете вставить её туда, где нужно.
+
+> Если у НИПа не отображается предметы в руках, то вот помощь -> [Отображение предмета в руках НИПа](../Tools/ItemHandVisible)
 :::
 
-![NPC got an item-2](../../.resourses/npc-give-item2.gif)
+![У меня бутылка крепкого)](../../.resourses/npc-giveHandsItems.gif)
 
 ---
 
-## Interaction with the world
+## Взаимодействие с миром
 
-### Interact with a block
+### Использовать блок
 
-:::info NPC can interact with the world
-```kts
-<npcID>.useBlock { pos(x, y, z) } // Interact with a block, that is located on coordinates x, y, z
+:::note НИП сможет взаимодействовать с миром
+```jsx
+<npcID>.useBlock { pos(x, y, z) } // Взаимодействовать с блоком, который находится на координатах x, y, z
 ```
-> `pos(x, y, z)` - Position of the block, that should be interacted with. Accepts whole numbers (int).
+> `pos(x, y, z)` - Позиция блока, с которым нужно взаимодействовать. Принимает целые числа int.
 :::
 
+![Хоба чё могу!](../../.resourses/npc-useBlock.gif)
+
 ---
+
+# Атаковать цель
+
+:::note Укажите кого атаковать
+```jsx
+<npcID>.setTargetEntity {entity} // Атаковать тущность
+```
+```jsx
+<npcID>.setTargetTeam {team} // Атаковать игрока
+```
+```jsx
+<npcID>.setTargetEntity any_npcID // Атаковать другого НИПа
+```
+:::
+
+![Фу, ты кринж](../../.resourses/npc-setTargetTeam.gif)
+
+---
+Полный используемый скрипт:
+```jsx
+// Это функция
+fun lets() {
+	keybind{Keybind.H}
+}
+//----
+team.send{"Ready..."}
+lets()
+
+// Базовый НИП
+val basic by NPCEntity.creating{ // Создаём нового НИПа
+	name = "Женя" // С именем Женя
+	showName = false // Отображать ник - нет
+	world = "minecraft:overworld" // В измерении Верхний мир
+	pos = pos(0.5, -58.0, 0.5) // В позиции x=0.5, y=-58.0, z=0.5
+}
+
+// Кастомный НИП
+val custom by NPCEntity.creating{ // Создаём нового НИПа
+	name = "Катя" // С именем Катя
+	model = "hc:models/entity/hilda_regular.glb" // С моделью, которая находится в пути `hollowengine/assets/models/entity/hilda_regular.glb`
+	transform = Transform(
+		sX = 1.5f, sY = 1.5f, sZ = 1.5f, rY = 180f
+	)
+	showName = false // Отображать ник - нет
+	switchHeadRot = true
+	world = "minecraft:overworld" // В измерении Верхний мир
+	pos = pos(1.5, -58.0, 1.5) // В позиции x=1.5, y=-58.0, z=1.5
+}
+lets()
+
+team.send{"До позиции. Анологично с До Сущности или НИПа."}
+async{
+	camera{
+		time = 16.sec
+		interpolation = Interpolation.QUAD_IN_OUT
+		path = "104d2b4d.nbt"
+	}
+}
+async{
+	basic moveToPos{pos(-3, -58, 8)}
+}
+async{
+	custom moveToPos{pos(11, -52, -8)}
+}
+team.send{"Раздница лишь только в написании."}
+lets()
+
+basic setMovingTeam{team}
+lets()
+
+custom lookAtPos{pos(3.0, -56.5, -6.19)}
+wait{1.sec}
+custom lookAtPos{pos(-5.04, -57.31, -2.0)}
+
+custom setLookingTeam{team}
+
+custom lookAtTeam{team}
+custom say{"Привет пупсик!"}
+
+custom lookAtTeam{team}
+custom dropItem{item("minecraft:spyglass")}
+custom say{"Это тебе милый)"}
+
+lets()
+
+basic giveRightHand{item("minecraft:honey_bottle")}
+basic giveLeftHand{item("minecraft:redstone_torch")}
+
+basic useBlock{pos(3.49, -57.87, 0.55)}
+basic say{"Хоба чё могу!"}
+
+basic say{"Фу ты кринж!"}
+basic.setTargetTeam{team}
+lets()
+
+basic moveToBiome{"minecraft:plains"}
+
+lets()
+basic.despawn()
+custom.despawn()
+```

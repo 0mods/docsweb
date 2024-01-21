@@ -1,8 +1,8 @@
 {
-  "label": "Dialogues",
+  "label": "Диалоги",
   "position": 1,
   "link": {
     "type": "generated-index",
-    "description": "Here, everything about dialogues for your plots is described."
+    "description": "Здесь рассписаны всё о - Диалогах для ваших сюжетов."
   }
 }
