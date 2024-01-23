@@ -61,13 +61,14 @@ fun mathOnNPC(numberOne: String, numberTwo: String): Int {
 > После же наш скрипт будет выглядеть как-то так
 ```jsx
 val npc by NPCEntity.creating{
-    name = "Юля"
+  name = "Юля"
 }
 
 val num1 = input()
-val num2 = input()
+val mun2 = input()
+val result = mathOnNPC(num1, num2)
 
-npc say {"$num1 + $num2 = ${mathOnNPC(num1, num2)}"}
+npc say{"$num1 + $num2 = $result"}
 
 fun mathOnNPC(numberOne: Int, numberTwo: Int): Int {
     return numberOne.toInt() + numberTwo.toInt()
