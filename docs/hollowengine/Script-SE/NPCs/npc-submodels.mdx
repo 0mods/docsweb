@@ -1,0 +1,56 @@
+---
+sidebar_position: 7
+---
+
+# Под-модели
+
+## Модель
+
+:::note Под-модели
+> Ты можешь накинуть на основную модель ещё пару моделей на разные конечности.
+> Ты можешь установить модель как и при создании НИПа, так и после (через `configure{...}`).
+```jsx
+    subModels["<bone>"] = subModel( // На кость <bone>
+        model = "<path/to/model>" // Установить модель <path/to/model>
+    }
+```
+
+![Модель на НИПе](../../.resourses/submodel.gif)
+:::
+
+---
+
+## Анимации под-моделей
+
+:::note
+> Ты можешь воспроизвести любую анимацию у под-моделей.
+> Анимация устанавливается в блоке `subModels[<bone>] = subModel(...)`
+```jsx
+        layer += AnimationLayer(
+            ... // Дальше всё как в <npc>.play{...}
+        )
+```
+:::
+
+---
+
+Полный используемый скрипт:
+```jsx
+val npc by NPCEntity.creating{
+  name = "Коля"
+  world = "minecraft:overworld"
+  pos = pos(-8.5, -56.7, -34.5) 
+}
+
+npc.configure{
+  subModels["Head"] = subModel{
+    model = "models:template/male_better_template.gltf"
+    layers += AnimationLayer(
+      animation = "sit",
+      layerMode = LayerMode.ADD,
+      playMode = PlayMode.LAST_FRAME,
+      speed = 1f
+    )
+  }
+}
+```

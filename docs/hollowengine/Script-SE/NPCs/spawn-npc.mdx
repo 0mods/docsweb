@@ -17,14 +17,17 @@ val <npcID> by NPCEntity.creating{
     attributes = Attributes("<attribute>" to <float>) // Атрибуты. Их можно получить через команду `/attribute <player>`
     size = <width> to <height> // Размер хитбокса
     showName = <false/true> // Отображение Ника НПС над его головой
-    transform = Transform{} // Изменить Отображение модели по: Смещение, поворот, размер
+    transform = Transform() // Изменить Отображение модели по: Смещение, поворот, размер
     switchHeadRot = <false/true> // Если голова поворачивается неправильно
-    animation[AnimationType.<defaultAnimationID>] = "<newAnimationName>" // Замена дефолтной анимации на свою(кастомную, другую)
+    animations[AnimationType.<defaultAnimationID>] = "<newAnimationName>" // Замена дефолтной анимации на свою(кастомную, другую)
     world = "<dimensionID>" // Измерение спанва
     pos = pos(<x>, <y>, <z>) // Пизиция спавна. Либо все значения это int, либо все значения это double
     rotation = vec(<pitch>, <yaw>) // Поворот головы
 }
 ```
+> Примечания:
+> - `textures` - Поддерживает `png` и `gif` формат.
+> - `attribute` - пишется: `<attribute>` to `<float>`.
 :::
 
 ---

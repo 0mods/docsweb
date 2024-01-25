@@ -1,0 +1,69 @@
+---
+sidebar_position: 2
+---
+
+# Действия для команды
+
+## Телепортировать команду
+
+:::note телепортировать команду
+```jsx
+team.tpTo{
+    pos = pos(<x>, <y>, <z>) // Координаты
+    vec = vec(<pitch>, <yaw>) // Поворот взгляда
+    dim = dim("<dimenstionID>") // Измерение
+    // Если указанное вами измерение относится к Ванилле, то не нужно указывать modID
+}
+```
+:::
+
+---
+
+## Модифицировать команду
+
+:::note Все модификации пишутся...
+```jsx
+team.modify{
+    // Здесь
+}
+```
+
+> Параметры:
+```jsx
+    // здоровье
+    setHealth(<float>) // Установить здоровье(HP)
+    setMaxHealth(<float>) // Установить Макс здаровье(HP)
+    addHealth(<float>) // Добавить здоровья(HP)
+    
+    // Броня
+    equipHelmet( item(<itemID>) ) // Экипировать шлем
+    equipChestplate( item(<itemID>) ) // Экипировать нагрудник
+    equipLeggings( item(<itemID>) ) // Экипировать поножи
+    equipBoots( item(<itemID>) ) // Экипировать ботинки
+    // Если же нужно снять броню, укажите скорее всего item() -> null
+    
+```
+:::
+
+---
+
+Полный используемый скрипт:
+```jsx
+team.tpTo{
+    pos = pos(20, -43, -451)
+    vec = vec(0f, 0f)
+    dim = dim("nether")
+    // или к примеру
+    dim = dim("copycat:cat_land")
+}
+
+team.modify{
+    setHealth(25f)
+    setMaxHealth(60f)
+    addHeath(45f)
+    equipHelmet(item(minecraft:iron_helmet))
+    equipChestplate(item(minecraft:golden_chestplate))
+    equipLeggins(item(minecraft:diamond_leggins))
+    equipBoots(item(minecraft:netherite_boots))
+}
+```

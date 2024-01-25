@@ -5,14 +5,14 @@ sidebar_position: 0
 # Зависимости мода
 
 :::caution Для работы мода `Hollow Engine` требуются такие моды, как:
-```mermaid 
+```mermaid
 graph TD;
-   A[HollowEngine]-->|Требует| B[HollowCore];
-   A-->|На выбор| C[FTBTeams];
-   C-->|Требует| E[FTBLibrary];
-   E-->|Требует| F[Architectury];
-   B-->|Требует| G[KotlinForForge];
-   B-->|Требует| H[KotlinScript];
+  HE[HollowEngine]; HC[HollowCore]; KFF[KotlinForForge]; KS[KotlinScript];
+  FTBT[FTB Team]; FTBL[FTB Library]; Arc[Architectury];
+  
+  HE-->|Требует|KS; HE-->|Требует|KFF; HE-->|Требует|HC; HE-->|По выбору|FTBT;
+  KS-->|Требует|HC;
+  FTBT-->|Требует|FTBL; FTBL-->|ЬТребует|Arc;
 ```
 ℹ️ FTBTeams - не Требуемая библиотека! Устанавливайте, если хотите писать сюжет ℹ️
 

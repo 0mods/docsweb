@@ -7,6 +7,12 @@ sidebar_position: 3
 :::note "Создадим простенький диалог в спец. окне и последствиями"
 
 ```kts
+val npc by NPCEntity.creating{
+    name = "НИП"
+    world = "minecraft:overworld"
+    pos = pos(0, -58, 0)
+}
+
 dialogue{
     npc say{"Привет"}
 	choiсe{
@@ -39,6 +45,8 @@ dialogue{
 	}
 }
 ```
+[Простенький диалог](https://youtu.be/nAaVP6g9pY0)
+
 :::
 
 ---
