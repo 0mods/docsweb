@@ -8,9 +8,10 @@ sidebar_position: 1
 > Мы спавним базового NPC, ожидаем 2 сек, говорим ему дойти до какой-то точки (позиции), затем посмотрит в сторону игрока, проходит 3 сек и исчезанет.
 
 ```kts
-val npc NPCEntity.creating{
-    settings = NPCSettings()
-    location = SpawnLocation("minecraft:overworld", pos(0, -58, 0))
+val npc by NPCEntity.creating{
+    name = "НИП"
+    world = "minecraft:overworld"
+    pos = pos(0, -58, 0)
 }
 wait { 2.sec }
 
