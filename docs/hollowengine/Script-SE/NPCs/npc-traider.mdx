@@ -8,13 +8,14 @@ sidebar_position: 7
 
 :::note Сделай НИПа - торговцем
 ```jsx
-<npcID>.addTrade{
+<npcID> addTrade{
     MerchantOffer(
         item("<itemID>", <count>) // Покупаемая вещь
+        item("<itemID>", <count>) // Дополнительная покупаемая вещь. (не обязательно)
         item("<itemID>", <count>) // Продаваемая вещь
-        <maxTrades>, // Такс кол-во трейдов (покупок)
-        <xp>, // Кол-во получаемого опыта
-        <PriceMulitpier> // Множитель прокачки торга
+        <maxTrades>, // Макс кол-во трейдов (покупок)
+        <xp_trade>, // Кол-во получаемого опыта для прокачивания торговца
+        <PriceMultiple> // Фиг знает
     )
 }
 ```
@@ -24,5 +25,18 @@ sidebar_position: 7
 
 Полный используемый скрипт:
 ```jsx
--
+val npc by NPCEntity.creating{
+  name = "Коля"
+  world = "minecraft:overworld"
+  pos = pos(46.5, 93.0, 100.5) 
+}
+
+npc addTrade{
+  MerchantOffer(
+    item("minecraft:cobblestone", 16),
+    item("minecraft:bedrock", 2),
+    item("minecraft:obsidian", 4),
+    10, 1, 100f
+  )
+}
 ```
