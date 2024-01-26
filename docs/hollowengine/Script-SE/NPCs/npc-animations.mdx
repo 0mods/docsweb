@@ -1,0 +1,74 @@
+---
+sidebar_position: 2
+---
+
+# Анимации НИПа
+
+## Once
+
+:::note Воспроизводит анимацию 1 раз | Шаблон
+```jsx
+<npcID> playOnce { "<animationName>" }
+```
+:::
+
+## Looped
+
+:::note Воспроизводит анимацию в цикле(бесконечно) | Шаблон
+```jsx
+<npcID> playLooped { "<animationName>" }
+```
+:::
+
+## Freeze
+
+:::note Воспроизводит анимацию 1 раз и в конце замирает(ставится на паузу) | Шаблон
+```jsx 
+<npcID> playFreeze { <animationName> }
+```
+:::
+
+## Stop
+
+:::note Останавливает воспроизведение анимации | Шаблон
+```jsx
+<npcID> stop { <active_animationName> }
+```
+:::
+
+## Animation Setting
+
+:::note Настрой воспроизведение анимации детально | Шаблоны
+```jsx
+<npcID>.play {
+    animation = "<animationName>" // Название анимации
+    layerMode = LayerMode.<modeType> // Режим проигрывания. Есть:
+    // - LayerMode.ADD - Умножить
+    // - LayerMode.OVERWRITE - Перезаписать
+    
+    playMope = PlayMode.<playType> // Как проигрывать анимацию. Есть:
+    // - PlayMode.ONCE - 1 раз
+    // - PlayMode.LOOPED - в цикле
+    // - PlayMode.LAST_FRAME - Зависнуть на последнем кадре
+    // - PlayMode.REVERSED - в цикле вперёд и обратно
+    
+    speed = <float> // Скорость анимации
+}
+```
+:::
+
+---
+
+Примеры:
+```jsx
+npc playOnce{"hello"}
+npc stop{"hello"}
+npc playLooped{"dance5"}
+npc stop{"dance5"}
+
+npc.play{
+    animation = "sleeping"
+    layerMode = LayerMode.OVERWRITE
+    °playType = PlayMode.LAST_FRAME
+}
+```

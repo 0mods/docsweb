@@ -1,0 +1,88 @@
+---
+sidebar_position: 0
+---
+
+# Создаём НИПа
+
+## Шаблон
+
+:::info Шаблон для спавна NPC
+Этот шаблон вкл в себя все параметры, которые поддерживаются при создании НПС:
+
+```jsx
+val <npcID> by NPCEntity.creating{
+ 	name = "<text>" // Ник НПС
+    model = "<path/to/model>" // Путь до модели. В начале пишется modID, а после уже сам путь
+    textures["<texture>"] = "<path/to/new_texture>" // Устанавливает текстуру для НПС
+    attributes = Attributes("<attribute>" to <float>) // Атрибуты. Их можно получить через команду `/attribute <player>`
+    size = <width> to <height> // Размер хитбокса
+    showName = <false/true> // Отображение Ника НПС над его головой
+    transform = Transform() // Изменить Отображение модели по: Смещение, поворот, размер
+    switchHeadRot = <false/true> // Если голова поворачивается неправильно
+    animations[AnimationType.<defaultAnimationID>] = "<newAnimationName>" // Замена дефолтной анимации на свою(кастомную, другую)
+    world = "<dimensionID>" // Измерение спанва
+    pos = pos(<x>, <y>, <z>) // Пизиция спавна. Либо все значения это int, либо все значения это double
+    rotation = vec(<pitch>, <yaw>) // Поворот головы
+}
+```
+> Примечания:
+> - `textures` - Поддерживает `png` и `gif` формат.
+> - `attribute` - пишется: `<attribute>` to `<float>`.
+:::
+
+---
+
+## Базовый NPC
+
+:::info Для спавна базового NPC, просто пропустите параметр `model = "<path/to/model>"`:
+```jsx
+val npc by NPCEntity.creating{
+    world = "minecraft:overworld" // Измерение "Верхни мир"
+    pos = pos(0, -57, 0) // Если будет pos(<int>, <double>, <int>) - работать не будет
+}
+```
+
+![Спавн базового NPC](../../.resourses/spawn-basic-npc.gif)
+
+:::
+
+---
+
+## Кастомный NPC
+
+:::info Основым нужно, чтобы ты, как минимум, указан имя НПС, путь к модели и при необходимости путь к текстуре для модели
+```jsx
+val npc by NPCEntity.creating{
+	name = "Жора"
+	model = "models:freddy/glam_fred.gltf"
+	world = "minecraft:overworld"
+	pos = pos(0.5, -58.0, 0.5)
+	showName = false
+}
+```
+
+![Спавн кастомного NPC](../../.resourses/spawn-custom-npc.gif)
+
+:::
+
+---
+
+Полный используемый скрипт:
+```jsx
+// Базовый НИП
+val basic by NPCEntity.creating{ // Создаём нового НИПа
+	name = "Женя" // С именем Женя
+	world = "minecraft:overworld" // В измерении Верхний мир
+	pos = pos(0.5, -58.0, 0.5) // В позиции x=0.5, y=-58.0, z=0.5
+}
+
+// Кастомный НИП
+val custom by NPCEntity.creating{ // Создаём нового НИПа
+	name = "Женя" // С именем Женя
+	model = "models:amogus_model.gltf" // С моделью, которая находится в пути `hollowengine/assets/models/amogus_model.gltf`
+	showName = false // Отображать ник - нет
+	world = "minecraft:overworld" // В измерении Верхний мир
+	pos = pos(1.5, -58.0, 1.5) // В позиции x=1.5, y=-58.0, z=1.5
+}
+```
+ 

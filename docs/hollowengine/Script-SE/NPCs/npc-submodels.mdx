@@ -27,7 +27,18 @@ sidebar_position: 7
 > Анимация устанавливается в блоке `subModels[<bone>] = subModel(...)`
 ```jsx
         layer += AnimationLayer(
-            ... // Дальше всё как в <npc>.play{...}
+            animation = "<animationName>" // Название анимации
+        layerMode = LayerMode.<modeType> // Режим проигрывания. Есть:
+        // - LayerMode.ADD - Умножить
+        // - LayerMode.OVERWRITE - Перезаписать
+        
+        playMope = PlayMode.<playType> // Как проигрывать анимацию. Есть:
+        // - PlayMode.ONCE - 1 раз
+        // - PlayMode.LOOPED - в цикле
+        // - PlayMode.LAST_FRAME - Зависнуть на последнем кадре
+        // - PlayMode.REVERSED - в цикле вперёд и обратно
+        
+    speed = <float> // Скорость анимации
         )
 ```
 :::

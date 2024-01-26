@@ -10,7 +10,11 @@ sidebar_position: 7
 ```jsx
 <npcID>.addTrade{
     MerchantOffer(
-        item()
+        item("<itemID>", <count>) // Покупаемая вещь
+        item("<itemID>", <count>) // Продаваемая вещь
+        <maxTrades>, // Такс кол-во трейдов (покупок)
+        <xp>, // Кол-во получаемого опыта
+        <PriceMulitpier> // Множитель прокачки торга
     )
 }
 ```
