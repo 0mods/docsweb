@@ -18,7 +18,7 @@
     "@docusaurus/core": "3.0.1",
     "@docusaurus/preset-classic": "3.0.1",
     "@docusaurus/theme-live-codeblock": "^3.0.1",
-    "@docusaurus/theme-mermaid": "^3.0.1",
+    "@docusaurus/theme-mermaid": "^3.1.0",
     "@docusaurus/theme-search-algolia": "^3.0.1",
     "@egjs/react-view3d": "^2.3.1",
     "@egjs/view3d": "^2.10.1",
@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.0.1",
-    "@docusaurus/theme-mermaid": "^3.0.1",
+    "@docusaurus/theme-mermaid": "^3.1.0",
     "@docusaurus/tsconfig": "3.0.1",
     "@docusaurus/types": "3.0.1",
     "typescript": "~5.2.2"
