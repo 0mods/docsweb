@@ -1,0 +1,50 @@
+---
+sidebar_position: 1
+---
+
+# Конфиг НИПа
+
+:::info Всё перечисленное здесь, пишется...
+```jsx
+<npcID>.configure {
+  // т.е. здесь!
+}
+```
+:::
+
+## Как работает
+
+:::note Идём в "Спавним НИПа"
+> Поддерживаются почти все настройки, которые используются при [Создании НИПа](0-npc-create)
+:::
+
+## Дополнительные настройки
+
+:::note
+> Все что написано в этой части, не относится в данному разделу, но подходит по смыслу.
+> Все написанное здесь, не пижется в `<npcID>.configure{...}`.
+> ```jsx
+> // Возможность нанести урону НИПу
+> next { <npcID>().isInvulnerable = <false/true> }
+> 
+> // Изменить имя НИПу
+> next { <npcID>().customName = "<newName>".mcText }
+> ```
+:::
+
+---
+
+Примеры скрипта:
+```jsx
+npc.configure{
+    textures["based_texture"] = "textures:template/update_texture.png"
+    textures["basic_skin"] = skin("_BENDY659_")
+    animations[AnimationType.IDLE] = "betterIdle"
+    
+    transform = Transform(
+        tx = 1f, tY = 2f, tZ = 1f,
+        rX = 10f, rY = 50f, rZ = -84f,
+        sX = 10f, sY = 5f, sZ = 6f
+    )
+}
+```

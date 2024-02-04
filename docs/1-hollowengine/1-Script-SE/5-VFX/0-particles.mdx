@@ -1,0 +1,233 @@
+---
+sidebar_position: 0
+---
+
+# Партиклы
+
+:::info Партиклы
+```jsx
+particle{
+    // Тут настройи партоклов...
+}
+```
+:::
+
+:::note Шаблон
+```jsx
+particle{
+  world = "<dimenstionID>" // Измерение, где нужно заспавинить
+  particle = "<type>" // Тип парикла
+  setting{ // Расширенные настройки
+    randomMotion() // Рандомное направление
+    randomOffset() // Рандомное смещение
+    spin() // Поворот частицы
+    color() // Цвет частицы
+    transparency() // Прозрачность
+    gravity = <float> // Гравитация
+    noClip = <boolean> // Колизия
+    spritePicker = SpritePicker.<Type> // Режим смены спрайтов
+    lifetime = <Int> // Время жизни частицы, в тиках
+    
+    spawn() // Спавн частиц
+  }
+}
+```
+:::
+
+---
+
+## Создание партиклов
+
+:::note Простые настройки
+```jsx
+world = "<dimenstionID>" // Измерение, в котором нужно заспавнить партиклы
+```
+```jsx
+particle = "<type>" // Тип партика.
+// На данный моменты доступны лишь:
+// - hc:star
+// - hc: circle
+```
+:::
+
+---
+
+## Расширенные настройки
+
+:::note Расширенные настройки
+
+```jsx
+  settings{
+    // Здесь расширенные настройки...
+  }
+```
+
+### Рандомное направление (Движение в случайном направлении)
+```jsx
+    // По осям X, Y, Z (детальная)
+    randomMotion(speedX: Double, speedY: Double, speedZ: Double)
+    
+    // или
+    
+    // По Горизонтали и Вертикали
+    randomMotion(speedHorizontal: Double, speedVertical: Double)
+    
+    // или
+    
+    // По всем осям XYZ (общая)
+    randomMotion(speed: Double)
+```
+---
+### Рандомное смещение (Появление частиц в случае радиусе от центра спавна частиц)
+```jsx
+    // По осям X, Y, Z (детальная)
+    randomOffset(X: Double, Y: Double, Z: Double)
+    
+    // или
+    
+    // По Горизонтали и Вертикали
+    randomOfset(speedHorizontal: Double, speedVertical: Double)
+    
+    // или
+    
+    // По всем осям XYZ (общая)
+    randomOffset(speed: Double)
+```
+---
+### Поворот (С какой скоростью будет поворачиваться частица)
+```jsx
+    // Крутить частицы от -> до
+    spin(startValue: Float, endValue: Float)
+    // - startValue - Стартовое значение
+    // - endValue - Конечное значение
+    
+    // или
+    
+    // Крутить частицу от -> среднее -> до
+    spin(startValue: Flaot, middleValue: Float, endValue: Float)
+    // - startValue - Стартовое значение
+    // - middleValue - Среднее зачение
+    // - endValue - Конечное значение
+    
+    // Дополнительные параметры
+    spin(..., <здесь>
+        // Интерполяция от -> среднее
+        startToMiddleEasing = Interpolation.<InterpolationType>
+        
+        // Интерполяция среднее -> до
+        middleToEndEasing = Interlopation.<InterpolationType>
+    )
+```
+
+> `Interpolation.<Type>` - [Интерполяция](../9-Tools/99-interpolations)
+---
+### Цвет
+```jsx
+    // Изменения цвета от startR/G/B -> до endR/G/B
+    // Значения измеряются в процентах. 1f = 100%, 0.5f = 50%, 0f = 0%.
+    color(
+      startR: Float, startG: Float, startB: Float,
+      endR: Float, endG: Float, endB: Float
+    )
+    
+    // Дополнительные параметры
+    color(..., <здесь>
+        // Интерполяция от -> среднее
+        colorCurveEasing = Interpolation.<Type>
+    )
+```
+
+> `Interpolation.<Type>` - [Интерполяция](../9-Tools/99-interpolations)
+---
+### Прозрачность
+```jsx
+    // Изменения прозрачности от startValue -> до endValue
+    // Значения измеряются в процентах. 1f = 100%, 0.5f = 50%, 0f = 0%.
+    transparency(startValue, endValue)
+    
+    // или
+    
+    // // Изменения прозрачности от startValue -> middleValue -> до endValue
+    transparency(startValue: Float, middleValue:Float, endValue: Float)
+    
+    // Дополнительные параметры
+    transperency(..., <здесь>
+        // Интерполяция от -> среднее
+        startToMiddleEasing = Interpolation.<InterpolationType>
+        
+        // Интерполяция среднее -> до
+        middleToEndEasing = Interlopation.<InterpolationType>
+    )
+```
+---
+### Гравитация
+```jsx
+    // Сила гравитации
+    gravity = <float>
+```
+---
+### Коллизия
+```jsx
+    // Просчитывание сталкивания с блоками
+    noClip = <boolean>
+```
+---
+### Режим смены кадров(спрайтов)
+```jsx
+    // В каком режиме будут меняться кадры
+    spritesPicker = SpritesPicker.<Type>
+    // - SpritesPicker.FIRST_INDEX - Первый кадр
+    // - SpritesPicker.LAST_INDEX - Последний кадр
+    // - SpritesPicker.WHIT_AGE - Менять в зависимости от время жизни частицы
+    // - SpritesPicker.RANDOM_SPRITE - Рандомный(Случайный) кадр
+```
+---
+### Спавн партоклов
+```jsx
+    // Заспавнить 1 частицу на координатах XYZ
+    spawn(X: Double, Y: Double, Z: Double)
+    
+    // или
+    
+    // Заставить n кол-во частиц на координатах XYZ
+    spawn(X: Double, Y: Double, Z: Double, Count: Int)
+```
+:::
+
+---
+
+Полный используемый скрипт:
+```jsx
+particles{
+  world = "minecraft:overworld"
+  particle = "hc:star"
+  settings{
+    randomMotion(0.5)
+    randomOffset(0.0)
+    spin(
+      0f, 0f, 0f,
+      startToMiddleEasing = Interpolation.QUAD_IN,
+      middleToEndEasing = Interpolation.QUAD_OUT
+    )
+    color(
+      1f, 1f, 1f,
+      0f, 0f, 0f,
+      colorCurveEasing = Interpolation.QUAD_IN_OUT
+    )
+    transparency(
+      1f, 1f, 1f,
+      startToMiddleEasing = Interpolation.QUAD_IN,
+      middleToEndEasing = Interpolation.QUAD_OUT
+    )
+    gravity = 0.25f
+    noClip = false
+    spritePicker = SpritePicker.FIRST_INDEX
+    lifetime = 1000
+
+    repeat(
+      0.5, 0.5, 0.5,
+      5000
+    )
+  }
+}
+```

@@ -1,0 +1,42 @@
+---
+sidebar_position: 8
+---
+
+# НИП - торговец
+
+> Если вы очень дофига умный фел(или не чел, я хз). То как работают тогри написаны в ориг классе игры. Читайте и делайте что знаете, а ещё мне расскажите как оно всё это работает говно.
+
+:::note Сделай НИПа - торговцем
+```jsx
+<npcID> addTrade{
+    MerchantOffer(
+        item("<itemID>", <count>), // Покупаемая вещь
+        item("<itemID>", <count>), // Дополнительная покупаемая вещь. (не обязательно)
+        item("<itemID>", <count>), // Продаваемая вещь
+        <maxTrades>, // Макс кол-во трейдов (покупок)
+        <xp_trade>, // Кол-во получаемого опыта для прокачивания торговца
+        <PriceMultiple> // Фиг знает
+    )
+}
+```
+:::
+
+---
+
+Полный используемый скрипт:
+```jsx
+val npc by NPCEntity.creating{
+  name = "Коля"
+  world = "minecraft:overworld"
+  pos = pos(46.5, 93.0, 100.5) 
+}
+
+npc addTrade{
+  MerchantOffer(
+    item("minecraft:cobblestone", 16),
+    item("minecraft:bedrock", 2),
+    item("minecraft:obsidian", 4),
+    10, 1, 100f
+  )
+}
+```
