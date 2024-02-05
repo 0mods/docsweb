@@ -170,17 +170,17 @@ sidebar_position: 2
 
 :::note телепортировать НИПа
 ```jsx
-<npcID>.tpTo{
+<npcID> tp{
     pos = pos(x, y, z) // Координаты
     vec = vec(<pitch>, <yaw>) // Поворот взгляда
-    dim = dim("<dimenstionID>") // Измерение
+    dim = dim("<dimensionID>") // Измерение
     // Если указанное вами измерение относится к Ванилле, то не нужно указывать modID
 }
 ```
 
 > Примеры:
 ```jsx
-<npcID>.tpTo{
+npc tp{
     pos = pos(20, -43, -451)
     vec = vec(0f, 0f)
     dim = dim("nether")
