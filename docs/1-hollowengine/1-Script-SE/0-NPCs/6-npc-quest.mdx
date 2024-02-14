@@ -27,53 +27,7 @@ sidebar_position: 6
 
 ---
 
-Полный используемый скрипт:
+Примеры:
 ```jsx
-// Функция
-fun lets() {
-	keybind{Keybind.H}
-}
-//----
-team.send{"Ready..."}
-lets()
-
-// Базовый НИП
-val basic by NPCEntity.creating{ // Создаём нового НИПа
-	name = "Женя" // С именем Женя
-	showName = false // Отображать ник - нет
-	world = "minecraft:overworld" // В измерении Верхний мир
-	pos = pos(0.5, -58.0, 0.5) // В позиции x=0.5, y=-58.0, z=0.5
-}
-
-// Кастомный НИП
-val custom by NPCEntity.creating{ // Создаём нового НИПа
-	name = "Катя" // С именем Катя
-	model = "hc:models/entity/hilda_regular.glb" // С моделью, которая находится в пути `hollowengine/assets/models/entity/hilda_regular.glb`
-	transform = Transform(
-		sX = 1.5f, sY = 1.5f, sZ = 1.5f, rY = 180f
-	)
-	showName = false // Отображать ник - нет
-	switchHeadRot = true
-	world = "minecraft:overworld" // В измерении Верхний мир
-	pos = pos(1.5, -58.0, 1.5) // В позиции x=1.5, y=-58.0, z=1.5
-}
-lets()
-
-basic setLookingTeam{team}
-basic say{"Эй! поди сюда!"}
-team.waitPos{
-	vec = pos(1, -58, -1)
-	radius = 2.0
-}
-basic say{"Найди Кате цветов! БЫСТРЕЕ!!"}
-
-custom.requestItems{
-	+item("minecraft:poppy", 5)
-}
-
-custom say{"Ой, пасиба)"}
-
-lets()
-basic.despawn()
-custom.despawn()
+ Ожидайте в будущем....
 ```

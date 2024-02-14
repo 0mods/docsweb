@@ -27,29 +27,7 @@ val <groupID> = arrayOf(<npcID1>, <npcID2>, <npcID3>, ...)
 
 ---
 
-Весь используемый скрипт:
+Примеры:
 ```jsx
-val kate by NPCEntity.creating{
-  name = "Катя"
-  model = "models:template/classic.gltf"
-  textures["gltf_texture_template.classic.gltf_0"] = "textures:skins/black5.png"
-  showName = false
-  world = "overworld"
-  pos = pos(0.5, -58.0, 0.5)
-}
-val ula by NPCEntity.creating{
-  name = "Юля"
-  model = "models:template/classic.gltf"
-  textures["gltf_texture_template.classic.gltf_0"] = "textures:human2.png"
-  showName = false
-  world = "minecraft:overworld"
-  pos = pos(3.5, -58.0, 8.5)
-}
-keybind{Keybind.H}
-
-val girls = arrayOf(kate, ula)
-
-girls.forEach{
-  it moveToPos{pos(-13.5, -58.0, 6.5)}
-}
+ Ожидайте в будущем....
 ```

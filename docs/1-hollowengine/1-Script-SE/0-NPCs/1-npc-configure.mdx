@@ -29,22 +29,22 @@ sidebar_position: 1
 > 
 > // Изменить имя НИПу
 > next { <npcID>().customName = "<newName>".mcText }
+> 
+> // Колизия хитбокса
+> <npcID>.hitboxMode = HitboxMode.<Type>
+> /* Есть:
+>  * - BLOCKING | Вы не сможете сместить нпс (будет стоять как камень)
+>  * - PULLING  | Классический режим, когда подойдя к сущности вы отталкиваетесь друг от друга
+> */ - EMPTY    | Без колизии. Проходить сквозь сущности без преград
+> 
+> // Игнорирование урона НИПа
+> <npcID>.invulnerable = <false/true>
 > ```
 :::
 
 ---
 
-Примеры скрипта:
+Примеры:
 ```jsx
-npc.configure{
-    textures["based_texture"] = "textures:template/update_texture.png"
-    textures["basic_skin"] = skin("_BENDY659_")
-    animations[AnimationType.IDLE] = "betterIdle"
-    
-    transform = Transform(
-        tx = 1f, tY = 2f, tZ = 1f,
-        rX = 10f, rY = 50f, rZ = -84f,
-        sX = 10f, sY = 5f, sZ = 6f
-    )
-}
+ Ожидайте в будущем....
 ```

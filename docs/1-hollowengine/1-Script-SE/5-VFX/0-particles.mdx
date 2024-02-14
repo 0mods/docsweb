@@ -196,38 +196,7 @@ particle = "<type>" // Тип партика.
 
 ---
 
-Полный используемый скрипт:
+Примеры:
 ```jsx
-particles{
-  world = "minecraft:overworld"
-  particle = "hc:star"
-  settings{
-    randomMotion(0.5)
-    randomOffset(0.0)
-    spin(
-      0f, 0f, 0f,
-      startToMiddleEasing = Interpolation.QUAD_IN,
-      middleToEndEasing = Interpolation.QUAD_OUT
-    )
-    color(
-      1f, 1f, 1f,
-      0f, 0f, 0f,
-      colorCurveEasing = Interpolation.QUAD_IN_OUT
-    )
-    transparency(
-      1f, 1f, 1f,
-      startToMiddleEasing = Interpolation.QUAD_IN,
-      middleToEndEasing = Interpolation.QUAD_OUT
-    )
-    gravity = 0.25f
-    noClip = false
-    spritePicker = SpritePicker.FIRST_INDEX
-    lifetime = 1000
-
-    repeat(
-      0.5, 0.5, 0.5,
-      5000
-    )
-  }
-}
+ Ожидайте в будущем....
 ```
