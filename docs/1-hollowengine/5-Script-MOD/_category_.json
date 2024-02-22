@@ -1,6 +1,6 @@
 {
   "label": "Script - MOD...",
-  "position": 3,
+  "position": 5,
   "link": {
     "type": "generated-index",
     "description": "`.mod.kts` - Этот тип скрипта поможет создавать полноценные моды для ваших сюжетов."
