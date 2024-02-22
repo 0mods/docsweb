@@ -21,7 +21,7 @@ sidebar_position: 0
 ### По предмету результату
 
 :::info Шаблон
-```jsx
+```kts
 removeByOutput(item("[<itemID_Output>])", <recipeType>, <checkTag>) // Удаляются все рецеты, на выходе которых получается [itemID]
 ```
 
@@ -33,7 +33,7 @@ removeByOutput(item("[<itemID_Output>])", <recipeType>, <checkTag>) // Удал�
 
 Пример:
 
-```jsx
+```kts
 removeByOutput("minecraft:cobblestone") // Я удалил все рецепты крафта предмета "Булыжник"
 ```
 
@@ -45,13 +45,13 @@ removeByOutput("minecraft:cobblestone") // Я удалил все рецепты
 
 :::info Шаблон
 
-```jsx
+```kts
 removeById("[<recipeID>]") // Удаляется рецепт по ID рецепта
 ```
 
 Пример:
 
-```jsx
+```kts
 removeById("minecraft:*") // Я удалил рецепт *
 ```
 
@@ -65,7 +65,7 @@ removeById("minecraft:*") // Я удалил рецепт *
 
 :::info -
 
-```jsx
+```kts
 addFromJson(<newRecipeName>, <newRecipeData>) // Пока ничего неизвестно
 ```
 
@@ -78,7 +78,7 @@ addFromJson(<newRecipeName>, <newRecipeData>) // Пока ничего неиз�
 
 :::info Новый рецепт | Шаблон
 
-```jsx
+```kts
 CraftingTable.ShapedRecipe(item("[<itemID_Output>], <count>)") {
 	grid ( // Сетка крафта
 		"[][][]",
@@ -114,7 +114,7 @@ CraftingTable.ShapedRecipe(item("[<itemID_Output>], <count>)") {
 
 Пример скрипта рецепта:
 
-```jsx
+```kts
 CraftingTable.ShapedRecipe(item("minecraft:glass", 16)) {
 	grid(
 		"@@!",
@@ -138,7 +138,7 @@ CraftingTable.ShapedRecipe(item("minecraft:glass", 16)) {
 
 :::info Заменяем на новый | Шаблон
 
-```jsx
+```kts
 CraftingTable.replaceShaped(item("[<itemID_Output>], <count>)") {
 	grid ( // Сетка крафта
 		"[][][]",
@@ -174,7 +174,7 @@ CraftingTable.replaceShaped(item("[<itemID_Output>], <count>)") {
 
 Пример скрипта рецепта:
 
-```jsx
+```kts
 CraftingTable.replaceShaped(item("minecraft:bedrock", 15)) {
 	grid(
 		"!!@",
@@ -198,7 +198,7 @@ CraftingTable.replaceShaped(item("minecraft:bedrock", 15)) {
 
 :::info Новый рецепт | Шаблон
 
-```jsx
+```kts
 CraftingTable.shapeless(item("[<itemID_Output>], <count>)") {
 	items{[<Input>], <и так сколько вам нужно...>
 }
@@ -217,7 +217,7 @@ CraftingTable.shapeless(item("[<itemID_Output>], <count>)") {
 
 Пример скрипта рецепта:
 
-```jsx
+```kts
 CraftingTable.shapeless(item("minecraft:netherite")) {
     Items{
     item("minecraft:oak_planks"),
@@ -233,7 +233,7 @@ CraftingTable.shapeless(item("minecraft:netherite")) {
 
 :::info Заменяем на новый | Шаблон
 
-```jsx
+```kts
 CraftingTable.replaceShapeless(item("[<itemID_Output>]", <count>)) {
 	items([<Input>], <и так сколько вам нужно...>)
 }
@@ -252,7 +252,7 @@ CraftingTable.replaceShapeless(item("[<itemID_Output>]", <count>)) {
 
 Пример скрипта рецепта:
 
-```jsx
+```kts
 CraftingTable.shapeless(item("minecraft:netherite")) {
     Items{
     item("minecraft:oak_planks"),

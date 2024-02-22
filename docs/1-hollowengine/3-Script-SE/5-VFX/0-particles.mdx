@@ -5,7 +5,7 @@ sidebar_position: 0
 # Партиклы
 
 :::info Партиклы
-```jsx
+```kts
 particle{
     // Тут настройи партоклов...
 }
@@ -13,7 +13,7 @@ particle{
 :::
 
 :::note Шаблон
-```jsx
+```kts
 particle{
   world = "<dimenstionID>" // Измерение, где нужно заспавинить
   particle = "<type>" // Тип парикла
@@ -39,10 +39,10 @@ particle{
 ## Создание партиклов
 
 :::note Простые настройки
-```jsx
+```kts
 world = "<dimenstionID>" // Измерение, в котором нужно заспавнить партиклы
 ```
-```jsx
+```kts
 particle = "<type>" // Тип партика.
 // На данный моменты доступны лишь:
 // - hc:star
@@ -56,14 +56,14 @@ particle = "<type>" // Тип партика.
 
 :::note Расширенные настройки
 
-```jsx
+```kts
   settings{
     // Здесь расширенные настройки...
   }
 ```
 
 ### Рандомное направление (Движение в случайном направлении)
-```jsx
+```kts
     // По осям X, Y, Z (детальная)
     randomMotion(speedX: Double, speedY: Double, speedZ: Double)
     
@@ -79,7 +79,7 @@ particle = "<type>" // Тип партика.
 ```
 ---
 ### Рандомное смещение (Появление частиц в случае радиусе от центра спавна частиц)
-```jsx
+```kts
     // По осям X, Y, Z (детальная)
     randomOffset(X: Double, Y: Double, Z: Double)
     
@@ -95,7 +95,7 @@ particle = "<type>" // Тип партика.
 ```
 ---
 ### Поворот (С какой скоростью будет поворачиваться частица)
-```jsx
+```kts
     // Крутить частицы от -> до
     spin(startValue: Float, endValue: Float)
     // - startValue - Стартовое значение
@@ -122,7 +122,7 @@ particle = "<type>" // Тип партика.
 > `Interpolation.<Type>` - [Интерполяция](../9-Tools/99-interpolations)
 ---
 ### Цвет
-```jsx
+```kts
     // Изменения цвета от startR/G/B -> до endR/G/B
     // Значения измеряются в процентах. 1f = 100%, 0.5f = 50%, 0f = 0%.
     color(
@@ -140,7 +140,7 @@ particle = "<type>" // Тип партика.
 > `Interpolation.<Type>` - [Интерполяция](../9-Tools/99-interpolations)
 ---
 ### Прозрачность
-```jsx
+```kts
     // Изменения прозрачности от startValue -> до endValue
     // Значения измеряются в процентах. 1f = 100%, 0.5f = 50%, 0f = 0%.
     transparency(startValue, endValue)
@@ -161,19 +161,19 @@ particle = "<type>" // Тип партика.
 ```
 ---
 ### Гравитация
-```jsx
+```kts
     // Сила гравитации
     gravity = <float>
 ```
 ---
 ### Коллизия
-```jsx
+```kts
     // Просчитывание сталкивания с блоками
     noClip = <boolean>
 ```
 ---
 ### Режим смены кадров(спрайтов)
-```jsx
+```kts
     // В каком режиме будут меняться кадры
     spritesPicker = SpritesPicker.<Type>
     // - SpritesPicker.FIRST_INDEX - Первый кадр
@@ -183,7 +183,7 @@ particle = "<type>" // Тип партика.
 ```
 ---
 ### Спавн партоклов
-```jsx
+```kts
     // Заспавнить 1 частицу на координатах XYZ
     spawn(X: Double, Y: Double, Z: Double)
     
@@ -197,6 +197,6 @@ particle = "<type>" // Тип партика.
 ---
 
 Примеры:
-```jsx
+```kts
  Ожидайте в будущем....
 ```

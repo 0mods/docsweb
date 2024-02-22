@@ -20,7 +20,7 @@ sidebar_position: 2
 
 :::info Удалить существующий рецепт предмета | Шаблон
 
-```jsx
+```kts
 BlastFurnace.removeRecipe(
 	item("[<itemID>]") // Предмет на выходе (результат крафта)
 )
@@ -32,7 +32,7 @@ BlastFurnace.removeRecipe(
 
 :::info Добавить новый рецепт предмета | Шаблон
 
-```jsx
+```kts
 BlastFurnace.addRecipe(
 	item("[<itemID_Output>]"), // Предмет на выходе (результат крафта)
 	item("[<itemID_Input>]"), // Предмет входа (ингридиент)
@@ -43,7 +43,7 @@ BlastFurnace.addRecipe(
 
 Пример скрипта крафта:
 
-```jsx
+```kts
 BlastFurnace.addRecipe(
 	item("minecraft:netherite_ingot"),
 	item("minecraft:powder_snow_bucket"),

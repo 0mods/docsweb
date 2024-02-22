@@ -20,7 +20,7 @@ sidebar_position: 3
 
 :::info "Удалить существующий рецепт предмета | Шаблон"
 
-```jsx
+```kts
 Smoker.removeRecipe(
 	item("[<itemID>]") // Предмет на выходе (результат крафта)
 )
@@ -32,7 +32,7 @@ Smoker.removeRecipe(
 
 :::info "Добавить новый рецепт предмета | Шаблон"
 
-```jsx
+```kts
 Smoker.addRecipe(
 	item("[<itemID_Output>]"), // Предмет на выходе (результат крафта)
 	item("[<itemID_Input>]"), // Предмет входа (ингридиент)
@@ -43,7 +43,7 @@ Smoker.addRecipe(
 
 Пример скрипта крафта:
 
-```jsx
+```kts
 Smoker.addRecipe(
 	item("minecraft:string"),
 	item("minecraft:feather"),

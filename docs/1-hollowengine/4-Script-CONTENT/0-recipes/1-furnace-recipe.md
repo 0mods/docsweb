@@ -18,7 +18,7 @@ sidebar_position: 1
 
 :::info Удалить существующий рецепт предмета | Шаблон
 
-```jsx
+```kts
 Furnace.removeRecipe(
 	item("[<itemID>]") // Предмет на выходе (результат крафта)
 )
@@ -30,7 +30,7 @@ Furnace.removeRecipe(
 
 :::info "Добавить новый рецепт предмета | Шаблон"
 
-```jsx
+```kts
 Furnace.addRecipe(
 	item("[<itemID_Output>]"), // Предмет на выходе (результат крафта)
 	item("[<itemID_Input>]"), // Предмет входа (ингридиент)
@@ -41,7 +41,7 @@ Furnace.addRecipe(
 
 Пример скрипта крафта:
 
-```jsx
+```kts
 Furnace.addRecipe(
 	item("minecraft:clay_ball"),
 	item("minecraft:gravel"),

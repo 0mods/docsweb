@@ -8,7 +8,7 @@ sidebar_position: 4
 
 :::info Шаблон
 
-```jsx
+```kts
 fun <FucntionName>(<Parameters>) {
     <FunctionBlock> // То, где будут происходить все вычисления
 }
@@ -22,7 +22,7 @@ fun <FucntionName>(<Parameters>) {
 
 :::note Предположим у нас есть такой скрипт
 
-```jsx
+```kts
 val npc by NPCEntity.creating{
     name = "Юля"
 }
@@ -36,7 +36,7 @@ npc say{"$num1 + $num2 = ${<Функция, где на выходе будет 
 ---
 
 > Мы можем под нашим скриптом создать функцию, к примеру
-```jsx
+```kts
 fun mathOnNPC(numberOne: String, numberTwo: String): Int {
     return numberOne.toInt() + numberTwo.toInt()
 }
@@ -59,7 +59,7 @@ fun mathOnNPC(numberOne: String, numberTwo: String): Int {
 ---
 
 > После же наш скрипт будет выглядеть как-то так
-```jsx
+```kts
 val npc by NPCEntity.creating{
   name = "Юля"
 }

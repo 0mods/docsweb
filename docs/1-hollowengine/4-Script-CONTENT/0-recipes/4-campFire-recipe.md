@@ -20,7 +20,7 @@ sidebar_position: 4
 
 :::info Удалить существующий рецепт предмета | Шаблон
 
-```jsx
+```kts
 Campfire.removeRecipe(
 	item("[<itemID>]") // Предмет на выходе (результат крафта)
 )
@@ -32,7 +32,7 @@ Campfire.removeRecipe(
 
 :::info Добавить новый рецепт предмета | Шаблон
 
-```jsx
+```kts
 Campfire.addRecipe(
 	item("[<itemID_Output>]"), // Предмет на выходе (результат крафта)
 	item("[<itemID_Input>]"), // Предмет входа (ингридиент)
@@ -43,7 +43,7 @@ Campfire.addRecipe(
 
 Пример скрипта крафта:
 
-```jsx
+```kts
 Campfire.addRecipe(
 	item("minecraft:torch"),
 	item("minecraft:stick"),
