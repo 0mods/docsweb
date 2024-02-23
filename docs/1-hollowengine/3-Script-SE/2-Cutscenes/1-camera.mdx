@@ -66,10 +66,11 @@ spline(time, path, interpolation, enableBoarders, boardersInterpolation)
 
 :::info Режим наблюдения за сущностью:
 ```kts
-entity(time, mob)
+entity(time, pos(x, y, z), mob)
 ```
 > Параметры:
 > - `time` - время в тиках
+> - `pos(x, y, z)` - координаты точки, откуда будет идти наблюдение по x, y, z
 > - `mob` - объект моба или ваша переменная НИПа.
 :::
 ---
@@ -79,6 +80,6 @@ entity(time, mob)
 camera {
     static(10.sec, pos(0, 24, 4), pos(90f, 0f, 0f))
     path(50.sec, "my_camera.nbt", Interpolation.SINE_OUT, true, Interpolation.SINE_IN_OUT)
-    entity(5.sec, npc)
+    entity(5.sec, pos(0, 24, 4), npc)
 }
 ```
