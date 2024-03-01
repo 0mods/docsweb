@@ -49,7 +49,8 @@ sidebar_position: 2
 /* Есть:
  * - pos( <x>, <y>, <z> ) | В позицию
  * - <Entity>             | На сущность
-*/ - team                 | На команду (или игрока)
+ * - team                 | На команду (или игрока)
+*/
 
 <npcID>.stopLookAlways() // Перестать смотреть
 
@@ -137,7 +138,8 @@ sidebar_position: 2
 <npcID> setTarget { <type> } // Атаковать <type>
 /* Есть:
  * - <Entity>             | Сущность
-*/ - team                 | Команду (или игрока)
+ * - team                 | Команду (или игрока)
+ */
 ```
 ![Фу, ты кринж](../../.resourses/npc-setTargetTeam.gif)
 :::
@@ -145,7 +147,73 @@ sidebar_position: 2
 
 
 ---
-Примеры:
+
+## Примеры
+:::info Передвижение
 ```kts
- Ожидайте в будущем....
+jeka moveTo{pos(10, 34, 45)} // До позиции
+jeka moveTo{team} // До игрока
+// или
+jeka moveAlwaysTo{pos(453, 23, 456)} // Бесконечно до позиции
+jeka moveAlwaysTo{team} // Следовать за игроком бесконечно
+...
+jeka stopMoveAlways()
 ```
+:::
+:::info Взгляд
+```kts
+jeka lookAt{pos(43, 123, 53)} // В позицию
+jeka lookAt{"zombie"} // Смотреть на зомби
+jeka lookAt{team} // В сторону игрока
+// или
+jeka lookAlwaysAt{pos(10, 34, 346)} // В позицию бесконечно
+jeka lookAlwaysAt{"bat"} // Смотреть на зомби бесконечно
+jeka lookAlwaysAt{team} // Смореть на игрока бесконечно
+...
+jeka stopLookAlways()
+```
+:::
+:::info Телепорт
+```kts
+jeka tpTo{
+    pos = pos(0.43, 14.5, 0.2345)
+    vec = vec(10f, 125f)
+    dim = dim("nether")
+}
+```
+:::
+:::info 
+```kts
+jeka replay{"test_replay.nbt"}
+```
+:::
+:::info 
+```kts
+jeka dropItem{item("flint", 3)}
+```
+:::
+:::info 
+```kts
+jeka giveRightHand{item("carrot")}
+jeka giveLeftHand{item("diamond_hoe")}
+
+// Чтобы убрать из рук предметы, можно
+jeka give<RIght/Left>Hand{item("air")}
+// либо
+jeka give<Right/Left>Hand{null}
+```
+:::
+:::info 
+```kts
+jeka destroyBlock{pos(0, 12, 53)}
+jeka useBlock{pos(15, 23, 54)}
+```
+:::
+:::info
+```kts
+jeka setTarget{team}
+
+// Чтобы прекратить атаку
+jeka setTarget{null}
+```
+:::

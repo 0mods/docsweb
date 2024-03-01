@@ -79,8 +79,39 @@ val npc by NPCEntity.creating{
 
 ---
 
-Примеры:
+## Примеры
+:::info Базовый НИП
 ```kts
- Ожидайте в будущем....
+val jeka by NPCEntity.creating{
+    name = "Жека Хот-дог"
+    pos = pos(0, 54, 0)
+}
 ```
+:::
+
+:::info Продвинутый НИП
+```kts
+val jumaysimba by NPCEntity.creating{
+    name = "Джумайсыбма"
+    model = "models:classic.classic" // Модель находится в пути [<modpack>/hollowengine/assets/models/classic.gltf]
+    textures["gltf_model_layer_0_gltf"] = "textures:humans/hotdog.png" // Текстура находится в пути [<modpack>/hollowengine/assets/textures/humans/hotdog.png]
+    attributes = Attributes(
+            "generic.movement_speed" by 2f,
+            "generic.max_healt" by 10f
+    )
+    size = 4f to 5f
+    showName = false
+    transform = Transform(
+            tX = 2f, tY = 1.5f, tZ = 0.3f,
+            rX = 92f, rY = 122f, rZ = 43f,
+            sX = 0.1f, sY = 1f, sZ = 14f
+    )
+    switchHeadRot = false
+    animations[AnimationType.IDLE] = "custom_idle"
+    world = "overworld" // Т.к. dimID вехнего мира из самого майна, не обязательно указывать moID: minecraft
+    pos = pos(0, 64, 0)
+    rot = vec(64f, -30f)
+}
+```
+:::
  

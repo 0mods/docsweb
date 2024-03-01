@@ -27,7 +27,7 @@ wait{ <time> }
 ```kts
 keybind { Keybind.<key> }
 ```
-> `key` - Кнопки на клавиатуре. [Узнать больше...](https://github.com/HollowHorizon/HollowEngine/blob/1.19.2/src/main/java/ru/hollowhorizon/hollowengine/common/util/Keybind.kt)
+> `key` - Именно название кнопки (Не цифра). [Узнать больше...](https://github.com/HollowHorizon/HollowEngine/blob/1.19.2/src/main/java/ru/hollowhorizon/hollowengine/common/util/Keybind.kt)
 :::
 
 ---
@@ -44,9 +44,12 @@ keybind { Keybind.<key> }
 
 :::info Скрипт продолжится, когда в чате появится нужное слово
 ```kts
-var text by input()
+input()
 // В input() вы можете указать параметры, а именно - какие сообщения будут приняты -> input("Да", "Нет")
-// Оставте данный параметр пустым, чтобы принималось лобое сообщение
+// Оставьте данный параметр пустым, чтобы принималось любое сообщение
+----
+val <id> by input()
+// Сделать input() через val/var - input() будет записывать ваш ответ в переменную <id> и после вы можете использовать его
 ```
 :::
 
@@ -57,11 +60,57 @@ var text by input()
 team.waitPos{
     vec = pos(x, y, z) // Позиция
     radius = <double> // Радиус
-    inverse = <false/true> // Инвертировать
-    // Инвертировать омжет понадобится, если наоборот нужно чтобы игрок(-и) вышле(-и) из заданно радиуса в точке
+    ignoreY = <false/true> // Будет ждать игрока в реальном радиусе (шар), чем в плоском (цилиндр)
+    createIcon = <false/true> // Создать значёк
+    inverse = <false/true> // Ждать пока игрок не войдёт в радиус, а выйдет из него
 }
 ```
 :::
 
 ---
- 
+## Примеры
+:::info Примеры
+> ### Таймер
+> ```kts
+> wait{10.min}
+> // или же
+> wait{6.min + 5.sec + 9}
+> ```
+---
+> ### Нажатие кнопки
+> ```kts
+> keybind{Keybind.H}
+> // Так же можно и с
+> keybind{Keybind.F5}
+> // или ещё
+> keybind{Keybind.COMMA}
+> ```
+---
+> ### ПКМ по НИПу
+> ```kts
+> jeka.waitInteractive()
+> ```
+---
+> ### Ответ а чат
+> ```kts
+> input() // Любое сообщение от игрока
+> // или же
+> input("Да", "Note") // Будут приниматься только Да или Note
+> // или
+> val otvet by input() // Любое сообщение которое после запишется в переменную для дальнейшего использования
+> ```
+---
+> ### Ожидание в радиусе
+> ```kts
+> team.waitPos{
+>   pos = pos(94, 34, 92) // Центр окружности
+>   radius = 4.5 // Сам радиус
+> }
+> // или же, если нужно чтоб игрок вышел
+> team.waitPos{
+>   pos = pos(43, 73, 234) // Центр окружности
+>   radius = 10.3 // Сам радиус
+>   inverse = true // Ждём пока игрок выйдет из радиуса
+> }
+> ```
+:::
