@@ -46,7 +46,7 @@ sidebar_position: 3
     // - LayerMode.ADD - Умножить
     // - LayerMode.OVERWRITE - Перезаписать
     
-    playMope = PlayMode.<playType> // Как проигрывать анимацию. Есть:
+    playType = PlayMode.<playType> // Как проигрывать анимацию. Есть:
     // - PlayMode.ONCE - 1 раз
     // - PlayMode.LOOPED - в цикле
     // - PlayMode.LAST_FRAME - Зависнуть на последнем кадре
@@ -59,7 +59,18 @@ sidebar_position: 3
 
 ---
 
-Примеры:
+## Примеры
+:::info -
 ```kts
- Ожидайте в будущем....
+jeka playOnce{"smart"}
+jeka playLooped{"running_stand"}
+jeka playFreeze{"scream_shook"}
+
+jeka play{
+    animation = "JjRfrnc"
+    layerMode = LayerMode.ADD
+    playType = PlayMode.LAST_FRAME
+    speed = 1.2f
+}
 ```
+:::

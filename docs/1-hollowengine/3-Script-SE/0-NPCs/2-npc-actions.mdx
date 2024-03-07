@@ -149,7 +149,8 @@ sidebar_position: 2
 ---
 
 ## Примеры
-:::info Передвижение
+:::info -
+### Передвижение
 ```kts
 jeka moveTo{pos(10, 34, 45)} // До позиции
 jeka moveTo{team} // До игрока
@@ -159,8 +160,8 @@ jeka moveAlwaysTo{team} // Следовать за игроком бесконе
 ...
 jeka stopMoveAlways()
 ```
-:::
-:::info Взгляд
+---
+### Взгляд
 ```kts
 jeka lookAt{pos(43, 123, 53)} // В позицию
 jeka lookAt{"zombie"} // Смотреть на зомби
@@ -172,8 +173,8 @@ jeka lookAlwaysAt{team} // Смореть на игрока бесконечно
 ...
 jeka stopLookAlways()
 ```
-:::
-:::info Телепорт
+---
+### Телепорт
 ```kts
 jeka tpTo{
     pos = pos(0.43, 14.5, 0.2345)
@@ -181,18 +182,18 @@ jeka tpTo{
     dim = dim("nether")
 }
 ```
-:::
-:::info 
+---
+### Реплей
 ```kts
 jeka replay{"test_replay.nbt"}
 ```
-:::
-:::info 
+---
+### Бросить предмет
 ```kts
 jeka dropItem{item("flint", 3)}
 ```
-:::
-:::info 
+---
+### Держать предмет
 ```kts
 jeka giveRightHand{item("carrot")}
 jeka giveLeftHand{item("diamond_hoe")}
@@ -202,14 +203,14 @@ jeka give<RIght/Left>Hand{item("air")}
 // либо
 jeka give<Right/Left>Hand{null}
 ```
-:::
-:::info 
+---
+### Взаимодействие с миром
 ```kts
 jeka destroyBlock{pos(0, 12, 53)}
 jeka useBlock{pos(15, 23, 54)}
 ```
-:::
-:::info
+---
+### Атаковать
 ```kts
 jeka setTarget{team}
 
