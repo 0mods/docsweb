@@ -79,7 +79,7 @@ entity(time, pos(x, y, z), mob)
 ```kts
 camera {
     static(10.sec, pos(0, 24, 4), pos(90f, 0f, 0f))
-    path(50.sec, "my_camera.nbt", Interpolation.SINE_OUT, true, Interpolation.SINE_IN_OUT)
+    spline(50.sec, "my_camera.nbt", Interpolation.SINE_OUT, true, Interpolation.SINE_IN_OUT)
     entity(5.sec, pos(0, 24, 4), npc)
 }
 ```
