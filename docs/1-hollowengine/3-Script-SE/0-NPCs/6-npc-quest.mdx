@@ -27,7 +27,15 @@ sidebar_position: 6
 
 ---
 
-Примеры:
+## Примеры:
 ```kts
- Ожидайте в будущем....
+val npc by NPCEntity.creating{ // НИП с именем - Жорка
+    name = "Жорка"
+    ... // Другие параметры
+}
+
+npc.requestItems{
+    +item("oak_planks", 15) // Нужно отдать 15 шт Дубовых досок
+    +item("bedrock", 1) // Нужно отдать 1 шт Бедрока
+}
 ```

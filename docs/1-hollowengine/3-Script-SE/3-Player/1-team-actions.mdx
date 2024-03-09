@@ -49,5 +49,20 @@ team.modify{
 
 Примеры:
 ```kts
- Ожидайте в будущем....
+team.tpTo{
+    pos = pos(0.5, -64, 0.5)
+    vec = vec(0f, 0f)
+    dim = dim("end")
+}
+
+team.modify{
+    setHealt(10f) // Уровень здоровья теперь = 10 ед
+    setMaxHealt(30f) // Макс уровень здоровья теперь = 30 ед
+    addHealt(4f) // Добавить 5 ед жизни
+    
+    equipHelmet( item("iron_helmet") ) // Одеть на команду "Железный шлем"
+    equipChestplate( item("diamond_chestplate") ) // Одеть на команду "Алмазный нагрудник"
+    equipLeggings( item("netherite_leggings") ) // Одеть на команду "Незеритовые поножи"
+    equipBoots( item("leather_boots") ) // Одеть на команду "Кожаные ботинки"
+}
 ```

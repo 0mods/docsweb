@@ -30,5 +30,11 @@ val <id> by team[{"<Nick>"}] // Через id мы будет обращатьс
 
 Примеры:
 ```kts
- Ожидайте в будущем....
+val pPlayer by team[{"_BENDY659_"}] // Игрок с именем "_BENDY659_" должен существовать в мире, иначе никакого толку
+
+pPlayer.confugure{
+    model = "model:player_model.glb"
+    
+    switchHeadRot = true // Голова крутится не правильно
+}
 ```

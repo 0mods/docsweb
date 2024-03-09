@@ -7,13 +7,13 @@ sidebar_position: 2
 :::info Шаблон
 ```kts
 shake {
-    duration = Int // Длительность тряски, в тиках
+    duration = <time> // Длительность тряски, в тиках
     intensity1 = <float> // Сила в начале
     intensity2 = <float> // Сила в середине
     intensity3 = <float> // Сила в конце
     intensityStart = Interpolation.<Type> // Интерполяция начало -> середина
     intensityEnd = Interpolation.<Type> // Интерполяция середина -> конец
-    targets = listOf() // Что должно двигаться
+    targets = listOf() // Что должно смещаться
 }
 ```
 :::
@@ -33,5 +33,13 @@ targets = listOf(ShakeTarget.<type>)
 
 Примеры:
 ```kts
- Ожидайте в будущем....
+shake{
+    duration = 10.sec // Время эффекта
+    intensity1 = 1f // Сила вначале
+    intensity = 2f // Сила в середине
+    intentisy = 0.25f // Сила в конце
+    intensityStart = Interpolation.QUAD_IN // Интерполяция начало -> середина
+    intensityEnd = Interpolation.QUAD_OUT // Интерполяция середина -> конец
+    targets = listOf(ShakeTarget.POS, ShakeTarget.ROT, ShakeTarget.HAND) // На что влияет тряска
+}
 ```
