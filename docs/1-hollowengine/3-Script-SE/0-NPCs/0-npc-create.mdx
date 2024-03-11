@@ -6,18 +6,18 @@ sidebar_position: 0
 
 ## Шаблон
 
-:::info Шаблон для спавна NPC  
-Этот шаблон вкл в себя все параметры, которые поддерживаются при создании НПС:
+:::info Шаблон для спавна NPC
+Этот шаблон включает в себя все параметры, которые поддерживаются при создании Персонажа:
 
 ```kts
 val <npcID> by NPCEntity.creating{
-    name = "<name>" // Ник НПС
-    model = "<path/to/model>.gltf" // Путь до модели. В начале пишется modID, а после уже сам путь
-    textures["<texture>"] = "<newTexture>.png" // Устанавливает текстуру для НПС
+    name = "<name>" // Имя персонажа
+    model = "modid:path/to/model.gltf" // Путь к модели. Указывается в формате ResourceLocation.
+    textures["<texture>"] = "<newTexture>.png" // Устанавливает текстуру для модели
     
     attributes = Attributes( // Атрибуты. Их можно получить через команду `/attribute <player>`
             "<attribute>" to <float>
-            ... // Если после атрибута ещё ещё 1 - ставте ,
+            ... //Если атрибутов больше 1, то разделяйте их запятыми.
     )
     
     size = <width>f to <height>f // Размер хитбокса
@@ -29,7 +29,7 @@ val <npcID> by NPCEntity.creating{
             sX = <float>, sY = <float>, sZ = <float>  // Размер   | X, Y, Z  | (Необязательно всё)
     )
     
-    switchHeadRot = <false/true> // Если голова поворачивается неправильно
+    switchHeadRot = <false/true> // Меняет оси координат головы местами, используйте если голова поворачивается неправильно
     animations[AnimationType.<animationID>] = <animationName> // Замена дефолтной анимации на свою(кастомную, другую)
     world = <dimenstionID> // Измерение спанва
     pos = pos(<x>, <y>, <z>) // Позиция спавна. Либо все значения это int, либо все значения это double
