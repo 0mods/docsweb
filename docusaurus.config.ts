@@ -80,6 +80,11 @@ const config: Config = {
           position: 'left'
         },
         {
+          to: '/kotlinscript',
+          label: 'KotlinScript',
+          position: 'left'
+        },
+        {
           href: 'https://github.com/0mods/docsweb',
           label: 'GitHub',
           position: 'right',
