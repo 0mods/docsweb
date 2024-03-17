@@ -80,7 +80,7 @@ const config: Config = {
           position: 'left'
         },
         {
-          to: '/kotlinscript',
+          to: 'https://kotlinlang.org/docs/custom-script-deps-tutorial.html',
           label: 'KotlinScript',
           position: 'left'
         },
