@@ -14,7 +14,7 @@ particle{
 
 :::note Шаблон
 ```kts
-particle{
+particles{
   world = "<dimenstionID>" // Измерение, где нужно заспавинить
   particle = "<type>" // Тип парикла
   settings{ // Расширенные настройки
@@ -186,7 +186,7 @@ particle = "<type>" // Тип партиклов:
     // или
     
     // Заставить count кол-во частиц на координатах XYZ
-    spawn( <x>, <y>, <z>, <count> ) // Double, Double, Double, Int
+    repeat( <x>, <y>, <z>, <count> ) // Double, Double, Double, Int
 ```
 :::
 
@@ -206,7 +206,7 @@ particle{
         gravity = 0.1f
         noClip = false
         spritesPicker = SpritesPicker.WHIT_AGE
-        spawn(0.5, 0.5, 0.5, 10000)
+        repeat(0.5, 0.5, 0.5, 10000)
     }
 }
 ```
