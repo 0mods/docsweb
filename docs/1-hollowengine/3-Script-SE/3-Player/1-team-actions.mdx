@@ -11,7 +11,7 @@ sidebar_position: 2
 team.tpTo{
     pos = pos(<x>, <y>, <z>) // Координаты
     vec = vec(<pitch>, <yaw>) // Поворот взгляда
-    dim = dim("<dimenstionID>") // Измерение
+    world = "<dimensionID>" // Измерение
     // Если указанное вами измерение относится к Ванилле, то не нужно указывать modID
 }
 ```
@@ -32,7 +32,7 @@ team.modify{
 ```kts
     // здоровье
     setHealth(<float>) // Установить здоровье(HP)
-    setMaxHealth(<float>) // Установить Макс здаровье(HP)
+    setMaxHealth(<float>) // Установить Макс здоровье(HP)
     addHealth(<float>) // Добавить здоровья(HP)
     
     // Броня
