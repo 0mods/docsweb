@@ -1,6 +1,6 @@
 {
   "name": "zerodocs",
-  "version": "0.0.0",
+  "version": "3.5.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
@@ -15,11 +15,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "3.0.1",
-    "@docusaurus/preset-classic": "3.0.1",
-    "@docusaurus/theme-live-codeblock": "^3.0.1",
-    "@docusaurus/theme-mermaid": "^3.0.1",
-    "@docusaurus/theme-search-algolia": "^3.0.1",
+    "@docusaurus/core": "3.1.1",
+    "@docusaurus/preset-classic": "3.1.1",
+    "@docusaurus/theme-live-codeblock": "^3.1.1",
+    "@docusaurus/theme-mermaid": "^3.1.1",
+    "@docusaurus/theme-search-algolia": "^3.1.1",
     "@egjs/react-view3d": "^2.3.1",
     "@egjs/view3d": "^2.10.1",
     "@mdx-js/react": "^3.0.0",
