@@ -53,7 +53,7 @@ Campfire.addRecipe(
 )
 ```
 
-![Рецепт на Костре](@site/static/img/hollowengine/campfire_recipe.png)
+![Рецепт на Костре](../../.resources/campfire_recipe.png)
 
 :::
 
