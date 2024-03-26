@@ -1,47 +1,19 @@
 {
-  "link.title.Language": {
-    "message": "Язык",
-    "description": "The title of the footer links column with title=Language in the footer"
-  },
   "link.title.Docs": {
-    "message": "Документация",
+    "message": "Docs",
     "description": "The title of the footer links column with title=Docs in the footer"
   },
   "link.title.Community": {
-    "message": "Сообщество",
+    "message": "Community",
     "description": "The title of the footer links column with title=Community in the footer"
   },
   "link.title.More": {
-    "message": "Другое",
+    "message": "More",
     "description": "The title of the footer links column with title=More in the footer"
-  },
-  "link.item.label.English": {
-    "message": "English",
-    "description": "The label of footer link with label=English linking to /"
-  },
-  "link.item.label.Русский": {
-    "message": "Русский",
-    "description": "The label of footer link with label=Русский linking to ru"
   },
   "link.item.label.HollowEngine": {
     "message": "HollowEngine",
     "description": "The label of footer link with label=HollowEngine linking to /hollowengine"
-  },
-  "link.item.label.Discord": {
-    "message": "Discord",
-    "description": "The label of footer link with label=Discord linking to https://discord.gg/YCj7JBNVAt"
-  },
-  "link.item.label.GitHub": {
-    "message": "GitHub",
-    "description": "The label of footer link with label=GitHub linking to https://github.com/0mods/docsweb"
-  },
-  "copyright": {
-    "message": "Все права защищены © 2023 HollowHorizon и AlgorithmLX.",
-    "description": "The footer copyright"
-  },
-  "link.item.label.Français": {
-    "message": "Français",
-    "description": "The label of footer link with label=Français linking to fr"
   },
   "link.item.label.HollowEngine Discord": {
     "message": "HollowEngine Discord",
@@ -51,8 +23,16 @@
     "message": "0mods Discord",
     "description": "The label of footer link with label=0mods Discord linking to https://discord.gg/YCj7JBNVAt"
   },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/0mods/docsweb"
+  },
   "link.item.label.Blog": {
     "message": "Blog",
     "description": "The label of footer link with label=Blog linking to /blog"
+  },
+  "copyright": {
+    "message": "Copyright © 2023-2024 HollowHorizon and AlgorithmLX.",
+    "description": "The footer copyright"
   }
 }
