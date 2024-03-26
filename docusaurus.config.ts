@@ -75,13 +75,13 @@ const config: Config = {
       title: '0mods',
       items: [
         {
-          to: '/blog',
-          label: 'Blog',
+          to: '/docs',
+          label: 'Docs',
           position: 'left'
         },
         {
-          to: '/docs',
-          label: 'Docs',
+          to: '/blog',
+          label: 'Blog',
           position: 'left'
         },
         {
