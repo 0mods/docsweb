@@ -10,6 +10,12 @@ type FeatureItem = {
 
 const Features: FeatureItem[] = [
   {
+    /* It's a crutch, but I can't do it any other way. */
+    title: '',
+    Svg: require('@site/static/img/doc/empty.svg').default,
+    description: (<></>)
+  },
+  {
     title:'Nothing is here :D',
     Svg: require('@site/static/img/doc/empty.svg').default,
     description: (
