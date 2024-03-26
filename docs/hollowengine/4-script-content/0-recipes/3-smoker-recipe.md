@@ -53,7 +53,7 @@ Smoker.addRecipe(
 )
 ```
 
-![Рецепт на Коптильне](../../.resources/smoker_recipe.png)
+![Рецепт на Коптильне](@site/static/img/hollowengine/smoker_recipe.png)
 
 :::
 
