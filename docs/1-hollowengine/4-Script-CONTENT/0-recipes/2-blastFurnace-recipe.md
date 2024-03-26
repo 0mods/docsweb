@@ -53,7 +53,7 @@ BlastFurnace.addRecipe(
 )
 ```
 
-![Рецепт в Плавильни](../../.resourses/blastFurnace_recipe.png)
+![Рецепт в Плавильни](../../.resources/blastFurnace_recipe.png)
 
 :::
 

@@ -53,7 +53,7 @@ Campfire.addRecipe(
 )
 ```
 
-![Рецепт на Костре](../../.resourses/campfire_recipe.png)
+![Рецепт на Костре](../../.resources/campfire_recipe.png)
 
 :::
 
