@@ -63,9 +63,11 @@ const config: Config = {
 
   themeConfig: {
     algolia: {
-      appId: 'R2IYF7ETH7',
-      apiKey: '599cec31baffa4868cae4e79f180729b',
-      indexName: 'docsearch',
+      appId: 'S11JTLUN4G',
+      apiKey: 'f5ae02919fe4c00ba622ff8d88e9ce08',
+      indexName: '0mods',
+      insights: true, // Optional, automatically send insights when user interacts with search results
+      debug: false // Set debug to true if you want to inspect the modal
     },
     liveCodeBlock: {
       playgroundPosition: 'bottom',
@@ -80,7 +82,7 @@ const config: Config = {
           position: 'left'
         },
         {
-          to: 'https://kotlinlang.org/docs/custom-script-deps-tutorial.html',
+          to: 'https://kotlinlang.org/docs/basic-syntax.html',
           label: 'KotlinScript',
           position: 'left'
         },
