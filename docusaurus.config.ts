@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Docs For Mods',
-  tagline: 'The websuite for 0mods\'s project\'s and not only :)',
+  title: '0mods site',
+  tagline: 'The website for 0mods\'s project\'s and not only :)',
   favicon: 'img/favicon.ico',
   url: 'https://0mods.team',
   baseUrl: '/',
@@ -72,11 +72,16 @@ const config: Config = {
     },
     navbar: {
       hideOnScroll: true,
-      title: 'ZeroDocs',
+      title: '0mods',
       items: [
         {
           to: '/blog',
           label: 'Blog',
+          position: 'left'
+        },
+        {
+          to: '/docs',
+          label: 'Docs',
           position: 'left'
         },
         {
@@ -104,7 +109,7 @@ const config: Config = {
           items: [
             {
               label: 'HollowEngine',
-              to: '/hollowengine',
+              to: '/docs/hollowengine',
             },
           ],
         },
