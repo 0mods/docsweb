@@ -1,15 +1,7 @@
 {
   "title": {
-    "message": "Документация по модам",
+    "message": "ZeroDocs",
     "description": "The title in the navbar"
-  },
-  "item.label.Docs": {
-    "message": "Документация",
-    "description": "Navbar item with label Docs"
-  },
-  "item.label.GitHub": {
-    "message": "GitHub",
-    "description": "Navbar item with label GitHub"
   },
   "item.label.Blog": {
     "message": "Blog",
@@ -18,5 +10,9 @@
   "item.label.KotlinScript": {
     "message": "KotlinScript",
     "description": "Navbar item with label KotlinScript"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
   }
 }

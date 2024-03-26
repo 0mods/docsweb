@@ -1,11 +1,11 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
 
-# ↳ Плавильня 🧺
+# ↳ Костёр 🧺
 
-:::note Рецепты крафтов для Плавильни
-Вы можете создавать и изменять рецепты крафта для Плавильни
+:::note Рецепты крафтов для Костра
+Вы можете создавать и изменять рецепты крафта для Костра
 :::
 
 ---
@@ -21,7 +21,7 @@ sidebar_position: 2
 :::info Удалить существующий рецепт предмета | Шаблон
 
 ```kts
-BlastFurnace.removeRecipe(
+Campfire.removeRecipe(
 	item("[<itemID>]") // Предмет на выходе (результат крафта)
 )
 ```
@@ -33,7 +33,7 @@ BlastFurnace.removeRecipe(
 :::info Добавить новый рецепт предмета | Шаблон
 
 ```kts
-BlastFurnace.addRecipe(
+Campfire.addRecipe(
 	item("[<itemID_Output>]"), // Предмет на выходе (результат крафта)
 	item("[<itemID_Input>]"), // Предмет входа (ингридиент)
 	"<group>", // хз
@@ -44,16 +44,16 @@ BlastFurnace.addRecipe(
 Пример скрипта крафта:
 
 ```kts
-BlastFurnace.addRecipe(
-	item("minecraft:netherite_ingot"),
-	item("minecraft:powder_snow_bucket"),
+Campfire.addRecipe(
+	item("minecraft:torch"),
+	item("minecraft:stick"),
 	"",
-	100f,
-	400
+	0f,
+	10
 )
 ```
 
-![Рецепт в Плавильни](../../.resources/blastFurnace_recipe.png)
+![Рецепт на Костре](@site/static/img/hollowengine/campfire_recipe.png)
 
 :::
 

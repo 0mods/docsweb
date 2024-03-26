@@ -23,3 +23,4 @@ yarn-error.log*
 # Lock Files deletions
 *.lock
 *_lock.*
+.vscode/

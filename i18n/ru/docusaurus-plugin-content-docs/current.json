@@ -1,86 +1,130 @@
 {
   "version.label": {
-    "message": "Далее",
+    "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.zeroSidebar.category.HollowEngine Guide": {
-    "message": "Гайд по HollowEngine",
-    "description": "The label for category HollowEngine Guide in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.🛠️ Документация HollowEngine 🛠️": {
+    "message": "🛠️ Документация HollowEngine 🛠️",
+    "description": "The label for category 🛠️ Документация HollowEngine 🛠️ in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.HollowEngine Guide.link.generated-index.description": {
-    "message": "Гайд по моду HollowEngine. Автор - _BENDY659_",
-    "description": "The generated-index page description for category HollowEngine Guide in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.🛠️ Документация HollowEngine 🛠️.link.generated-index.description": {
+    "message": "Документация по моду HollowEngine. Авторы: _BENDY659_, HollowHorizon, AlgorithmLX.",
+    "description": "The generated-index page description for category 🛠️ Документация HollowEngine 🛠️ in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Getting Started": {
-    "message": "Начало",
-    "description": "The label for category Getting Started in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.🗂️ Начало...": {
+    "message": "🗂️ Начало...",
+    "description": "The label for category 🗂️ Начало... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Getting Started.link.generated-index.description": {
+  "sidebar.zeroSidebar.category.🗂️ Начало....link.generated-index.description": {
     "message": "Для начала тебе нужно узнать: Что да как работает тут",
-    "description": "The generated-index page description for category Getting Started in sidebar tutorialSidebar"
+    "description": "The generated-index page description for category 🗂️ Начало... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Script - SE": {
-    "message": "Скрипт - SE",
-    "description": "The label for category Script - SE in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.🗂️ Скрипты: Сюжетные события": {
+    "message": "🗂️ Скрипты: Сюжетные события",
+    "description": "The label for category 🗂️ Скрипты: Сюжетные события in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Script - SE.link.generated-index.description": {
-    "message": "`.se.kts` - Этот тип скрипта включается в себя весь сюжет.",
-    "description": "The generated-index page description for category Script - SE in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.🗂️ Скрипты: Сюжетные события.link.generated-index.description": {
+    "message": "`.se.kts` - Этот тип скрипта предназначен для создания сюжетных событий по управлению игроками, НИП'ами и миром.",
+    "description": "The generated-index page description for category 🗂️ Скрипты: Сюжетные события in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Working with NPCs": {
-    "message": "Работаем с НИПами",
-    "description": "The label for category Working with NPCs in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 НИП...": {
+    "message": "↳ 📂 НИП...",
+    "description": "The label for category ↳ 📂 НИП... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Working with NPCs.link.generated-index.description": {
+  "sidebar.zeroSidebar.category.↳ 📂 НИП....link.generated-index.description": {
     "message": "Здесь расписаны о том, - Как работать с НИПами",
-    "description": "The generated-index page description for category Working with NPCs in sidebar tutorialSidebar"
+    "description": "The generated-index page description for category ↳ 📂 НИП... in sidebar zeroSidebar"
   },
-  "sidebar.tutorialSidebar.category.Dialogues": {
-    "message": "Диалоги",
-    "description": "The label for category Dialogues in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Диалоги...": {
+    "message": "↳ 📂 Диалоги...",
+    "description": "The label for category ↳ 📂 Диалоги... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Dialogues.link.generated-index.description": {
-    "message": "Здесь расписаны всё о диалогах для ваших сюжетов.",
-    "description": "The generated-index page description for category Dialogues in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Диалоги....link.generated-index.description": {
+    "message": "Здесь рассписаны всё о - Диалогах для ваших сюжетов.",
+    "description": "The generated-index page description for category ↳ 📂 Диалоги... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Cutscenes": {
-    "message": "Катсцены",
-    "description": "The label for category Cutscenes in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Катсцены...": {
+    "message": "↳ 📂 Катсцены...",
+    "description": "The label for category ↳ 📂 Катсцены... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Cutscenes.link.generated-index.description": {
-    "message": "Здесь расписано всё о катсценах для ваших сюжетов.",
-    "description": "The generated-index page description for category Cutscenes in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Катсцены....link.generated-index.description": {
+    "message": "Здесь рассписано всё о катсценах для ваших сюжетов.",
+    "description": "The generated-index page description for category ↳ 📂 Катсцены... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Instruments [Additionally]": {
-    "message": "Инструменты [Дополнительно]",
-    "description": "The label for category Instruments [Additionally] in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Игрок...": {
+    "message": "↳ 📂 Игрок...",
+    "description": "The label for category ↳ 📂 Игрок... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Instruments [Additionally].link.generated-index.description": {
-    "message": "Здесь расписаны вещи, которые не попали под остальные категории, но могут пригодиться вам",
-    "description": "The generated-index page description for category Instruments [Additionally] in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Игрок....link.generated-index.description": {
+    "message": "Здесь рассписаны всё о - Как и для чего использовать игрока.",
+    "description": "The generated-index page description for category ↳ 📂 Игрок... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Script - MOD": {
-    "message": "Скрипт - MOD",
-    "description": "The label for category Script - MOD in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Мировые события...": {
+    "message": "↳ 📂 Мировые события...",
+    "description": "The label for category ↳ 📂 Мировые события... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Script - MOD.link.generated-index.description": {
-    "message": "`.mod.kts` - Этот тип скрипта поможет создавать полноценные моды для ваших сюжетов.",
-    "description": "The generated-index page description for category Script - MOD in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Мировые события....link.generated-index.description": {
+    "message": "Здесь расписаны о том, - Как работать с Миром",
+    "description": "The generated-index page description for category ↳ 📂 Мировые события... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Script - CONTENT": {
-    "message": "Скрипт - CONTENT",
-    "description": "The label for category Script - CONTENT in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Эффекты...": {
+    "message": "↳ 📂 Эффекты...",
+    "description": "The label for category ↳ 📂 Эффекты... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Script - CONTENT.link.generated-index.description": {
-    "message": "`.content.kts` - Этот тип скрипта поможет работать к примеру с крафтами предметов.",
-    "description": "The generated-index page description for category Script - CONTENT in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Эффекты....link.generated-index.description": {
+    "message": "Здесь расписаны о том, как работать визуальными эффектами.",
+    "description": "The generated-index page description for category ↳ 📂 Эффекты... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Miscellaneous": {
-    "message": "Прочее",
-    "description": "The label for category Miscellaneous in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Интерфейс...": {
+    "message": "↳ 📂 Интерфейс...",
+    "description": "The label for category ↳ 📂 Интерфейс... in sidebar zeroSidebar"
   },
-  "sidebar.zeroSidebar.category.Miscellaneous.link.generated-index.description": {
-    "message": "Всё что не подошло к остальным категориям...",
-    "description": "The generated-index page description for category Miscellaneous in sidebar tutorialSidebar"
+  "sidebar.zeroSidebar.category.↳ 📂 Интерфейс....link.generated-index.description": {
+    "message": "Кастомный интерфейс",
+    "description": "The generated-index page description for category ↳ 📂 Интерфейс... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.↳ 📂 Дополнительно...": {
+    "message": "↳ 📂 Дополнительно...",
+    "description": "The label for category ↳ 📂 Дополнительно... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.↳ 📂 Дополнительно....link.generated-index.description": {
+    "message": "Здесь рассписаны вещи, которые не попали под остальные категории, но могут пригодиться вам",
+    "description": "The generated-index page description for category ↳ 📂 Дополнительно... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.🗂️ Скрипты: Контент": {
+    "message": "🗂️ Скрипты: Контент",
+    "description": "The label for category 🗂️ Скрипты: Контент in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.🗂️ Скрипты: Контент.link.generated-index.description": {
+    "message": "`.content.kts` - Этот тип скрипта поможет редактировать крафты предметов.",
+    "description": "The generated-index page description for category 🗂️ Скрипты: Контент in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Рецепты...": {
+    "message": "Рецепты...",
+    "description": "The label for category Рецепты... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Рецепты....link.generated-index.description": {
+    "message": "`Всё о рецептах",
+    "description": "The generated-index page description for category Рецепты... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.🗂️ Скрипты: Модификации": {
+    "message": "🗂️ Скрипты: Модификации",
+    "description": "The label for category 🗂️ Скрипты: Модификации in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.🗂️ Скрипты: Модификации.link.generated-index.description": {
+    "message": "`.mod.kts` - Этот тип скрипта поможет создавать полноценные моды.",
+    "description": "The generated-index page description for category 🗂️ Скрипты: Модификации in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Туториалы...": {
+    "message": "Туториалы...",
+    "description": "The label for category Туториалы... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Туториалы....link.generated-index.description": {
+    "message": "Здесь будут примеры скриптов.",
+    "description": "The generated-index page description for category Туториалы... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.kotlinscript": {
+    "message": "kotlinscript",
+    "description": "The label for category kotlinscript in sidebar zeroSidebar"
   }
 }

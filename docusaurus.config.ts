@@ -3,13 +3,13 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'Docs For Mods',
-  tagline: 'The wiki for 0mods\'s project\'s and not only :)',
+  title: '0mods site',
+  tagline: 'The website for 0mods\'s project\'s and not only :)',
   favicon: 'img/favicon.ico',
   url: 'https://0mods.team',
   baseUrl: '/',
   organizationName: '0mods',
-  projectName: 'docsweb',
+  projectName: '0modswebsuite',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'ignore',
@@ -46,7 +46,7 @@ const config: Config = {
       'classic',
       {
         docs: {
-          routeBasePath: '/',
+          routeBasePath: '/docs',
           sidebarPath: './sidebars.ts',
           editUrl:
             'https://github.com/0mods/docsweb/edit/main/',
@@ -66,16 +66,19 @@ const config: Config = {
       appId: 'S11JTLUN4G',
       apiKey: 'f5ae02919fe4c00ba622ff8d88e9ce08',
       indexName: '0mods',
-      insights: true, // Optional, automatically send insights when user interacts with search results
-      debug: false // Set debug to true if you want to inspect the modal
     },
     liveCodeBlock: {
       playgroundPosition: 'bottom',
     },
     navbar: {
       hideOnScroll: true,
-      title: 'ZeroDocs',
+      title: '0mods',
       items: [
+        {
+          to: '/docs',
+          label: 'Docs',
+          position: 'left'
+        },
         {
           to: '/blog',
           label: 'Blog',
@@ -106,7 +109,7 @@ const config: Config = {
           items: [
             {
               label: 'HollowEngine',
-              to: '/hollowengine',
+              to: '/docs/hollowengine',
             },
           ],
         },
