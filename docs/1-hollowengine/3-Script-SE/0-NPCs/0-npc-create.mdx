@@ -49,8 +49,9 @@ val <npcID> by NPCEntity.creating{
 ## Создать НИПа
 
 :::info настройка
-
-<img src="../../.resources/npc_base.png" alt="Your Image" style={codeImg}></img>
+<image style={{float: 'right', marginLeft: '10px'}}>
+  <img src="../../.resources/npc_base.png" alt="Your Image" />
+</image>
 
 ```kts title="Базовый НИП"
 // Для спавна базового NPC, будет достаточно указать: Имя и Позиция
@@ -65,7 +66,7 @@ val npc by NPCEntity.creating{
 val npc by NPCEntity.creating{
 	name = "Горловина половника"
 	model = "models:test.gltf" // Модель находится в пути [<modpack>/hollowengine/assets/models/test.gltf]
-	world = "minecraft:overworld"
+	world = "overworld"
 	pos = pos(0.5, -58.0, 0.5)
 	showName = false
 }
