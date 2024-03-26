@@ -2,6 +2,10 @@
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import styles from '../../.resources/styles.module.css';
+
 # ↳ Конфиг НИПа ⚙️
 
 :::info Всё перечисленное здесь, пишется
@@ -30,7 +34,7 @@ sidebar_position: 1
 > <npcID>.hitboxMode = HitboxMode.<Type>
 > /* 
 >  * Есть:
->  * - BLOCKING | Вы не сможете сместить нпс (будет стоять как камень)
+>  * - BLOCKING | Вы не сможете сдвинуть нпс (будет стоять как камень)
 >  * - PULLING  | Классический режим, когда подойдя к сущности вы отталкиваетесь друг от друга
 >  * - EMPTY    | Без коллизии. Проходить сквозь сущности без преград
 > */
@@ -44,13 +48,41 @@ sidebar_position: 1
 ---
 
 ## Примеры
-:::info -
+
+:::info примеры
+
+<Tabs>
+<TabItem value="configureNPC" label="Пример настроек" attributes={{className: styles.def}}>
+
 ```kts
 jeka.configure{
-    //name - эту настройку нельзя изменить в configureNPC
+    //name - эту настройку нельзя изменить в данном месте
+    model = "my-mod:models/entity/personal.glb"
+    textures["gltf_model_0_layer_gltf"] = "my-mod:textures/entity/creatures.png"
+    
 }
+```
 
+</TabItem>
+<TabItem value="hitboxMode" label="Режим хитбокса" attributes={{className: styles.def}}>
+
+```kts
+jeka.hitboxMode = HitboxMode.BLOCKING
+```
+
+</TabItem>
+<TabItem value="ignoreDamage" label="Игнорировать урон" attributes={{className: styles.def}}>
+
+```kts
 jeka.invulnerable = true
+```
+
+</TabItem>
+<TabItem value="changeName" label="Изменить имя НИПу" attributes={{className: styles.def}}>
+```kts
 jeka.name = "Пашка"
 ```
+
+</TabItem>
+</Tabs>
 :::
