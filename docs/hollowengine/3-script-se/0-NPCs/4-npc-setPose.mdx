@@ -1,32 +1,38 @@
 ---
 sidebar_position: 4
+
+title: ↳ Позы для НИПа 🤸
 ---
 
-# ↳ Позы для НИПа 🤸
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import styles from '../../.resources/styles.module.css';
 
-:::note
+# 🤸 Позы для НИПа
 
-:::
+:::note Позы для НИПа
 
----
+<Tabs>
+<TabItem value="setPose" label="Установить позу" attributes={{className: styles.def}}>
 
-## Создать позу (Видео гайд)
-
-[Редактор поз](https://youtu.be/K0fNbnp1GAU)
-
-## Устанавливаем позу
-
-:::note "Устновить позу"
 ```kts
 <npcID> setPose {"<poseName>.nbt"}
 ```
+
+</TabItem>
+<TabItem value="createPose" label="Создание позы" attributes={{className: styles.def}}>
+
+> Есть подробный видео гайд на эту тему -> [__***Создание позы для НИПа***__](https://youtu.be/K0fNbnp1GAU)
+
+</TabItem>
+</Tabs>
+
 :::
 
 ---
 
 ## Пример
-:::info -
+
 ```kts
 npc setPose{"supra_posing.nbt"}
 ```
-:::
