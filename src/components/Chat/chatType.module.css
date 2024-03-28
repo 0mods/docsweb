@@ -47,7 +47,7 @@
 
 @font-face {
   font-family: 'monocraft';
-  src: url(../fonts/Monocraft.ttf);
+  src: url(@site/static/font/Monocraft.ttf);
 }
 
 .time {
