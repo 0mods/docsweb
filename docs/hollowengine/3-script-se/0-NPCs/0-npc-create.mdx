@@ -20,7 +20,7 @@ import styles from '../../.resources/styles.module.css';
 val <npcID> by NPCEntity.creating{
     name = "<name>" // Имя персонажа
     model = "modid:path/to/model.gltf" // Путь к модели. Указывается в формате ResourceLocation.
-    textures["<texture>"] = "<newTexture>.png" // Устанавливает текстуру для модели
+    textures["<layer_name>"] = "<new_texture>.png" // Устанавливает текстуру для модели
     
     attributes = Attributes( // Атрибуты. Их можно получить через команду `/attribute <player>`
             "<attribute>" to <float>
