@@ -1,3 +1,11 @@
+/* Переменные */
+:root {
+  --phoneWidth: 700px;
+  --allMargin1: 32px;
+  --allMargin2: 256px;
+}
+
+/* Главный блок чата */
 .chat {
   padding: 10px;
 
@@ -11,6 +19,7 @@
   overflow: scroll;
 }
 
+/* Внешний стиль блока - Вы */
 .abox {
   padding: 5px;
 
@@ -26,15 +35,16 @@
   margin-top: 8px;
   margin-bottom: 16px;
 
-  @media screen and (max-width: 780px) {
-    margin-right: 32px;
+  @media (max-width: var(--phoneWidth)) {
+    margin-right: var(--allMargin1);
   }
 
-  @media screen and (min-width: 780px) {
-    margin-right: 256px;
+  @media (min-width: var(--phoneWidth)) {
+    margin-right: var(--allMargin2);
   }
 }
 
+/* Внешний стиль блока - Мы */
 .bbox {
   padding: 5px;
 
@@ -46,25 +56,26 @@
   border-radius: 4px;
   border-spacing: 0px 10px;
 
-  margin-left: 256px;
   margin-right: 8px;
   margin-bottom: 8px;
   margin-top: 16px;
 
-  @media screen and (max-width: 780px) {
-    margin-left: 32px;
+  @media screen and (max-width: var(--phoneWidth)) {
+    margin-left: var(--allMargin1);
   }
 
-  @media screen and (min-width: 780px) {
-    margin-left: 256px;
+  @media screen and (min-width: var(--phoneWidth)) {
+    margin-left: var(--allMargin2);
   }
 }
 
+/* Импорт шрифта */
 @font-face {
   font-family: 'monocraft';
   src: url(@site/static/font/Monocraft.ttf);
 }
 
+/* Внешний вид - время отправки */
 .time {
   font-family: 'monocraft', sans-serif;
   font-size: 14px;
@@ -72,6 +83,7 @@
   color: #ffbe56;
 }
 
+/* Внешний вид - Имя */
 .user {
   font-family: 'monocraft', sans-serif;
   font-size: 16px;
@@ -79,6 +91,7 @@
   color: #4baeff;
 }
 
+/* Внешний вид - текста сообщения */
 .message {
   font-family: 'monocraft', sans-serif;
   font-size: 14px;
