@@ -1,8 +1,10 @@
 ---
 sidebar_position: 1
----
 
-# ↳ Создаем новый предмет ⚒️
+title: ⚒️ Создаем новый предмет
+id: mod-new_item
+description: Добавь новый предмет в игру
+---
 
 :::note Создаём новый предмет и задаём ему характеристики
 ```kts
@@ -18,22 +20,22 @@ fun init() {
     val ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, <modid>)
 
     //Регистрируем новый предмет
-    ITEMS.register(<registry_name>) {
+    ITEMS.register("<registry_name>") {
         Item(
             // Настройки предмета, все они опциональные
             Item.Properties()
-                // Если предмет можно сьесть
+                // Если предмет можно съесть
                 .food(
                     Food.Builder()
                         .meat() // Теперь это мясо.
-                        .nutrition(<count>) // Питательность (тип: Int)
-                        .saturationMod(<percent>) // Процент насыщения от питательности (тип: Float)
+                        .nutrition(<count>) // Int | Питательность
+                        .saturationMod(<percent>) //Float |  Процент насыщения от питательности
                         .alwaysEat() // Можно съесть с полной полоской голода (как золотое яблоко)
                         .fast() // Съесть можно быстро)
                         .build() // Завершить настройку еды
                 )
-                .stacksTo(<count>) // Кол-во предметов в одной ячейке (тип: Int, максимум: 64)
-                .durability(<count>) // Прочность предмета (тип: Int)
+                .stacksTo(<count>) // Float, max: 64 |  Кол-во предметов в одной ячейке
+                .durability(<count>) // Int | Прочность предмета
                 .tab(<tab>) // Добавим предмет во вкладку мода
                 .fireResistant() // Устойчивость к огню и лаве
                 .setNoRepair() // Невозможно починить
