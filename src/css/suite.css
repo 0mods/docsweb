@@ -49,7 +49,7 @@
 
 [data-theme='dark'] .navbar {
   background-color: #4051b5;
-
+}
 
 [data-theme='light'] .navbar {
   --docsearch-primary-color: rgb(50, 109, 151);
