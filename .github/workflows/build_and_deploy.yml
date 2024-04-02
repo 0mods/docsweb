@@ -24,7 +24,7 @@ jobs:
         id: yarn_cache
         run: echo "YARN_CACHE_DIR=$(yarn cache dir)" >> "${GITHUB_OUTPUT}"
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --non-interactive
+        run: yarn install --non-interactive
       - name: Build
         run: yarn build
       
