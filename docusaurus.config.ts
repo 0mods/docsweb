@@ -64,7 +64,7 @@ const config: Config = {
   themeConfig: {
     algolia: {
       appId: 'S11JTLUN4G',
-      apiKey: '4fb029349202789a024594a3d7b314e2',
+      apiKey: 'a89bc285220f8542ff4ab7ba893872f5',
       indexName: '0mods',
     },
     liveCodeBlock: {
