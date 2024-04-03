@@ -1,20 +1,23 @@
 @import "https://unpkg.com/@egjs/view3d@latest/css/view3d-bundle.min.css";
 
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+@font-face {
+  font-family: 'vksans-medium';
+  src: url(font/vksans/medium.ttf);
+}
 
-/* You can override the default Infima variables here. */
+@font-face {
+  font-family: 'vksans-demibold';
+  src: url(font/vksans/demibold.otf);
+}
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  font-family: 'vksans-medium';
+  --ifm-color-primary: #4b5fcf;
+  --ifm-color-primary-dark: #3c588b;
+  --ifm-color-primary-darker: #3c588b;
+  --ifm-color-primary-darkest: #283a5c;
+  --ifm-color-primary-light: #4f61c9;
+  --ifm-color-primary-lighter: #4f61c9;
+  --ifm-color-primary-lightest: #4f61c9;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 51, 102, 0.1);
 }
@@ -26,25 +29,15 @@
 }*/
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  /*--ifm-color-primary: #19826b;
-  --ifm-color-primary-dark: #1d9b7f;
-  --ifm-color-primary-darker: #1b8b73;
-  --ifm-color-primary-darkest: #166b59;
-  --ifm-color-primary-light: #20a487;
-  --ifm-color-primary-lighter: #2bb799;
-  --ifm-color-primary-lightest: #399b86;
+  --ifm-color-primary: #33408d;
+  --ifm-color-primary-dark: #2b477c;
+  --ifm-color-primary-darker: #314774;
+  --ifm-color-primary-darkest: #101f38;
+  --ifm-color-primary-light: #344396;
+  --ifm-color-primary-lighter: #344396;
+  --ifm-color-primary-lightest: #344396;
   --docusaurus-highlighted-code-line-bg: rgba(0, 51, 102, 0.3);
   background-color: hsla( 225deg ,15%,14%,1);
-  */
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 51, 102, 0.1);
 }
 
 [data-theme='dark'] .navbar {
@@ -56,6 +49,3 @@
   background-color: #526cfe;
 }
 
-/*[data-theme='dark'] .card {
-  background-color: #2b323f;
-}*/
