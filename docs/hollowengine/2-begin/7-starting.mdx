@@ -1,56 +1,56 @@
 ---
 sidebar_position: 7
 id: start
-title: ⏰ Начинаем
-description: Куда.. аааэээ...
+title: ⏰ Here we go.
+description: Where..? \*whoosh\*
 ---
 
-:::info Начинаем  
-- Для начало работы с модом, перейди в папку `hollowengine/scripts` (если её нет, то создай) и там создай новый файл по шаблону: `<name>.<script_type>.kts`.
+:::info
+- To start working with the mod, go to the `hollowengine/scripts` folder (if it does not exist, then create it) and there create a new file according to the template: `<name>.<script_type>.kts`.
 >  Обозначения:  
-> - `<name>` - Любое имя файла. (Рекомендуем использовать только английские символы нижнего регистра, цифры и символ `_`)
-> - `<script_type>` - [Тип скрипта](./4-scripts-type.mdx).
+> - `<name>` - Any file name. (We recommend using only lower case English characters, numbers and the `_` symbol)
+> - `<script_type>` - [Script type](./4-scripts-type.mdx).
 :::
 
-:::caution Если ваш скрипт долго запускается
-> То это нормально. Он компилируется из скрипта в полноценный `jar`. После первой компиляции движок уже запускает скрипт из `jar` моментально.
-> Если же скрипт грузится более двух минут, то попробуйте перезайти в игру и попробовать снова, если это не поможет, то сообщите об этом разработчикам.
+:::caution If your script takes a long time to run
+> That's fine. It is compiled from a script into a full-fledged `jar`. After the first compilation, the engine runs the script from `jar` instantly.
+> If the script takes more than two minutes to load, try to restart the game and try again, if it doesn't help, report it to the developers.
 :::
 
-:::note Схема работы скрипта
+:::note Schematic of the script
 ```mermaid
 graph TD;
-    Start[Движок запускает скрипт];
-    Q1[Изменилось ли содержимое скрипта?];
-    Q2[Есть ли уже скомпилированный скрипт?];
-    Comp[Скомпилировать скрипт в `jar` файл.];
-    End[Запустить скомпилированный скрипт из `jar` файла.];
+    Start[The engine runs a script];
+    Q1[Did the contents of the script change?];
+    Q2[Is there a script already compiled?];
+    Comp[Compile the script into a `jar` file.];
+    End[Run the compiled script from the `jar` file.];
     
     Start-->Q1;
-    Q1-->|нет|Q2;
-    Q2-->|Нет|Comp;
-    Q1-->|Да|Comp;
-    Q2-->|Да|End;
+    Q1-->|No|Q2;
+    Q2-->|No|Comp;
+    Q1-->|Yes|Comp;
+    Q2-->|Yes|End;
     Comp-->End;
 ```  
 :::
 
 ---
 
-## Ошибки в скрипте
+## Errors in script
 
-:::info Ошибки в скрипте  
-> Если вдруг в скрипте есть проблемы, в чат (или логи) вам напишет, где **на какой строчке ошибка**, а также описание самой ошибки. Не стоит сразу, не читая скидывать это разработчикам, **скорее всего ошибка в вашем скрипте**, а не самом моде. Разработчикам обидно, когда им скидывают элементарные ошибки, связанные с вашим незнанием языка, а не самим модом 😢
+:::info Errors in script
+> If there are problems in the script, the chat (or logs) will tell you where **on what line the error is**, as well as a description of the error itself. You should not immediately, without reading it, throw it to the developers, **most likely the error is in your script**, not in the mod itself. Developers are offended when they are thrown elementary errors related to your ignorance of the language, not the mod itself 😢
 :::
 
 ---
 
 ## Kotlin (KotlinScript)
 
-:::caution Мод `KotlinScript`  
-> - Вообще данный гайд рассказывает о простых вещах. Для более продвинутых действий лучше будет "Начать изучать (зубрить) [Kotlin](https://kotlinlang.ru/)".
-> - Базовых вещей может быть достаточно для более менее чего-то.  
-> - `HollowEngine` дарует вам возможность использовать ваш скрипт для сюжетов по максимуму.  
-> - Контролируйте свой сюжет до мелочей.  
+:::caution Mod `KotlinScript`
+> - In general, this guide is about simple things. For more advanced actions it would be better to "Start learning [Kotlin](https://kotlinlang.ru/)".
+> - Basic stuff may be enough for more or less anything.  
+> - `HollowEngine` gives you the ability to use your script for plots to the max.  
+> - Control your plot down to the last detail.  
 :::
 ---
