@@ -183,17 +183,21 @@ import styles from '@site/src/css/styles.module.css';
 :::note Выдать предмет НИПу в руки
 
 <Tabs>
-<TabItem value="giveLeftHand" label="Выдать в Левую руку" attributes={{className: styles.def}}>
+<TabItem value="giveItenHand" label="Выдать предмет в руки" attributes={{className: styles.def}}>
 
 ```kts
 <npcID> giveLeftHand { item("<itemID>") } // Выдать предмет в левую руку
+// или
+<npcID> giveRightHand { item("<itemID>") } // Выдать предмет в правую руку
 ```
 
 </TabItem>
-<TabItem value="giveRightHand" label="Выдать в Правую руку" attributes={{className: styles.def}}>
+<TabItem value="removeItemHand" label="Убрать предмет из рук" attributes={{className: styles.def}}>
 
 ```kts
-<npcID> giveRightHand { item("<itemID>") } // Выдать предмет в правую руку
+<npcID> giveLeftHand {null} // Убрать предмет из левой руки
+// или
+<npcID> giveRightHand {null} // Убрать предмет из правой руки
 ```
 
 </TabItem>
