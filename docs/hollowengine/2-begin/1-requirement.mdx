@@ -9,20 +9,14 @@ description: What do we need?
 ```mermaid
 graph TD;
   HE[HollowEngine]; HC[HollowCore]; KFF[KotlinForForge]; KS[KotlinScript];
-  FTBT[FTB Teams]; FTBL[FTB Library]; Arc[Architectury];
   
   HE-->|required|KS;
   HE-->|required|KFF;
   HE-->|required|HC;
-  HE-->|optional|FTBT;
 
   KS-->|required|HC;
 
   HC-->|required|KFF;
-
-  FTBT-->|required|FTBL;
-  FTBT-->|required|Arc;
-  FTBL-->|required|Arc;
 ```
 ℹ️ FTBTeams - optional library! Install it if you want to write a story ℹ️
 
@@ -47,21 +41,3 @@ graph TD;
 
 > [🔶 KSFF | 1.19.2 | Latest version](https://github.com/HollowHorizon/KotlinScriptForForge/releases/tag/latest-1.19.2)
 > [🔶 KSFF | 1.19.2 | Modrinth version](https://modrinth.com/mod/ksff)
-
----
-
-# 📥 Download FTB Teams
-
-> [🔶 FTB Teams | 1.19.2 | Latest version](https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge/files/4611938)
-
----
-
-# 📥 Download FTB Library
-
-> [🔶 FTB Library | 1.19.2 | Latest version](https://www.curseforge.com/minecraft/mc-mods/ftb-library-forge/files/4661834)
-
----
-
-# 📥 Download Architectury
-
-> [🔶 Architectury | 1.19.2 | Latest version](https://www.curseforge.com/minecraft/mc-mods/architectury-api/files/5137942)

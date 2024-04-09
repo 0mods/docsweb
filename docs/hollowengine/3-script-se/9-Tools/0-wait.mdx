@@ -87,6 +87,8 @@ val text = input() // Записывает полученное сообщени
 </TabItem>
 <TabItem value="waitPos" label="По позиции" attributes={{className: styles.def}}>
 
+Примечание: чтобы указывать в качестве цели игроков, рекомендуем ознакомиться со вкладкой [Команды и Игроки](./../3-Player/0-players.mdx)
+
 ```kts
 team.waitPos{
     vec = pos(x, y, z) // Позиция
@@ -99,6 +101,8 @@ team.waitPos{
 
 :::note Пример
 ```kts
+val team by server.players
+
 team.waitPos{
     vec = pos(15, 64, 33) // Центр радиуса
     radius = 12.5 // Радиус

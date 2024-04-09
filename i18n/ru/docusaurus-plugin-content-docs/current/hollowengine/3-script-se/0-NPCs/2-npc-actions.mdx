@@ -18,25 +18,31 @@ import styles from '@site/src/css/styles.module.css';
 <TabItem value="moveTo" label="Двигаться до..." attributes={{className: styles.def}}>
 
 ```kts
-<npcID> moveTo { <type> } // Двигаться до <type> и после остановится
+<npcID> moveTo <type> // Двигаться до <type> и после остановится
 /* Есть:
- * - pos( <x>, <y>, <z> ) | До позиции
- * - <Entity>             | До сущности
- * - team                 | До команды (или игрока)
+ * - { pos( <x>, <y>, <z> } | До позиции
+ * - { <Entity> }           | До сущности
+ * - <npcID>                | До другого нпс
+ * - <team/group>           | До группы игроков (или одного игрока)
 */
 ```
+
+Примечание: чтобы указывать в качестве цели игроков, рекомендуем ознакомиться со вкладкой [Команды и Игроки](./../3-Player/0-players.mdx)
 
 </TabItem>
 <TabItem value="moveAlwaysTo" label="Двигаться бесконечно до..." attributes={{className: styles.def}}>
 
 ```kts
-<npcID> moveAlwaysTo { <type> } // Двигаться до <type> и не прекращать передвижение
+<npcID> moveAlwaysTo <type> // Двигаться до <type> и не прекращать передвижение
 /* Есть:
- * - pos( <x>, <y>, <z> ) | До позиции
- * - <Entity>             | До сущности
- * - team                 | До команды (или игрока)
+ * - { pos( <x>, <y>, <z> } | До позиции
+ * - { <Entity> }           | До сущности
+ * - <npcID>                | До другого нпс
+ * - team/group           | До группы игроков (или одного игрока) // Примечание: Это действие не сохраняется при выходе
 */
 ```
+
+Примечание: чтобы указывать в качестве цели игроков, рекомендуем ознакомиться со вкладкой [Команды и Игроки](./../3-Player/0-players.mdx)
 
 </TabItem>
 <TabItem value="stopMoveAlways" label="Перестать бесконечно двигаться" attributes={{className: styles.def}}>
@@ -73,25 +79,31 @@ import styles from '@site/src/css/styles.module.css';
 <TabItem value="lookAt" label="Смотреть на..." attributes={{className: styles.def}}>
 
 ```kts
-<npcID> lookAt { <type> } // Смотреть в сторону <type>
+<npcID> lookAt <type> // Смотреть в сторону <type>
 /* Есть:
- * - pos( <x>, <y>, <z> ) | В позицию
- * - <Entity>             | На сущность
- * - team                 | На команду (или игрока)
+ * - { pos( <x>, <y>, <z> } | До позиции
+ * - { <Entity> }           | До сущности
+ * - <npcID>                | До другого нпс
+ * - <team/group>           | До группы игроков (или одного игрока)
 */
 ```
+
+Примечание: чтобы указывать в качестве цели игроков, рекомендуем ознакомиться со вкладкой [Команды и Игроки](./../3-Player/0-players.mdx)
 
 </TabItem>
 <TabItem value="lookAlwaysAt" label="Бесконечно смотреть на..." attributes={{className: styles.def}}>
 
 ```kts
-<npcID> lookAlwaysAt { <type> } // Смотреть в сторону <type> не отводя взгляд (бесконечно)
+<npcID> lookAlwaysAt <type> // Смотреть в сторону <type> не отводя взгляд (бесконечно)
 /* Есть:
- * - pos( <x>, <y>, <z> ) | В позицию
- * - <Entity>             | На сущность
- * - team                 | На команду (или игрока)
+ * - { pos( <x>, <y>, <z> } | До позиции
+ * - { <Entity> }           | До сущности
+ * - <npcID>                | До другого нпс
+ * - team/group           | До группы игроков (или одного игрока) // Примечание: Это действие не сохраняется при выходе
 */
 ```
+
+Примечание: чтобы указывать в качестве цели игроков, рекомендуем ознакомиться со вкладкой [Команды и Игроки](./../3-Player/0-players.mdx)
 
 </TabItem>
 <TabItem value="stopLookAlways" label="Перестать бесконечно смотреть" attributes={{className: styles.def}}>
@@ -183,17 +195,21 @@ import styles from '@site/src/css/styles.module.css';
 :::note Выдать предмет НИПу в руки
 
 <Tabs>
-<TabItem value="giveLeftHand" label="Выдать в Левую руку" attributes={{className: styles.def}}>
+<TabItem value="giveItenHand" label="Выдать предмет в руки" attributes={{className: styles.def}}>
 
 ```kts
 <npcID> giveLeftHand { item("<itemID>") } // Выдать предмет в левую руку
+// или
+<npcID> giveRightHand { item("<itemID>") } // Выдать предмет в правую руку
 ```
 
 </TabItem>
-<TabItem value="giveRightHand" label="Выдать в Правую руку" attributes={{className: styles.def}}>
+<TabItem value="removeItemHand" label="Убрать предмет из рук" attributes={{className: styles.def}}>
 
 ```kts
-<npcID> giveRightHand { item("<itemID>") } // Выдать предмет в правую руку
+<npcID> giveLeftHand {null} // Убрать предмет из левой руки
+// или
+<npcID> giveRightHand {null} // Убрать предмет из правой руки
 ```
 
 </TabItem>
@@ -257,7 +273,6 @@ import styles from '@site/src/css/styles.module.css';
 <npcID> setTarget { <type> } // Атаковать <type>
 /* Есть:
  * - <Entity>             | Сущность
- * - team                 | Команду (или игрока)
  */
 ```
 :::

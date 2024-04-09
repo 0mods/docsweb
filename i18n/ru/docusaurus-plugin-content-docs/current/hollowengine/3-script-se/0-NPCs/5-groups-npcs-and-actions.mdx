@@ -42,5 +42,5 @@ val h1 by NPCEntity.creating{ // НИП с именем 1
 
 val humans = arrayOf(h0, h1) // Группа humans, которая состоит из НИПа с ID - h0 и h1
 
-humans.forEach{ if moveTo{team} }
+humans.forEach{ it moveTo team }
 ```

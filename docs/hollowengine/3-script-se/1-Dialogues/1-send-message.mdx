@@ -7,19 +7,11 @@ id: chat-text
 
 ## Для команды
 
-:::info сообщение для всех игроков из команды
+:::info сообщение для всех игроков на сервере
 ```kts
-team.send {"<text>"}
-```
-:::
-
----
-
-## От лица игрока
-
-:::info Сообщение, адресатом которого будет главаря команды
-```kts
-team.sendAsPlayer {"<text>"}
+next {
+    server.playerList.player.forEach { it.sendSystemMessage("<text>".mcText) }
+}
 ```
 :::
 
