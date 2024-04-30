@@ -51,7 +51,7 @@ Furnace.addRecipe(
 )
 ```
 
-![Рецепт в Печи](../../.resources/furnace_recipe.png)
+![Рецепт в Печи](@site/static/img/doc/furnace_recipe.png)
 
 :::
 

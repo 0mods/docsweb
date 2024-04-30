@@ -91,7 +91,7 @@ val text = input() // Записывает полученное сообщени
 
 ```kts
 team.waitPos{
-    vec = pos(x, y, z) // Позиция
+    pos = pos(x, y, z) // Позиция
     radius = <double> // Радиус
     ignoreY = <false/true> // Будет ждать игрока в реальном радиусе (шар), чем в плоском (цилиндр)
     createIcon = <false/true> // Создать значёк
@@ -104,7 +104,7 @@ team.waitPos{
 val team by server.players
 
 team.waitPos{
-    vec = pos(15, 64, 33) // Центр радиуса
+    pos = pos(15, 64, 33) // Центр радиуса
     radius = 12.5 // Радиус
     ignoreY = true // Игнорировать высоту
     createIcon = true // Создаёт метку в центре радиуса
