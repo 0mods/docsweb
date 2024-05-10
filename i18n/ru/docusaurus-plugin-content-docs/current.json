@@ -126,5 +126,97 @@
   "sidebar.zeroSidebar.category.kotlinscript": {
     "message": "kotlinscript",
     "description": "The label for category kotlinscript in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Hollow Core": {
+    "message": "Hollow Core",
+    "description": "The label for category Hollow Core in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Hollow Core.link.generated-index.description": {
+    "message": "Nothing is there",
+    "description": "The generated-index page description for category Hollow Core in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.🗂️ Begin...": {
+    "message": "🗂️ Begin...",
+    "description": "The label for category 🗂️ Begin... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.🗂️ Begin....link.generated-index.description": {
+    "message": "First, you need to know what works here.",
+    "description": "The generated-index page description for category 🗂️ Begin... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 НИП...": {
+    "message": "📂 НИП...",
+    "description": "The label for category 📂 НИП... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 НИП....link.generated-index.description": {
+    "message": "Здесь написано о том, как работать с НИПами",
+    "description": "The generated-index page description for category 📂 НИП... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Диалоги...": {
+    "message": "📂 Диалоги...",
+    "description": "The label for category 📂 Диалоги... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Диалоги....link.generated-index.description": {
+    "message": "Здесь рассписаны всё о - Диалогах для ваших сюжетов.",
+    "description": "The generated-index page description for category 📂 Диалоги... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Катсцены...": {
+    "message": "📂 Катсцены...",
+    "description": "The label for category 📂 Катсцены... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Катсцены....link.generated-index.description": {
+    "message": "Здесь рассписано всё о катсценах для ваших сюжетов.",
+    "description": "The generated-index page description for category 📂 Катсцены... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Игрок...": {
+    "message": "📂 Игрок...",
+    "description": "The label for category 📂 Игрок... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Игрок....link.generated-index.description": {
+    "message": "Здесь рассписаны всё о - Как и для чего использовать игрока.",
+    "description": "The generated-index page description for category 📂 Игрок... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Мировые события...": {
+    "message": "📂 Мировые события...",
+    "description": "The label for category 📂 Мировые события... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Мировые события....link.generated-index.description": {
+    "message": "Здесь расписаны о том, - Как работать с Миром",
+    "description": "The generated-index page description for category 📂 Мировые события... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Эффекты...": {
+    "message": "📂 Эффекты...",
+    "description": "The label for category 📂 Эффекты... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Эффекты....link.generated-index.description": {
+    "message": "Здесь расписаны о том, как работать визуальными эффектами.",
+    "description": "The generated-index page description for category 📂 Эффекты... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Интерфейс...": {
+    "message": "📂 Интерфейс...",
+    "description": "The label for category 📂 Интерфейс... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Интерфейс....link.generated-index.description": {
+    "message": "Кастомный интерфейс",
+    "description": "The generated-index page description for category 📂 Интерфейс... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Дополнительно...": {
+    "message": "📂 Дополнительно...",
+    "description": "The label for category 📂 Дополнительно... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.📂 Дополнительно....link.generated-index.description": {
+    "message": "Здесь рассписаны вещи, которые не попали под остальные категории, но могут пригодиться вам",
+    "description": "The generated-index page description for category 📂 Дополнительно... in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.❓ FAQ": {
+    "message": "❓ FAQ",
+    "description": "The label for category ❓ FAQ in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.❓ FAQ.link.generated-index.description": {
+    "message": "Часто задаваемые вопросы по HollowEngine.",
+    "description": "The generated-index page description for category ❓ FAQ in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.link.Kotlin Script": {
+    "message": "Kotlin Script",
+    "description": "The label for link Kotlin Script in sidebar zeroSidebar, linking to https://kotlinlang.org/docs/basic-syntax.html"
   }
 }
