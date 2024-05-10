@@ -24,3 +24,4 @@ yarn-error.log*
 *.lock
 *_lock.*
 .vscode/
+!yarn.lock
