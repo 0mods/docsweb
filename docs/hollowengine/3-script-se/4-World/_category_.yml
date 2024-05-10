@@ -1,0 +1,6 @@
+position: 4
+label: world-events
+link:
+  type: generated-index
+customProps:
+  description: 'Здесь расписаны о том, - как работать с Миром.'

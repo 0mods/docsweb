@@ -1,0 +1,6 @@
+position: 0
+label: npc
+link:
+  type: generated-index
+customProps:
+  description: 'Здесь написано о том, как работать с НИПами'

@@ -29,14 +29,15 @@ const config: Config = {
         label: 'English',
         direction: 'ltr',
         htmlLang: 'en-US',
-        calendar: 'gregory'
+        calendar: 'gregory',
+        path: 'en',
       },
       'ru-RU': {
         label: 'Русский',
         direction: 'ltr',
         htmlLang: 'ru-RU',
         calendar: 'gregory',
-        path: 'ru'
+        path: 'ru',
       },
     },
   },

@@ -1,0 +1,6 @@
+position: 1
+label: dialogues
+link:
+  type: generated-index
+customProps:
+  description: 'Здесь рассписаны всё о - Диалогах для ваших сюжетов.'

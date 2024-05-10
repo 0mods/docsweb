@@ -1,0 +1,6 @@
+position: 5
+label: mod-scripts
+link:
+  type: generated-index
+customProps:
+  description: "`.mod.kts` - Этот тип скрипта поможет создавать полноценные моды."
