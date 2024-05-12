@@ -1,23 +1,11 @@
 {
-  "version.label": {
-    "message": "Далее",
-    "description": "The label for version current"
-  },
-  "sidebar.zeroSidebar.category.hollowcore": {
-    "message": "Hollow Core",
-    "description": "The label for category hollowcore in sidebar zeroSidebar"
-  },
   "sidebar.zeroSidebar.category.hollowengine": {
     "message": "Hollow Engine",
     "description": "The label for category hollowengine in sidebar zeroSidebar"
   },
   "sidebar.zeroSidebar.category.begin": {
-    "message": "🗂️ Начало...",
+    "message": "🗂️ Begin...",
     "description": "The label for category begin in sidebar zeroSidebar"
-  },
-  "sidebar.zeroSidebar.category.story-scripts": {
-    "message": "🗂️ Скрипты: Сюжетные события",
-    "description": "The label for category story-scripts in sidebar zeroSidebar"
   },
   "sidebar.zeroSidebar.category.npc": {
     "message": "📂 НИП...",
@@ -70,5 +58,17 @@
   "sidebar.zeroSidebar.link.Kotlin Script": {
     "message": "Kotlin Script",
     "description": "The label for link Kotlin Script in sidebar zeroSidebar, linking to https://kotlinlang.org/docs/basic-syntax.html"
+  },
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.zeroSidebar.category.hollowcore": {
+    "message": "Hollow Core",
+    "description": "The label for category hollowcore in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.story-scripts": {
+    "message": "\uD83D\uDDC2\uFE0F Скрипты: Сюжетные события",
+    "description": "The label for category story-scripts in sidebar zeroSidebar"
   }
 }

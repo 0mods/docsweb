@@ -1,0 +1,6 @@
+position: 99
+label: faq
+link:
+  type: generated-index
+customProps:
+  description: "Часто задаваемые вопросы по HollowEngine."

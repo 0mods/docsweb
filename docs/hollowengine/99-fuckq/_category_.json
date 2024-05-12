@@ -1,8 +1,0 @@
-{
-  "label": "❓ FAQ",
-  "position": 99,
-  "link": {
-    "type": "generated-index",
-    "description": "Часто задаваемые вопросы по HollowEngine.",
-  }
-}

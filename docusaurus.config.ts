@@ -9,10 +9,11 @@ const config: Config = {
   url: 'https://0mods.team',
   baseUrl: '/',
   organizationName: '0mods',
-  projectName: '0modswebsuite',
+  projectName: '0mods_site',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'ignore',
+  onBrokenAnchors: 'warn',
 
   plugins: ['@docusaurus/theme-mermaid', "@docusaurus/theme-live-codeblock"],
   markdown: {
@@ -20,23 +21,23 @@ const config: Config = {
   },
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'ru'],
+    defaultLocale: 'en-US',
+    locales: ['en-US', 'ru-RU'],
     path: 'i18n',
     localeConfigs: {
-      en: {
+      'en-US': {
         label: 'English',
         direction: 'ltr',
         htmlLang: 'en-US',
         calendar: 'gregory',
-        path: 'en'
+        path: 'en',
       },
-      ru: {
+      'ru-RU': {
         label: 'Русский',
         direction: 'ltr',
         htmlLang: 'ru-RU',
         calendar: 'gregory',
-        path: 'ru'
+        path: 'ru',
       },
     },
   },
@@ -83,6 +84,11 @@ const config: Config = {
         {
           to: '/blog',
           label: 'Blog',
+          position: 'left'
+        },
+        {
+          to: 'http://maven.0mods.team/',
+          label: 'Maven',
           position: 'left'
         },
         {

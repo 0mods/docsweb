@@ -19,7 +19,7 @@ import styles from '@site/src/css/styles.module.css';
 > Этот шаблон включает в себя все параметры, которые поддерживаются при создании Персонажа, они все не обязательные, оставляйте только те, которые будете менять:
 
 ```kts
-val <npcID> by NPCEntity.creating{
+val <npcID> by NPCEntity.creating {
     name = "<name>" // Имя персонажа
     model = "modid:path/to/model.gltf" // Путь к модели. Указывается в формате ResourceLocation.
     textures["<original_texture>"] = "<new_texture>.png" // Устанавливает текстуру для модели. Примечание: получить оригинальные имена текстур можно командой `/hollowengine model <модель>`
@@ -42,7 +42,7 @@ val <npcID> by NPCEntity.creating{
     
     switchHeadRot = <false/true> // Меняет оси координат головы местами, используйте если голова поворачивается неправильно
 
-    world ="<dimensionID>" // Измерение, в котором должен появится НИП
+    world = "<dimensionID>" // Измерение, в котором должен появится НИП
     pos = pos(<x>, <y>, <z>) // Позиция спавна. Все значения должны быть либо Целые, либо НЕ целые! 
     rotation = vec(<pitch>, <yaw>) // Поворот головы
 }

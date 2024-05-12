@@ -1,0 +1,6 @@
+position: 2
+label: cutscenes
+link:
+  type: generated-index
+customProps:
+  description: 'Здесь рассписано всё о катсценах для ваших сюжетов.'

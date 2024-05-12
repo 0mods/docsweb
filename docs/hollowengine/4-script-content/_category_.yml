@@ -1,0 +1,6 @@
+position: 4
+label: content-scripts
+link:
+  type: generated-index
+customProps:
+  description: "`.se.kts` - Этот тип скрипта предназначен для создания сюжетных событий по управлению игроками, НИП'ами и миром."

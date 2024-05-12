@@ -1,0 +1,6 @@
+position: 0
+label: recipes
+link:
+  type: generated-index
+customProps:
+  description: "Всё о рецептах"
