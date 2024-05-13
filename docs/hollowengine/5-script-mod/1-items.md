@@ -9,8 +9,9 @@ description: Добавь новый предмет в игру
 :::note Создаём новый предмет и задаём ему характеристики
 ```kts
 //Всё что ниже - импорты классов самой игры, они обязательны!
-import net.minecraft.item.Item
-import net.minecraft.item.Food
+import net.minecraft.world.item.Item
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.food.FoodProperties
 import net.minecraftforge.registries.DeferredRegister
 import net.minecraftforge.registries.ForgeRegistries
 import ru.hollowhorizon.hollowengine.common.tabs.HOLLOWENGINE_TAB
