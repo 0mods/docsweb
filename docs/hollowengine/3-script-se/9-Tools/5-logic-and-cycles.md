@@ -61,7 +61,7 @@ If( {<condition_0 -> return true/false} ) {
 
 ---
 
-## Цикты
+## Циклы
 
 ### While (пока I -> Выполнять в цикле)
 ```kts
