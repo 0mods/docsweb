@@ -80,3 +80,26 @@ team.modify{
     equipBoots( item("leather_boots") ) // Одеть на команду "Кожаные ботинки"
 }
 ```
+:::
+
+---
+
+##Получить ник члена команды
+Примеры:
+Первый вариант
+```kts
+val team by server.players //Получаем список игроков
+
+val player = team().first() //Получаем первого игрока в списке
+val nickname = player.name.string //Получаем переменную с ником игрока
+
+pl send {"$nickname"} //Вариант вывода
+```
+Второй вариант:
+```kts
+val team by server.players //Получаем список игроков
+
+val player = team().first() //Получаем первого игрока в списке
+
+pl send {"${player.name.string}"} //Переводим в строку уже на месте, однако проще сделать по Первому варианту
+```
