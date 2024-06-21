@@ -1,0 +1,8 @@
+.image-with-text {
+  display: flex;
+  align-items: center;
+}
+.image-with-text img {
+  width: 128px;
+  margin-right: 10px;
+}
