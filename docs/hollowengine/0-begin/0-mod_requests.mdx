@@ -1,0 +1,45 @@
+---
+sidebar_position: 0
+
+title: Зависимости `HollowEngine`
+id: mod-requests
+description: Перед началом установки, стоит убедится что имеются остальные моды для корректной работы
+---
+
+<div align="center">
+
+# Зависимости мода `HollowEngine`
+
+Просто установить 1 мод и думать что всё будет окей - неверное утверждение!
+
+![suka-crash](@site/static/img/doc/balin-crash.png "Сука, Я СЛОМАЛСЯ")
+
+Вам разве не показалось странным, что такой БОЛЬШОЙ мод весит как-то мало?
+
+---
+
+## Графиг зависемостей
+
+:::info Зависимости мода HollowEngine в виде графика
+```mermaid
+graph TD;
+    
+    HE[HollowEngine]; HC[HollowCore]; KFF[Kotlin For Forge]; KSFF[Kotlin Scripts];
+    
+    HE-->|Требует|HC
+    HE-->|Требует|KSFF
+    HE-->|Требует|KFF
+    
+    KSFF-->|Требует|HC
+    
+    HC-->|Требует|KFF
+```
+:::
+
+---
+
+:::warning по проводу Kotlin Scripts
+⚠️ Скачивать нужно ***полную*** версию, без таких тегов как: [**no-compiler**, **lite**, **original**, и т.д.] ⚠️
+:::
+
+</div>
