@@ -1,5 +1,5 @@
-position: 0
-label: begin
+position: 1
+label: Начало
 link:
   type: generated-index
 customProps:

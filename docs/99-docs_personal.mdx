@@ -4,48 +4,58 @@ sidebar_position: 99
 title: Авторы документации
 id: docs-personal
 desc: Кто работал над документацией
-
-css: '@site/src/css/img-with-text.css'
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import style from '@site/src/css/tabs/personal-tab.module.css';
 
 <div align="center">
 
 # Над документацией работали
 
 ---
-## `AlgorithmLX`
 
+<Tabs>
+<TabItem value="algo" label="AlgorithmLX" attributes={{className: style.algo}}>
+
+## `AlgorithmLX`
+    
 ![Algo](@site/static/img/doc/chrs/AlgorithmLX.png "Это AlgorithmLX")
 :::info Создатель сайта
-
+    
 Отвечает за его работу.
-
+    
 Иногда что-то дополняет/изменяет/удаляет...
 :::
 
----
+</TabItem>
+<TabItem value="halva" label="HollowHorizon" attributes={{className: style.halva}}>
 
 ## `HollowHorizon`
-
+    
 ![Halva](@site/static/img/doc/chrs/HollowHorizon.png)
 :::info Создатель мода 'HollowEngine'
-Без него бы — не было смысла это этой документации!
-
+Без него бы — не было смысла этой документации!
+    
 Из редко, но что-то тоже приносит сюда.
 :::
-
----
+    
+</TabItem>
+<TabItem value="bendy659" label="_BENDY659_" attributes={{className: style.bendy}}>
 
 ## `_BENDY659_`
-
+    
 ![FurryBlyuat](@site/static/img/doc/chrs/_BENDY659_.png)
 :::info Основной документатор
 Пишет доки полностью.
-
+    
 Должен следить за актуальностью (но не обязан :З).
-
+    
 Плохо дружит с Русским языком!
 :::
 
+</TabItem>
+</Tabs>
 
 </div>

@@ -1,0 +1,42 @@
+.algo {
+  scale: 0.95;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-bottom-color: var(--border-color);
+}
+.halva {
+  scale: 0.95;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-bottom-color: var(--border-color);
+}
+.bendy {
+  scale: 0.95;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-bottom-color: var(--border-color);
+}
+
+.algo[aria-selected='true'] {
+  background-color: #0043d0;
+  color: #00b2ff;
+  border-bottom-color: #001dbb;
+}
+
+.halva[aria-selected='true'] {
+  background-color: #854d00;
+  color: #ffc400;
+  border-bottom-color: #461f00;
+}
+
+.bendy[aria-selected='true'] {
+  background-color: #8c0000;
+  color: #de7373;
+  border-bottom-color: #650000;
+}
+
+:root {
+  --background-color: #363636;
+  --text-color: #818181;
+  --border-color: #1e1e1e;
+}
