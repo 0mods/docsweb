@@ -4,11 +4,16 @@
   font-family: 'vksans-medium';
   src: url(font/vksans/medium.ttf);
 }
-
 @font-face {
   font-family: 'vksans-demibold';
   src: url(font/vksans/demibold.otf);
 }
+/* мне сказали что - это говно.
+@font-face {
+  font-family: 'monocraft';
+  src: url(font/monocraft.ttf);
+}
+*/
 :root {
   font-family: 'vksans-medium';
   --ifm-color-primary: #4b5fcf;
@@ -29,7 +34,8 @@
 }*/
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #33408d;
+  /*--ifm-color-primary: #33408d;*/
+  --ifm-color-primary: #576cec;
   --ifm-color-primary-dark: #2b477c;
   --ifm-color-primary-darker: #314774;
   --ifm-color-primary-darkest: #101f38;
