@@ -380,11 +380,14 @@ val npcID by NPCEntity.creating {
 
     Ахх.. мне сегодня шею защемило. Но я должен всё равно помочь тебе!
     
-    Что ты там говоришь? "Параметр" 'switchHeadRot'? Вот бы мне такое...
+    Что ты там говоришь? "Параметр: 'switchHeadRot"? Вот бы мне такое...
 
     А если серьёзно, то может помочь исправить неправильноый поворот головы (как у меня к примеру, ай).
 
     Разные программы по разному расчитывают поворот объектов/костей.
+
+    Так что если вдруг у твоей модели голова поворачивается не в ту сторону, то просто поставить `switchHeadRot = true`,
+    а если же наоборот всё хорошо, то не нужно использовать этот параметр.
 
   </div>
   </div>
@@ -439,4 +442,61 @@ val npcID by NPCEntity.creating {
   </div>
 </TabItem>
 </Tabs>
+
+---
+
+## Примеры
+
 </div>
+
+<Tabs>
+<TabItem value="basic-npc" label="Базовый НИП" attributes={{className: tab.def}}>
+<div className="box">
+<div className="txt">
+
+Для спавна Базового НПИа хватило бы и одного параметра `pos`, то будет интереснее если у НИПа будет ещё и своё имя.
+
+```kts title="Пример"
+val npc by NPCEntity.creating {
+  name = "НИП"
+  pos = pos(-9.5, 64.0, 307.5)
+}
+```
+НПС будет заспавнен с именем "НИП" и на координатах "x: -9.5, y: 64.0, z: 307.5"
+
+</div>
+<div className="gif">
+
+![baseNPC](@site/static/img/doc/basic-npc.png)
+
+</div>
+</div>
+</TabItem>
+<TabItem value="better-npc" label="Продвинутый НИП" attributes={{className: tab.def}}>
+<div className="box">
+<div className="txt">
+
+Чтобы добится продвинутого уровня, можно использовать больше параметров при настройке НИПа.
+
+```kts title="Пример"
+val npc by NPCEntity.creating {
+	name = "НИП"
+	model = "models:amogus_model.gltf"
+	animations[AnimationType.IDLE] = "defAnim.walk"
+	transform = Transform(
+		sX = 2f, sY = 2f, sZ = 2f
+	)
+	pos = pos(-9.5, 64.0, 307.5)
+}
+```
+НПС будет заспавнен с именем "НИП", со своей моделью, тсвоя стандартная анимация, трансформированный и на координатах "x: -9.5, y: 64.0, z: 307.5"
+
+</div>
+<div className="gif">
+
+![baseNPC](@site/static/img/doc/better-npc.png)
+
+</div>
+</div>
+</TabItem>
+</Tabs>

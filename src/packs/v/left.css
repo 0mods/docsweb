@@ -9,9 +9,10 @@
   display: flex;
 
   border: 5px solid #00a6ff74;
-  border-radius: 20px;
+  border-radius: 8px;
 
   margin: 10px;
+  margin-top: -10px;
 
   padding: 10px;
 }
