@@ -1,0 +1,6 @@
+position: 99
+label: Доп. ресурсы
+link:
+  type: generated-index
+customProps:
+  description: 'Дополнительные ресурсы, которые не смоли попасть в основую часть документации'

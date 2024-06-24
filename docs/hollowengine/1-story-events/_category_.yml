@@ -1,0 +1,6 @@
+position: 1
+label: Сюжетные события
+link:
+  type: generated-index
+customProps:
+  description: 'Сюжетные события'

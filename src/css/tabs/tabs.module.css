@@ -1,0 +1,11 @@
+.def {
+  scale: 0.975;
+  background-color: #383838;
+  color: #808080;
+  border-bottom-color: #000000;
+}
+.def[aria-selected='true'] {
+  background-color: #0077ff;
+  color: #c0dcff;
+  border-bottom-color: #02b3ff;
+}
