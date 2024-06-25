@@ -1,0 +1,79 @@
+---
+sidebar_position: 1
+
+title: Донастройка НИПа
+id: oonfigure
+description: 'Можно менять параметры самого НИПа динамично'
+---
+
+@import '@site/src/packs/v/left.css'
+
+<div align="center">
+
+# Донастройка НИП
+
+Иногда может понадобиться, изменить какие-то параметры НИПа в нужный момент.
+
+![vitalik-crash](@site/static/img/doc/vitalik-crash.png)
+
+В моде есть реализация этого.
+
+---
+
+## Метод
+
+Вся такая настройка происходит внутри метода
+<div align="left">
+```kts
+<npcID>.configure {
+  ... // Т.е. здесь!
+}
+```
+</div>
+
+---
+
+## Какие параметры поддерживает
+
+<div className="box">
+<div className="gif">
+
+![otvet](@site/static/img/doc/npc/otvet.gif)
+
+</div>
+<div className="txt">
+
+Поддерживаются все параметры, что были [При создании НИПа](./0-create), но кроме `name`. Для такого предусмотрен другой метод.
+
+А? Что такое `npdID`? А это переменная НИПа (просто `npdID` его обозвал какой-то дурак). Ты же там писал типа такого: `val npc by NPCEntity...` где `npc` - это и есть его `npcID`.
+
+Вписываются довольно просто:
+
+```kts title="Пример"
+npc.configure{
+  model = "hc:models/entity/hilda_regular.glb"
+}
+```
+
+</div>
+</div>
+
+---
+
+## Дополнительные возсможности
+
+Помимо тех, которые можно вписать в сам метод `configure`, есть ещё и отдельные, которые независимы от этого метода.
+
+Такими являются:
+```kts title="Возможность менять иня НИПа"
+<npcID>.name = "Новый НИП"
+```
+```kts title="Возможность сделать Бессмертным"
+<npcID>.invulnerable = true
+```
+```kts title="Возможность менять режим колизии с НИПом"
+<npcID>.hitboxMode = HitboxMode.BLOCKING
+```
+[о 'HitboxMode'](../../99-resources/1-hitbox-mode)
+
+</div>
