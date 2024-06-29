@@ -54,7 +54,7 @@ team.modify{
     equipChestplate( item(<itemID>) ) // Экипировать нагрудник
     equipLeggings( item(<itemID>) ) // Экипировать поножи
     equipBoots( item(<itemID>) ) // Экипировать ботинки
-    // Если же нужно снять броню, укажите скорее всего item() -> null
+    // Если же нужно снять броню, укажите на месте <itemID> - minecraft:air
     
 ```
 :::
