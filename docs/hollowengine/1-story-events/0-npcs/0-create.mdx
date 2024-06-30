@@ -1,7 +1,7 @@
 ---
 sidebar_position: 0
 
-title: Создание НИПа
+title: Создание
 id: create
 desc: Как правильно создать своего НИПа
 ---
@@ -9,33 +9,14 @@ desc: Как правильно создать своего НИПа
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import tab from '@site/src/css/tabs/tabs.module.css';
-import '@site/src/packs/v/left.css';
 
 <div align="center">
 
-# Создание НИПа
+# Создание
 
 Первая, "живая", функциональная сущность
 
 ![vitalik-start](@site/static/img/doc/vitalik-start.png)
-
----
-
-Познакомьтесь с вашим новым другом
-
-<div className="box">
-<div className="gif">
-
-![hello](@site/static/img/doc/npc/hello.gif)
-
-</div>
-<div className="txt">
-  
-  Привет! Меня зовут "Виталик".  
-  Я новый и верный помощник в твоих лучших сюжетах!
-
-</div>
-</div>
 
 ---
 
@@ -84,78 +65,50 @@ val npcID by NPCEntity.creating {
 
 <Tabs>
 <TabItem value="0" label="У меня есть вопросы!" attributes={{className: tab.def}}>
-  <div className="box">
-  <div className="gif">
-  
 
-  ![hello](@site/static/img/doc/npc/mmm.gif)
-  
-  </div>
-  <div className="txt">
+:::note
+Если вдруг остались вопросы по настройкам, то эти вкладки созданы чтобы решить их!
+:::
 
-    Ммм? Я вижу твоё недопонимание.  
-    Ты что-то не понял как оно работает?
-  
-    Давай расскажу!
-
-  </div>
-  </div>
 </TabItem>
 <TabItem value="1" label="Параметр: 'name'" attributes={{className: tab.def}}>
-  <div className="box">
-  <div className="gif">
-  
+:::info
 
-  ![hello](@site/static/img/doc/npc/otvet.gif)
-  
-  </div>
-  <div className="txt">
+Данное мия будет отображаться:
 
-    Ха. Да тут всё очень просто!
-  
-    Данное мия будет отображаться:  
-    - Над головой НПС (как у игроков ники):  
-      ![npc-showName](@site/static/img/doc/npc-showName.png)
-    
-    - В чате, когда он что-то говорит:  
-      ![npc-say](@site/static/img/doc/npc-say.png)
+Над головой НПС (как у игроков ники)  
+  ![npc-showName](@site/static/img/doc/npc-showName.png)
 
-  </div>
-  </div>
+В чате, когда он что-то говорит  
+  ![npc-say](@site/static/img/doc/npc-say.png)
+
+---
+
+```kts title="Пример"
+name = "НПС"
+```
+
+:::
 </TabItem>
 <TabItem value="2" label="Параметр: 'model'" attributes={{className: tab.def}}>
-  <div className="box">
-  <div className="gif">
+:::info
+Вспомни то, что ты читал [о 'ResourceLocation'](../../0-begin/6-resources.mdx)
   
-
-  ![hello](@site/static/img/doc/npc/otvet.gif)
+<div align="center">"Пояснение"</div>
+Если твоя модель находится в пути: `assets/hollowengine/models/entity/mexican.gltf`, -
+то ты в начале (перед знаком ':') указываешь имя папки, которое идёт сразу после `assets`,
+а уже после (после знака ':') пишеть путь прямо к файлу и указываешь имя файла и его формат!
+Т.е. вписать путь ты должен так:
+```kts
+model = "hollowengine:models/entity/mexican.gltf"
+```
   
-  </div>
-  <div className="txt">
+Вот другой пример с другим `modID`:  Если путь: `assets/city/humans/petrov.gltf`, то результат такой:
+```kts
+model = "city:humas/petrov.gltf"
+```
 
-    Ну, тут может слегка лишь сложнее...
-
-    Вспомни то, что ты читал [о 'ResourceLocation'](../../0-begin/reosurces)
-
-    <div align="center">"Пояснение"</div>
-    Если твоя модель находится в пути: `assets/hollowengine/models/entity/mexican.gltf`, -
-    то ты в начале (перед знаком ':') указываешь имя папки, которое идёт сразу после `assets`,
-    а уже после (после знака ':') пишеть путь прямо к файлу и указываешь имя файла и его формат!
-    Т.е. вписать путь ты должен так:
-    ```kts
-    model = "hollowengine:models/entity/mexican.gltf"
-    ```
-
-    Вот другой пример с другим `modID`:  
-      Если путь: `assets/city/humans/petrov.gltf`,
-      То результат такой:
-      ```kts
-      model = "city:humas/petrov.gltf"
-      ```
-    
-
-  </div>
-  </div>
+:::
 </TabItem>
 <TabItem value="3" label="Параметр: 'textures'" attributes={{className: tab.def}}>
   <div className="box">
