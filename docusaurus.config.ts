@@ -50,7 +50,7 @@ const config: Config = {
           routeBasePath: '/docs',
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/0mods/docsweb/edit/main/',
+            'https://github.com/0mods/docsweb-beta/edit/main/',
         },
         blog: {
           showReadingTime: true,
