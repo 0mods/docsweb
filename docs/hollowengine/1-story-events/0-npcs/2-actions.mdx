@@ -19,66 +19,150 @@ import '@site/src/packs/v/left.css';
 
 ![actions](@site/static/img/doc/actions.png)
 
-Скажи им прямо так: "Иди туда - незнаю куда"
+Скажи им прямо так: "Иди туда - не знаю куда"
 
 ---
 
-<div className="box">
-<div className="gif">
-
-![angry](@site/static/img/doc/npc/angry.gif)
-
-</div>
-<div className="txt">
-
-Ага, нами можно ещё управлять (что я не очень одобряю). Делается это не так уж и сложно!
-
-</div>
-</div>
-
----
-
-# Передвижение
+# Двигаться
 
 <Tabs>
 <TabItem value="toPosition" label="До позиции" attributes={{className: tab.def}}>
-<div className="box" style={{"margin-top": "30px"}}>
-<div className="gif">
+<div style={{"display": "flex"}}>
 
-![otvet](@site/static/img/doc/npc/otvet.gif)
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-move_to-pos](@site/static/img/doc/actions/npc-move_to-pos.gif)
 
 </div>
-<div className="txt">
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
 
-```kts title="Шаблон"
+```kts
 <npcID> moveTo { pos(x, y, z) }
 ```
-Думаю с `pos(x, y, z)` ты уже сталкивался [при создании НИПа](./0-create). Ты просто указываешь координаты, куда нужно добраться.
 
-:::warning Внимание
-Не ожидай что НИП дойдёт **прямо до точки**!
-:::
+НИП будет идти до указанных координат в `pos(x, y, z)`.
+
+---
+
+```kts title="Пример"
+npc moveTo { pos(13, 65, 235) }
+```
 
 </div>
 </div>
 </TabItem>
 <TabItem value="toPlayer" label="До игрока" attributes={{className: tab.def}}>
-<div className="box" style={{"margin-top": "30px"}}>
-<div className="gif">
+<div style={{"display": "flex"}}>
 
-![otvet](@site/static/img/doc/npc/otvet.gif)
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-move_to-player](@site/static/img/doc/actions/npc-move_to-player.gif)
 
 </div>
-<div className="txt">
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
 
-```kts title="Шаблон"
+```kts
 <npcID> moveTo { <player> }
 ```
 
-За место `<player>` - тебе нужно вставить переменую игрока. [Переменная игрока](../../../hiddens/placeholder.mdx)
+НИП будет идти до [**определённого игрока**](../../../hiddens/placeholder.mdx).
+
+---
+
+```kts title="Пример"
+npc moveTo { player().first() }
+```
+</div>
+</div>
+</TabItem>
+<TabItem value="toNpc" label="До другого НИПа" attributes={{className: tab.def}}>
+<div style={{"display": "flex"}}>
+
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-move_to-pos](@site/static/img/doc/actions/npc-move_to-npc.gif)
 
 </div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> moveTo { <any_npcID> }
+```
+
+НИП будет идти до другого НИПа.
+
+---
+
+```kts title="Пример"
+npc moveTo { jeka }
+```
 </div>
+</div>
+</TabItem>
+<TabItem value="toEntity" label="До сущности" attributes={{className: tab.def}}>
+<div style={{"display": "flex"}}>
+
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-move_to-pos](@site/static/img/doc/actions/npc-move_to-entity.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> moveTo { <Entity> }
+```
+
+НИП будет идти до **определённой сущности**.
+
+---
+
+```kts title="Пример"
+npc moveTo { <IDK> }
+```
+</div>
+</div>
+:::warning СТОЯТЬ!!!
+Если ты на серьёзных щах думаешь что "я вот впишу сейчас 'minecraft:cow' то всё будет ок" - это **ФАТАЛЬНАЯ ОШИБКА**!  
+Твоих коров в мире дохрена. К какой идти ему?
+:::
+</TabItem>
+<TabItem value="alwaysMoveTo" label="Бесконечно" attributes={{className: tab.def}}>
+<div style={{"display": "flex"}}>
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-always-move_to](@site/static/img/doc/actions/npc-always-move_to.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+Есть за место `moveTo` написать `alwaysMoveTo`, то НИП будет двигаться до указанного - бесконечно.
+
+Для того чтобы остановить выполнение, нужно прописать:  
+```kts
+<npdID> stopAlwaysMove()
+```
+
+---
+
+```kts title="Пример"
+npc alwaysMoveTo { player().first() }
+
+npc stopAlwaysMove()
+```
+</div>
+</div>
+</TabItem>
+</Tabs>
+
+---
+
+# Смотреть
+
+<Tabs>
+<TabItem value="lookAt" label="На позицию" attributes={{className: tab.def}}>
+
+
 </TabItem>
 </Tabs>
 </div>

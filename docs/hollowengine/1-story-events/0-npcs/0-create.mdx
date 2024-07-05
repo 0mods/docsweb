@@ -65,22 +65,26 @@ val npcID by NPCEntity.creating {
 
 <Tabs>
 <TabItem value="0" label="У меня есть вопросы!" attributes={{className: tab.def}}>
+:::note Помощь
 
-:::note
+---
+
 Если вдруг остались вопросы по настройкам, то эти вкладки созданы чтобы решить их!
-:::
 
+:::
 </TabItem>
 <TabItem value="1" label="Параметр: 'name'" attributes={{className: tab.def}}>
-:::info
+:::info Имя
 
-Данное мия будет отображаться:
+```kts
+name: String
+------------
+name = "Имя"
+```
 
-Над головой НПС (как у игроков ники)  
-  ![npc-showName](@site/static/img/doc/npc-showName.png)
+---
 
-В чате, когда он что-то говорит  
-  ![npc-say](@site/static/img/doc/npc-say.png)
+Данное мия будет отображаться **над головой** НПС (как у игроков ники) и **в чате**, когда он что-то говорит.
 
 ---
 
@@ -88,311 +92,264 @@ val npcID by NPCEntity.creating {
 name = "НПС"
 ```
 
+![npc-showName](@site/static/img/doc/npc-showName.png)
+![npc-say](@site/static/img/doc/npc-say.png)
+
 :::
 </TabItem>
 <TabItem value="2" label="Параметр: 'model'" attributes={{className: tab.def}}>
-:::info
-Вспомни то, что ты читал [о 'ResourceLocation'](../../0-begin/6-resources.mdx)
-  
-<div align="center">"Пояснение"</div>
-Если твоя модель находится в пути: `assets/hollowengine/models/entity/mexican.gltf`, -
-то ты в начале (перед знаком ':') указываешь имя папки, которое идёт сразу после `assets`,
-а уже после (после знака ':') пишеть путь прямо к файлу и указываешь имя файла и его формат!
-Т.е. вписать путь ты должен так:
+:::info Модель
+
 ```kts
-model = "hollowengine:models/entity/mexican.gltf"
+model: ResourceLocation
+-----------------------------------
+models: "mod_id:path/to/model.gltf"
 ```
+
+---
   
-Вот другой пример с другим `modID`:  Если путь: `assets/city/humans/petrov.gltf`, то результат такой:
-```kts
+Указываешь путь до модели в формате ['ResourceLocation'](../../0-begin/6-resources.mdx#об-resourcelocation)
+
+---
+
+```kts title="Пример"
+/* Модель лежит в папке 'assets/hollowengine/models/entity/mexican.gltf' */
+model = "hollowengine:models/entity/mexican.gltf"
+
+/* или */
+
+/* Модель лежит в папке 'assets/city/petrov.gltf' */
 model = "city:humas/petrov.gltf"
 ```
 
 :::
 </TabItem>
 <TabItem value="3" label="Параметр: 'textures'" attributes={{className: tab.def}}>
-  <div className="box">
-  <div className="gif">
-  
+:::info Текстура
 
-  ![hello](@site/static/img/doc/npc/cute.gif)
-  
-  </div>
-  <div className="txt">
+```kts
+textures: HashMap<String, ResourceLocation>
+----------------------------------------------------
+textures["layerName"] = "mod_id:path/to/texture.png"
+```
 
-    Ммм) Неужели решил приодеть своего персонажа?)  
-    Ай ладно, забей. Сейчас всё разъясню.
+---
 
-    В `[] (квадратных скобках)` ты указываешь имя слоя текстуры, которая есть на модели.
-    Все слои можно узнать через команду `/hollowengine model <путь к модели>`, [о 'Командах'](../../0-begin/new-commands):
-    ![layersName](@site/static/img/doc/layersName.png)
+В `[] (квадратных скобках)` ты указываешь имя слоя текстуры, которая есть на модели.  
+Все слои можно узнать через команду `/hollowengine model <путь к модели>`.  
+['/Команды'](../../0-begin/2-commands.mdx):
+![layersName](@site/static/img/doc/layersName.png)
 
-    Если кликнуть по одной их этих строчек, то ты скопируешь название слоя, после чего можешь вставить в `[] (квадратные скобки)` внутри `"..." (ковычек)` (потому что мы скопировали строку, а строка - это String, который всегда записываеся в '"..." (ковычках)' ).
+После указываеь путь к текстуре в формате [`ResourceLocation`](../../0-begin/6-resources.mdx#об-resourcelocation).
 
-    ```kts
-    textures["gltf_texture_model.entity.player_model.gltf_0"]
-    ```
-
-    Нам осталось указать путь до новой текстуры. Как рпвильно указать путь, можно узнать: [o 'ResourceLocation'](../../0-begin/resources) или же во вкладе **'Параметр: model'** выше, там я всё рассказал в подробностях!
-
-    И того у тебя (примерно) должно получится:
-    ```kts
-    textures["gltf_texture_model.entity.player_model.gltf_0"] =
-      "hollowengine:textures/entity/pasha.png"
-    ```
-
-    \- - - - - - - - - - - - - - - - - - - - - - - - -
-
-    Ты должно был заметил, что у `textures[]` есть 2 способа, а я рассказал тебе про один выше
-
-    Теперь про второй. Как ты мог там заметить, в начале ничего не поменялось, а поменялось тольок способ установки новой текстуры.
-
-    Да, ты можешь прсото использовать метод `skin()` и в `() (круглых скобках)` в ковычках указать **ник игрока**, у котого **"Есть лицензия на игру"**
-
-    Как пример:  
-    ```kts
-    textures["gltf_texture_model.entity.player_model.gltf_0"] =
-      skin("MrTomato")
-    ```
-
-  </div>
-  </div>
+:::
 </TabItem>
 <TabItem value="4" label="Параметр: 'animations'" attributes={{className: tab.def}}>
-  <div className="box">
-  <div className="gif">
-  
+:::info Анимация
 
-  ![hello](@site/static/img/doc/npc/run.gif)
-  
-  </div>
-  <div className="txt">
+```kts
+animations: HashMap<String, String>
+------------------------------------------------
+animations[AnimationType.TYPE] = "animationName"
+```
 
-    Хе, надоели стандартные анимации или ты просто хочешь разнообразия?  
-    Ладно, не кипишуй. Помогу тебе!
+---
 
-    Ты наверно спросишь - "Что такое `AnimationType` и откуда мне его достать?"
+`AnimationType` - тип анимации. Есть несколько видов и посмотреть можно [здесь](../../99-resources/0-animation-type.mdx).
 
-    Ну я могу лишь сказать что `AnimationType` - это какой-то класс, внутри кода игры. А вот на вопрос "Откуда мне его достать" я могу ответить легко! Посмотреть список этих анимаций ты можешь тут: [AnimationType](../../99-resources/animation-type), там же есть и понятие что это за анимация.
+`animationName` - название анимации, котора **уже** есть в модели.
 
-    Вот и выбираешь. Записывать нужно так: Сначала обращаешся к классу `AnimationType`, ставишь точку и пишешь эту переменную (тип анимации).
+---
 
-    ```kts title="Как пример"
-    AnimationType.IDLE
-    ```
+```kts title="Пример"
+animations[AnimationType.IDLE] = "levitation"
+```
 
-    А после ты уже пишешь название анимации, которая уже вшита в модель. Список анимаций ты можешь увидеть через команду `/hollowengine model <путь к модели>`, [о 'Командах'](../../0-begin/new-commands).
-    ![animations](@site/static/img/doc/animations.png)
-  
-
-    Итого, у тебя должно выйти:
-
-    ```kts title="Пример"
-    animations[AnimationType.IDLE] = "levitation"
-    ```
-
-  </div>
-  </div>
+:::
 </TabItem>
 <TabItem value="5" label="Параметр: 'attributes'" attributes={{className: tab.def}}>
-  <div className="box">
-  <div className="gif">
-  
+::::info Атрибуты
 
-  ![hello](@site/static/img/doc/npc/cute.gif)
-  
-  </div>
-  <div className="txt">
+```kts
+attributes: Attributes( Map<String, Float> = mapOf() )
+------------------------------------------------------
+attributes = Attributes( "attributeName" to Float )
+```
 
-    Хочешь поиграться с атрибутами? Хорошо.
+---
 
-    Для начала список все существующих атрибутов ты можешь узнать из команды `/attributes <сущность>`
-    ![attributes](@site/static/img/doc/attributes.png)
-    
-    Теперь ближе к сути. обращаемся к параметру `attributes` и вызывает класс `Attributes` со скобочками (т.е. как раз в вызванный класс мы будет записывать сами атрибуты).
+`attributeName` - название атрибута. Узнать можно из команды `/attributes <target: Entity>` где после вам будет показан список всех существующих атрибутов.
 
-    ```kts
-    attributes = Attributes(
-      ... // Тут будут твои атрибуты
-    )
-    ```
+`Float` - значение силы атрибута.
 
-    Атрибуты как ты мог заметить записываются так: Скачала указывает навзание атрибута, пусть будет `generic.attack_speed`, после пишем `to` и значение `Float`.
-    
-    ```kts
-    attributes = Attributes(
-      "generic.attack_speed" to 2f
-    )
-    ```
-    
-    Если же тебе нужног больше атрибутов чем 1, то просто пиши новый через новую строчку
+:::warning Если
+Вы хотите указать больше 1-го атрибута - пишите через запятую `,`!
+:::
 
-    ```kts
-    attributes = Attributes(
-      "generic.attack_speed" to 2f
-      "generic.attack_damage" to 4f
-      "generic.movement_speed" to 2f
-    )
-    ```
+---
 
-  </div>
-  </div>
+<div align="left">
+
+```kts title="Пример"
+attributes = Attributes(
+  "generic.movement_speed" to 2f,
+  "generic.attack_speed" to 3f
+)
+```
+
+</div>
+
+::::
 </TabItem>
 <TabItem value="6" label="Параметр: 'size'" attributes={{className: tab.def}}>
-  <div className="box">
-  <div className="gif">
-  
+:::info Размер хитбокса
 
-  ![hello](@site/static/img/doc/npc/otvet.gif)
-  
-  </div>
-  <div className="txt">
+```kts
+size: Map(Float, Float)
+-----------------------
+size = Float to Float
+```
 
-    Очень просто понять. Этот параметр отвечает за размер хитбокса. Хитбокс можно увидеть нажав комбинацию клавишь `F3 + B`
-    ![hitbox](@site/static/img/doc/hitbox.png)
+---
 
-    Первое мы указывает "ширину", после пишем `to` и после указываем "высоту".
+Размер хитбокса. Ширина, Высота.
 
-    ```kts title="Размер хитбокса: ширина: 2f, высота: 3f"
-    size = 2f to 3f
-    ```
+---
 
-  </div>
-  </div>
+```kts title="Пример"
+size = 2f to 2f
+```
+
+:::
 </TabItem>
 <TabItem value="7" label="Параметр: 'showName" attributes={{className: tab.def}}>
-  <div className="box">
-  <div className="gif">
-  
+:::info Отображение имени
 
-  ![hello](@site/static/img/doc/npc/otvet.gif)
-  
-  </div>
-  <div className="txt">
+```kts
+showName: Boolean
+-----------------
+showName = Boolean
+```
 
-    Ха, самый просто параметр на свете. Отвечает за отображение Имени НИПа над его головой.
+---
 
-    Если значение стоит `true` - отображать имя
-    ![showName0](@site/static/img/doc/showName0.png)
+Отвечает за отображение Имени НИПа над его головой.
+
+<div style={{"display": "flex"}}>
+
+Если значение стоит `true` - отображать имя
+![showName0](@site/static/img/doc/showName0.png)
     
-    если же `false` - скрывать имя
-    ![showName1](@site/static/img/doc/showName1.png)
+если же `false` - скрывать имя
+![showName1](@site/static/img/doc/showName1.png)
 
-  </div>
-  </div>
+</div>
+
+:::
 </TabItem>
 <TabItem value="8" label="Параметр: 'transform'" attributes={{className: tab.def}}>
-  <div className="box">
-  <div className="gif">
-  
+:::info Видоизменение
 
-  ![hello](@site/static/img/doc/npc/angry.gif)
-  
-  </div>
-  <div className="txt">
+```kts
+transform: Transform
+------------------------------------------------------------------------------------------------------------------------
+transform = Transform(tX: Float, tY: Float, tZ: Float, rX: Float, rY: Float, rZ: Float, sX: Float, sY: Float, sZ: Float)
+```
 
-    Чтоже. Ты поиздеваться решил над нами?  
-    Ладно. Помогу и с этим разобраться.
+---
 
-    ```kts title="Прописываешь параметр и обращаешся к классу"
-    transform = Transform(
-      ... // Твои параметры
-    )
-    ```
+```kts title="Прописываешь параметр и обращаешся к классу у корого есть параметры"
+transform = Transform(
+  ... // Твои параметры
+)
+```
 
-    Список всех параметров приведёт в таблице:
+Список всех параметров приведёт в таблице:
 
-    | X | Y | Z | Вид |
-    | --- | --- | --- | --- |
-    | tX | tY | tZ | Смещение |
-    | rX | rY | rZ | Поворот |
-    | sX | sY | sZ | Размер |
+| X | Y | Z | Тип |
+| --- | --- | --- | --- |
+| tX | tY | tZ | Смещение |
+| rX | rY | rZ | Поворот |
+| sX | sY | sZ | Размер |
 
-    Все значени должны быть типа `Float`.
+Все значени должны быть типа `Float`.
 
-    ```kts title="Пример"
-    transform = Transform(
-      sX = 0.5f, sZ = 0.24f
-    )
-    ```
+```kts title="Пример"
+transform = Transform(
+  sX = 0.5f, sZ = 0.24f
+)
+```
 
-    Хочешь указать больше параметров? Незабывай про `,`!
+Хочешь указать больше параметров? Незабывай про `,`!
 
-  </div>
-  </div>
+:::
 </TabItem>
 <TabItem value="9" label="Параметр: 'switchHeadRot'" attributes={{className: tab.def}}>
-  <div className="box">
-  <div className="gif">
-  
+:::info Изменение поворота головы
 
-  ![hello](@site/static/img/doc/npc/clinit.gif)
-  
-  </div>
-  <div className="txt">
+```kts
+switchHeadRot: Boolean
+----------------------
+switchHeadRot = Boolean
+```
 
-    Ахх.. мне сегодня шею защемило. Но я должен всё равно помочь тебе!
-    
-    Что ты там говоришь? "Параметр: 'switchHeadRot"? Вот бы мне такое...
+---
 
-    А если серьёзно, то может помочь исправить неправильноый поворот головы (как у меня к примеру, ай).
+Может помочь исправить неправильноый поворот головы (как у меня к примеру, ай).
 
-    Разные программы по разному расчитывают поворот объектов/костей.
+Разные программы по разному расчитывают поворот объектов/костей.
 
-    Так что если вдруг у твоей модели голова поворачивается не в ту сторону, то просто поставить `switchHeadRot = true`,
-    а если же наоборот всё хорошо, то не нужно использовать этот параметр.
+Так что если вдруг у твоей модели голова поворачивается не в ту сторону, то просто поставить `switchHeadRot = true`,
+а если же наоборот всё хорошо, то не нужно использовать этот параметр.
 
-  </div>
-  </div>
+:::
 </TabItem>
-<TabItem value="10" label="Параметр: world, pos и rotation" attributes={{className: tab.def}}>
-  <div className="box">
-  <div className="gif">
-  
+<TabItem value="10" label="Параметры: world, pos и rotation" attributes={{className: tab.def}}>
+:::info Мир, координаты и поворот
 
-  ![hello](@site/static/img/doc/npc/otvet.gif)
-  
-  </div>
-  <div className="txt">
+```kts
+world: World
+pos: BlockPos
+rotation: Vec2
+--------------
+world = String
+pos = pos(x: Int, y: Int, z: Int) /* ИЛИ */ pos(x: Double, y: Double, z: Double)
+rotation = vec(pitch, yaw)
+```
 
-    Фух, и так слишком много вопросов. Так что решил объеденить 3 в 1 большой.  
-    Начнём по порядку.
+---
 
-    `world`:
-      Тут ты просто указывает `id` измерения, в котором нужно заспавнить НИПа. Пишутся эти `id` через `mod_id:dimenssion_id`.
-      ```kts title="пример"
-      /*
-       * Если этот мир из Ванильного манкрафта,
-       * мо не обязатаельно указывать 'modID',
-       * можно просто пропусть это и указать только 'dimensionID'
-      */
-      world = "overworld"
-      // или же
-      world = "the_nether"
+`world`:
+  `id` измерения, в котором нужно заспавнить НИПа. Пишутся эти `id` через `mod_id:dimenssion_id`.
+  ```kts title="пример"
+  /*
+   * Если этот мир из Ванильного манкрафта,
+   * мо не обязатаельно указывать 'modID',
+   * можно просто пропусть это и указать только 'dimensionID'
+  */
+  world = "overworld"
+  // или же
+  world = "the_nether"
+  /*
+   * Если же это измерение из какого-то мода,
+   * то 'modID' указывать нужноо бязательно!
+  */
+  world = "hoillowengine:storyteller_world"
+  ```
+  Кстати. все `dimensionID` ты можешь узнать через команду `/execute in` и там будет список.
+`pos`:
+  Позиция в мире, на которых появится НПС.  
+  Берём этот `pos` и записываем в него координаты через метод `pos(x: Int, y: Int, z: Int)` или pos(`x: Double, y: Double, z: Double`). Да только 1 тип параметров. Никаких `Int, Double, Int` и т.д.!
+  ```kts
+  pos = pos(10.354, 64.532, -24.323)
+  ```
+`rotation`:
+  Просто повернуть НИПа.
+  ```kts title="используем метод 'vec(pitch: Float, yaw: Float)'"
+  rotation = vec(10f, 24.6f)
+  ```
 
-      /*
-       * Если же это измерение из какого-то мода,
-       * то 'modID' указывать нужноо бязательно!
-      */
-      world = "hoillowengine:storyteller_world"
-      ```
-      Кстати. все `dimensionID` ты можешь узнать через команду `/execute in` и там будет список.
-
-    `pos`:
-      Позиция в мире, на которых появится НПС.  
-      Берём этот `pos` и записываем в него координаты через метод `pos(x: Int, y: Int, z: Int)` или pos(`x: Double, y: Double, z: Double`). Да только 1 тип параметров. Никаких `Int, Double, Int` и т.д.!
-      ```kts
-      pos = pos(10.354, 64.532, -24.323)
-      ```
-
-    `rotation`:
-      Просто повернуть НИПа.
-      ```kts title="используем метод 'vec(pitch: Float, yaw: Float)'"
-      rotation = vec(10f, 24.6f)
-      ```
-
-  </div>
-  </div>
+:::
 </TabItem>
 </Tabs>
 
@@ -404,8 +361,12 @@ model = "city:humas/petrov.gltf"
 
 <Tabs>
 <TabItem value="basic-npc" label="Базовый НИП" attributes={{className: tab.def}}>
-<div className="box">
-<div className="txt">
+<div style={{"display": "flex"}}>
+
+<div style={{
+    "align-items": "flex-start",
+    "margin": "20px"
+}}>
 
 Для спавна Базового НПИа хватило бы и одного параметра `pos`, то будет интереснее если у НИПа будет ещё и своё имя.
 
@@ -418,18 +379,26 @@ val npc by NPCEntity.creating {
 НПС будет заспавнен с именем "НИП" и на координатах "x: -9.5, y: 64.0, z: 307.5"
 
 </div>
-<div className="gif">
+<div style={{
+    "align-items": "flex-end",
+    "margin": "20px"
+}}>
 
 ![baseNPC](@site/static/img/doc/basic-npc.png)
 
 </div>
+
 </div>
 </TabItem>
 <TabItem value="better-npc" label="Продвинутый НИП" attributes={{className: tab.def}}>
-<div className="box">
-<div className="txt">
+<div style={{"display": "flex"}}>
 
-Чтобы добится продвинутого уровня, можно использовать больше параметров при настройке НИПа.
+<div style={{
+    "align-items": "flex-start",
+    "margin": "20px"
+}}>
+
+Чтобы добиться продвинутого уровня, можно использовать больше параметров при настройке НИПа.
 
 ```kts title="Пример"
 val npc by NPCEntity.creating {
@@ -442,14 +411,19 @@ val npc by NPCEntity.creating {
 	pos = pos(-9.5, 64.0, 307.5)
 }
 ```
-НПС будет заспавнен с именем "НИП", со своей моделью, тсвоя стандартная анимация, трансформированный и на координатах "x: -9.5, y: 64.0, z: 307.5"
+НПС будет заспавнен с именем "НИП", со своей моделью, своя стандартная анимация, Видоизменённый и на координатах "x: -9.5, y: 64.0, z: 307.5"
 
 </div>
-<div className="gif">
+<div style={{
+    "align-items": "flex-end",
+    "margin": "20px"
+}}>
 
 ![baseNPC](@site/static/img/doc/better-npc.png)
 
 </div>
+
 </div>
 </TabItem>
+
 </Tabs>
