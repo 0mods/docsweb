@@ -2,9 +2,7 @@ name: GitHub Pages
 
 on:
   push:
-    branches: 
-    - main
-    - beta
+    branches: beta
 
 permissions: write-all
 
