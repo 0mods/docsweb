@@ -69,7 +69,7 @@ val npcID by NPCEntity.creating {
 
 ---
 
-Если вдруг остались вопросы по настройкам, то эти вкладки созданы чтобы решить их!
+Если вдруг остались вопросы по настройкам, то эти вкладки созданы, чтобы решить их!
 
 :::
 </TabItem>
@@ -84,7 +84,7 @@ name = "Имя"
 
 ---
 
-Данное мия будет отображаться **над головой** НПС (как у игроков ники) и **в чате**, когда он что-то говорит.
+Данное имя будет отображаться **над головой** НПС (как у игроков ники) и **в чате**, когда он что-то говорит.
 
 ---
 
@@ -119,7 +119,7 @@ model = "hollowengine:models/entity/mexican.gltf"
 /* или */
 
 /* Модель лежит в папке 'assets/city/petrov.gltf' */
-model = "city:humas/petrov.gltf"
+model = "city:humans/petrov.gltf"
 ```
 
 :::
@@ -140,7 +140,7 @@ textures["layerName"] = "mod_id:path/to/texture.png"
 ['/Команды'](../../0-begin/2-commands.mdx):
 ![layersName](@site/static/img/doc/layersName.png)
 
-После указываеь путь к текстуре в формате [`ResourceLocation`](../../0-begin/6-resources.mdx#об-resourcelocation).
+После указывает путь к текстуре в формате [`ResourceLocation`](../../0-begin/6-resources.mdx#об-resourcelocation).
 
 :::
 </TabItem>
@@ -235,12 +235,12 @@ showName = Boolean
 
 Отвечает за отображение Имени НИПа над его головой.
 
-<div style={{"display": "flex"}}>
+<div style={{"display":"flex"}}>
 
 Если значение стоит `true` - отображать имя
 ![showName0](@site/static/img/doc/showName0.png)
     
-если же `false` - скрывать имя
+Если же `false` - скрывать имя
 ![showName1](@site/static/img/doc/showName1.png)
 
 </div>
@@ -272,7 +272,7 @@ transform = Transform(
 | rX | rY | rZ | Поворот |
 | sX | sY | sZ | Размер |
 
-Все значени должны быть типа `Float`.
+Все значения должны быть типа `Float`.
 
 ```kts title="Пример"
 transform = Transform(
@@ -280,7 +280,7 @@ transform = Transform(
 )
 ```
 
-Хочешь указать больше параметров? Незабывай про `,`!
+Хочешь указать больше параметров? Не забывай про `,`!
 
 :::
 </TabItem>
@@ -295,9 +295,9 @@ switchHeadRot = Boolean
 
 ---
 
-Может помочь исправить неправильноый поворот головы (как у меня к примеру, ай).
+Может помочь исправить не правильный поворот головы (как у меня к примеру, ай).
 
-Разные программы по разному расчитывают поворот объектов/костей.
+Разные программы по-разному рассчитывают поворот объектов/костей.
 
 Так что если вдруг у твоей модели голова поворачивается не в ту сторону, то просто поставить `switchHeadRot = true`,
 а если же наоборот всё хорошо, то не нужно использовать этот параметр.
@@ -323,18 +323,18 @@ rotation = vec(pitch, yaw)
   `id` измерения, в котором нужно заспавнить НИПа. Пишутся эти `id` через `mod_id:dimenssion_id`.
   ```kts title="пример"
   /*
-   * Если этот мир из Ванильного манкрафта,
-   * мо не обязатаельно указывать 'modID',
-   * можно просто пропусть это и указать только 'dimensionID'
+   * Если этот мир из Ванильного майнкрафта,
+   * то не обязательно указывать 'modID',
+   * можно просто пропустить это и указать только 'dimensionID'
   */
   world = "overworld"
   // или же
   world = "the_nether"
   /*
    * Если же это измерение из какого-то мода,
-   * то 'modID' указывать нужноо бязательно!
+   * то 'modID' указывать нужно обязательно!
   */
-  world = "hoillowengine:storyteller_world"
+  world = "hollowengine:storyteller_world"
   ```
   Кстати. все `dimensionID` ты можешь узнать через команду `/execute in` и там будет список.
 `pos`:
@@ -361,12 +361,8 @@ rotation = vec(pitch, yaw)
 
 <Tabs>
 <TabItem value="basic-npc" label="Базовый НИП" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-
-<div style={{
-    "align-items": "flex-start",
-    "margin": "20px"
-}}>
+<div style={{"display":"flex"}}>
+<div style={{"align-items":"flex-start","margin":"20px"}}>
 
 Для спавна Базового НПИа хватило бы и одного параметра `pos`, то будет интереснее если у НИПа будет ещё и своё имя.
 
@@ -379,24 +375,16 @@ val npc by NPCEntity.creating {
 НПС будет заспавнен с именем "НИП" и на координатах "x: -9.5, y: 64.0, z: 307.5"
 
 </div>
-<div style={{
-    "align-items": "flex-end",
-    "margin": "20px"
-}}>
+<div style={{"align-items":"flex-end","margin":"20px"}}>
 
 ![baseNPC](@site/static/img/doc/basic-npc.png)
 
 </div>
-
 </div>
 </TabItem>
 <TabItem value="better-npc" label="Продвинутый НИП" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-
-<div style={{
-    "align-items": "flex-start",
-    "margin": "20px"
-}}>
+<div style={{"display":"flex"}}>
+<div style={{"align-items": "flex-start", "margin": "20px"}}>
 
 Чтобы добиться продвинутого уровня, можно использовать больше параметров при настройке НИПа.
 
@@ -414,16 +402,11 @@ val npc by NPCEntity.creating {
 НПС будет заспавнен с именем "НИП", со своей моделью, своя стандартная анимация, Видоизменённый и на координатах "x: -9.5, y: 64.0, z: 307.5"
 
 </div>
-<div style={{
-    "align-items": "flex-end",
-    "margin": "20px"
-}}>
+<div style={{"align-items": "flex-end", "margin": "20px"}}>
 
 ![baseNPC](@site/static/img/doc/better-npc.png)
 
 </div>
-
 </div>
 </TabItem>
-
 </Tabs>

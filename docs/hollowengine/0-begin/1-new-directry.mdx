@@ -8,70 +8,83 @@ description: Кажется вы заметили, как что-то новое
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import style from '@site/src/css/tabs/dir-tab.module.css';
-import '@site/src/css/img-txt.css';
+import cl from '@site/src/css/tabs/dirs/dirs.module.css';
+import '@site/src/css/tabs/dirs/img-txt.css';
+import '@site/src/css/tabs/dirs/title.css';
 
 <div align="center">
 
 # Новая директория
 После первого запуска мода, в корне игры появляется новая папочка с названием `hollowengine`
 
+<div className="img">
+
 ![hollowengine](@site/static/img/doc/new_folder.png)
 
+</div>
 ---
 
 ## Для чего все эти новые папки?
 </div>
 
 <Tabs>
-<TabItem value="empty" label="Папки в 'hollowengine'" attributes={{className: style.empty}}>
-<div className="img-txt-cont">
+<TabItem value="empty" label="Папки в 'hollowengine'" attributes={{className: cl.empty}}>
+<div className="img-txt">
 
 ![folders](@site/static/img/doc/dirs/empty.png)
 
 <p className="txt"></p>
 </div>
 </TabItem>
-<TabItem value="assets" label="Assets" attributes={{className: style.assets}}>
-<div className="img-txt-cont">
+<TabItem value="assets" label="Assets" attributes={{className: cl.assets}}>
+<div className="img-txt">
 
 ![assets](@site/static/img/doc/dirs/assets.png "`assets` - папка для ресурсов")
 
 <p className="txt">
-  `Assets (assets)` - Место, для ваших ресурсов.
+<div className="sel">Assets (assets)</div>
+
+- Место, для ваших ресурсов.
   
-  Здесь вы можете размещать ваши ресурсы.
+Здесь вы можете размещать ваши ресурсы.
   
-  Работает по принципу "Ресурс паков".
+Работает по принципу "Ресурс паков".
+
 </p>
 </div>
 </TabItem>
-<TabItem value="camera" label="Camera" attributes={{className: style.camera}}>
-<div className="img-txt-cont">
+<TabItem value="camera" label="Camera" attributes={{className: cl.camera}}>
+<div className="img-txt">
 
 ![camera](@site/static/img/doc/dirs/camera.png "`camera` - папка для путей для камеры")
 
 <p className="txt">
-  `Camera (camera)` - Место, где хранятся все ваши пути для камеры.
+<div className="sel">Camera (camera)</div>
+
+- Место, где хранятся все ваши пути для камеры.
   
-  Создаётся уже в процессе игры, а именно когда вы впервые воспользовались камерой и сохранили для неё путь передвижения.
+Создаётся уже в процессе игры, а именно когда вы впервые воспользовались камерой и сохранили для неё путь передвижения.
+
 </p>
 </div>
 </TabItem>
-<TabItem value="npcs" label="NPCs" attributes={{className: style.npcs}}>
-<div className="img-txt-cont">
+<TabItem value="npcs" label="NPCs" attributes={{className: cl.npcs}}>
+<div className="img-txt">
 
 ![npcs](@site/static/img/doc/dirs/npcs.png "`npcs` - папка для данных для НИПов")
 
 <p className="txt">
-  `NPCs (npcs)` - Место, где хранятся данные для НИПов.
+<div className="sel">NPCs (npcs)</div>
 
-  На данный момент в этой папке может хранится только Позы `poses`.
+- Место, где хранятся данные для НИПов.
+
+На данный момент в этой папке может храниться только Позы `poses`.
+
 </p>
 </div>
 </TabItem>
-<TabItem value="replays" label="Replays" attributes={{className: style.replays}}>
-<div className="img-txt-cont">
+<TabItem value="replays" label="Replays" attributes={{className: cl.replays}}>
+<div className="img-txt">
 
 ![replays](@site/static/img/doc/dirs/replays.png "`replays` - папка для хранения ваших реплеев")
 
@@ -82,8 +95,8 @@ import '@site/src/css/img-txt.css';
 </p>
 </div>
 </TabItem>
-<TabItem value="scripts" label="Scripts" attributes={{className: style.scripts}}>
-<div className="img-txt-cont">
+<TabItem value="scripts" label="Scripts" attributes={{className: cl.scripts}}>
+<div className="img-txt">
 
 ![scripts](@site/static/img/doc/dirs/scripts.png "`scripts` - папка для ваших скриптов")
 
@@ -94,8 +107,8 @@ import '@site/src/css/img-txt.css';
 </p>
 </div>
 </TabItem>
-<TabItem value="storyteller_world" label="StoryTeller World" attributes={{className: style.storyteller_world}}>
-<div className="img-txt-cont">
+<TabItem value="storyteller_world" label="StoryTeller World" attributes={{className: cl.storyteller_world}}>
+<div className="img-txt">
 
 ![storyteller_world](@site/static/img/doc/dirs/storyteller_world.png "`storyteller_world` - Место, где хранятся данные о специальном измерении Рассказчика!")
 

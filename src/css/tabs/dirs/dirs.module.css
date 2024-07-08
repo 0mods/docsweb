@@ -1,0 +1,103 @@
+/* Default value */
+[data-theme='light'] {
+  --scale: 0.95;
+  --def-color-background: #b8b8b8;
+  --def-color: #878787;
+  --def-color-border: #000000;
+  --sel-color-text: #ffffff;
+}
+[data-theme='dark'] {
+  --scale: 0.95;
+  --def-color-background: #2f2f2f;
+  --def-color: #4f4f4f;
+  --def-color-border: #000000;
+  --sel-color-text: #ffffff;
+}
+
+/* Tabs colors (NOT SELECT) */
+.empty {
+  scale: var(--scale);
+  background-color: var(--def-color-background);
+  color: var(--def-color);
+  border-bottom-color: var(--def-color-border);
+}
+.assets {
+  scale: var(--scale);
+  background-color: var(--def-color-background);
+  color: var(--def-color);
+  border-bottom-color: var(--def-color-border);
+}
+.camera {
+  scale: var(--scale);
+  background-color: var(--def-color-background);
+  color: var(--def-color);
+  border-bottom-color: var(--def-color-border);
+}
+.npcs {
+  scale: var(--scale);
+  background-color: var(--def-color-background);
+  color: var(--def-color);
+  border-bottom-color: var(--def-color-border);
+}
+.replays {
+  scale: var(--scale);
+  background-color: var(--def-color-background);
+  color: var(--def-color);
+  border-bottom-color: var(--def-color-border);
+}
+.scripts {
+  scale: var(--scale);
+  background-color: var(--def-color-background);
+  color: var(--def-color);
+  border-bottom-color: var(--def-color-border);
+}
+.storyteller_world {
+  scale: var(--scale);
+  background-color: var(--def-color-background);
+  color: var(--def-color);
+  border-bottom-color: var(--def-color-border);
+}
+
+/* Tabs colors (SELECTED) */
+.empty[aria-selected='true'] {
+  scale: var(--scale);
+  background-color: #464646;
+  color: #838383;
+  border-bottom-color: #000000;
+}
+.assets[aria-selected='true'] {
+  scale: var(--scale);
+  background-color: #c5c200;
+  color: var(--sel-color-text);
+  border-bottom-color: #855a00;
+}
+.camera[aria-selected='true'] {
+  scale: var(--scale);
+  background-color: #005ed9;
+  color: var(--sel-color-text);
+  border-bottom-color: #000dde;
+}
+.npcs[aria-selected='true'] {
+  scale: var(--scale);
+  background-color: #1bb600;
+  color: var(--sel-color-text);
+  border-bottom-color: #124f00;
+}
+.replays[aria-selected='true'] {
+  scale: var(--scale);
+  background-color: #d34a00;
+  color: var(--sel-color-text);
+  border-bottom-color: #793b00;
+}
+.scripts[aria-selected='true'] {
+  scale: var(--scale);
+  background-color: #aa00d9;
+  color: var(--sel-color-text);
+  border-bottom-color: #8400a4;
+}
+.storyteller_world[aria-selected='true'] {
+  scale: var(--scale);
+  background-color: #8f8f8f;
+  color: var(--sel-color-text);
+  border-bottom-color: #656565;
+}
