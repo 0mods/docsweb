@@ -9,6 +9,7 @@ desc: Кто работал над документацией
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import style from '@site/src/css/tabs/personal-tab.module.css';
+import {Random, High, Low} from '@site/src/packs/random.js';
 
 <div align="center">
 
@@ -21,7 +22,8 @@ import style from '@site/src/css/tabs/personal-tab.module.css';
 
 ## `AlgorithmLX`
     
-![Algo](@site/static/img/doc/chrs/AlgorithmLX.png "Это AlgorithmLX")
+![Algo](@site/static/img/doc/personal/AlgorithmLX.png "Это AlgorithmLX")
+
 :::info Создатель сайта
     
 Отвечает за его работу.
@@ -34,7 +36,8 @@ import style from '@site/src/css/tabs/personal-tab.module.css';
 
 ## `HollowHorizon`
     
-![Halva](@site/static/img/doc/chrs/HollowHorizon.png)
+![Halva](@site/static/img/doc/personal/HollowHorizon.png)
+
 :::info Создатель мода 'HollowEngine'
 Без него бы — не было смысла этой документации!
     
@@ -45,8 +48,38 @@ import style from '@site/src/css/tabs/personal-tab.module.css';
 <TabItem value="bendy659" label="_BENDY659_" attributes={{className: style.bendy}}>
 
 ## `_BENDY659_`
+
+<Random prct={99} prctMax={100}>
+<High>
+  <Random>
+  <High>
     
-![FurryBlyuat](@site/static/img/doc/chrs/_BENDY659_.png)
+  ![FurryBlyuat](@site/static/img/doc/personal/_BENDY659_2.png)
+    
+  </High>
+  <Low>
+    
+  ![FurryBlyuat](@site/static/img/doc/personal/_BENDY659_1.png)
+    
+  </Low>
+  </Random>
+</High>
+<Low>
+  <Random prct={99} prctMax={100}>
+  <High>
+  
+  ![FurryBlyuat](@site/static/img/doc/personal/_BENDY659_0.png)
+  
+  </High>
+  <Low>
+  
+  ![FurryBlyuat](@site/static/img/doc/personal/_BENDY659_.png)
+  
+  </Low>
+  </Random>
+</Low>
+</Random>
+
 :::info Основной документатор.
 Пишет доки полностью.  
 Плохо знает русский. (А вдруг он шпион)
@@ -54,6 +87,17 @@ import style from '@site/src/css/tabs/personal-tab.module.css';
 Должен следить за актуальностью (но не обязан :З).
     
 Плохо дружит с Русским языком!
+:::
+
+</TabItem>
+<TabItem value="halvaBot" label="Бот 'Халва'" attributes={{className: style.halvaBot}}>
+
+![halva-bot](@site/static/img/doc/personal/Halva.png "Да, бот в команде. У вас есть притензии?")
+
+:::info Вопросы?
+Он ничего в документацию не вносил.
+
+Зато - помогает с кодовой частью.
 :::
 
 </TabItem>

@@ -9,7 +9,7 @@ desc: 'Разные задачки которые вы можете задать
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import tab from '@site/src/css/tabs/tabs.module.css';
-import '@site/src/packs/v/left.css';
+import { Random, High, Low } from '@site/src/packs/random.js';
 
 <div align="center">
 
@@ -17,13 +17,13 @@ import '@site/src/packs/v/left.css';
 
 Возможность управлять вашими НИПами
 
-![actions](@site/static/img/doc/actions.png)
+![actions](@site/static/img/doc/titles/actions.png)
 
 Скажи им прямо так: "Иди туда - не знаю куда"
 
 ---
 
-# Двигаться
+## Двигаться
 
 <Tabs>
 <TabItem value="toPosition" label="До позиции" attributes={{className: tab.def}}>
@@ -40,7 +40,7 @@ import '@site/src/packs/v/left.css';
 <npcID> moveTo { pos(x, y, z) }
 ```
 
-НИП будет идти до указанных координат в `pos(x, y, z)`.
+НИП будет идти до **Указанных координат** в `pos(x, y, z)`.
 
 ---
 
@@ -65,7 +65,7 @@ npc moveTo { pos(13, 65, 235) }
 <npcID> moveTo { <player> }
 ```
 
-НИП будет идти до [**определённого игрока**](../../../hiddens/placeholder.mdx).
+НИП будет идти до [**Определённого игрока**](../../../hiddens/placeholder.mdx).
 
 ---
 
@@ -75,7 +75,7 @@ npc moveTo { player().first() }
 </div>
 </div>
 </TabItem>
-<TabItem value="toNpc" label="До другого НИПа" attributes={{className: tab.def}}>
+<TabItem value="toNpc" label="До Другого НИПа" attributes={{className: tab.def}}>
 <div style={{"display": "flex"}}>
 
 <div atyle={{"margin": "20px", "align-items": "flex-start"}}>
@@ -89,7 +89,7 @@ npc moveTo { player().first() }
 <npcID> moveTo { <any_npcID> }
 ```
 
-НИП будет идти до другого НИПа.
+НИП будет идти до **Другого НИПа**.
 
 ---
 
@@ -113,7 +113,7 @@ npc moveTo { jeka }
 <npcID> moveTo { <Entity> }
 ```
 
-НИП будет идти до **определённой сущности**.
+НИП будет идти до **Определённой сущности**.
 
 ---
 
@@ -136,9 +136,9 @@ npc moveTo { <IDK> }
 </div>
 <div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
 
-Есть за место `moveTo` написать `alwaysMoveTo`, то НИП будет двигаться до указанного - бесконечно.
+Есть за место `moveTo` написать `alwaysMoveTo`, то НИП будет двигаться до указанного - **Бесконечно**.
 
-Для того чтобы остановить выполнение, нужно прописать:  
+Для того чтобы __остановить выполнение__, нужно прописать:  
 ```kts
 <npdID> stopAlwaysMove()
 ```
@@ -157,12 +157,156 @@ npc stopAlwaysMove()
 
 ---
 
-# Смотреть
+## Смотреть
 
 <Tabs>
-<TabItem value="lookAt" label="На позицию" attributes={{className: tab.def}}>
+<TabItem value="onPos" label="На позицию" attributes={{className: tab.def}}>
+<div style={{"display": "flex"}}>
 
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
 
+![npc-move_to-pos](@site/static/img/doc/actions/npc-look_at-pos.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> lookAt { pos(x, y, z) }
+```
+
+НИП будет смотреть на **Указанные координаты** в `pos(x, y, z)`.
+
+---
+
+```kts title="Пример"
+npc moveTo { pos(674, 72, 15) }
+```
+
+</div>
+</div>
+</TabItem>
+<TabItem value="onPlayer" label="На игрока" attributes={{className: tab.def}}>
+<div style={{"display": "flex"}}>
+
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-move_to-pos](@site/static/img/doc/actions/npc-look_at-player.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> lookAt { <player> }
+```
+
+НИП будет смотреть на [**Определённого игрока**](../../../hiddens/placeholder.mdx).
+
+---
+
+```kts title="Пример"
+npc moveTo { player().first() }
+```
+
+</div>
+</div>
+</TabItem>
+<TabItem value="onNpc" label="На Другого НИПа" attributes={{className: tab.def}}>
+<div style={{"display": "flex"}}>
+
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+<script src="random" defer></script>
+
+<Random prct={99} prctMax={100}>
+<Low>
+
+![npc-move_to-pos](@site/static/img/doc/actions/npc-look_at-npc.gif)
+
+</Low>
+<High>
+
+![npc-move_to-pos](@site/static/img/doc/actions/npc-look_at-npc-mem.gif)
+
+</High>
+</Random>
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> lookAt { <any_npcID> }
+```
+
+НИП будет смотреть на **Другого НИПа**.
+
+---
+
+```kts title="Пример"
+npc moveTo { algi }
+```
+
+</div>
+</div>
+</TabItem>
+<TabItem value="onEntity" label="На сущность" attributes={{className: tab.def}}>
+<div style={{"display": "flex"}}>
+
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-move_to-pos](@site/static/img/doc/actions/npc-look_at-entity.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> lookAt { <Entity> }
+```
+
+НИП будет смотреть на [**Определённого игрока**](../../../hiddens/placeholder.mdx).
+
+---
+
+```kts title="Пример"
+npc moveTo { player().first() }
+```
+
+</div>
+</div>
+</TabItem>
+<TabItem value="alwaysOn" label="Бесконечно" attributes={{className: tab.def}}>
+<div style={{"display": "flex"}}>
+
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-move_to-pos](@site/static/img/doc/actions/npc-always-look_at.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> alwaysLookAt { <target> }
+```
+
+Есть за место `lookAt` написать `alwaysLookAt`, то НИП будет на указанное - **Бесконечно**.
+
+Для того чтобы __остановить выполнение__, нужно прописать:  
+```kts
+<npdID> stopAlwaysLook()
+```
+
+---
+
+```kts title="Пример"
+npc alwaysLookAt { player().first() }
+
+npc stopAlwaysLook()
+```
+
+</div>
+</div>
 </TabItem>
 </Tabs>
+
+---
+
 </div>

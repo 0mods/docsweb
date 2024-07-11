@@ -1,3 +1,9 @@
+:root {
+  --background-color: #363636;
+  --text-color: #818181;
+  --border-color: #1e1e1e;
+}
+
 .algo {
   scale: 0.95;
   background-color: var(--background-color);
@@ -16,6 +22,13 @@
   color: var(--text-color);
   border-bottom-color: var(--border-color);
 }
+.halvaBot {
+  scale: 0.95;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-bottom-color: var(--border-color);
+}
+
 
 .algo[aria-selected='true'] {
   background-color: #0043d0;
@@ -34,9 +47,9 @@
   color: #de7373;
   border-bottom-color: #650000;
 }
-
-:root {
-  --background-color: #363636;
-  --text-color: #818181;
-  --border-color: #1e1e1e;
+.halvaBot[aria-selected='true'] {
+  scale: 0.95;
+  background-color: #222222;
+  color: #ffffff;
+  border-bottom-color: #000000;
 }

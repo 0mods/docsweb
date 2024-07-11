@@ -16,7 +16,7 @@ import tab from '@site/src/css/tabs/tabs.module.css';
 
 Первая, "живая", функциональная сущность
 
-![vitalik-start](@site/static/img/doc/vitalik-start.png)
+![vitalik-start](@site/static/img/doc/titles/vitalik-start.png)
 
 ---
 
@@ -92,8 +92,8 @@ name = "Имя"
 name = "НПС"
 ```
 
-![npc-showName](@site/static/img/doc/npc-showName.png)
-![npc-say](@site/static/img/doc/npc-say.png)
+![npc-showName](@site/static/img/doc/npc/npc-showName.png)
+![npc-say](@site/static/img/doc/npc/npc-say.png)
 
 :::
 </TabItem>
@@ -138,7 +138,7 @@ textures["layerName"] = "mod_id:path/to/texture.png"
 В `[] (квадратных скобках)` ты указываешь имя слоя текстуры, которая есть на модели.  
 Все слои можно узнать через команду `/hollowengine model <путь к модели>`.  
 ['/Команды'](../../0-begin/2-commands.mdx):
-![layersName](@site/static/img/doc/layersName.png)
+![layersName](@site/static/img/doc/menus/layersName.png)
 
 После указывает путь к текстуре в формате [`ResourceLocation`](../../0-begin/6-resources.mdx#об-resourcelocation).
 
@@ -238,10 +238,10 @@ showName = Boolean
 <div style={{"display":"flex"}}>
 
 Если значение стоит `true` - отображать имя
-![showName0](@site/static/img/doc/showName0.png)
+![showName0](@site/static/img/doc/npc/showName0.png)
     
 Если же `false` - скрывать имя
-![showName1](@site/static/img/doc/showName1.png)
+![showName1](@site/static/img/doc/npc/showName1.png)
 
 </div>
 
@@ -382,11 +382,11 @@ val npc by NPCEntity.creating {
 </div>
 </div>
 </TabItem>
-<TabItem value="better-npc" label="Продвинутый НИП" attributes={{className: tab.def}}>
+<TabItem value="better-npc" label="Кастомный НИП" attributes={{className: tab.def}}>
 <div style={{"display":"flex"}}>
 <div style={{"align-items": "flex-start", "margin": "20px"}}>
 
-Чтобы добиться продвинутого уровня, можно использовать больше параметров при настройке НИПа.
+Чтобы добиться кастомного уровня, можно использовать больше параметров при настройке НИПа.
 
 ```kts title="Пример"
 val npc by NPCEntity.creating {
@@ -404,7 +404,7 @@ val npc by NPCEntity.creating {
 </div>
 <div style={{"align-items": "flex-end", "margin": "20px"}}>
 
-![baseNPC](@site/static/img/doc/better-npc.png)
+![customNPC](@site/static/img/doc/custom-npc.png)
 
 </div>
 </div>
