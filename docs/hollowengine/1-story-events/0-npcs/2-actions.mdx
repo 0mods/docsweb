@@ -65,7 +65,18 @@ npc moveTo { pos(13, 65, 235) }
 <npcID> moveTo { <player> }
 ```
 
-НИП будет идти до [**Определённого игрока**](../../../hiddens/placeholder.mdx).
+<Random prct={70} prctMax={100}>
+<High>
+
+НИП будет идти до [**Определённого игрока**](@site/static/img/page-null.gif "Не кликай!").
+
+</High>
+<Low>
+
+НИП будет идти до [**Определённого игрока**](@site/static/img/page-null.png "Не кликай.").
+
+</Low>
+</Random>
 
 ---
 
@@ -199,7 +210,18 @@ npc moveTo { pos(674, 72, 15) }
 <npcID> lookAt { <player> }
 ```
 
-НИП будет смотреть на [**Определённого игрока**](../../../hiddens/placeholder.mdx).
+<Random prct={70} prctMax={100}>
+<High>
+
+НИП будет идти на [**Определённого игрока**](@site/static/img/page-null.gif "Не кликай!").
+
+</High>
+<Low>
+
+НИП будет идти на [**Определённого игрока**](@site/static/img/page-null.png "Не кликай.").
+
+</Low>
+</Random>
 
 ---
 
@@ -287,7 +309,7 @@ npc moveTo { player().first() }
 <npcID> alwaysLookAt { <target> }
 ```
 
-Есть за место `lookAt` написать `alwaysLookAt`, то НИП будет на указанное - **Бесконечно**.
+Есть за место `lookAt` написать `alwaysLookAt`, то НИП будет смотреть на указанное - **Бесконечно**.
 
 Для того чтобы __остановить выполнение__, нужно прописать:  
 ```kts
