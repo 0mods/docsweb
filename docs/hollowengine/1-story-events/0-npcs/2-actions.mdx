@@ -439,4 +439,128 @@ npc stopAlwaysLook()
 
 :::
 
+---
+
+## Взаимодействие с миром
+
+### Сломать блок
+
+:::info Сломать блок
+
+<div style={{"display": "flex"}}>
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-move_to-pos](@site/static/img/null.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> destroyBlock { pos(x, y, z) }
+```
+
+Сломать блок на указанных координатах.
+
+НИП подойдёт к заданным координатам как можно ближе и после сломает блок.
+
+---
+
+```kts title="Пример"
+npc destroyBlock { pos(10, 35, 221) }
+```
+
+</div>
+</div>
+
+:::
+
+### Взаимодейтсвие с блоком
+
+:::info Взаимодействие с блоком
+
+<div style={{"display": "flex"}}>
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-move_to-pos](@site/static/img/null.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> useBlock { pos(x, y, z) }
+```
+
+Взаимодействовать с блоком на указанных координатах.
+
+НИП подойдёт к заданным координатам как можно ближе и повзаимодействует с блоком.
+
+---
+
+```kts title="Пример"
+npc useBlock { pos(19, 73. 94) }
+```
+
+</div>
+</div>
+
+:::
+
+---
+
+## Атаковать
+
+:::info Атаковать цель
+
+<div style={{"display": "flex"}}>
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-move_to-pos](@site/static/img/null.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> setTarget { <target> }
+```
+
+НИП будет атаковать цель до последнего, пока цель не умрёт.
+
+Целью может быть:  
+> - Игрок - Нужно за место `<target>` указать
+> <Random prct={70} prctMax={100}>
+> <High>
+> [**Определённого игрока**](@site/static/img/page-null.gif "Не кликай!").
+> </High>
+> <Low>
+> [**Определённого игрока**](@site/static/img/page-null.png "Не кликай.").
+> </Low>
+> </Random>
+> - Другой НИП - Нужно за место `<target>` указать `npcID` другого НИПа.
+> - Сущность - Нужно за место `<target>` указать `Entity`. (IDK)
+
+---
+
+```kts
+<npcID> setTarget { null }
+
+// или
+
+<npcID> clearTarget()
+```
+
+Перестать атаковать цель
+
+---
+
+```kts title="Пример"
+npc setTarget { player().first() }
+
+npc clearTarget()
+```
+
+</div>
+</div>
+
+:::
+
 </div>
