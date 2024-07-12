@@ -25,6 +25,8 @@ import { Random, High, Low } from '@site/src/packs/random.js';
 
 ## Двигаться
 
+::::info Двигаться
+
 <Tabs>
 <TabItem value="toPosition" label="До позиции" attributes={{className: tab.def}}>
 <div style={{"display": "flex"}}>
@@ -164,11 +166,69 @@ npc stopAlwaysMove()
 </div>
 </div>
 </TabItem>
+<TabItem value="toBiome" label="До биома" attributes={{className: tab.def}}>
+<div style={{"display": "flex"}}>
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![null](@site/static/img/null.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> moveTioBiome { "<biomeID>" }
+```
+
+null
+
+:::warning Стой
+Данный раздел ешё в разработке и находится на этапе тестирования.
+:::
+
+---
+
+```kts title="Пример"
+npc moveToBiome { "taiga" }
+```
+</div>
+</div>
+</TabItem>
+<TabItem value="toStructure" label="До структуры" attributes={{className: tab.def}}>
+<div style={{"display": "flex"}}>
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![null](@site/static/img/null.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> moveTioBiome { "<structureID>" }
+```
+
+null
+
+:::warning Стой
+Данный раздел ешё в разработке и находится на этапе тестирования.
+:::
+
+---
+
+```kts title="Пример"
+npc moveToBiome { "stronghold" }
+```
+</div>
+</div>
+</TabItem>
 </Tabs>
+
+::::
 
 ---
 
 ## Смотреть
+
+::::info Смотреть
 
 <Tabs>
 <TabItem value="onPos" label="На позицию" attributes={{className: tab.def}}>
@@ -272,7 +332,6 @@ npc moveTo { algi }
 </TabItem>
 <TabItem value="onEntity" label="На сущность" attributes={{className: tab.def}}>
 <div style={{"display": "flex"}}>
-
 <div atyle={{"margin": "20px", "align-items": "flex-start"}}>
 
 ![npc-move_to-pos](@site/static/img/doc/actions/npc-look_at-entity.gif)
@@ -289,7 +348,22 @@ npc moveTo { algi }
 ---
 
 ```kts title="Пример"
-npc moveTo { player().first() }
+npc moveTo { <IDK> }
+```
+
+---
+
+```kts
+<npcID> lookAtEntityType { "<entityID>" }
+```
+
+Здесь вы можете указать уже именно `ID` сущности.  
+Тогда НИП будет смотреть на ту, которая к нему ближе.
+
+---
+
+```kts title="Пример"
+npc lookAtEntityType { "cow" }
 ```
 
 </div>
@@ -329,6 +403,40 @@ npc stopAlwaysLook()
 </TabItem>
 </Tabs>
 
+::::
+
 ---
+
+## Телепорт
+
+:::info Телепорт
+
+<div style={{"display": "flex"}}>
+<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+
+![npc-move_to-pos](@site/static/img/null.gif)
+
+</div>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+
+```kts
+<npcID> tpTo {
+  pos = pos(x, y, z)
+  vec = vec(pitch, yaw)
+  world = "<dimentionID>"
+}
+```
+
+Телепортирует НИПа на указанные координаты и в указанный мир (опционально).
+
+> - `pos(x, y, z)` - координаты, куда нужно телепортировать.  
+> - `vec(pitch, yaw)` - Куда будет смотреть НИП после телепорта.  
+> - `dimentionID` = Мир, в который нужно телепортировать НИПа. Если оно не указано - берётся тот мир,
+в котором находится НИП в данный момент.
+
+</div>
+</div>
+
+:::
 
 </div>
