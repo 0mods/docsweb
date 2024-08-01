@@ -10,6 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import tab from '@site/src/css/tabs/tabs.module.css';
 import { Random, High, Low } from '@site/src/packs/random.js';
+import '@site/src/css/pages/img-show.css';
 
 <div align="center">
 
@@ -17,7 +18,11 @@ import { Random, High, Low } from '@site/src/packs/random.js';
 
 Возможность управлять вашими НИПами
 
+<div className="show">
+
 ![actions](@site/static/img/doc/titles/actions.png)
+
+</div>
 
 Скажи им прямо так: "Иди туда - не знаю куда"
 
@@ -450,7 +455,7 @@ npc stopAlwaysLook()
 <div style={{"display": "flex"}}>
 <div atyle={{"margin": "20px", "align-items": "flex-start"}}>
 
-![npc-move_to-pos](@site/static/img/null.gif)
+![npc-move_to-pos](@site/static/img/doc/actions/npc-destroy_block.gif)
 
 </div>
 <div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
@@ -481,7 +486,7 @@ npc destroyBlock { pos(10, 35, 221) }
 <div style={{"display": "flex"}}>
 <div atyle={{"margin": "20px", "align-items": "flex-start"}}>
 
-![npc-move_to-pos](@site/static/img/null.gif)
+![npc-move_to-pos](@site/static/img/doc/actions/npc-use_block.gif)
 
 </div>
 <div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>

@@ -1,0 +1,115 @@
+.img-container {
+  position: relative;
+
+  width: 512px;
+  height: 512px;
+  margin: 22px;
+
+  animation: drag 0.5s infinite ease-in-out;
+}
+
+.img-static-algo {
+  position: absolute;
+
+  background: url('@site/static/img/doc/personal/AlgorithmLX_NEW.png') no-repeat center center;
+  background-size: cover;
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+}
+.img-static-algo-demon {
+  position: absolute;
+
+  background: url('@site/static/img/doc/personal/AlgorithmLX_NEW_DEMON_BG.png') no-repeat center center;
+  background-size: cover;
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+}
+.img-animate-algo0 {
+  position: absolute;
+
+  background: url('@site/static/img/doc/personal/BlueEyeFire.png') no-repeat center center;
+  background-size: 55px;
+
+  left: 0px;
+  bottom: 0px;
+  top: -250px;
+  right: 0px;
+}
+.img-animate-algo1 {
+  position: absolute;
+
+  background: url('@site/static/img/doc/personal/BlueEyeFire.png') no-repeat center center;
+  background-size: 55px;
+
+  left: 130px;
+  bottom: 0px;
+  top: -240px;
+  right: 0px;
+}
+
+.img-static-hollow {
+  position: absolute;
+
+  background: url('@site/static/img/doc/personal/HollowHorizon_NEW_BG.png') no-repeat center center;
+  background-size: cover;
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+}
+.img-animate-hollow {
+  position: absolute;
+
+  background: url('@site/static/img/doc/personal/MagicCore.png') no-repeat center center;
+  background-size: 180px;
+
+  left: -10px;
+  bottom: 0px;
+  top: 150px;
+  right: 0px;
+
+  animation: magicCoreMove 5s infinite ease-in-out;
+  animation: magicCoreRotate 5s infinite ease-in-out;
+}
+
+.img-static-bendy {
+  position: absolute;
+
+  background: url('@site/static/img/doc/personal/_BENDY659_NEW.png') no-repeat center center;
+  background-size: cover;
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+}
+
+@keyframes magicCoreMove {
+  0%, 100% { transform: translateY(20); }
+  50% { transform: translateY(-20px); }
+}
+@keyframes magicCoreRotate {
+  0%, 100% { transform: rotate(0deg) }
+  50% { transform: rotate(10deg) }
+}
+
+@keyframes drag {
+  /* Move */
+  0%, 50%, 100% { transform: translateY(0px) }
+  25%, 74% { transform: translateY(2px) }
+
+  /* Rotate */
+  0%, 100% { transform: rotate(-0.5deg); }
+  50% { transform: rotate(0.5deg); }
+}

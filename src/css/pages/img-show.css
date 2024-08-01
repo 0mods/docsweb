@@ -1,0 +1,9 @@
+.show {
+  animation: show 2s;
+  animation-timing-function: cubic-bezier(0, 1, 0, 1);
+}
+
+@keyframes show {
+  0% { transform: translateY(-100px);  opacity: 0; }
+  100% { transform: translateY(0px); opacity: 1; }
+}

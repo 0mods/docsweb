@@ -9,7 +9,10 @@ desc: Кто работал над документацией
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import style from '@site/src/css/tabs/personal-tab.module.css';
-import {Random, High, Low} from '@site/src/packs/random.js';
+import '@site/src/css/pages/docs-personal.css';
+import '@site/src/css/pages/img-show.css';
+
+import {Random, Part} from '@site/src/packs/random_new.js';
 
 <div align="center">
 
@@ -21,8 +24,35 @@ import {Random, High, Low} from '@site/src/packs/random.js';
 <TabItem value="algo" label="AlgorithmLX" attributes={{className: style.algo}}>
 
 ## `AlgorithmLX`
-    
-![Algo](@site/static/img/doc/personal/AlgorithmLX.png "Это AlgorithmLX")
+
+<!--Random max="100">
+<Part low="0" high="50">
+
+<div className="show">
+  <div className="img-container">
+    <div className="img-static-algo"></div>
+  </div>
+</div>
+
+</Part>
+<Part low="51" high="100">
+
+<div className="show">
+  <div className="img-container">
+    <div className="img-static-algo-demon"></div>
+    <div className="img-animate-algo0"></div>
+    <div className="img-animate-algo1"></div>
+  </div>
+</div>
+
+</Part>
+</Random-->
+
+<div className="show">
+  <div className="img-container">
+    <div className="img-static-algo"></div>
+  </div>
+</div>
 
 :::info Создатель сайта
     
@@ -36,7 +66,14 @@ import {Random, High, Low} from '@site/src/packs/random.js';
 
 ## `HollowHorizon`
     
-![Halva](@site/static/img/doc/personal/HollowHorizon.png)
+<!--![Halva](@site/static/img/doc/personal/HollowHorizon_NEW_BG.png)-->
+
+<div className="show">
+  <div className="img-container">
+    <div className="img-static-hollow"></div>
+    <div className="img-animate-hollow"></div>
+  </div>
+</div>
 
 :::info Создатель мода 'HollowEngine'
 Без него бы — не было смысла этой документации!
@@ -49,41 +86,14 @@ import {Random, High, Low} from '@site/src/packs/random.js';
 
 ## `_BENDY659_`
 
-<Random prct={99} prctMax={100}>
-<High>
-  <Random>
-  <High>
-    
-  ![FurryBlyuat](@site/static/img/doc/personal/_BENDY659_2.png)
-    
-  </High>
-  <Low>
-    
-  ![FurryBlyuat](@site/static/img/doc/personal/_BENDY659_1.png)
-    
-  </Low>
-  </Random>
-</High>
-<Low>
-  <Random prct={99} prctMax={100}>
-  <High>
-  
-  ![FurryBlyuat](@site/static/img/doc/personal/_BENDY659_0.png)
-  
-  </High>
-  <Low>
-  
-  ![FurryBlyuat](@site/static/img/doc/personal/_BENDY659_.png)
-  
-  </Low>
-  </Random>
-</Low>
-</Random>
+<div className="show">
+  <div className="img-container">
+    <div className="img-static-bendy"></div>
+  </div>
+</div>
 
 :::info Основной документатор.
-Пишет доки полностью.  
-Плохо знает русский. (А вдруг он шпион)
-    
+Пишет доки полностью.   
 Должен следить за актуальностью (но не обязан :З).
     
 Плохо дружит с Русским языком!
@@ -91,6 +101,8 @@ import {Random, High, Low} from '@site/src/packs/random.js';
 
 </TabItem>
 <TabItem value="halvaBot" label="Бот 'Халва'" attributes={{className: style.halvaBot}}>
+
+## `Халва`
 
 ![halva-bot](@site/static/img/doc/personal/Halva.png "Да, бот в команде. У вас есть притензии?")
 
