@@ -7,16 +7,28 @@ description: ''
 ---
 
 import '@site/src/css/pages/img-show.css';
+import { Random, Part } from '@site/src/packs/random_new.js';
 
 <div align="center">
 
 # Добро пожаловать
-на документацию по моду __`HollowEngine`__!
+## на документацию по моду __`HollowEngine`__!
 
 <div className="show">
+<div className="mask">
+  <Random max="100">
+  <Part low="0" high="99">
 
-![Welcome](@site/static/img/doc/titles/Welcome.png "добро пожаловать!")
+  ![Welcome](@site/static/img/doc/titles/Welcome.png)
 
+  </Part>
+  <Part low="100" high="100">
+
+  ![Welcum](@site/static/img/doc/titles/Welcum.png)
+
+  </Part>
+  </Random>
+</div>
 </div>
 
 ---
