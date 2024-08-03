@@ -15,6 +15,6 @@
 /* FUCKING MASK */
 
 .mask {
-  mask-image: linear-gradient(180deg, rgba(0,0,0,1) 75%, rgba(255,255,255,0) 100%);
+  mask-image: linear-gradient(180deg, rgba(0,0,0,1) 70%, rgba(255,255,255,0) 100%);
   mask-repeat: no-repeat;
 }
