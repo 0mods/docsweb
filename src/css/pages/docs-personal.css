@@ -10,36 +10,10 @@
 
 /* Decores */
 
-.blueEyeFiredL {
-  position: absolute;
-
-  background: url('@site/static/img/doc/personal/blueEyeFire.png') no-repeat center center;
-  background-size: 55px;
-
-  left: 10px;
-  top: -240px;
-  right: 0px;
-  bottom: 0px;
-
-  transform-origin: 50% 55%;
-  transform: rotate(-5deg);
-
+.blueEyeFireAnim0 {
   animation: wavesRotateEasy 1s infinite ease-in-out;
 }
-.blueEyeFiredR {
-  position: absolute;
-
-  background: url('@site/static/img/doc/personal/blueEyeFire.png') no-repeat center center;
-  background-size: 55px;
-
-  left: 130px;
-  top: -240px;
-  right: 0px;
-  bottom: 0px;
-
-  transform-origin: 50% 55%;
-  transform: rotate(-5deg);
-
+.blueEyeFireAnim1 {
   animation: wavesRotateEasy 1.25s infinite ease-in-out;
 }
 
