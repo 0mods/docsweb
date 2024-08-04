@@ -18,7 +18,7 @@
 }
 
 .img-txt {
-  display: flex;
+  display: inline-block;
   align-items: flex-start;
 
   background-color: var(--bg-color);
