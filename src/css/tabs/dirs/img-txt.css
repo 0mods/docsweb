@@ -32,7 +32,6 @@
   object-fit: contain;
 
   width: auto;
-  max-width: 300px;
 
   margin-left: 20px;
   margin-top: 20px;
@@ -41,7 +40,7 @@
 .txt {
   align-items: flex-start;
 
-  padding: 10px;
+  padding: 20px;
 
   margin-top: 20px;
   margin-right: 20px;
@@ -50,13 +49,16 @@
   color: #ffffff !important;
 
   border-color: #00000000 !important;
+  border-radius: 8px;
 }
 
 .sel {
+  display: inline-block;
+
   background-color: var(--sel-bg-color);
   color: var(--sel-color);
 
-  border-radius: 12px;
+  border-radius: 8px;
 
   width: auto;
 
@@ -64,4 +66,5 @@
   padding-right: 10px;
 
   margin-bottom: 10px;
+  margin-top: 10px;
 }
