@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 id: packets
 title: Универсальные пакеты
 description: Тут всё автоматизировано!
