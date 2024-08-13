@@ -1,7 +1,10 @@
 .show {
   position: relative;
 
-  min-width: 110%;
+  min-width: 70%;
+  max-width: 90%;
+
+  scale: 90%;
 
   animation: show 3s;
   animation-timing-function: cubic-bezier(0, 1, 0, 1);
