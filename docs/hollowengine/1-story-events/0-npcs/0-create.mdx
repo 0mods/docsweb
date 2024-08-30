@@ -141,15 +141,16 @@ model = "city:humans/petrov.gltf"
 ```kts
 textures: HashMap<String, ResourceLocation>
 ----------------------------------------------------
-textures["layerName"] = "mod_id:path/to/texture.png"
+textures["textureName"] = "mod_id:path/to/texture.png"
 ```
 
 ---
 
-В `[] (квадратных скобках)` ты указываешь имя слоя текстуры, которая есть на модели.  
-Все слои можно узнать через команду `/hollowengine model <путь к модели>`.  
+В `[] (квадратных скобках)` ты указываешь название текстуры, которая есть на модели.
+У модели может быть несколко текстур. Чтобы узнать какие текстуры есть в модели - используйте команду: `/hollowengine model <путь до модели>`.
 ['/Команды'](../../0-begin/2-commands.mdx):
-![layersName](@site/static/img/doc/menus/layersName.png)
+
+![textureName](@site/static/img/doc/menus/layersName.png)
 
 После указывает путь к текстуре в формате [`ResourceLocation`](../../0-begin/6-resources.mdx#об-resourcelocation).
 
