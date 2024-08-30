@@ -15,11 +15,11 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.3.2",
-    "@docusaurus/preset-classic": "^3.3.2",
-    "@docusaurus/theme-live-codeblock": "^3.3.2",
-    "@docusaurus/theme-mermaid": "^3.3.2",
-    "@docusaurus/theme-search-algolia": "^3.3.2",
+    "@docusaurus/core": "^3.5.2",
+    "@docusaurus/preset-classic": "^3.5.2",
+    "@docusaurus/theme-live-codeblock": "^3.5.2",
+    "@docusaurus/theme-mermaid": "^3.5.2",
+    "@docusaurus/theme-search-algolia": "^3.5.2",
     "@egjs/react-view3d": "^2.3.1",
     "@egjs/view3d": "^2.10.1",
     "@mdx-js/react": "^3.0.0",

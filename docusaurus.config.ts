@@ -47,6 +47,18 @@ const config: Config = {
       'classic',
       {
         docs: {
+          lastVersion: 'current',
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
+          versions: {
+            current: {
+              label: '2.0'
+            },
+            Legacy: {
+              label: 'Legacy',
+              path: 'Legacy'
+            }
+          },
           routeBasePath: '/docs',
           sidebarPath: './sidebars.ts',
           editUrl:
@@ -76,6 +88,11 @@ const config: Config = {
       hideOnScroll: true,
       title: '0mods',
       items: [
+        {
+          type: 'docsVersionDropdown',
+          position: 'right',
+          dropdownActiveClassDisabled: true,
+        },
         {
           to: '/docs',
           label: 'Docs',
