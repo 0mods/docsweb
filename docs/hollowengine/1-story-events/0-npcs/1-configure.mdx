@@ -1,0 +1,82 @@
+---
+sidebar_position: 1
+
+title: До настройка (+ доп. настройки)
+id: configure
+description: 'Можно менять параметры самого НИПа динамично'
+---
+
+import '@site/src/css/pages/img-show.css';
+
+:::danger Внимание!
+Данная страница будет переписана после релиза HollowEngine 2.0!
+
+Если вам нужна документация для Legacy, вам нужно сюда: [Hollow Engine Legacy Docs](/docs/Legacy/hollowengine/story-events/npcs/configure)
+:::
+
+<div align="center">
+
+# До настройки
+
+Иногда может понадобиться, изменить какие-то параметры НИПа в нужный момент.
+
+<div className="show" id="mask">
+
+![vitalik-crash](@site/static/img/doc/titles/EditNPC1.png)
+
+</div>
+
+В моде есть реализация этого.
+
+---
+
+## Метод
+
+Все такие до настройки происходят внутри метода
+<div align="left">
+```kts
+<npcID>.configure {
+  ... // Т.е. здесь!
+}
+```
+</div>
+
+---
+
+## Какие параметры поддерживает
+
+Поддерживаются все параметры, что были [При создании НИПа](./0-create.mdx), но кроме [`name`](./1-configure.mdx#дополнительные-возможности). Для такого предусмотрен другой метод.
+
+`npdID` - это переменная НИПа (просто `npdID` его обозвал какой-то дурак). Ты же там писал типа такого: `val npc by NPCEntity...` где `npc` - это и есть его `npcID`.
+
+Вписываются довольно просто:
+
+<div align="left">
+
+```kts title="Пример"
+<npcID>.configure{
+  model = "hc:models/entity/hilda_regular.glb"
+}
+```
+
+</div>
+
+---
+
+## Дополнительные возможности
+
+Помимо тех, которые можно вписать в сам метод `configure`, есть ещё и отдельные, которые независимы от этого метода.
+
+Такими являются:
+```kts title="Возможность менять иня НИПа"
+<npcID>.name = "Новый НИП"
+```
+```kts title="Возможность сделать Бессмертным"
+<npcID>.invulnerable = true
+```
+```kts title="Возможность менять режим колизии с НИПом"
+<npcID>.hitboxMode = HitboxMode.BLOCKING
+```
+[о 'HitboxMode'](../../99-resources/1-hitbox-mode.mdx)
+
+</div>
