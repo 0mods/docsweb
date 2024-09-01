@@ -20,15 +20,13 @@
 .magicCore {
   position: absolute;
 
-  background: url('@site/static/img/doc/personal/MagicCore.png') no-repeat center center;
-  background-size: 200px;
+  background: url('@site/static/img/doc/personal/MagicCore.gif') no-repeat center center;
+  background-size: 225px;
 
   left: -25px;
-  top: 150px;
+  top: 180px;
   right: 0px;
   bottom: 0px;
-
-  transform: rotate(10deg);
 
   animation: magicCoreAnimation 3s infinite ease-in-out;
 }
