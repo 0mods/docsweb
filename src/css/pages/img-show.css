@@ -1,17 +1,18 @@
-.show {
+.cont::before {
+  /*width: 960px;*/
+  width: auto;
+  /*height: 512px;*/
+  height: auto;
+}
+.show{
   position: relative;
 
-  min-width: 70%;
-  max-width: 90%;
-
-  scale: 90%;
-
-  animation: show 3s;
+  animation: show 5s;
   animation-timing-function: cubic-bezier(0, 1, 0, 1);
 }
 @keyframes show {
-  0% { transform: translateY(-100px);  opacity: 0; }
-  100% { transform: translateY(0px); opacity: 1; }
+  from { transform: translateY(-100px);  opacity: 0; }
+  to { transform: translateY(0px); opacity: 1; }
 }
 
 /* FUCKING MASK */
