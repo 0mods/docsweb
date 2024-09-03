@@ -25,3 +25,4 @@ yarn-error.log*
 *_lock.*
 .vscode/
 !yarn.lock
+/package-lock.json

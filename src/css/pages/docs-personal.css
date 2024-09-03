@@ -44,6 +44,32 @@
 
   animation: rotate3D 4s infinite linear;
 }
+.chipsLays3D {
+  position: absolute;
+
+  background: url('@site/static/img/doc/personal/LaysComressedAir3D-SD.gif') no-repeat center center;
+  background-size: 256px;
+
+  left: 0px;
+  top: 150px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.glint {
+  position: absolute;
+
+  background: url('@site/static/img/doc/personal/Glint.png') no-repeat center center;
+
+  background-size: 320px;
+
+  left: 0px;
+  top: 150px;
+  right: 0px;
+  bottom: 0px;
+
+  animation: rotateY 3s infinite linear;
+}
 
 @keyframes magicCoreAnimation {
   0%, 100% { transform: translateY(-10px) }
@@ -59,10 +85,13 @@
   50% { transform: rotate(0.5deg); }
 }
 @keyframes rotate3D {
-  0% { transform: rotateY(0deg) }
-  100% { transform: rotateY(360deg) }
+  from { transform: rotateY(0deg) }
+  to { transform: rotateY(360deg) }
 }
 @keyframes wavesRotateEasy {
   0%, 100% { transform: rotate(-5deg) }
   50% { transform: rotate(5deg) }
+}
+@keyframes rotateY {
+  to { transform: rotate(360deg) }
 }
