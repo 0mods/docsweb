@@ -4,7 +4,7 @@
   /*height: 512px;*/
   height: auto;
 }
-.show{
+.show {
   position: relative;
 
   animation: show 5s;
