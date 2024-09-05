@@ -1,7 +1,9 @@
 .helper {
-  justify-content: flex-end;
-  margin-left: auto;
+  display: inline-block;
+
   float: right;
+
+  position: relative;
 
   background-color: #ebedf0;
 
@@ -12,8 +14,8 @@
 
   padding: 5px 5px;
 
-  font-size: 15px;
-  font-weidth: 700;
+  font-size: 16px;
+  font-width: 700;
 
   line-height: 1;
 
