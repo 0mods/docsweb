@@ -1,0 +1,79 @@
+---
+sidebar_position: 6
+
+title: Под-модели
+id: sub-models
+desc: 'Возможность приодеть НИПа'
+---
+
+<div align="center">
+
+# Под-модели
+
+Придать любой наряд НИПУ
+
+<div className="show" id="mask">
+
+![sub-models](@site/static/img/doc/titles/SubModels0.png)
+
+</div>
+
+(и PWGood в придачу)
+
+---
+
+# Добавление модели
+
+::::info Добавление модели
+Дополнительную модель ты можешь наложить только либо на кость, либо на группу
+<div align="left">
+```kts
+subModel["<bone/group>"] = subModel(
+  model = "<path/to/model>"
+)
+```
+> `bone/group` - Название кости или группы в модели.
+</div>
+:::warning Имейте в виду
+на одну кость/группу - **только 1 модель**!
+:::
+::::
+
+---
+
+## Анимации модели
+
+::::info Анимации модели
+Так же, если у модели есть анимации, ты можешь их воспроизводить
+:::warning
+Писать нужно там же, но после `model` (на новой строке)
+:::
+<div align="left">
+```kts
+layer += AnimationLayer(
+  animation = "<animationName" // Название анимации
+  layerMode = LayerMode.<TYPE> // Режим смешивания
+  playMode = PlayType.<TYPE> // Режим воспроизведени
+  speed = <Float> // Скорость воспроизведения
+)
+```
+</div>
+Всё как и в [Анимациях у НИПа](./3-animations.mdx)
+::::
+
+---
+
+## Пример
+
+</div>
+
+```kts
+subModel["Head"] = subModel(
+  model = "models:decores/tophead_black,gltf"
+  layer += AnimationLayer(
+    animation = "levitation"
+    layerMode = LayerMode.ADD
+    playMode = PlayType.LOOPED
+  )
+)
+```
