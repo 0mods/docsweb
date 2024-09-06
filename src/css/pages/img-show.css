@@ -9,6 +9,8 @@
 
   animation: show 5s;
   animation-timing-function: cubic-bezier(0, 1, 0, 1);
+
+  z-index: 1
 }
 @keyframes show {
   from { transform: translateY(-100px);  opacity: 0; }
@@ -18,6 +20,15 @@
 /* FUCKING MASK */
 
 #mask {
-  mask-image: linear-gradient(180deg, rgba(0,0,0,1) 75%, rgba(255,255,255,0) 95%);
+  z-index: 2;
+
+  width: auto;
+  height: auto;
+
+  /*mask-image: linear-gradient(180deg, rgba(0,0,0,1) 75%, rgba(255,255,255,0) 95%);*/
   mask-repeat: no-repeat;
+  mask-size: cover;
+  mask-composite: exclude;
+  -webkit-mask-image: url('./title_mask.png');
+  mask-image: url('./title_mask.png');
 }
