@@ -37,12 +37,13 @@ import '@site/src/css/pages/img-show.css';
 <TabItem value="toPosition" label="До позиции" attributes={{className: tab.def}}>
 <div style={{"display": "flex"}}>
 
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
+<link rel="preload" as="image" href="@site/static/img/doc/actions/MoveTo-Pos.gif" />
+<div className="gif" style={{ "margin": "20px", "align-items": "flex-start", "width": "256px" }}>
 
-![npc-move_to-pos](@site/static/img/doc/actions/npc-move_to-pos.gif)
+![npc-move_to-pos](@site/static/img/doc/actions/MoveTo-Pos.gif)
 
 </div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
+<div align="left" style={{"margin": "10px", "align-items": "flex-end", "width": "100%"}}>
 
 ```kts
 <npcID> moveTo { pos(x, y, z) }
