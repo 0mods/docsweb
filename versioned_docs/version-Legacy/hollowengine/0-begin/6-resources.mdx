@@ -36,7 +36,7 @@ import '@site/src/packs/toggle_text/toggle_button.css';
 ## Об `ResourceLocation`...
 
 ::::info `ResourceLocation`
-Через `ResourceLocation` мы задаём команду, откуда брать тот или иной файл.
+Через `ResourceLocation` мы указываем путь по директориям, откуда брать тот или иной файл.
 
 :::warning !!! ОСТОРОЖНО !!!
 Обзывать файлы и папки как вам хочется — ***не выйдет***, для этого есть строгие правила.
@@ -103,7 +103,7 @@ import '@site/src/packs/toggle_text/toggle_button.css';
 
 <ToggleText buttonText="Я не понимаю где размещать модели">
 
-Модели хранятся в пути: `hollowengine/models/`.
+Модели хранятся в пути: `assets/hollowengine/models/`.
 
 Под модели для НИПов есть подпапка `entity` (т.к. НИПы — это сущности), и в этой папке вы можете размещать уже свои модели.
 
@@ -130,7 +130,7 @@ import '@site/src/packs/toggle_text/toggle_button.css';
 
 <ToggleText buttonText="Я не понимаю где размещать текстуры">
 
-Текстуры хранятся в пути: `hollowengine/textures/`.
+Текстуры хранятся в пути: `assets/hollowengine/textures/`.
 
 Под текстуры для НИПов есть подпапка `entity` (т.к. НИПы — это сущности), и в этой папке вы можете размещать уже свои текстуры.
 
@@ -154,25 +154,43 @@ import '@site/src/packs/toggle_text/toggle_button.css';
 
 <br />
 
-Все звуки хранятся строго в папке `sounds` (путь к папке: `<mod_id>/sounds`).
+Все звуки хранятся строго в папке `assets/<mod_id>/sounds`.
 
 Тут всё не так просто как кажется.
 
 <ToggleText buttonText="Ручная регистрация">
 Для этого вам нужно создать файл `sounds.json` в вашей директории `<mod_id>/`
 <div align="left">
-```json title="Содержимое файла"
+
+```js lines title="Содержимое файла"
 {
   "sound_name_translate": {
     "category": "<sound_category>",
+    "subtitle": "<translation_text>",
     "sounds": [
-      "<path/to/sound>"
+      // Простое добавление звука
+      "<mod_id>>:<path/to/sound>",
+
+      // Расширенное добавление звука
+      {
+        "name": "<mod_id>>:<path/to/sound>",
+        "volume": <Double>,
+        "pitch": <Double>,
+        "weight": <Int>,
+        "stream": <Boolean>
+      }
     ]
   }
 }
 ```
 > - `sound_category` - Категория звука. Все категории можно узанать из команды `/playsound <sound> <sound_category>`.
-> - `path/to/sound` - Указываете путь относительно папки `sounds`. **Указывать без расширения**!
+> - `subtitle` - Переводимый текст для субтитров.
+> - **!`mod_id`!** - Уникальное имя мода, откуда брать звук.
+> - **!`path/to/sound`!** - Указываете путь относительно папки `sounds`. **Указывать без расширения**!
+> - `volume` - Громкость.
+> - `pitch` - Тональность/Высота.
+> - `weight` - Не эбу за что отвечает.
+> - `stream` - Тоже не эбу за что отвечает.
 
 ---
 
@@ -185,20 +203,14 @@ assets
    |  \- best_0.ogg
    \- funny.ogg
 ```
-```json title="В файле 'sounds.json'"
+```js title="В файле 'sounds.json'. Минимальное что нужно для заука"
 {
   "best_sound": {
-    "category": "master",
-    "sounds": [
-      "by_best/best_0"
-    ]
+    "sounds": [ "my_mod_id:by_best/best_0" ]
   },
   {
     "funny_music": {
-      "category": "music",
-      "sounds": [
-        "funny"
-      ]
+      "sounds": [ "my_mod_id:funny" ]
     }
   }
 }
