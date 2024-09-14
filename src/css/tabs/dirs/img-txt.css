@@ -27,7 +27,7 @@
   border-radius: 12px;
 }
 .img-txt img {
-  display: flex;
+  display: block;
   align-items: flex-start;
   object-fit: contain;
 
