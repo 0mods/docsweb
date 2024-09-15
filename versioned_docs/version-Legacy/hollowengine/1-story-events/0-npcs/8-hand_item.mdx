@@ -86,6 +86,10 @@ import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
 /* Выдать предмет в Правую руку */
 <npcID> giveRightHand { item("<itemID>") }
 ```
+```kts title="Пример"
+npc giveLeftHand { item("me:chiken") }
+npc giveRightHand { item("me:cheese") }
+```
 
 :::
 </TabItem>
@@ -99,6 +103,10 @@ import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
 /* Убрать предмет в Правую руку */
 <npcID> giveRightHand { null }
 ```
+```kts title="Пример"
+npc giveLeftHand { null }
+npc giveRightHand { null }
+```
 
 :::
 </TabItem>
@@ -106,7 +114,10 @@ import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
 :::info Выбросить предмет от лица НИПа
 
 ```kts
-<npcID> dropItem{ item("<itemID>") }
+<npcID> dropItem { item("<itemID>") }
+```
+```kts title="Пример"
+npc dropItem { item("me:pineapple") }
 ```
 
 :::
