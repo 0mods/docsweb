@@ -158,19 +158,19 @@ npc moveTo { <IDK> }
 </div>
 <div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
 
-Есть за место `moveTo` написать `alwaysMoveTo`, то НИП будет двигаться до указанного - **Бесконечно**.
+Есть за место `moveTo` написать `moveAlwaysTo`, то НИП будет двигаться до указанного - **Бесконечно**.
 
 Для того чтобы __остановить выполнение__, нужно прописать:  
 ```kts
-<npdID> stopAlwaysMove()
+<npdID> stopMoveAlways()
 ```
 
 ---
 
 ```kts title="Пример"
-npc alwaysMoveTo { player().first() }
+npc moveAlwaysTo { player().first() }
 
-npc stopAlwaysMove()
+npc stopMoveAlways()
 ```
 </div>
 </div>
@@ -281,7 +281,7 @@ npc moveToBiome { "stronghold" }
 ---
 
 ```kts title="Пример"
-npc moveTo { pos(674, 72, 15) }
+npc lookAt { pos(-361, 83, 23) }
 ```
 
 </div>
@@ -317,7 +317,7 @@ npc moveTo { pos(674, 72, 15) }
 ---
 
 ```kts title="Пример"
-npc moveTo { player().first() }
+npc lookAt { player().first() }
 ```
 
 </div>
@@ -355,7 +355,7 @@ npc moveTo { player().first() }
 ---
 
 ```kts title="Пример"
-npc moveTo { algi }
+npc lookAt { mike }
 ```
 
 </div>
@@ -374,15 +374,17 @@ npc moveTo { algi }
 <npcID> lookAt { <Entity> }
 ```
 
-НИП будет смотреть на [**Определённого игрока**](../../../hiddens/placeholder.mdx).
+НИП будет смотреть на Сущность.
 
 ---
 
 ```kts title="Пример"
-npc moveTo { <IDK> }
+/* IDK */
 ```
 
 ---
+
+Если же нужно, что бы НПС смотрел на любую сущность одного типа
 
 ```kts
 <npcID> lookAtEntityType { "<entityID>" }
@@ -411,22 +413,22 @@ npc lookAtEntityType { "cow" }
 <div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
 
 ```kts
-<npcID> alwaysLookAt { <target> }
+<npcID> lookAlwaysAt { <target> }
 ```
 
 Есть за место `lookAt` написать `alwaysLookAt`, то НИП будет смотреть на указанное - **Бесконечно**.
 
 Для того чтобы __остановить выполнение__, нужно прописать:  
 ```kts
-<npdID> stopAlwaysLook()
+<npdID> stopLookAlways()
 ```
 
 ---
 
 ```kts title="Пример"
-npc alwaysLookAt { player().first() }
+npc lookAlwaysAt { player().first() }
 
-npc stopAlwaysLook()
+npc stopLookAlways()
 ```
 
 </div>
