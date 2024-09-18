@@ -1,0 +1,47 @@
+---
+sidebar_position: 0
+
+title: НИП говорит
+id: npc-say
+desc: 'Чё-то там на глаголил'
+---
+
+<div align="center">
+
+# Простой диалог
+
+Самый обычный диалог
+
+<link rel="preload" as="image" href="@site/static/img/doc/titles/NpcSay0.webp" />
+<div className="show" id="mask">
+
+![npc-saying](@site/static/img/doc/titles/NpcSay0.webp)
+
+</div>
+
+между НИПом и игроком
+
+---
+
+<br />
+
+## Сказать
+
+<br />
+
+### От лица НИПа
+
+:::info Сказать от лица НИПа абсолютно любой текст
+```kts
+<npcID> say { "<text>" }
+```
+---
+```kts title="Пример"
+npc say { "Привет" }
+```
+
+![npc-say](@site/static/img/doc/dialogue/npc_say.png)
+
+:::
+
+</div>
