@@ -1,0 +1,243 @@
+---
+sidebar_position: 1
+
+title: Камера
+id: camera-path
+desc: 'Красивый и (в ковычках) плавный пролёт камеры по местности'
+---
+
+import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
+import { Random, Part } from '@site/src/packs/random_new.js';
+
+<div align="center">
+
+# Камера
+
+красивый пролёт камеры
+
+<div className="show" id="mask">
+
+<Random max="100">
+  <Part low="0" high="99">
+
+![camera-cutscene](@site/static/img/doc/titles/CutsceneCamera2.webp)
+
+  </Part>
+  <Part low="100" high="100">
+
+! Здесь будет пасхалка !
+
+  </Part>
+</Random>
+
+</div>
+
+по локациям
+
+---
+
+<br />
+
+## Поведение камеры
+
+<br />
+
+<div align="left">
+
+> Есть несколько типов поведения камеры, а именно:
+> - **"Движение камеры"** - когда камера перемещается от точки к точке.
+> - **"Статическая"** - когда камера стоит на 1 месте и смотрит в 1 точку.
+> - **"Статическое слежение"** - То же самое что и **"Статическая камера"**, но может поворачиваться
+в сторону цели.
+
+</div>
+
+<br />
+
+<ToggleText buttonText="Движение камеры">
+
+<br />
+
+::::note Движение камеры
+
+:::warning Сначала!
+Перед тем, как создать путь для движения камеры, нужно взять в руку специальный предмет.
+:::
+
+<br />
+
+### Предмет "Камера"
+
+<br />
+
+:::info Камера
+
+Взять в **основную руку** данный предмет
+
+<div style={{"scale": "150%"}}>
+
+![storyteller-teleport-item](@site/static/img/doc/items/camera-item.png)
+
+</div>
+
+![item-desc](@site/static/img/doc/items/camera-item-desc.png)
+
+:::
+
+Слева-сверху вы увидите некоторые параметры камеры:
+
+![camera-parameters](@site/static/img/doc/cutscenes/CameraParameters.png)
+
+<div align="left">
+
+> А именно:
+> - <span style={{ "color": "red" }}>`rotation x`</span> - Поворот камеры по оси <span style={{ "color": "red" }}>X</span>.  
+>  ![cube-rotation-x](@site/static/img/doc/cutscenes/CubeRotationX.gif)
+> - <span style={{ "color": "lime" }}>`rotation y`</span> - Поворот камеры по оси <span style={{ "color": "lime" }}>Y</span>.  
+>  ![cube-rotation-y](@site/static/img/doc/cutscenes/CubeRotationY.gif)
+> - <span style={{ "color": "#6666ff" }}>`rotation z`</span> - Поворот камеры по оси <span style={{ "color": "#6666ff" }}>Z</span>.  
+>  ![cube-rotation-z](@site/static/img/doc/cutscenes/CubeRotationZ.gif)
+>   - Настраивается через кнопки `+` и `-`. Кнопка `C` для сброса.
+> - `fov` - Поле зрения.
+>   - Настраивается через кнопки `[` и `]`. Кнопка `C` для сброса.
+> - `point count` - Количество точек пути.
+
+</div>
+
+::::
+
+<br />
+
+### Расстановка точек
+
+<br />
+
+:::info Расстановка точек
+
+<div align="left">
+
+1. Возьмите камеру в **Основную руку**.
+2. Переместитесь на нужную позицию и поверните голову так как вам нужно.  
+2.1. При необходимости настройте другие параметры (поворот по оси Z, поле зрения `fov`).
+3. Нажмите ПКМ, держа камеру в руках.
+
+Вы создали первую точку для камеры.
+Но чтобы камера перемещалась - вам нужно создать 2 и более точек.
+
+Просто повторите все пункты, начиная со 2-го, столько - сколько нужно.
+
+</div>
+
+::::
+
+<br />
+
+### Сохранение пути
+
+:::info Сохранение пути
+
+Когда закончили рассатвлять точки - нажмите комбинацию `Shift + ПКМ` и введите имя файла.
+
+:::
+
+<br />
+
+### Скриптинг
+
+:::info Скриптинг
+
+<div align="left">
+
+```kts title="Шаблон"
+camera {
+  spline(<time>, "<fileName>.nbt.nbt", <Intepolation>, <enableBorders>, <borderInterpolation>)
+}
+```
+
+> Параметры:
+> - `time` - [**Время**](../../99-resources/4-time_value.mdx) движения камеры по всему пути.
+> - `fileName` - Имя файла, в который вы сохраняли путь движения камеры ранее.
+> - `Interpolation` - [**Интерполяция**](../../99-resources/5-interpolations.mdx) движения камеры по всему пути.
+> - `enableBorders` - Вкл (`true`) границы сверху и снизу.
+> - `borderInterpolation` - [**Интерполяция**](../../99-resources/5-interpolations.mdx) границ - то. как они будут выезжать и заезжать.
+
+```kts title="Пример"
+camera {
+  spline(60.sec, "prologue.nbt.nbt", Interpolation.QUAD_IN_OUT, true, INTERPOLATION.QUAD_OUT)
+}
+```
+
+</div>
+
+:::
+
+<br />
+
+</ToggleText>
+
+<ToggleText buttonText="Статическая">
+
+::::note Статическая
+
+<div align="left">
+
+```kts title="Шаблолн"
+camera {
+  static(<time>, pos(x, y, z), pos(yaw, pitch, roll))
+}
+```
+
+> Параметры:
+> - `time` - [**Время**](../../99-resources/4-time_value.mdx) удержания камеры.
+> - `pos(x, y, z)` - Позиция камеры.
+> - `pos(yaw, pitch, roll)` - Поворот камер по осям:
+>   - `yaw`:  
+![cube-rotation-x](@site/static/img/doc/cutscenes/CubeRotationX.gif)
+>   - `pitch`:  
+![cube-rotation-y](@site/static/img/doc/cutscenes/CubeRotationY.gif)
+>   - `roll`:  
+![cube-rotation-z](@site/static/img/doc/cutscenes/CubeRotationZ.gif)
+
+```kts title="Пример"
+camera {
+  static(25.sec, pos(-532.556, 31.232, 72.212), pos(-30.4, -15.3, 0.0))
+}
+```
+
+</div>
+
+::::
+
+<br />
+
+</ToggleText>
+
+<ToggleText buttonText="Статическое слежение">
+
+::::note Статическое слежение
+
+<div align="left">
+
+```kts title="Шаблон"
+camera {
+  entity(<time>, pos(x, y, z), <Entity>)
+}
+```
+
+> Параметры:
+> - `time` - [**Время**](../../99-resources/4-time_value.mdx) удержания камеры.
+> - `pos(x, y, z)` - Позиция камеры.
+> - `Entity` - Цель, за кем нужно следить. Целью может быть:
+>   - Определённая сущность (не `id` сущности).
+>   - Игрок.
+>   - НИП.
+
+</div>
+
+::::
+
+</ToggleText>
+
+<br />
+
+</div>
