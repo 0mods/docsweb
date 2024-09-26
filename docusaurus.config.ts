@@ -15,7 +15,7 @@ const config: Config = {
   onBrokenMarkdownLinks: 'ignore',
   onBrokenAnchors: 'warn',
 
-  plugins: ['@docusaurus/theme-mermaid', "@docusaurus/theme-live-codeblock"],
+  plugins: [ '@docusaurus/theme-mermaid', "@docusaurus/theme-live-codeblock" ],
   markdown: {
     mermaid: true
   },

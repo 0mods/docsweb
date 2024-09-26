@@ -1,0 +1,86 @@
+---
+sidebar_position: 2
+
+title: Тряска камеры
+id: camera-shake
+desc: 'Немного потрясёт и перестанет'
+---
+
+import dontCopy from '@site/src/pages/dont-copy.js';
+import '@site/src/pages/dont-copy.css';
+
+<script src="dontCopy"></script>
+
+<div align="center">
+
+# Тряска камеры
+
+Немного потрясёт
+
+<div className="show" id="mask">
+
+![camera-shake](@site/static/img/doc/titles/CameraShake0.webp)
+
+</div>
+
+и перестанет
+
+---
+
+<br />
+
+## Настройка тряски
+
+<br />
+
+:::info Настройка тряски
+
+Простая тряска экрана
+
+<div align="left">
+
+```kts
+shake {
+  duration = <time> // Время действия тряски
+  intensity1 = <Float> // Сила тряски в начале
+  intensity2 = <Float> // Сила тряски в середине
+  intensity3 = <Float> // Сила тряски в конце
+  intensityStart = Interpolation.QUAD_OUT // Плавность перехода от начала к середине
+  intensityEnd = Interpolation.QUAD_IN // Плавность перехода от середины к концу
+  targets = listOf(<ShakeTarget>) // То, что будет трястись
+}
+```
+
+---
+
+```kts title="Пример"
+shake {
+  duration = 5.sec
+  intensity1 = 0f
+  intensity2 = 2f
+  intensity3 = 0f
+  intensityStart = Interpolation.QUAD_OUT
+  intensityEnd = Interpolation.QUAD_IN
+  targets = listOf(
+    ShakeTarget.POS,
+    ShakeTarget.ROT
+    )
+}
+```
+
+</div>
+
+<link rel="preload" as="video" href="https://www.youtube.com/embed/_gAFbU2xDg4?autoplay=1&controls=0&loop=1&playlist=_gAFbU2xDg4" />
+<iframe
+  width="90%"
+  height="480px"
+  src="https://www.youtube.com/embed/_gAFbU2xDg4?autoplay=1&controls=0&loop=1&&playlist=_gAFbU2xDg4"
+  frameborder="0"
+  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+></iframe>
+
+:::
+
+</div>
+
+---
