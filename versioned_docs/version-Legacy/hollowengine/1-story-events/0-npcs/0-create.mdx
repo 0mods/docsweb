@@ -10,6 +10,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import tab from '@site/src/css/tabs/tabs.module.css';
 import '@site/src/css/pages/img-show.css';
+import '@site/src/css/pages/txt-img.css';
 
 <div align="center">
 
@@ -373,21 +374,21 @@ rotation = vec(pitch, yaw)
 
 <Tabs>
 <TabItem value="basic-npc" label="Базовый НИП" attributes={{className: tab.def}}>
-<div style={{"display":"flex"}}>
-<div style={{"align-items":"flex-start","margin":"20px"}}>
+<div className="i-txt-img">
 
+<div className="i-txt">
 Для спавна Базового НПИа хватило бы и одного параметра `pos`, то будет интереснее если у НИПа будет ещё и своё имя.
 
 ```kts title="Пример"
 val npc by NPCEntity.creating {
-  name = "НИП"
-  pos = pos(-9.5, 64.0, 307.5)
+name = "НИП"
+pos = pos(-9.5, 64.0, 307.5)
 }
 ```
 НПС будет заспавнен с именем "НИП" и на координатах "x: -9.5, y: 64.0, z: 307.5"
-
 </div>
-<div style={{"align-items":"flex-end","margin":"20px"}}>
+
+<div className="i-img" style={{ "max-width": "256px" }}>
 
 ![baseNPC](@site/static/img/doc/basic-npc.png)
 
@@ -395,8 +396,8 @@ val npc by NPCEntity.creating {
 </div>
 </TabItem>
 <TabItem value="better-npc" label="Кастомный НИП" attributes={{className: tab.def}}>
-<div style={{"display":"flex"}}>
-<div style={{"align-items": "flex-start", "margin": "20px"}}>
+<div className="i-txt-img">
+<div className="i-txt">
 
 Чтобы добиться кастомного уровня, можно использовать больше параметров при настройке НИПа.
 
@@ -414,7 +415,7 @@ val npc by NPCEntity.creating {
 НПС будет заспавнен с именем "НИП", со своей моделью, своя стандартная анимация, Видоизменённый и на координатах "x: -9.5, y: 64.0, z: 307.5"
 
 </div>
-<div style={{"align-items": "flex-end", "margin": "20px"}}>
+<div className="i-img" style={{ "max-width": "256px" }}>
 
 ![customNPC](@site/static/img/doc/custom-npc.png)
 
