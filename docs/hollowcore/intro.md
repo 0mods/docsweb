@@ -23,11 +23,32 @@ description: Хотите писать моды, но не хотите рути
 
 ### Графика
 - [x] Библиотека UI основанная на ImGui, отрисовка: базовых виджетов, предметов, блоков, контейнеров, слотов и т.д.
-- [x] Поддержка GLTF моделей, включая: скелетную анимацию, скиннинг, morph target'ы, PBR материалы для Iris/Oculus.
+- [x] Многопоточный загрузчик GLTF моделей с поддержкой: скелетной анимации, скиннинга, morph target'ы и PBR материалов для Iris/Oculus.
 - [x] Поддержка эффектов из Effekseer.
+- [x] Поддержка текстур: (a)png, gif, jpeg, tiff и т.п.
+- [x] Поддержка аудио: ogg, wav и mp3.
 
 ## Установка HollowCore
 
+### Установка для игры
+
 Скачать HollowCore можно на [GitHub](https://github.com/HollowHorizon/HollowCore/releases/tag/latest-1.19.2).
 
-Для работы также необходим: [Kotlin For Forge](https://www.curseforge.com/minecraft/mc-mods/kotlin-for-forge/files/4513187).
+### Установка для разработки
+
+Добавьте в ваш проект репозиторий **0mods.team**:
+```kotlin
+repositories {
+    maven("https://maven.0mods.team/")
+}
+```
+
+После чего установите сам HollowCore:
+```kotlin
+dependencies {
+    implementation("ru.hollowhorizon:HollowCore-forge-1.19.2:2.0.4:dev")
+}
+```
+
+Вместо `forge` вы можете указать любой из загрузчиков. (`fabric`, `neoforge`)
+А в качестве версии поддерживается `1.19.2`, `1.20.1` и `1.21`.
