@@ -43,17 +43,27 @@ val player = AudioPlayer(buffer) // Создаём проигрыватель з
 ## Функции для плеера
 
 Запуск: `player.play()`
+
 Пауза: `player.pause()`
+
 Остановка: `player.stop()`
+
 Громкость: `player.setVolume(volume: Float)`
+
 Высота звука: `player.setPitch(pitch: Float)`
+
 Зациклить звук: `player.setLooping(loop: Boolean)`
+
 Координаты: `player.setPosition(x: Float, y: Float, z: Float)`
+
 Звук относительно игрока: `player.setRelative(relative: Boolean)` - При `true` будут использованы координаты не относительно мира, а относительно игрока. 
 
 ## Переменные для плеера
 
 `player.isPlaying` - Проигрывается ли сейчас этот звук.
+
 `player.isPaused` - На паузе ли сейчас этот звук.
+
 `player.isStoped` - Остановлен ли сейчас этот звук.
+
 `player.playbackPosition` - "Текущая секунда звука".
