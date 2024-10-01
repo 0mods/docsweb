@@ -1,0 +1,6 @@
+position: 4
+label: 'Мировые события'
+link:
+  type: generated-index
+customProps:
+  description: 'Эээ.. привет :)'
