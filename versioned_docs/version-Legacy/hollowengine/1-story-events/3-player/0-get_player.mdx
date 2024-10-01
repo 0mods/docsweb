@@ -1,0 +1,85 @@
+---
+sidebar_position: 0
+
+title: Получить игрока
+id: get_player
+desc: 'NaN'
+---
+
+import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
+
+<div align="center">
+
+# Получить игрока
+
+Теперь любого игрока
+
+![players](@site/static/img/doc/titles/NO_TITLE.webp)
+
+можно затащить в сюжет
+
+---
+
+<br />
+
+## Получить игрока(-ов)
+
+<br />
+
+<ToggleText buttonText="Получить всех игроков на сервере">
+
+:::info Всех
+Для получения всех игроков, которые находятся на сервере (в мире) - используйте эту переменную
+```kts
+val <players> by server.players
+```
+:::
+
+</ToggleText>
+
+<br />
+
+<ToggleText buttonText="Получить конкретных(-ого) игроков(-а)">
+
+:::info Через фильтр
+Для получения определённых(-ого) игроков(-а) можно использовать фильтр
+```kts
+val <players> by server.players.filter { <filter> }
+```
+<div align="left">
+
+Фильтров много, но расскажу про самый простой:
+- Получить игрока с определённым ником:
+  ```kts
+  it.name.string == "<playerNick>"
+  ```
+
+</div>
+:::
+
+::::info По уровню [Game-Stage]
+:::warning Требуется дополнительный мод
+Данный фильтр работает только при установленном моде `GameStage`!
+:::
+
+<br />
+
+Для получения списка игроков, который находятся на указаном уровне
+```kts
+val <players> by server.players.filter { it.hasStage("<Level>") }
+```
+::::
+
+<br />
+
+:::info Первый в списке
+Можно и обойтись простым методом, где просто из всех игроков можно получить **только первого** игрока
+```kts
+val <players> by server.players
+val <player> = players().first()
+```
+:::
+
+</ToggleText>
+
+</div>

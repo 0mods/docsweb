@@ -1,0 +1,105 @@
+---
+sidebar_position: 2
+
+title: Действия
+id: player_actions
+desc: 'NaN'
+---
+
+<div align="center">
+
+# Действия
+
+Управлять игроками(-ом)
+
+![no-title](@site/static/img/doc/titles/NO_TITLE.webp)
+
+---
+
+<br />
+
+## Телепортировать
+
+<br />
+
+:::info Телепортировать
+Телепортировать игрока в определённый мир и в определённую точку
+<div align="left">
+
+```kts
+<player>.toTo {
+  pos = pos(x, y, z) // Позиция по оси X, Y и Z
+  vec = vec(<pitch>, <yaw>) // Поворот по оси X (влево-вправо) и Y (вверх-вниз)
+  world = "<dimension_id>" // ID измерения | По умолчанию: overworld
+}
+```
+
+---
+
+```kts title="Пример"
+me.tpTo {
+  pos = pos(52, 85, -251)
+  vec = vec(-90f, 40f)
+  world = "hollowengine:storyteller_world"
+}
+```
+
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## Атрибуты
+
+:::info Атрибуты
+Так же можно и изменять некоторые настрийки атрибутов
+
+<div align="left">
+
+```kts
+<player>.modify {
+  
+  /* Здоровье */
+  
+  setHealt(<Flaot>) // Установить количество здоровья
+  setMaxHealt(<Float>) // Установить Маас количество здоровья
+  addHealt(<Float>) // Добавить количество здоровья к нынешнему
+  
+  /* Защита */
+  
+  equipHelmet( item("<item_id_helmet") ) // Одеть шлем
+  equipChestplate( item("<item_id_chestplate>") ) // Одеть нагрудник
+  equipLeggings( item("<item_id_leggings") ) // Одеть поножи
+  equipBoots( item("<item_id_boots") ) // Одеть ботинки
+  /*
+   * Если нужно снять броню, то за место item() укажите:
+   * - null
+   * или
+   * - item("air")
+  */
+}
+```
+
+---
+
+```kts title="Пример"
+me.modify {
+  setHealt(20F)
+  setMaxHealt(100F)
+  addHealt(50f)
+  
+  equipHelmet( null )
+  equipChestplate( item("netherite_chestplate") )
+  equipLeggings( item("iron_leggigns") )
+  equipBoots( item("leather_boots") )
+}
+```
+
+</div>
+:::
+
+</div>
