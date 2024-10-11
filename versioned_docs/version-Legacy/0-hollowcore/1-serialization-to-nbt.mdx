@@ -1,0 +1,111 @@
+---
+sidebar_position: 1
+
+title: Сериализация в NBT
+id: serialization-to-nbt
+desc: 'NaN'
+---
+
+<div align="center">
+
+# Сериализация в `NBT`
+
+---
+
+## Подготовка класса
+
+<br />
+
+:::info Подготовка класса
+Создайте класс, который в последствии можно будет сереализовать в `NBT`:
+<div align="left">
+
+```kts title="Пример"
+@Serializable
+class User(
+  val name: String,
+  val age: Int,
+  val address: String,
+  val friends: List<String>
+)
+```
+</div>
+:::
+
+<br />
+<br />
+
+## Сериализировать простой класс
+
+<br />
+
+:::info Сериализовать простой класс
+Теперь мы можно запросто преобразовать данный класс в `NBT`:
+<div align="left">
+
+```kts title="Пример"
+import ru.hollowhorizon.hc.client.utils.nbt.NBTFormat
+import ru.hollowhorizon.hc.client.utils.nbt.serialize
+
+// Сериализуемый класс с параметрами
+val user = User("Виталик", 21, "Млечный Путь, Земля", arrayOf("Халва", "Алгоритм", "Бармакс"))
+
+// Сериализация класса в NBT формат и запись его в переменную
+val nbt = NBTFormat.serialize(user) // В результате вы получите объект класса net.minecraft.nbt.Tag
+
+/*
+ *  Выглядеть оно будет примерно так: 
+ * {
+ *     address: "Млечный Путь, Земля",
+ *     age: 21,
+ *     friends: [
+ *         "Халва",
+ *         "Алгоритм",
+ *         "Бармакс"
+ *         ]
+ *     }
+ * }
+*/
+```
+</div>
+:::
+
+<br />
+<br />
+
+## Десериализировать простой класс
+
+<br />
+
+:::info Десериализовать простой класс
+Предположим есть некий `NBT-tag` с данными. Можно преобразовать его обратно в класс:
+<div align="left">
+
+```kts
+import ru.hollowhorizon.hc.client.utils.nbt.NBTFormat
+import ru.hollowhorizon.hc.client.utils.nbt.deserialize
+
+val tag: Tag //Это наша переменная с NBT, получить её вы можете откуда хотите
+
+val user = NBTFormat.deserialize(tag) // В результате вы получите объект класса User
+```
+</div>
+:::
+
+<br />
+<br />
+
+## Сериализация с наследованием
+
+<br />
+
+:::info Сериализация с наследованием
+Иногда может потребоваться сериализовать класс или интерфейс, у которого могут быть потомки.
+В этом случае вам нужно добавить для **каждого потомка** аннотацию `Polymorphic(Parent::class)`,
+где `Parent` - ваш исходный класс от которого происходит наследование. Не забудьте
+импортировать: `import ru.hollowhorizon.hc.api.utils.Polymorphic`.
+
+**В качестве примера можете посмотреть как реализованы [виджеты в `HollowCore`](https://github.com/HollowHorizon/HollowCore/blob/1.19.2/src/main/java/ru/hollowhorizon/hc/common/ui/Widget.kt)**.
+:::
+
+</div>
