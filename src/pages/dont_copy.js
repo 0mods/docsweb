@@ -8,17 +8,19 @@ import React, { useEffect } from 'react';
 */
 const DontCopyFunc = () => {
   useEffect(() => {
-      document.addEventListener('copy', function (event) {
-          event.preventDefault();
-      });
+      document.addEventListener('DOMContentLoaded', function () {
+          document.addEventListener('copy', function (event) {
+              event.preventDefault(); event.cancelable = true; alert("Неа!")
+          });
 
-      document.addEventListener('contextmenu', function (event) {
-          event.preventDefault();
-      });
+          document.addEventListener('contextmenu', function (event) {
+              event.preventDefault(); event.cancelable = true; alert("Неа!")
+          });
 
-      document.addEventListener('dragstart', function (event) {
-          event.preventDefault();
-      });
+          document.addEventListener('dragstart', function (event) {
+              event.preventDefault(); event.cancelable = true; alert("Неа")
+          });
+      })
   })
 }
 

@@ -30,7 +30,7 @@ import '@site/src/css/pages/img-show.css';
 ## Метод
 
 Вся такие до настройки происходят внутри метода
-<div align="left">
+<div align="left" id="dont-copy">
 ```kts
 <npcID>.configure {
   ... // Т.е. здесь!
@@ -52,7 +52,7 @@ import '@site/src/css/pages/img-show.css';
 
 Вписываются довольно просто:
 
-<div align="left">
+<div align="left" id="dont-copy">
 
 ```kts title="Пример"
 <npcID>.configure{
@@ -73,6 +73,8 @@ import '@site/src/css/pages/img-show.css';
 Помимо тех, которые можно вписать в сам метод `configure`, есть ещё и отдельные, которые независимы от этого метода.
 
 Такими являются:
+<div id="dont-copy">
+
 ```kts title="Возможность менять иня НИПа"
 <npcID>.name = "Новый НИП"
 ```
@@ -82,6 +84,7 @@ import '@site/src/css/pages/img-show.css';
 ```kts title="Возможность менять режим колизии с НИПом"
 <npcID>.hitboxMode = HitboxMode.BLOCKING
 ```
+</div>
 [о 'HitboxMode'](../../99-resources/1-hitbox-mode.mdx)
 
 </div>

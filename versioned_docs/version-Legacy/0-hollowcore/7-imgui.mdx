@@ -6,13 +6,21 @@ id: imgui
 desc: 'NaN'
 ---
 
+import DontCopyFunc from '@site/src/pages/dont_copy.js';
+import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
+
+<script src="DontCopyFunc"></script>
+
 <div align="center">
 
 # Интерфейсы `ImGui`
 
 ---
 
+<div id="dont-copy">
+
 ## Что такое `ImGui`
+<ToggleText buttonText="Что такое `ImGui`">
 :::note `ImGui` это...
 **Графический интерфейс немедленного режима**. 
 Это инструмент для быстрого создания простых интерфейсов (или же Гуишек (GUI) ).
@@ -20,6 +28,7 @@ desc: 'NaN'
 а есть, где вы можете менять ещё, или управлять её. Современная версия `HollowEngine` работает
 на ImGui. 
 :::
+</ToggleText>
 
 <br />
 
@@ -56,7 +65,73 @@ Minecraft.getInstance().setScreen(ImGuiScreen(gui)) // gui - переменна�
 :::::note Возможности ImGui
 <br />
 
+### Специальные типы данных
+<ToggleText buttonText="Специальные типы данных">
+::::info Специальные типы данных
+У `ImGui` есть свои встроенные типы данных, которые рекомендуется использовать для корректной работы.
+Для удобства в них уже встроены свои геттеры и сеттеры.
+:::note Строка
+```kts
+val isString = ImString("isString")
+
+// Получить //
+val anyString = isString.get()
+
+// Установить //
+val newString = isString.set("newString")
+```
+:::
+:::note Целое число
+```kts
+val isInt = ImInt(10)
+
+// Получить //
+val anyInt = isInt.get()
+
+// Установить //
+val newInt = isInt.set(15)
+```
+:::
+:::note Дробное число
+```kts
+val isDouble = ImDouble(18.2)
+
+// Получить //
+val anyDouble = isDouble.get()
+
+// Установить //
+val newDouble = isDouble.set(92.51)
+```
+:::
+:::note Плавающая точка
+```kts
+val isFloat = ImFloat(833.65f)
+
+// Получить //
+val anyFloat = isFloat.get()
+
+// Установить //
+val newFloat = isFloat.set(853.7834f)
+```
+:::
+:::note Логический
+```kts
+val isBoolean = ImBoolean(false)
+
+// Получить //
+val anyBoolean = isBoolean.get()
+
+// Установить //
+val newBoolean = isBoolean.set(true)
+```
+:::
+::::
+</ToggleText>
+
+<br />
+
 ### Виджеты
+<ToggleText buttonText="Виджеты">
 ::::info Виджеты
 :::warning Важно
 Про все виджеты рассказывать довольно муторно и долго. Со всем ними вы можете ознакомится здесь!
@@ -105,7 +180,7 @@ ImGui.image("mod_id:textures/gui/wow.png", 150f, 150f)
 :::
 :::note Кнопка
 ```kts
-ImGui.button(label: String, width: Float = ..., height: Float = ...)
+ImGui.button(label: String, width: Float = ..., height: Float = ...): return Boolean
 ```
 <div align="left">
 > Параметры:
@@ -117,8 +192,249 @@ ImGui.button(label: String, width: Float = ..., height: Float = ...)
 ```
 
 ![button](@site/static/img/doc/imgui/example-button.png)
+
+Если вы хотите чтобы кнопка выполняло какую-то функцию, то можете попробовать следующее:
+<div align="left">
+
+```kts
+/* Вставить в проверку условия, т.к. кнопки при нажатии возвращает Boolean */
+
+if(ImGui.button("Example text")) {
+  ... // Когда кнопка нажата - будет что-то происходить здесь
+}
+
+/* Либо же, чтобы сделать код более читаемым */
+
+val isButton = ImGui.button("Example button")
+
+if(isButton) {
+  ... // Когда кнопка нажата - будет что-то происходить здесь
+}
+```
+</div>
+:::
+:::note Галочка (или же чекбокс)
+```kts
+ImGui.checkbox(label: String, checker: ImBoolean): return Boolean
+```
+
+```kts title="Пример"
+// Данная переменная находится вне рендера //
+val isChecked = ImBoolean(false)
+
+ImGui.checkbox(“Example checkbox”, isChecked)
+```
+
+![example-checkbox](@site/static/img/doc/imgui/example-checkbox.png)
+
+Если вы хотите чтоб чекбокс выполнял какую-то функцию, то можете попробовать следующее:
+<div align="left">
+
+```kts
+/* Вставить в проверку условия, т.к. чекбокс возвращает Boolean */
+
+// Переменная находится вне рендера //
+val isChecked = ImBoolean(false)
+
+if(ImGui.checkbox("Example checkbox", isChecked)) {
+  ... // Когда у чекбокса будет галочка
+}
+
+/* Либо же, чтобы сделать код более читаемым */
+
+// Переменная находится вне рендера //
+val isChecked = ImBoolean(false)
+
+val isCheckbox = ImGui.checkbox("Example checkbox", isChecked)
+
+if(isCheckbox) {
+  ... // Когда у чекбокса будет галочка
+}
+```
+</div>
 :::
 ::::
+</ToggleText>
+
+<br />
+
+### Стили и цвета
+<ToggleText buttonText="Стили и цвета">
+::::info Стили и цвета
+Помимо добавления виджетов, вы так же можете настраивать их отображение.
+
+:::note Стиль
+<div align="left">
+
+```kts
+ImGui.pushStyleVar(element: ImGuiStyleVar, val0: Float, val1: Float = ...)
+... // Всё что нахоидтся между элементами - будет подвержены к изменению стиля
+ImGui.popStyleVar(count: Int = ...)
+```
+> Параметры:
+> - `element` - Какой элемент нужно изменить. Определяется из класса [`ImGuiStyleVar`](./99-resources/0-imguistylevar.mdx).
+> - `val0` и `val1` - значения.
+> - `count` - Если вы использовали только 1 раз метод `pushStyleVar(...)`, то достаточно указать
+`popStyleVar()` без параметров. Если же больше - то нужно указать в параметрах количество,
+сколько раз вы использовали `pushStyleVar(...)`.
+
+```kts title="Пример"
+ImGui.pushStyleVar(ImGuiStyleVar.WindowRounding, 16f)
+ImGui.pushStyleVar(ImGuiStyleVar.WindowBorderSize, 4f)
+
+ImGui.begin("preview-gui")
+ImGui.setWindowSize(540f, 480f)
+ImGui.text("Example text")
+ImGui.image("mod_id:textures/gui/wow.png".rl.toTexture().id, 256f, 256f)
+ImGui.button("Example button")
+ImGui.checkbox("Example checkbox", isChecked)
+ImGui.end()
+
+ImGui.popStyleVar(2)
+```
+</div>
+
+![example-style](@site/static/img/doc/imgui/example-style-var.png)
+:::
+:::note Цвет
+<div align="left" id="dont-copy">
+
+```kts
+ImGui.pushStyleColor(element: ImGuiCol, r: Float, g: Float, b: Float, a: Float)
+... // Всё что находится между элементами - будет подвержены к изменению цвета
+ImGui.popStyleColor(count: Int = ...)
+```
+> Параметры:
+> - `element` - Какой элемент нужно изменить. Определяется из класса [`ImGuiCol`](./99-resources/1-imguicol.mdx).
+> - `r`, `g`, `b` и `a` - Каналы цветов. `Красный`, `Зелёный`, `Синий`, `Прозрачность`
+>   - `1f = 100%`, а `0.5f = 50%`.
+```kts
+ImGui.pushStyleColor(ImGuiCol.WindowBg, 0.32f, 0f, 0f, 0.5f)
+ImGui.pushStyleColor(ImGuiCol.Button, 0f, 0.65f, 0f, 0.75f)
+ImGui.pushStyleColor(ImGuiCol.Border, 1f, 1f, 0f, 1f)
+
+ImGui.begin("preview-gui")
+ImGui.setWindowSize(540f, 480f)
+ImGui.text("Example text")
+ImGui.image("mod_id:textures/gui/wow.png".rl.toTexture().id, 256f, 256f)
+ImGui.button("Example button")
+ImGui.checkbox("Example checkbox", isChecked)
+ImGui.end()
+
+ImGui.popStyleColor(3)
+```
+</div>
+
+![example-color](@site/static/img/doc/imgui/example-color-var.png)
+:::
+::::
+</ToggleText>
+
+<br />
+
+### Настройки окон
+<ToggleText buttonText="Настройки окон">
+:::info Настройки окон
+Так же можно задать настройки именно для окон.
+<div align="left">
+
+> Флаги могут задоваться только в следующий метода:
+> - `ImGui.begin(windowName: String, windowWidth: Float, windowHeight: Float, flags: ImGuiWindowFlags)` .
+> - `ImGui.beginChild(windowName: String, windowWidth: Float, windowHeight: Float, flags: ImGuiWindowFlags)`.
+> - `centerWindow(windowName: String, flags: ImGuiWindowFlags)`.  
+> - ---
+> в параметрах `flags`.
+</div>
+:::
+:::tip Несколько флагов
+Если нужно укзаать больше 2-х флагов, то поставьте межну флагами метод `or`.
+
+```kts title="Пример"
+ImGuiWindowFlags.NoMove or ImGuiWindowFlags.NoResize ... // и т.д.
+```
+:::
+</ToggleText>
+
+<br />
+
+### Упрощённые методы (`Graphics`)
+<ToggleText buttonText="Упрощённые методы (`Graphics`)">
+:::warning
+Если вы используете `HollowCore` версии **ниже 2.0**, то данный класс обызвается [`ImGuiMethods`](https://github.com/HollowHorizon/HollowCore/blob/1.19.2/src/main/java/ru/hollowhorizon/hc/client/imgui/ImGuiMethods.kt)
+:::
+:::tip Что такое `Graphics`
+> `Graphics` - Это специальный класс из `HollowCore`, позволяющий работать с `ImGui` в более
+простом смысле.
+:::
+:::info Методы
+Со всем методами вы можете ознакомится лично в исходниках `HollowCore`,
+т.е. [здесь](https://github.com/HollowHorizon/HollowCore/blob/stonecutter/src/main/java/ru/hollowhorizon/hc/client/imgui/Graphics.kt)!
+:::
+<br />
+Там есть не только такие методы, которые просто заменяют обычные `ImGui` методы, но есть и
+вспомогательные.
+<br />
+:::info Центрирование окна
+<div align="left" id="dont-copy">
+
+```kts
+centerWindow(windowName: String, flags: ImGuiWindowFlags) {
+  ... // Всё что здесь указано - будет автоматически перенесето между методами `ImGui.begin()` и `ImGui.end()`
+}
+```
+
+```kts title="Пример"
+centerWindow("This window is centered") {
+  text("Hello")
+}
+```
+</div>
+:::
+:::info Упрощённый функционал кнопки и чекбокса
+<div align="left">
+
+```kts
+button(label: String) {
+  ... // То что будет происходить после нажатия
+}
+
+checkbox(label: String, isActive: Boolean = ...) {
+  ... // То что будет происходить, когда стоит галочка
+}
+```
+
+```kts title="Пример"
+button("Example text button") {
+  moneys.set(moneys.get() + 1) // После нажатия на кнопку, значение переменй увеличится на +1
+}
+
+checkbox("Example text checkbox") {
+  text("Goodbye") // Текст будет показан, когда чекбокс буде тс галочкой
+}
+```
+</div>
+:::
+:::info Сущность
+<div align="left" id="dont-copy">
+
+```kts
+entity(entity: LivingEntity, width: Float, height: Float, offsetX: Float, offsetY: Float, scale: Float)
+```
+> Параметры:
+> - `entity` - Сущность, которая будет онображаться.
+>   - И НЕТ. ВЫ НЕ УВИДИТЕ КОРОВУ ЕСЛИ ВПИШИТЕ ПРОСТО `"cow"`. ОНО ТАК НЕ РАБОТАЕТ.
+> - `width` и `height` - Размеры коробки, в который будет отображаться сущность.
+> - `offsetX` и `offsetY` - Смещение сущности в коробке.
+> - `scale` - Размер сущности.
+
+```kts title="Пример"
+enity(player().first(), 256f, 512f, -16f, -64f, 1.25f)
+```
+</div>
+:::
+</ToggleText>
 :::::
+
+</div>
 
 </div>

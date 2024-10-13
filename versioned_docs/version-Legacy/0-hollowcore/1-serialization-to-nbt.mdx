@@ -18,7 +18,7 @@ desc: 'NaN'
 
 :::info Подготовка класса
 Создайте класс, который в последствии можно будет сереализовать в `NBT`:
-<div align="left">
+<div align="left" id="dont-copy">
 
 ```kts title="Пример"
 @Serializable
@@ -41,7 +41,7 @@ class User(
 
 :::info Сериализовать простой класс
 Теперь мы можно запросто преобразовать данный класс в `NBT`:
-<div align="left">
+<div align="left" id="dont-copy">
 
 ```kts title="Пример"
 import ru.hollowhorizon.hc.client.utils.nbt.NBTFormat
@@ -79,7 +79,7 @@ val nbt = NBTFormat.serialize(user) // В результате вы получи
 
 :::info Десериализовать простой класс
 Предположим есть некий `NBT-tag` с данными. Можно преобразовать его обратно в класс:
-<div align="left">
+<div align="left" id="dont-copy">
 
 ```kts
 import ru.hollowhorizon.hc.client.utils.nbt.NBTFormat

@@ -31,7 +31,7 @@ desc: 'NaN'
 будет привязана ко всем объектам, наследованным от указанного. Доступные варианты: `Entity`,
 `Player`, `BlockEntity` и `Level`. Также вы можете создать интерфейс и указать его в качестве
 цели, тогда все объекты, реализующие данный интерфейс, будут иметь эту `Capability`.
-<div align="left">
+<div align="left" id="dont-copy">
 
 ```kts title="Пример"
 @HollowCapabilityV2(Entity::class)
@@ -48,7 +48,7 @@ class MoneyCapability : CapabilityInstance() {
 :::info Синхронизируемые списки
 Создайте делегат при помощи `syncableList<>()`, тогда при изменении содержимого списка - он
 автоматически будет изменён и у клиента.
-<div align="left">
+<div align="left" id="dont-copy">
 
 ```kts title="Пример"
 @HollowCapabilityV2(Entity::class)
@@ -66,7 +66,7 @@ class DataCapability : CapabilityInstance() {
 Создайте делегат при помощи `syncableMap<K, V>()`, где `K` - ключ, а `V` - значение, тогда при
 изменении содержимого списка - он
 автоматически будет изменён и у клиента.
-<div align="left">
+<div align="left" id="dont-copy">
 
 ```kts title="Пример"
 @HollowCapabilityV2(Entity::class)
@@ -90,7 +90,7 @@ class DataCapability : CapabilityInstance() {
 :::info Использование `Capability`
 Теперь можно получать экземпляр вашей `Capability`. При изменении данных они будут автоматически
 обновлены у клиентов, а так же сохранены при выходе из игры/остановке сервера.
-<div align="left">
+<div align="left" id="dont-copy">
 
 ```kts title="Пример"
 fun example(entity: Entity) {

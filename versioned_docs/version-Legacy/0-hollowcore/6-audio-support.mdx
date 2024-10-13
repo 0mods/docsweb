@@ -25,6 +25,7 @@ import tab from '@site/src/css/tabs/tabs.module.css';
 
 ## Чтение аудио файлов
 :::info Чтение аудио файлов
+<div id="dont-copy">
 <Tabs>
   <TabItem value="ogg-audio" label="'ogg' формат" attributes={{className: tab.def}}>
 
@@ -48,6 +49,7 @@ val audio = WavFormat.read(stream) // stream - всё как в Java: InputStrea
 
   </TabItem>
 </Tabs>
+</div>
 :::
 
 <br />
@@ -57,15 +59,18 @@ val audio = WavFormat.read(stream) // stream - всё как в Java: InputStrea
 <br />
 
 ### Создание плеера
+<div id="dont-copy">
 ```kts title="Пример"
 val buffer = AudioPlayer(audio) // Создание буфера для звука
 val player = AudioPlayer(buffer) // Создание проигрывателя звука
 ```
+</div>
 
 <br />
 
 ### Функции плеера
 :::info Фкнции плеера
+<div id="dont-copy">
 <Tabs>
   <TabItem value="aplayer-play" label="Воспроизведение" attributes={{className: tab.def}}>
 
@@ -127,6 +132,7 @@ player.setRelative(relative: Boolean)
 
   </TabItem>
 </Tabs>
+</div>
 :::
 
 </div>
