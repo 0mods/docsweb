@@ -23,12 +23,28 @@ import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
 <ToggleText buttonText="Что такое `ImGui`">
 :::note `ImGui` это...
 **Графический интерфейс немедленного режима**. 
-Это инструмент для быстрого создания простых интерфейсов (или же Гуишек (GUI) ).
+Это инструмент для быстрого создания простых интерфейсов (или же Гуишек (GUI)).
 Вся система `ImGui` работает на виджетах. Есть виджеты которые просто показывают информацию,
-а есть, где вы можете менять ещё, или управлять её. Современная версия `HollowEngine` работает
+а есть, где вы можете взаимодействовать с ними. Современная версия `HollowEngine` работает
 на ImGui. 
 :::
 </ToggleText>
+
+<br />
+
+---
+
+<br />
+
+:::tip **!!! Особые знаки!!!**
+[ В некоторых методах, в параметрах после класса будут стоять `= ...`. Это значит что данный параметр
+является обязательным, т.е., зто минимальные требования для работы виджета ]  
+[ `vararg: String = ...` - не обязательно, `vararg: String` - обязательный ]
+:::
+
+<br />
+
+---
 
 <br />
 
@@ -51,7 +67,7 @@ val gui: Renderable = {
 
 ### Открытие интерфейса
 :::info Открытие интерфейса
-Для открытия интерфейса,Ю который вы написали ранее, вы можете использовать средующий метод:
+Для открытия интерфейса, который вы написали ранее, можете использовать следующий метод:
 ```kts title="Пример"
 Minecraft.getInstance().setScreen(ImGuiScreen(gui)) // gui - переменная, где у вас написана ваш интерфейс
 ```
@@ -134,12 +150,7 @@ val newBoolean = isBoolean.set(true)
 <ToggleText buttonText="Виджеты">
 ::::info Виджеты
 :::warning Важно
-Про все виджеты рассказывать довольно муторно и долго. Со всем ними вы можете ознакомится здесь!
-:::
-:::tip **!!!Особые знаки!!!**
-[ В некоторых методах, в параметрах после класса будут стоять `= ...`. Это значит что данный параметр
-является обязательным, т.е. это минимальные требования для работы виджета ]  
-[ `vararg: String = ...` - не обязательно, `vararg: String` - обязательный ]
+Про все виджеты рассказывать довольно муторно и долго. Со всем ними вы можете ознакомиться здесь!
 :::
 :::danger ВНИМАНИЕ
 Если вдруг при попытке открыть интерфейс у вас вылетела игра и появляется файл `hs_err_pid******.log` - то попробуйте добавить метод
@@ -163,7 +174,7 @@ ImGui.image(id: Int, width: Float, height: Float, uvx0: Float = ..., uvy0: Float
 ```
 <div align="left">
 > Параметры:
-> - `id` - это `ID` текстуры. Получит ьего можно указав в кавычках путь до текстуры,
+> - `id` - это `ID` текстуры. Получить его можно указав в кавычках путь до текстуры,
 после написав `.rl.toTexture().id`.
 > - `width` и `height` - Ширина и Высота изображения.
 > - `uvx0` - Начальная точка по оси X для обрезки текстуры. | 1f = 100%, 0.5f = 50%
@@ -197,10 +208,10 @@ ImGui.button(label: String, width: Float = ..., height: Float = ...): return Boo
 <div align="left">
 
 ```kts
-/* Вставить в проверку условия, т.к. кнопки при нажатии возвращает Boolean */
+/* Вставить в проверку условия, т.к. Кнопки при нажатии возвращает Boolean */
 
 if(ImGui.button("Example text")) {
-  ... // Когда кнопка нажата - будет что-то происходить здесь
+  ... // Когда кнопка нажата — будет что-то происходить здесь
 }
 
 /* Либо же, чтобы сделать код более читаемым */
@@ -208,7 +219,7 @@ if(ImGui.button("Example text")) {
 val isButton = ImGui.button("Example button")
 
 if(isButton) {
-  ... // Когда кнопка нажата - будет что-то происходить здесь
+  ... // Когда кнопка нажата — будет что-то происходить здесь
 }
 ```
 </div>
@@ -268,14 +279,14 @@ if(isCheckbox) {
 
 ```kts
 ImGui.pushStyleVar(element: ImGuiStyleVar, val0: Float, val1: Float = ...)
-... // Всё что нахоидтся между элементами - будет подвержены к изменению стиля
+... // Всё что находится между элементами — будет подвержены к изменению стиля
 ImGui.popStyleVar(count: Int = ...)
 ```
 > Параметры:
 > - `element` - Какой элемент нужно изменить. Определяется из класса [`ImGuiStyleVar`](./99-resources/0-imguistylevar.mdx).
 > - `val0` и `val1` - значения.
 > - `count` - Если вы использовали только 1 раз метод `pushStyleVar(...)`, то достаточно указать
-`popStyleVar()` без параметров. Если же больше - то нужно указать в параметрах количество,
+`popStyleVar()` без параметров. Если больше — то нужно указать в параметрах количество,
 сколько раз вы использовали `pushStyleVar(...)`.
 
 ```kts title="Пример"
@@ -301,7 +312,7 @@ ImGui.popStyleVar(2)
 
 ```kts
 ImGui.pushStyleColor(element: ImGuiCol, r: Float, g: Float, b: Float, a: Float)
-... // Всё что находится между элементами - будет подвержены к изменению цвета
+... // Всё что находится между элементами — будет подвержены к изменению цвета
 ImGui.popStyleColor(count: Int = ...)
 ```
 > Параметры:
@@ -338,16 +349,18 @@ ImGui.popStyleColor(3)
 Так же можно задать настройки именно для окон.
 <div align="left">
 
-> Флаги могут задоваться только в следующий метода:
+> Флаги могут указываться только в следующий метода:
 > - `ImGui.begin(windowName: String, windowWidth: Float, windowHeight: Float, flags: ImGuiWindowFlags)` .
+>   
 > - `ImGui.beginChild(windowName: String, windowWidth: Float, windowHeight: Float, flags: ImGuiWindowFlags)`.
+>   
 > - `centerWindow(windowName: String, flags: ImGuiWindowFlags)`.  
 > - ---
 > в параметрах `flags`.
 </div>
 :::
 :::tip Несколько флагов
-Если нужно укзаать больше 2-х флагов, то поставьте межну флагами метод `or`.
+Если нужно указать больше 2-х флагов, то поставьте между ними метод `or`.
 
 ```kts title="Пример"
 ImGuiWindowFlags.NoMove or ImGuiWindowFlags.NoResize ... // и т.д.
@@ -360,14 +373,14 @@ ImGuiWindowFlags.NoMove or ImGuiWindowFlags.NoResize ... // и т.д.
 ### Упрощённые методы (`Graphics`)
 <ToggleText buttonText="Упрощённые методы (`Graphics`)">
 :::warning
-Если вы используете `HollowCore` версии **ниже 2.0**, то данный класс обызвается [`ImGuiMethods`](https://github.com/HollowHorizon/HollowCore/blob/1.19.2/src/main/java/ru/hollowhorizon/hc/client/imgui/ImGuiMethods.kt)
+Если вы используете `HollowCore` версии **ниже 2.0**, то данный класс обзывается [`ImGuiMethods`](https://github.com/HollowHorizon/HollowCore/blob/1.19.2/src/main/java/ru/hollowhorizon/hc/client/imgui/ImGuiMethods.kt)
 :::
 :::tip Что такое `Graphics`
 > `Graphics` - Это специальный класс из `HollowCore`, позволяющий работать с `ImGui` в более
 простом смысле.
 :::
 :::info Методы
-Со всем методами вы можете ознакомится лично в исходниках `HollowCore`,
+Со всем методами вы можете ознакомиться лично в исходниках `HollowCore`,
 т.е. [здесь](https://github.com/HollowHorizon/HollowCore/blob/stonecutter/src/main/java/ru/hollowhorizon/hc/client/imgui/Graphics.kt)!
 :::
 <br />
@@ -379,7 +392,7 @@ ImGuiWindowFlags.NoMove or ImGuiWindowFlags.NoResize ... // и т.д.
 
 ```kts
 centerWindow(windowName: String, flags: ImGuiWindowFlags) {
-  ... // Всё что здесь указано - будет автоматически перенесето между методами `ImGui.begin()` и `ImGui.end()`
+  ... // Всё что здесь указано — будет автоматически перенесено между методами `ImGui.begin()` и `ImGui.end()`
 }
 ```
 
@@ -421,7 +434,7 @@ checkbox("Example text checkbox") {
 entity(entity: LivingEntity, width: Float, height: Float, offsetX: Float, offsetY: Float, scale: Float)
 ```
 > Параметры:
-> - `entity` - Сущность, которая будет онображаться.
+> - `entity` - Сущность, которая будет отображаться.
 >   - И НЕТ. ВЫ НЕ УВИДИТЕ КОРОВУ ЕСЛИ ВПИШИТЕ ПРОСТО `"cow"`. ОНО ТАК НЕ РАБОТАЕТ.
 > - `width` и `height` - Размеры коробки, в который будет отображаться сущность.
 > - `offsetX` и `offsetY` - Смещение сущности в коробке.
