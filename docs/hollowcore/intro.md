@@ -39,7 +39,7 @@ description: Хотите писать моды, но не хотите рути
 Добавьте в ваш проект репозиторий **0mods.team**:
 ```kotlin
 repositories {
-    maven("https://maven.0mods.team/")
+    maven("https://jitpack.io")
 }
 ```
 
