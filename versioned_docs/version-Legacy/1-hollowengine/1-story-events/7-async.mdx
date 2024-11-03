@@ -12,7 +12,7 @@ import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
 
 # Асинхронность
 
-Выполнение 2 задач одновременно
+Выполнение 2 и более задач
 
 ![NO_TITLE](@site/static/img/doc/titles/NO_TITLE.webp)
 
@@ -33,7 +33,7 @@ import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
 
 Так что благодаря `async` вы можете создавать задачи, которые будут выполняться параллельно от основного скрипта.
 
-<div align="left">
+<div align="left" id="dont-copy">
 
 ```kts title="Пример"
 /* Данные задачи будут выполняться в основном потоке по порядку */
@@ -74,7 +74,7 @@ npc lookAt { players.first() }
 
 Такой `async` просто есть для того, чтобы запустить задачи параллельно.
 
-<div align="left">
+<div align="left" id="dont-copy">
 
 ```kts
 async {
@@ -99,7 +99,7 @@ async {
 Уже такой `async` вы сможете контролировать его работу.  
 Просто привяжите ваш `async` к переменной
 
-<div align="left">
+<div align="left" id="dont-copy">
 
 ```kts
 val myAsyncID = async {
