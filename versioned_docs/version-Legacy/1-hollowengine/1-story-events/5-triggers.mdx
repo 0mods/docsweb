@@ -1,0 +1,208 @@
+---
+sidebar_position: 5
+
+title: Триггеры
+id: triggers
+desc: 'NaN'
+---
+
+<div align="center">
+
+# Триггеры
+
+Ждать определённого действия
+
+![NO_TITLE](@site/static/img/doc/titles/NO_TITLE.webp)
+
+чтоб потом продолжить работу
+
+---
+
+<br />
+
+## Ожидание конца таймера
+
+:::info Таймер
+Ждёт, пока не пройдёт указанное время.
+
+<div align="left" id="dont-copy">
+```kts
+wait { time }
+```
+
+> `time` - [**Время**](../99-resources/4-time_value.mdx), которое должно пройти чтобы
+скрипт продолжил свою работу.
+
+```kts title="Пример"
+wait { 5.sec }
+```
+
+</div>
+
+:::
+
+<br />
+
+---
+
+<br />
+
+## Ожидание нажатие клавиши
+
+:::info Нажатие клавишы
+Ждёт, пока указанная клавиша не будет нажата.
+
+<div align="left" id="dont-copy">
+
+```kts
+keybind { KeyBInd.<KEY> }
+```
+
+> `KEY` - ID клавиши. [`Клавиши`](../99-resources/8-keybinds.mdx)
+
+---
+
+```kts title="Пример"
+keybind { Keybind.H }
+```
+
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## Ожидание взаимодействие с НИПом
+
+:::info Взаимодействие с НИПом
+Ждёт, пока любой игрок не по взаимодействует с определённым НИПом.
+
+<div align="left" id="dont-copy">
+
+```kts
+<npcID>.waitInteract()
+```
+
+---
+
+```kts title="Пример"
+npc.waitInteract()
+```
+
+</div>
+
+:::
+
+<br />
+
+---
+
+<br />
+
+## Ожидание сообщения
+
+:::info Ожидание сообщения
+Ждёт, пока любой игрок не отправит какое-то сообщение в чат.
+
+<div align="left" id="dont-copy">
+
+```kts
+<players>.input {} // Любое сообщение
+// или
+<players>.input { "<text>" } // Конктректное сообщение
+// или
+<players>.input { "<arg0>", "<arg1>", ... } // Конктректное сообщение из списка
+
+/* Запись в переменную */
+val myValue = <players>.input {}.message // Запишет в переменную сообщение | Не точно
+val myValue = <players>.input {}.player // Запишет в переменную игрока, который отправил сообщение | Не точно
+```
+
+---
+
+```kts title="Пример"
+players.input {}
+
+players.input { "Привет" }
+players.input { "Привет", "Hello" }
+
+val meMessage = players.input {}.message // Не точно
+val mePlayer = players.input {}.player // Не точно
+```
+
+</div>
+
+:::
+
+<br />
+
+---
+
+<br />
+
+## Ожидание позиции
+
+:::info Ожидание позиции
+Ждёт, пока любой из игроков не будет в указанных координатах.
+
+<div align="left" id="dont-copy">
+
+```kts
+<players>.waitPos {
+  pos = pos(x, y, z)
+  radius = <Double> // Радиус от центра координат pos
+  ignoreY = <Boolean> // Если true - Триггер будет ждать игрока в форме шара, если false - в форме цилиндра который протягивается от низа мира (Y=-64) До верха (Y=312)
+  createIcon = <Boolea> // Если true - будет создана иконка в позиции pos
+  icon = ResourceLocation("<mod_id>:<path/to/texture>") // Не обязательно. Кастомная иконка
+  world = "<dimensiot_id>" // ID измерения
+  
+}
+```
+
+---
+
+```kts title="Пример"
+players.waitPos {
+  pos = pos(-235, 82, 882)
+  radius = 10.5
+  ignoreY = true
+  createIcon = true
+  world = "overworld"
+}
+```
+
+</div>
+
+:::
+
+<br />
+
+---
+
+<br />
+
+## Обратное условие
+
+:::info Обратное условие
+Ждёт, пока условие не вернёт false
+
+<div align="left" id="dont-copy">
+
+```kts
+await { <Условие> }
+```
+
+---
+
+```kts title="Пример"
+await { npc().isAlive } // Скрипт не продолжит свою работу пока НИП не умрёт
+```
+
+</div>
+
+:::
+
+</div>
