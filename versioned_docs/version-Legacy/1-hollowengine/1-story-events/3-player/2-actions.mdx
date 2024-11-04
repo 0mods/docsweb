@@ -20,8 +20,6 @@ desc: 'NaN'
 
 ## Телепортировать
 
-<br />
-
 <div id="dont-copy">
 
 :::info Телепортировать
@@ -29,7 +27,7 @@ desc: 'NaN'
 <div align="left">
 
 ```kts
-<player>.tpTo {
+<players>.tpTo {
   pos = pos(x, y, z) // Позиция по оси X, Y и Z
   vec = vec(<pitch>, <yaw>) // Поворот по оси X (влево-вправо) и Y (вверх-вниз)
   world = "<dimension_id>" // ID измерения | По умолчанию: overworld
@@ -39,7 +37,7 @@ desc: 'NaN'
 ---
 
 ```kts title="Пример"
-me.tpTo {
+players.tpTo {
   pos = pos(52, 85, -251)
   vec = vec(-90f, 40f)
   world = "hollowengine:storyteller_world"
@@ -102,6 +100,36 @@ me.modify {
 ```
 
 </div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## Сказать
+
+:::info Сказать от лица игрока
+```kts
+<players> say { "<text>" }
+```
+---
+```kts title="Пример"
+players say { "Мне сказали что мне нельзя быть тут." }
+```
+:::
+
+<br />
+
+:::info Сказать игроку
+```kts
+<players> send { "<text>" }
+```
+---
+```kts title="Пример"
+players send { "Тебе быть здесь запрещено!" }
+```
 :::
 
 </div>
