@@ -1,0 +1,170 @@
+---
+sidebar_position: 2
+
+title: Дейтсвия
+id: npc-actions
+desc: 'NaN'
+---
+
+<div align="center">
+
+# Действия для НИПа
+
+---
+
+<br />
+
+## Двигаться
+
+<div align="left" id="dont-copy">
+
+<div style={{ "display": "flex" }}>
+<div style={{ "align-items": "flex-start", "width": "100%", "margin-right": "5px" }}>
+
+```kts title="Функция по позиции"
+fun NPCEntity.move(
+  pos: Vec3,
+  dist: Double = 1.5,
+  speed: Double = 1.0
+)
+```
+
+</div>
+<div style={{ "align-items": "flex-end", "width": "100%", "margin-left": "5px" }}>
+
+```kts title="Функция по сущности"
+fun NPCEntity.move(
+  entity: Entity,
+  dist: Double = 1.5,
+  speed: Double = 1.0
+)
+```
+
+</div>
+</div>
+
+```kts title="Примеры"
+// НИП будет двигаться до точки
+npcID move pos(92, 23, 56)
+
+// НИП будет идти за игроком
+val player = server.playerList.players.first() // Получаем первого игрока из списка
+npcID move player
+
+// НИП будет двигаться до точки пока расстояние не будет меньше 3.0 блоков, со скоростью 2.0
+npcID.move(pos(25, 64, 2), 3.0, 2.0)
+
+// НИП будет двигаться до игрока пока расстояние не будет меньше 3.0 блоков, со скоростью 2.0
+npcID.move(player, 3.0, 2.0)
+```
+
+</div>
+
+<br />
+---
+<br />
+
+## Смотреть
+
+<div align="left" id="dont-copy">
+
+<div style={{ "display": "flex" }}>
+<div style={{ "align-items": "flex-start", "width": "100%", "margin-right": "5px" }}>
+
+```kts title="Функция по позиции"
+fun NPCEntity.look(pos: Vec3)
+```
+
+</div>
+<div style={{ "align-items": "flex-end", "width": "100%", "margin-left": "5px" }}>
+
+```kts title="Функция по сущности"
+fun NPCEntity.look(entity: Entity)
+```
+
+</div>
+</div>
+
+```kts title="Пример"
+// НИП посмотрит в точку
+npcID look pos(92, 3, 24)
+
+// НИП посмотрит на игрока
+val player = server.playerList.player.first() // Получаем первого игрока из списка
+npcID look player
+```
+
+</div>
+
+<br />
+---
+<br />
+
+## Взаимодействие с миром
+
+### Взаимодействие с блоком
+
+<div align="left" id="dont-copy">
+
+```kts title="Функция"
+fun NPCEntity.useBlock(pos: Vec3)
+```
+```kts title="Пример"
+// НИП с имитирует нажатие ПКМ по блоку
+npcID useBlock pos(92, 93, 241)
+```
+
+</div>
+
+<br />
+
+## Сломать блок
+
+<div align="left" id="dont-copy">
+
+```kts title="Функция"
+fun NPCEntity.destroyBlock(pos: Vec3)
+```
+```kts title="Пример"
+// НИП сломает блок
+npcID destroyBlock pos(92, 46, 24)
+```
+
+</div>
+
+<br />
+---
+<br />
+
+## Бросить предмет
+
+<div align="left" id="dont-copy">
+
+```kts title="Функция"
+fun NPCEntity.dropItem(item: ItemStack)
+```
+```kts title="Пример"
+// НИП бросит предмет "Золотое яблоко"
+npcID dropItem item("golden_apple")
+```
+
+</div>
+
+<br />
+---
+<br />
+
+## Сказать
+
+<div align="left" id="dont-copy">
+
+```kts title="Функция"
+fun NPCEntity.say(text: String)
+```
+```kts title="Пример"
+npcID say "Привет"
+```
+
+</div>
+
+</div>

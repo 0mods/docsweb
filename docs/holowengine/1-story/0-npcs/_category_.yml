@@ -1,5 +1,5 @@
-position: 1
-label: Сюжетный (Story)
+position: 0
+label: НИПы
 #collapsible: true # Collapsible
 #collapsed: false # Collapsed by default
 #className: class name
