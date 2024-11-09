@@ -6,6 +6,8 @@ id: npc-actions
 desc: 'NaN'
 ---
 
+import '@site/src/css/pages/pc-phone-ver.css';
+
 <div align="center">
 
 # Действия для НИПа
@@ -18,8 +20,35 @@ desc: 'NaN'
 
 <div align="left" id="dont-copy">
 
+<div id="ver-full">
+
 <div style={{ "display": "flex" }}>
-<div style={{ "align-items": "flex-start", "width": "100%", "margin-right": "5px" }}>
+  <div style={{ "align-items": "flex-start", "width": "100%", "margin-right": "5px" }}>
+  
+  ```kts title="Функция по позиции"
+  fun NPCEntity.move(
+    pos: Vec3,
+    dist: Double = 1.5,
+    speed: Double = 1.0
+  )
+  ```
+  
+  </div>
+  <div style={{ "align-items": "flex-end", "width": "100%", "margin-left": "5px" }}>
+  
+  ```kts title="Функция по сущности"
+  fun NPCEntity.move(
+    entity: Entity,
+    dist: Double = 1.5,
+    speed: Double = 1.0
+  )
+  ```
+  
+  </div>
+</div>
+</div>
+
+<div id="ver-cut">
 
 ```kts title="Функция по позиции"
 fun NPCEntity.move(
@@ -28,10 +57,6 @@ fun NPCEntity.move(
   speed: Double = 1.0
 )
 ```
-
-</div>
-<div style={{ "align-items": "flex-end", "width": "100%", "margin-left": "5px" }}>
-
 ```kts title="Функция по сущности"
 fun NPCEntity.move(
   entity: Entity,
@@ -40,7 +65,6 @@ fun NPCEntity.move(
 )
 ```
 
-</div>
 </div>
 
 ```kts title="Примеры"
@@ -68,21 +92,35 @@ npcID.move(player, 3.0, 2.0)
 
 <div align="left" id="dont-copy">
 
+<div id="ver-full">
+
 <div style={{ "display": "flex" }}>
-<div style={{ "align-items": "flex-start", "width": "100%", "margin-right": "5px" }}>
+  <div style={{ "align-items": "flex-start", "width": "100%", "margin-right": "5px" }}>
+  
+  ```kts title="Функция по позиции"
+  fun NPCEntity.look(pos: Vec3)
+  ```
+  
+  </div>
+  <div style={{ "align-items": "flex-end", "width": "100%", "margin-left": "5px" }}>
+  
+  ```kts title="Функция по сущности"
+  fun NPCEntity.look(entity: Entity)
+  ```
+  
+  </div>
+</div>
+</div>
+
+<div id="ver-cut">
 
 ```kts title="Функция по позиции"
 fun NPCEntity.look(pos: Vec3)
 ```
-
-</div>
-<div style={{ "align-items": "flex-end", "width": "100%", "margin-left": "5px" }}>
-
 ```kts title="Функция по сущности"
 fun NPCEntity.look(entity: Entity)
 ```
 
-</div>
 </div>
 
 ```kts title="Пример"

@@ -21,7 +21,7 @@
   position: absolute;
 
   background: url('@site/static/img/doc/personal/MagicCore.gif') no-repeat center center;
-  background-size: 225px;
+  background-size: 30%;
 
   left: -25px;
   top: 180px;
@@ -65,6 +65,29 @@
 
   left: 0px;
   top: 150px;
+  right: 0px;
+  bottom: 0px;
+
+  animation: rotateY 3s infinite linear;
+}
+
+.goldGear {
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  scale: 500%;
+
+  background: url("@site/static/img/doc/personal/GoldGear0.webp") no-repeat center center;
+  --background-color: #ffffff;
+
+  background-size: 100%;
+
+  opacity: 25%;
+
+  left: 42.5%;
+  top: 200px;
   right: 0px;
   bottom: 0px;
 
