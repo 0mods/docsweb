@@ -72,24 +72,14 @@
 }
 
 .goldGear {
+  display: flex;
   position: absolute;
 
-  width: 150px;
-  height: 150px;
-
-  scale: 500%;
+  align-items: center;
 
   background: url("@site/static/img/doc/personal/GoldGear0.webp") no-repeat center center;
-  --background-color: #ffffff;
 
-  background-size: 100%;
-
-  opacity: 25%;
-
-  left: 42.5%;
-  top: 200px;
-  right: 0px;
-  bottom: 0px;
+  --opacity: 25%;
 
   animation: rotateY 3s infinite linear;
 }

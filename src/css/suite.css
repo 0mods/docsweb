@@ -45,12 +45,35 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 51, 102, 0.3);
   background-color: hsla( 225deg ,15%,14%,1);
 }
-
+/* Default *
 [data-theme='dark'] .navbar {
   background-color: #4051b5;
 }
-
+*/
 [data-theme='light'] .navbar {
   --docsearch-primary-color: rgb(50, 109, 151);
   background-color: #526cfe;
+}
+
+/* My Custom Theme DONT COMMIT & PUSH Меня Алго убъёт */
+:root {
+    --background-color: #000000;
+
+  --ifm-menu-color-active: #ff2c2c;
+  --ifm-menu-color: #8d8d8d;
+  --ifm-navbar-link-hover-color: #ff9f9f;
+  --ifm-navbar-link-color: #e0e0e0;
+  --ifm-color-emphasis-200: #6e6e6e;
+  --ifm-color-primary: #ff3b3b;
+}
+[data-theme='dark'] .navbar {
+  /*background-color: #7b0a0a;*/
+  background: rgb(98,0,0);
+  background: linear-gradient(0deg, rgba(98,0,0,1) 0%, rgba(255,0,0,1) 100%);
+}
+navbar__link:hover, .navbar__link--active {
+  color: var(--ifm-navbar-link-hover-color);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 20px;
 }

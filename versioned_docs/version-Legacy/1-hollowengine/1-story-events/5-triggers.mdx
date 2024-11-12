@@ -179,9 +179,10 @@ val mePlayer = players.input {}.player // Не точно
   pos = pos(x, y, z)
   radius = <Double> // Радиус от центра координат pos
   ignoreY = <Boolean> // Если true - Триггер будет ждать игрока в форме шара, если false - в форме цилиндра который протягивается от низа мира (Y=-64) До верха (Y=312)
-  createIcon = <Boolea> // Если true - будет создана иконка в позиции pos
+  createIcon = <Boolean> // Если true - будет создана иконка в позиции pos
   icon = ResourceLocation("<mod_id>:<path/to/texture>") // Не обязательно. Кастомная иконка
   world = "<dimensiot_id>" // ID измерения
+  inverse = <Boolean> // Если true - игрок должен поринуть территорию в этом радиусе
   
 }
 ```
