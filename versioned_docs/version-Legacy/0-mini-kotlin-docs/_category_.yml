@@ -1,0 +1,6 @@
+position: 0
+label: '#Mini-Kotlin-Docs'
+link:
+  type: generated-index
+customProps:
+  descrioption: 'Мини документация по основам "Kotlin" (Да-да, раз уж вы не хотите читать сам Котлин).'

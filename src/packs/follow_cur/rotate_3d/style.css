@@ -1,0 +1,7 @@
+#rotateBlock {
+  background: rgb(103,53,164);
+  background: linear-gradient(45deg, rgba(103,53,164,1) 20%, rgba(161,112,171,1) 50%, rgba(103,53,164,1) 80%);
+  padding: 10px;
+  border-radius: 1rem;
+  transform-style: preserve-3d;
+}
