@@ -1,6 +1,6 @@
 position: 0
-label: '#Mini-Kotlin-Docs'
+label: 'KotlinScript'
 link:
   type: generated-index
 customProps:
-  description: 'Мини документация по основам "Kotlin" (Да-да, раз уж вы не хотите читать сам Котлин).'
+  description: 'Документация по основам языка Kotlin в рамках скриптов для HollowEngine.'
