@@ -134,27 +134,27 @@ npc.waitInteract()
 <div align="left" id="dont-copy">
 
 ```kts
-<players>.input {} // Любое сообщение
+<players>.input() // Любое сообщение
 // или
-<players>.input { "<text>" } // Конктректное сообщение
+<players>.input("<text>") // Конктректное сообщение
 // или
-<players>.input { "<arg0>", "<arg1>", ... } // Конктректное сообщение из списка
+<players>.input("<arg0>", "<arg1>", ...) // Конктректное сообщение из списка
 
 /* Запись в переменную */
-val myValue = <players>.input {}.message // Запишет в переменную сообщение | Не точно
-val myValue = <players>.input {}.player // Запишет в переменную игрока, который отправил сообщение | Не точно
+val myValue = <players>.input().message // Запишет в переменную сообщение | Не точно
+val myValue = <players>.input().player // Запишет в переменную игрока, который отправил сообщение | Не точно
 ```
 
 ---
 
 ```kts title="Пример"
-players.input {}
+players.input()
 
-players.input { "Привет" }
-players.input { "Привет", "Hello" }
+players.input("Привет")
+players.input("Привет", "Hello")
 
-val meMessage = players.input {}.message // Не точно
-val mePlayer = players.input {}.player // Не точно
+val meMessage = players.input().message // Не точно
+val mePlayer = players.input().player // Не точно
 ```
 
 </div>
