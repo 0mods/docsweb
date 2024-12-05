@@ -164,7 +164,7 @@ npc moveTo { <IDK> }
 
 Для того чтобы __остановить выполнение__, нужно прописать:  
 ```kts
-<npdID> stopMoveAlways()
+<npdID>.stopMoveAlways()
 ```
 
 ---
@@ -172,7 +172,7 @@ npc moveTo { <IDK> }
 ```kts title="Пример"
 npc moveAlwaysTo { player().first() }
 
-npc stopMoveAlways()
+npc.stopMoveAlways()
 ```
 </div>
 </div>
@@ -422,7 +422,7 @@ npc lookAtEntityType { "cow" }
 
 Для того чтобы __остановить выполнение__, нужно прописать:  
 ```kts
-<npdID> stopLookAlways()
+<npdID>.stopLookAlways()
 ```
 
 ---
@@ -430,7 +430,7 @@ npc lookAtEntityType { "cow" }
 ```kts title="Пример"
 npc lookAlwaysAt { player().first() }
 
-npc stopLookAlways()
+npc.stopLookAlways()
 ```
 
 </div>
