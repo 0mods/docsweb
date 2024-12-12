@@ -33,7 +33,7 @@ desc: 'Возможность приодеть НИПа'
 Дополнительную модель ты можешь наложить только либо на кость, либо на группу
 <div align="left">
 ```kts
-subModel["<bone/group>"] = subModel(
+subModel["<bone/group>"] = SubModel(
   model = "<path/to/model>"
 )
 ```
@@ -81,7 +81,7 @@ layer += AnimationLayer(
 <div align="left">
 
 ```kts
-subModel["Head"] = subModel(
+subModel["Head"] = SubModel(
   model = "models:decores/tophead_black,gltf"
   layer += AnimationLayer(
     animation = "levitation"
