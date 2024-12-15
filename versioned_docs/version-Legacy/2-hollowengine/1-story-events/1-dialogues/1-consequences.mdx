@@ -6,6 +6,8 @@ id: dialogue-consequences
 desc: 'Выберешь одно - будет то, виберешь другое - будет так'
 ---
 
+import { Random, Part } from '@site/src/packs/random_new.js';
+
 <br />
 
 :::danger Ой
@@ -19,7 +21,32 @@ desc: 'Выберешь одно - будет то, виберешь друго�
 
 Выберешь одно - будет так,
 
-![NO_TITLE](@site/static/img/doc/titles/NO_TITLE.webp)
+<div className="show" id="mask">
+
+<Random max="100">
+<Part low="0" high="50">
+
+![img0](@site/static/img/doc/titles/NpcDialogue0.webp)
+
+</Part>
+<Part low="51" high="70">
+
+![img0](@site/static/img/doc/titles/NpcDialogue1.webp)
+
+</Part>
+<Part low="71" high="90">
+
+![img0](@site/static/img/doc/titles/NpcDialogue0.webp)
+
+</Part>
+<Part low="91" high="100">
+
+![img0](@site/static/img/doc/titles/NpcDialogue0.webp)
+
+</Part>
+</Random>
+
+</div>
 
 Выберешь другое - будет иначе
 
