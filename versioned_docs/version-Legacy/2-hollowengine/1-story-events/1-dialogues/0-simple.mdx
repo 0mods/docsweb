@@ -1,7 +1,7 @@
 ---
 sidebar_position: 0
 
-title: НИП говорит
+title: Простой диалог
 id: npc-say
 desc: 'Чё-то там на глаголил'
 ---
@@ -31,7 +31,7 @@ desc: 'Чё-то там на глаголил'
 
 <br />
 
-### От лица НИПа
+### НИП
 
 :::info Сказать от лица НИПа абсолютно любой текст
 ```kts
@@ -43,6 +43,35 @@ npc say { "Привет" }
 ```
 
 ![npc-say](@site/static/img/doc/dialogue/npc_say.png)
+
+:::
+
+<br />
+
+### Игрок
+
+:::info Сказать от лица игрока абсолютно любой текст
+```kts
+<player> say { "<text>" }
+```
+---
+```kts title="Пример"
+me say { "Здрасте" }
+```
+
+![player-say](@site/static/img/doc/dialogue/player_say.png)
+
+:::
+:::info Отправить личное сообщение игроку
+```kts
+<player> send { "<text?" }
+```
+---
+```kts title="Пример"
+me send { "Личное сообщение" }
+```
+
+![player-send](@site/static/img/doc/dialogue/player_send.png)
 
 :::
 
