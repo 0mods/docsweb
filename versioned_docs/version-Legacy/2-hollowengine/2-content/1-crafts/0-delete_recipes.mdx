@@ -1,0 +1,103 @@
+---
+sidebar_position: 0
+
+title: Удалить рецепты (Общее)
+id: delete-recipes
+desc: 'NaN'
+---
+
+<div align="center" id="dont-copy">
+
+# Удалить рецепты крафтов
+
+![no-title](@site/static/img/doc/titles/NO_TITLE.webp)
+
+---
+
+<br />
+
+## По результату крафта
+:::info ПО результату крафта
+<div align="left">
+```kts title="Шаблон"
+removeByOutput(
+  item(
+    itemID: String, // ID предмета, для которого будут идалены все крафты
+  ),
+  recipeType: RecipeType,
+  /*
+   * > Категория рецептов, из которой нужно удалить крафты:
+   * - RecipeType.CRAFTING - Для верстака
+   * - RecipeType.SMELTING - Для печки
+   * - RecipeType.BLASTING - Для плавильни
+   * - RecipeType.SMOKING - Для коптильни
+   * - RecipeType.CAMPFIRE_COOKING - Для костра
+   * - RecipeType.STONECUTTING - Для точило
+   * - RecipeType.SMITHING - Для <unk>
+  */
+  checkTag: Boolean = false // Если true - сравнивает теги предметов. По умолчанию сравнивает лишь названия
+)
+```
+---
+```kts title="Пример"
+removeByOutput(item("wooden_pickaxe"), RecipeType.CRAFTING, true)
+```
+> Теперь я удалил все возможные рецепты "Деревянная кирка" из верстака и всем стало плохо после этого)
+
+<span style={{ "display": "flex" }}>
+<div style={{ "align-items": "flex-start", "margin-right": "8px" }}>
+<div align="center" style={{ "font-size": "24px", "font-weight": "700" }}>До</div>
+
+![before](@site/static/img/doc/content/recipes/removeRecipeByOutput_before.png)
+
+</div>
+<div style={{ "align-items": "flex-end", "margin-left": "8px" }}>
+<div align="center" style={{ "font-size": "24px", "font-weight": "700" }}>После</div>
+
+![after](@site/static/img/doc/content/recipes/removeRecipeByOutput_after.png)
+
+</div>
+</span>
+
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## По `ID` рецепта
+:::info ПО `ID` рецепта
+<div align="left">
+```kts title="Шаблон"
+removeById(
+  recipeID: String // ID рецепта, который будет удалён
+  )
+```
+---
+```kts title="Пример"
+removeById("oak_planks")
+```
+> Теперь я удалил крафт досок и тем самым подсолил некоторым игрокам в начале игры)
+
+<span style={{ "display": "flex" }}>
+<div style={{ "align-items": "flex-start", "margin-right": "8px" }}>
+<div align="center" style={{ "font-size": "24px", "font-weight": "700" }}>До</div>
+
+![before](@site/static/img/doc/content/recipes/removeRecipeById_before.png)
+
+</div>
+<div style={{ "align-items": "flex-end", "margin-left": "8px" }}>
+<div align="center" style={{ "font-size": "24px", "font-weight": "700" }}>После</div>
+
+![after](@site/static/img/doc/content/recipes/removeRecipeById_after.png)
+
+</div>
+</span>
+
+</div>
+:::
+
+</div>
