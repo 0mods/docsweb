@@ -31,6 +31,6 @@
 .bar-c {
   height: 100%;
   /*background: rgb(54, 110, 214);*/
-  background: var(--navbar-background);
+  /*background: var(--navbar-background);*/
   transition: width 250ms;
 }

@@ -95,8 +95,8 @@ export default function Player({ url }: PlayerProps) {
   );
 }
 */
-// CUSTOM //
 
+// CUSTOM //
 export default function Player({ url }: PlayerProps) {
   const [progress, setProgress] = useState(0);
   const [playing, setPlaying] = useState(true);
@@ -154,6 +154,17 @@ interface BarProps {
 }
 
 function Bar({ progress, onSeek }: BarProps) {
+  let barColor = "#4051b5";
+
+  /*useEffect(() => {
+    const navbarElement = document.querySelector("nav.navbar");
+
+    if (navbarElement) {
+      barColor = window.getComputedStyle(navbarElement).backgroundColor;
+      console.log(barColor)
+    }
+  })*/
+
   return (
     <div className="bar-a">
       <input
@@ -171,7 +182,7 @@ function Bar({ progress, onSeek }: BarProps) {
       />
       <div
         className="bar-c"
-        style={{ width: `${progress}%` }}
+        style={{ width: `${progress}%`, backgroundColor: barColor }}
       />
     </div>
   );
