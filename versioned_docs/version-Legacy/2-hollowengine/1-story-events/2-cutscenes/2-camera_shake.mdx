@@ -8,6 +8,7 @@ desc: 'Немного потрясёт и перестанет'
 
 import '@site/src/pages/dont_copy.js';
 import '@site/src/pages/dont_copy_style.css';
+import Player from '@site/src/components/video_player/VideoPlayer';
 
 <div align="center">
 
@@ -70,14 +71,7 @@ shake {
 
 </div>
 
-<link rel="preload" as="video" href="https://www.youtube.com/embed/_gAFbU2xDg4?autoplay=1&controls=0&loop=1&playlist=_gAFbU2xDg4" />
-<iframe
-  width="90%"
-  height="480px"
-  src="https://www.youtube.com/embed/_gAFbU2xDg4?autoplay=1&controls=0&loop=1&&playlist=_gAFbU2xDg4"
-  frameborder="0"
-  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-></iframe>
+<Player url={require("@site/static/img/doc/cutscenes/CameraShakePreview.mp4").default} />
 
 :::
 

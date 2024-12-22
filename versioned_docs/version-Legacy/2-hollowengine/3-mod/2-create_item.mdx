@@ -19,7 +19,7 @@ import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
 <br />
 
 :::warning Важное правило
-Всё ниже напианное пижется в методе `init()`:
+Всё ниже написанное пишется в методе `init()`:
 <div align="left">
 ```kts
 fun init() {
@@ -67,14 +67,14 @@ import ru.hollowhorizon.hollowengine.common.tabs.HOLLOWENGINE_TAB
 
 ITEMS.register(newItemId: String) {
   Item(Item.Properties()
-    .stacksTo(8) // Теперь в одну ячейку помещается 8 предметов
-    .tab(HOLLOWENGINE_TAB) // Предме тбудет ледать в табе мода HollowEngine
+    <Параметры предмета>
   )
 }
 ```
 ---
 <div align="center">
-<ToggleText buttonText="Дополнительные параметры для предмета">
+### Параметры предмета
+<ToggleText buttonText="Возможные параметры для предмета">
 <div align="left">
 ```kts title="Предмет является едой и можно съесть"
 import net.minecraft.world.food.FoodProperties
@@ -122,7 +122,11 @@ import net.minecraft.world.effect.MobEffects
 ```
 </div>
 </ToggleText>
-<ToggleText buttonText="Дополнительные функции для предмета">
+
+<br />
+
+### Методы предмета
+<ToggleText buttonText="Возможные функции для предмета">
 :::warning Работоспособность
 Т.к. компилятор работает немного криво, не факт что все ниже перечесленные методы будут работать
 в принцепе.
@@ -357,7 +361,7 @@ ITEMS.register(MOD_BUS)
 кадратиками, то нужно поместить модель с именем, который вы указали в скрипте `newItemId` сюда:
 <div align="left">
 > `assets/<modID>/models/item/<newItemId>.json`, где за место `<modId>` должна стоять папка с
-именем, который вы укзалаи при создании регистратора.
+именем, который вы указали при создании регистратора.
 </div>
 :::note Пример
 <div align="left">

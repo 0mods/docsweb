@@ -1,0 +1,36 @@
+.player-main {
+  border-style: solid;
+  border-radius: 1rem;
+  border-width: 4px;
+  overflow: hidden;
+  padding-bottom: -100px;
+}
+[data-theme='dark'] .player-main {
+ border-color: rgb(55, 118, 201); 
+}
+[data-theme='light'] .player-main {
+  border-color: rgb(59, 117, 204);
+}
+
+.bar-a {
+  position: relative;
+  top: -7px;
+  height: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin-bottom: -7px;
+  background-color: black;
+}
+.bar-b {
+  position: absolute;
+  width: 100%;
+  opacity: 0%;
+  cursor: pointer;
+  border-radius: 100%;
+}
+.bar-c {
+  height: 100%;
+  /*background: rgb(54, 110, 214);*/
+  background: var(--navbar-background);
+  transition: width 250ms;
+}
