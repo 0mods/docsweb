@@ -27,6 +27,12 @@
   color: var(--def-color);
   border-bottom-color: var(--def-color-border);
 }
+.data {
+  scale: var(--scale);
+  background-color: var(--def-color-background);
+  color: var(--def-color);
+  border-bottom-color: var(--def-color-border);
+}
 .camera {
   scale: var(--scale);
   background-color: var(--def-color-background);
@@ -70,6 +76,12 @@
   background-color: #c5c200;
   color: var(--sel-color-text);
   border-bottom-color: #855a00;
+}
+.data[aria-selected='true'] {
+  scale: var(--scale);
+  background-color: #2ec09c;
+  color: var(--sel-color-text);
+  border-bottom-color: #006141;
 }
 .camera[aria-selected='true'] {
   scale: var(--scale);

@@ -6,6 +6,8 @@ id: npc-say
 desc: 'Чё-то там на глаголил'
 ---
 
+import Image from '@site/src/components/image/image.js';
+
 <div align="center">
 
 # Простой диалог
@@ -38,11 +40,11 @@ desc: 'Чё-то там на глаголил'
 <npcID> say { "<text>" }
 ```
 ---
+
 ```kts title="Пример"
 npc say { "Привет" }
 ```
-
-![npc-say](@site/static/img/doc/dialogue/npc_say.png)
+<Image path="doc/dialogue/npc_say.png" />
 
 :::
 
@@ -55,11 +57,14 @@ npc say { "Привет" }
 <player> say { "<text>" }
 ```
 ---
-```kts title="Пример"
-me say { "Здрасте" }
-```
 
-![player-say](@site/static/img/doc/dialogue/player_say.png)
+```kts
+val me by server.players.filter { is.name.string == "_BENDY659_" }
+```
+```kts title="Пример"
+ma say { "Привет" }
+```
+<Image path="doc/dialogue/player_say.png" />
 
 :::
 :::info Отправить личное сообщение игроку
@@ -67,11 +72,14 @@ me say { "Здрасте" }
 <player> send { "<text?" }
 ```
 ---
-```kts title="Пример"
-me send { "Личное сообщение" }
-```
 
-![player-send](@site/static/img/doc/dialogue/player_send.png)
+```kts
+val me by server.players.filter { is.name.string == "_BENDY659_" }
+```
+```kts title="Пример"
+ma send { "Личное сообщение" }
+```
+<Image path="doc/dialogue/player_send.png" />
 
 :::
 
