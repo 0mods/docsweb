@@ -9,11 +9,18 @@ description: ''
 import '@site/src/css/pages/img-show.css';
 import { Random, Part } from '@site/src/packs/random_new.js';
 
+import ToNewDocs from '@site/src/components/NewDocs';
+
+import PlayerNoBar from '@site/src/components/video_player/VideoPlayerNoBar.tsx';
+
+<ToNewDocs />
+
 <div align="center">
 
 # Добро пожаловать
 **на документацию по моду __`HollowEngine`__!**
 
+<!--
 <link rel="prefetch" as="image" href="@site/static/img/doc/titles/Welcome0.webp" />
 <div className="cont">
 <div className="show" id="mask">
@@ -31,6 +38,11 @@ import { Random, Part } from '@site/src/packs/random_new.js';
   </Part>
   </Random>
 </div>
+</div>
+-->
+
+<div className="show" id="mask">
+  <PlayerNoBar url={require("@site/static/img/doc/titles/WelcomeCrismas.mp4").default} />
 </div>
 
 ---

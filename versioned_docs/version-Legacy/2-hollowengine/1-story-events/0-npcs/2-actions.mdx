@@ -12,6 +12,8 @@ import tab from '@site/src/css/tabs/tabs.module.css';
 import { Random, High, Low } from '@site/src/packs/random.js';
 import '@site/src/css/pages/img-show.css';
 
+import Player from '@site/src/components/video_player/VideoPlayer.tsx';
+
 <div align="center">
 
 # Действия
@@ -40,14 +42,10 @@ import '@site/src/css/pages/img-show.css';
 <Tabs>
 <TabItem value="toPosition" label="До позиции" attributes={{className: tab.def}}>
 <div style={{"display": "flex"}}>
-
-<link rel="preload" as="image" href="@site/static/img/doc/actions/MoveTo-Pos.gif" />
-<div className="gif" style={{ "margin": "20px", "align-items": "flex-start", "width": "256px" }}>
-
-![npc-move_to-pos](@site/static/img/doc/actions/MoveTo-Pos.gif)
-
+<div className="gif" style={{ "margin": "4px", "align-items": "flex-start", "width": "512px + 256px" }}>
+  <Player url={require("@site/static/img/doc/actions/NpcMoveToPos.mp4").default} />
 </div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end", "width": "100%"}}>
+<div align="left" style={{"margin": "4px", "align-items": "flex-end", "width": "100%"}}>
 
 ```kts
 <npcID> moveTo { pos(x, y, z) }

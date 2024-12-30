@@ -7,6 +7,7 @@ desc: Для удобства пользования модом, была доб
 ---
 
 import '@site/src/css/pages/img-show.css';
+import Image from '@site/src/components/image/image.js';
 
 <div align="center">
 
@@ -32,7 +33,7 @@ import '@site/src/css/pages/img-show.css';
 
 Всё довольно просто.
 
-![ide-button-open](@site/static/img/doc/menus/ide-button-open.png)
+<Image path="doc/menus/ide-button-open.png" tooltip="Hello" />
 
 Вам нужно просто открыть меню паузы и в левом верхнем углу появляется новая кнопочка с иконкой `HollowEngine`.
 
@@ -40,7 +41,7 @@ import '@site/src/css/pages/img-show.css';
 
 <br />
 
-![code-editor](@site/static/img/doc/menus/code_editor.png)
+<Image path="doc/menus/code_editor.png" tooltip="Это редактор кода (старый)" />
 
 В моде уже встроен свой "Редактор кода".
 
@@ -62,7 +63,7 @@ import '@site/src/css/pages/img-show.css';
 
 Нажав ПКМ в "Древо файлов", появится контекстное меню
 
-![rmb-menu](@site/static/img/doc/ide/rmb-menu.png)
+<Image path="doc/ide/rmb-menu.png" />
 
 <br />
 
@@ -70,7 +71,7 @@ import '@site/src/css/pages/img-show.css';
 
 Если открыть любой скрипт и кликнуть ПКМ в поле кода, то откроется следующее контекстное меню
 
-![rmb-menu1](@site/static/img/doc/ide/rmb-menu1.png)
+<Image path="doc/ide/rmb-menu1.png" />
 
 ---
 
@@ -82,12 +83,10 @@ import '@site/src/css/pages/img-show.css';
 
 :::info ЛайфFuck #1
 
-Вместо того, чтобы писать путь до нужного файла вручную - просто найдите этот файл в "Древо файлов" и перетащите его в "Редактор кода"
-и в этом месте у вас сгенерируется путь до этого файла.
-
-<!-- Спасибо Bytolme (@blago) -->
-
-![preview](@site/static/img/doc/ide/livefuck0.gif)
+Вместо того, чтобы писать путь до нужного файла вручную - просто найдите этот файл в
+"Древо файлов" и перетащите его в "Редактор кода" и в этом месте у вас сгенерируется путь до
+этого файла.
+<Image path="doc/ide/livefuck0.gif" tooltip="Спасибо Bytolme (@blago)" />
 
 :::
 
