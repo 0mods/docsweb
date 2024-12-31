@@ -11,6 +11,7 @@ import TabItem from '@theme/TabItem';
 import tab from '@site/src/css/tabs/tabs.module.css';
 import { Random, High, Low } from '@site/src/packs/random.js';
 import '@site/src/css/pages/img-show.css';
+import '@site/src/css/pages/preview_content.css';
 
 import Player from '@site/src/components/video_player/VideoPlayer.tsx';
 
@@ -41,12 +42,11 @@ import Player from '@site/src/components/video_player/VideoPlayer.tsx';
 
 <Tabs>
 <TabItem value="toPosition" label="До позиции" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-<div className="gif" style={{ "margin": "4px", "align-items": "flex-start", "width": "512px + 256px" }}>
+<div id="preview-content">
+<div id="preview">
   <Player url={require("@site/static/img/doc/actions/NpcMoveToPos.mp4").default} />
 </div>
-<div align="left" style={{"margin": "4px", "align-items": "flex-end", "width": "100%"}}>
-
+  <div align="left" id="content">
 ```kts
 <npcID> moveTo { pos(x, y, z) }
 ```
@@ -58,67 +58,57 @@ import Player from '@site/src/components/video_player/VideoPlayer.tsx';
 ```kts title="Пример"
 npc moveTo { pos(13, 65, 235) }
 ```
-
-</div>
+  </div>
 </div>
 </TabItem>
 <TabItem value="toPlayer" label="До игрока" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-move_to-player](@site/static/img/doc/actions/npc-move_to-player.gif)
-
+<div id="preview-content">
+<div id="preview">
+  <Player url={require("@site/static/img/doc/actions/NpcMoveToPlayerNpc.mp4").default} />
 </div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+  <div align="left" id="content">
 ```kts
 <npcID> moveTo { <player> }
 ```
 
-<Random prct={70} prctMax={100}>
-<High>
-
-НИП будет идти до [**Определённого игрока**](@site/static/img/page-null.gif "Не кликай!").
-
-</High>
-<Low>
-
-НИП будет идти до [**Определённого игрока**](@site/static/img/page-null.png "Не кликай.").
-
-</Low>
-</Random>
+НИП будет идти до **Указанного игрока** .
 
 ---
 
 ```kts title="Пример"
-npc moveTo { player().first() }
+val players by server.players
+
+npc moveTo { players.first() }
+
+// ИЛИ //
+
+val me by server.players.filter { it.name.string == "_BENDY659_" }
+
+npc moveTo { me }
 ```
-</div>
+  </div>
 </div>
 </TabItem>
 <TabItem value="toNpc" label="До Другого НИПа" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-move_to-pos](@site/static/img/doc/actions/npc-move_to-npc.gif)
-
+<div id="preview-content">
+<div id="preview">
+  <Player url={require("@site/static/img/doc/actions/NpcMoveToPlayerNpc.mp4").default} />
 </div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+  <div align="left" id="content">
 ```kts
-<npcID> moveTo { <any_npcID> }
+<npcID> moveTo { <npcID> }
 ```
 
-НИП будет идти до **Другого НИПа**.
+НИП будет идти до **Указанных НИПа** .
 
 ---
 
 ```kts title="Пример"
-npc moveTo { jeka }
+val kolya by NPCEntity.creating {...}
+
+npc moveTo { kolya }
 ```
-</div>
+  </div>
 </div>
 </TabItem>
 <TabItem value="toEntity" label="До сущности" attributes={{className: tab.def}}>
@@ -171,60 +161,6 @@ npc moveTo { <IDK> }
 npc moveAlwaysTo { player().first() }
 
 npc.stopMoveAlways()
-```
-</div>
-</div>
-</TabItem>
-<TabItem value="toBiome" label="До биома" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![null](@site/static/img/null.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
-```kts
-<npcID> moveTioBiome { "<biomeID>" }
-```
-
-null
-
-:::warning Стой
-Данный раздел ешё в разработке и находится на этапе тестирования.
-:::
-
----
-
-```kts title="Пример"
-npc moveToBiome { "taiga" }
-```
-</div>
-</div>
-</TabItem>
-<TabItem value="toStructure" label="До структуры" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![null](@site/static/img/null.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
-```kts
-<npcID> moveTioBiome { "<structureID>" }
-```
-
-null
-
-:::warning Стой
-Данный раздел ешё в разработке и находится на этапе тестирования.
-:::
-
----
-
-```kts title="Пример"
-npc moveToBiome { "stronghold" }
 ```
 </div>
 </div>

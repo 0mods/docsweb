@@ -1,0 +1,22 @@
+#preview-content {
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  }
+
+  @media screen and (max-width: 1279px) {
+    display: block;
+  }
+}
+
+#preview {
+  margin: 4px;
+  align-items: flex-start;
+  width: 512px + 256px;
+  margin-bottom: 16px;
+
+}
+#content {
+  margin: 4px;
+  align-items: flex-end;
+  width: 100%;
+}
