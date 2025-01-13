@@ -9,10 +9,6 @@ import ToBeta from '@site/src/components/NewDocs.js';
 
 <ToBeta url='welcome' />
 
-import ToBeta from '@site/src/components/NewDocs.js';
-
-<ToBeta url='welcome' />
-
 # What is it?
 
 :::caution
