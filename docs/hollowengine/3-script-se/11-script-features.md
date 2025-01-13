@@ -6,6 +6,10 @@ id: features
 description: Всяукие полезности
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 ## Запуск скрипта при заходе в мир
 
 :::info Запуск скрипта при заходе в мир

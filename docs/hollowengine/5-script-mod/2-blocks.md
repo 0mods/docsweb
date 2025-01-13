@@ -2,6 +2,10 @@
 sidebar_position: 2
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 # ↳ Создаем новый блок ⚒️
 
 :::caution Напоминаю

@@ -6,6 +6,10 @@ id: world-structures
 description: "null"
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 ## Генерация структур
 
 :::note -

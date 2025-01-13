@@ -2,6 +2,10 @@
 sidebar_position: 0
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 # ↳ Модифицируем игру ⚒️
 
 Итак, Вы хотите добавить новые блоки, предметы, мобов, измерения, интерфейсы или что-то ещё? - Тогда Вы попали в нужный раздел.

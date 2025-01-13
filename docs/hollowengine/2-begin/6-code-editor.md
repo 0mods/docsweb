@@ -5,6 +5,10 @@ title: 💻 Integrated Development Environment
 description: Intellij IDEA on steroids?)
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 To write scripts, you can use anything, VSCode, SublimeText 4, IntelliJ IDEA, even Notepad.
 But if you are too lazy to mess with all this, we recommend you to try the built-in development environment,
 to open it, click on the gear in the pause menu of the game.

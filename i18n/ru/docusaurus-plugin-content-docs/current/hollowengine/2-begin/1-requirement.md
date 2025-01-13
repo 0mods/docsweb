@@ -5,6 +5,10 @@ title: ⚠️ Зависимости мода
 description: Что нам нужно?
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::caution 🔷 Для работы мода `Hollow Engine` требуются такие моды, как 🔷:
 ```mermaid
 graph TD;

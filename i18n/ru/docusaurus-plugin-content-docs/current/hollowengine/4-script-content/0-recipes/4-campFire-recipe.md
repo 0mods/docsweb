@@ -2,6 +2,10 @@
 sidebar_position: 4
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 # ↳ Костёр 🧺
 
 :::note Рецепты крафтов для Костра

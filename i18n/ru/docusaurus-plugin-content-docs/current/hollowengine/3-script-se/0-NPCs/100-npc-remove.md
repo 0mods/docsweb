@@ -6,6 +6,10 @@ id: npc-delete
 description: Свои неудачные идеи - выкидывай правильно!
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info 🗑️ Убрать НИПа с мира 🗑️
 ```kts
 <npcID>.despawn()

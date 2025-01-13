@@ -6,6 +6,10 @@ id: tools-easing
 description: Самые плавные движения только у нас!
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info Что такое интерполяция
 
 > Интерполяция - определяет скорость течения анимации, делая её более реалистичной.  

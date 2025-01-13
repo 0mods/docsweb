@@ -5,6 +5,10 @@ title: HollowCore Docs
 description: Хотите писать моды, но не хотите рутины?
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 Итак, начнём с того, зачем вам может потребоваться этот мод.
 
 ## Возможности HollowCore

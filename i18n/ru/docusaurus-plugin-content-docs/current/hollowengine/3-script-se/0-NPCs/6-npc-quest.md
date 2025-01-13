@@ -5,6 +5,10 @@ id: npc-quests
 description: Новые задания
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info Если нужно что-то сдать НИПу, чтобы сюжет пошёл дальше
 ```kts
 <npcID>.requestItems {

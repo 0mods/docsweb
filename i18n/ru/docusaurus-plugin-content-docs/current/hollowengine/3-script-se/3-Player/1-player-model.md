@@ -6,6 +6,10 @@ id: player-model
 description: Примерь на себе - новую внешность
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 ## Создать переменную для игрока
 
 :::note Нужно, чтобы можно было обращаться к игроку

@@ -5,6 +5,10 @@ title: ⏰ Начинаем
 description: Куда.. а-э...
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info Начинаем
 - Для начала работы с модом, откройте или создайте папку `hollowengine/scripts`. Создайте там файл по следующему шаблону: `<name>.<script_type>.kts`.
 >  Обозначения:

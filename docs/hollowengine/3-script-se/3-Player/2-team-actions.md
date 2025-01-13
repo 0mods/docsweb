@@ -6,6 +6,10 @@ id: player-team_actions
 description: Командуй собой же (или над своими...)
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 ## Телепортировать команду
 
 :::note телепортировать команду

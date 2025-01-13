@@ -6,6 +6,10 @@ id: npc-groups
 description: Контролировать целый посёлок всего одной командой
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 ## Создать группу
 
 :::note Чтобы добавить НИПов (2 и более) в 1 группу

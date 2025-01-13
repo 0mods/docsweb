@@ -5,6 +5,10 @@ title: 🌍 Storyteller dimension
 description: Are there measurements in here too? 
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info New dimension stored in the folder `hollowengine/storyteller_world`
 An independent dimension that you can access from any world.
 > - A **special item** is required to access this dimension: Teleporter. You can get it from the `Hollow Engine` mod tab in the creative menu.

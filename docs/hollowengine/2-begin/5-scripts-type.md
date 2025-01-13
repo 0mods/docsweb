@@ -5,6 +5,10 @@ title: 🧾 Script types
 description: The very foundation of fashion
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 At the moment, there are several types of scripts responsible for different parts of the game. Some control NPCs and players, others add crafts, others add new items and blocks to the game or handle events within the game.
 
 # 📓 Story Event | `.se.kts`

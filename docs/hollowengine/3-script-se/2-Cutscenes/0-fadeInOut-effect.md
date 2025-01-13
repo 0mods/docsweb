@@ -6,6 +6,10 @@ id: cutscene-black_screen
 description: Устрой эпилепсию
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info ...
 ```kts
 fadeIn { // Вход

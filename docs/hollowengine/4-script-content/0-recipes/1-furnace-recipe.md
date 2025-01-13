@@ -2,6 +2,10 @@
 sidebar_position: 1
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 # ↳ Обычная печь 🧺
 
 :::note Рецепты крафтов для Печи

@@ -2,6 +2,10 @@
 sidebar_position: 0
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 # ℹ️Introduction ℹ️
 
 :::info 🔷 Current documentation 🔷

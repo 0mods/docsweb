@@ -6,6 +6,10 @@ id: dialogue
 description: Постойте простой, но имбовый диалог
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::caution Перед началом
 Если вы используете какого-то NPC в диалоге, то диалог должен идти после того, как вы заспавнили нужных NPC.
 :::

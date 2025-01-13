@@ -5,6 +5,10 @@ title: 📄 Commands in Hollow Engine
 description: Not to be confused with Team!
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 At the moment, there are a few commands to simplify scripting in the mod.
 
 | Command                       | Params                                                 | Description                                                                                                                                                          |

@@ -6,6 +6,10 @@ id: cutscene-shake
 description: Немного тряски - не помещает)
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info Шаблон
 ```kts
 shake {

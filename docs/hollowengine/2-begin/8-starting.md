@@ -5,6 +5,10 @@ title: ⏰ Here we go.
 description: Where...? \*whoosh\*
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info
 - To start working with the mod, go to the `hollowengine/scripts` folder (if it does not exist, then create it) and there create a new file according to the template: `<name>.<script_type>.kts`.
 >  Обозначения:  

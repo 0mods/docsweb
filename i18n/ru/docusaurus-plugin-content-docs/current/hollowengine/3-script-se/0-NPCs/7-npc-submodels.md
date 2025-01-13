@@ -6,6 +6,10 @@ id: npc-sub_models
 description: Шапочка для плавания ии другие вещички
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 ## Модель
 
 :::note Под-модели

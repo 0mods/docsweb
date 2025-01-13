@@ -5,6 +5,10 @@ title: 📂 First start
 description: Magic outside Hogwarts.._createMdxContent
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info After running the game with the mod for the first time
 ▶ A new folder will appear in the game directory, named **`📁 hollowengine`**,.
 :::

@@ -6,6 +6,10 @@ id: tools-e_manager
 description: Нужно же куда-то записывать свои дела...
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info Интерфейс открывается...
 > Нажатием кнопку или `Ё`.
 :::

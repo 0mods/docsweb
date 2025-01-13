@@ -6,6 +6,10 @@ id: npc-item_render
 description: Предметы в руках - это хорошо.
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info Чтобы в руках у НИПа отображались предметы, достаточно просто создать 2 группы/кости с названиями:
 > - `LeftHandItem` - Для левой руки.
 > - `RightHandItem` - Для правой руки.

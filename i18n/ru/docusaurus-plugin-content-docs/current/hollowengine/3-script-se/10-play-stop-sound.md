@@ -6,6 +6,10 @@ id: sounds
 description: Воспроизводи звуки через скрипты
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::note Звуки
 ```kts
 // Воспроизвести звук

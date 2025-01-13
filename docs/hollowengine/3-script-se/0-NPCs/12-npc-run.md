@@ -5,6 +5,10 @@ title: NPC Running
 description: NPC = Sonic?
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::warning 
 Since HollowEngine v1.5.4!
 :::

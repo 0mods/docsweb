@@ -5,6 +5,10 @@ title: Интерфейсы ImGui
 description: Я есть Гуи!
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 # Открытие окна
 
 Прежде всего вам нужно открыть окно с поддержкой ImGui, для этого вы можете использовать:

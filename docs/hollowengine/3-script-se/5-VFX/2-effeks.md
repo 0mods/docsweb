@@ -6,6 +6,10 @@ id: vfx-effekseer
 description: Красивые и проработанные эффекты
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 HollowEngine предоставляет возможность использовать эффекты созданные в программе [Effekseer](https://effekseer.github.io/en/). С её помощью вы можете добавить в игру визуальные эффекты, такие как молнии, взрывы, частицы и другие анимации, и применять их к игровым объектам и сущностям.
 
 Прежде всего вам необходимо создать в программе эффект и сохранить его в формате `.efkefc` по пути `/hollowengine/assets/<modid>/effeks/`.

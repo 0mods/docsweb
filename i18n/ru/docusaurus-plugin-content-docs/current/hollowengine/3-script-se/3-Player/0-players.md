@@ -6,6 +6,10 @@ id: players
 description: Как получить, отфильтровать, обращаться.
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 ## Получить всех игроков на сервере
 
 :::note Все игроки

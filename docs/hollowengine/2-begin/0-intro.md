@@ -5,6 +5,10 @@ title: 📄 Intro
 description: Everything you need to know before you get started!
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 # Intro
 
 It is recommended to read this section, it describes the features and terms of this documentation.

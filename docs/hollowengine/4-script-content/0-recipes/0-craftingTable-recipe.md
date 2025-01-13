@@ -2,6 +2,10 @@
 sidebar_position: 0
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 # ↳ Верстак 🧺
 
 :::note "Рецепты крафтов на Верстаке"

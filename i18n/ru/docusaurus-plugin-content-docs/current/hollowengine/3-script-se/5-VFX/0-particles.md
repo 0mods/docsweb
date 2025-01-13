@@ -6,6 +6,10 @@ id: vfx-he_particles
 description: Красива как бум сделала...
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info Партиклы
 ```kts
 particle {

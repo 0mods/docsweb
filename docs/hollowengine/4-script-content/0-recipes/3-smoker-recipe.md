@@ -2,6 +2,10 @@
 sidebar_position: 3
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 # ↳ Коптильня 🧺
 
 :::note Рецепты крафтов для Коптильня

@@ -6,6 +6,10 @@ id: mod-new_item
 description: Добавь новый предмет в игру
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::note Создаём новый предмет и задаём ему характеристики
 ```kts
 //Всё что ниже - импорты классов самой игры, они обязательны!

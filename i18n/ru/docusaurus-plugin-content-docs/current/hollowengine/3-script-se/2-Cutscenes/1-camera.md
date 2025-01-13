@@ -6,6 +6,10 @@ id: cutscene-camera
 description: Запусти камеру в космос!
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 Прежде всего загляните во вкладку мода, там есть инструмент "Камера", он вам поможет проще создавать плавные пути по точкам.
 
 ## Создаём путь для камеры

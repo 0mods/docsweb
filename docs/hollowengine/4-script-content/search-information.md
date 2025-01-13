@@ -5,6 +5,10 @@ title: 🗂️ Content Scripts
 description: Changing cubes
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 # What is it?
 
 :::caution

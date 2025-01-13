@@ -5,6 +5,10 @@ id: resources
 description: Resources, oh yes
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 # Client Resources (Assets)
 Often when using a mod you may need your own resources, or replace the resources of other mods: textures, models, sounds, etc.
 **Do not try to edit mod files by editing the mod archive, this way you risk not only breaking the mod itself, but also losing your resources when updating**

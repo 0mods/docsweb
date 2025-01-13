@@ -5,6 +5,10 @@ title: ⚠️ Mod dependencies
 description: What do we need?
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::caution 🔷 The `Hollow Engine` mod requires mods such as 🔷:
 ```mermaid
 graph TD;

@@ -6,6 +6,10 @@ id: tools-logic_and_cycle
 description: Простая логика для ваших скриптов
 ---
 
+import ToBeta from '@site/src/components/NewDocs.js';
+
+<ToBeta url='welcome' />
+
 :::info Немного слов...
 > - Рано или поздно вам потребуется использовать простую логику в скриптах, а именно `if`, `eles` иил же `elif`.  
 >  - Или же ещё одно - циклы: `while` или `for`.
