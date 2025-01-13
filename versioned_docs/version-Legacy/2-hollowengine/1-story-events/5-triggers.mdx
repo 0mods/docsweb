@@ -6,6 +6,8 @@ id: triggers
 desc: 'NaN'
 ---
 
+{/* Спасибо адекватному человеку "QuillishMorrison" за исправление граматических ошибок :) */}
+
 <div align="center">
 
 # Триггеры
@@ -24,7 +26,7 @@ desc: 'NaN'
 
 :::::note Автоматический запуск скрипта
 :::warning Местоположение в скрипте
-Данные триггеры должен находится в самом начале скрипта, выше обычных `import`!
+Данные триггеры должны находится в самом начале скрипта, выше обычных `import`!
 :::
 :::info При самом первом входе в мир
 ```kts
@@ -54,7 +56,7 @@ desc: 'NaN'
 wait { time }
 ```
 
-> `time` - [**Время**](../99-resources/4-time_value.mdx), которое должно пройти чтобы
+> `time` - [**Время**](../99-resources/4-time_value.mdx), которое должно пройти, чтобы
 скрипт продолжил свою работу.
 
 ```kts title="Пример"
@@ -71,23 +73,22 @@ wait { 5.sec }
 
 <br />
 
-## Ожидание нажатие клавиши
+## Ожидание нажатия клавиши
 
-:::info Нажатие клавишы
+:::info Нажатие клавиши
 Ждёт, пока указанная клавиша не будет нажата.
 
 <div align="left" id="dont-copy">
 
 ```kts
-keybind { KeyBInd.<KEY> }
+keybind { KeyBind.<KEY> }
 ```
 
 > `KEY` - ID клавиши. [`Клавиши`](../99-resources/8-keybinds.mdx)
-
 ---
 
 ```kts title="Пример"
-keybind { Keybind.H }
+keybind { KeyBind.H }
 ```
 
 </div>
@@ -99,10 +100,10 @@ keybind { Keybind.H }
 
 <br />
 
-## Ожидание взаимодействие с НИПом
+## Ожидание взаимодействия с НИПом
 
 :::info Взаимодействие с НИПом
-Ждёт, пока любой игрок не по взаимодействует с определённым НИПом.
+Ждёт, пока любой игрок не повзаимодействует с определённым НИПом.
 
 <div align="left" id="dont-copy">
 
@@ -140,21 +141,23 @@ npc.waitInteract()
 // или
 <players>.input("<arg0>", "<arg1>", ...) // Конктректное сообщение из списка
 
-/* Запись в переменную */
-val myValue = <players>.input().message // Запишет в переменную сообщение | Не точно
-val myValue = <players>.input().player // Запишет в переменную игрока, который отправил сообщение | Не точно
+/*Запись в переменную */
+val myValue = <players>.input().message // Запишет в переменную сообщение
+val myValue = <players>.input().player // Запишет в переменную игрока, который отправил сообщение
 ```
 
 ---
 
 ```kts title="Пример"
+val players by server.players
+
 players.input()
 
 players.input("Привет")
 players.input("Привет", "Hello")
 
-val meMessage = players.input().message // Не точно
-val mePlayer = players.input().player // Не точно
+val meMessage = players.input().message
+val mePlayer = players.input().player
 ```
 
 </div>
@@ -176,14 +179,13 @@ val mePlayer = players.input().player // Не точно
 
 ```kts
 <players>.waitPos {
-  pos = pos(x, y, z)
+  pos = pos(x, y, z) // Позиция, где будет ожидатся игрок
   radius = <Double> // Радиус от центра координат pos
-  ignoreY = <Boolean> // Если true - Триггер будет ждать игрока в форме шара, если false - в форме цилиндра который протягивается от низа мира (Y=-64) До верха (Y=312)
+  ignoreY = <Boolean> // Если true - триггер будет ждать игрока в форме шара, если false - в форме цилиндра, который протягивается от низа мира (Y=-64) до верха (Y=312)
   createIcon = <Boolean> // Если true - будет создана иконка в позиции pos
   icon = ResourceLocation("<mod_id>:<path/to/texture>") // Не обязательно. Кастомная иконка
-  world = "<dimensiot_id>" // ID измерения
+  world = "<dimension_id>" // ID измерения
   inverse = <Boolean> // Если true - игрок должен покинуть территорию в этом радиусе
-  
 }
 ```
 
@@ -212,7 +214,7 @@ players.waitPos {
 ## Обратное условие
 
 :::info Обратное условие
-Ждёт, пока условие не вернёт false
+Ждёт, пока условие не вернёт false.
 
 <div align="left" id="dont-copy">
 
@@ -223,7 +225,7 @@ await { <Условие> }
 ---
 
 ```kts title="Пример"
-await { npc().isAlive } // Скрипт не продолжит свою работу пока НИП не умрёт
+await { npc().isAlive } // Скрипт не продолжит свою работу, пока НИП не умрёт
 ```
 
 </div>

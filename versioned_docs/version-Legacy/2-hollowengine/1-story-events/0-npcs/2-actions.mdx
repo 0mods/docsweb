@@ -43,9 +43,9 @@ import Player from '@site/src/components/video_player/VideoPlayer.tsx';
 <Tabs>
 <TabItem value="toPosition" label="До позиции" attributes={{className: tab.def}}>
 <div id="preview-content">
-<div id="preview">
-  <Player url={require("@site/static/img/doc/actions/NpcMoveToPos.mp4").default} />
-</div>
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcMoveToPos.mp4").default} />
+  </div>
   <div align="left" id="content">
 ```kts
 <npcID> moveTo { pos(x, y, z) }
@@ -63,9 +63,9 @@ npc moveTo { pos(13, 65, 235) }
 </TabItem>
 <TabItem value="toPlayer" label="До игрока" attributes={{className: tab.def}}>
 <div id="preview-content">
-<div id="preview">
-  <Player url={require("@site/static/img/doc/actions/NpcMoveToPlayerNpc.mp4").default} />
-</div>
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcMoveToPlayerNpc.mp4").default} />
+  </div>
   <div align="left" id="content">
 ```kts
 <npcID> moveTo { <player> }
@@ -91,12 +91,12 @@ npc moveTo { me }
 </TabItem>
 <TabItem value="toNpc" label="До Другого НИПа" attributes={{className: tab.def}}>
 <div id="preview-content">
-<div id="preview">
-  <Player url={require("@site/static/img/doc/actions/NpcMoveToPlayerNpc.mp4").default} />
-</div>
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcMoveToPlayerNpc.mp4").default} />
+  </div>
   <div align="left" id="content">
 ```kts
-<npcID> moveTo { <npcID> }
+<npcID> moveTo <npcID>
 ```
 
 НИП будет идти до **Указанных НИПа** .
@@ -106,11 +106,22 @@ npc moveTo { me }
 ```kts title="Пример"
 val kolya by NPCEntity.creating {...}
 
-npc moveTo { kolya }
+npc moveTo kolya
 ```
+:::warning Беда
+Есть шанс что НИП скорее всего не до конца дойдёт до НИПа, и из-за этого скрипт никуда дальше не пойдёт.
+
+Можно избежать этого, если передвижение НИПа сделать через:
+```kts title="Пример"
+val kolya by NPCEntity.creating {...}
+
+npc moveTo { kolya().position() }
+```
+:::
   </div>
 </div>
 </TabItem>
+{/*
 <TabItem value="toEntity" label="До сущности" attributes={{className: tab.def}}>
 <div style={{"display": "flex"}}>
 
@@ -139,15 +150,13 @@ npc moveTo { <IDK> }
 Твоих коров в мире дохрена. К какой идти ему?
 :::
 </TabItem>
+*/}
 <TabItem value="alwaysMoveTo" label="Бесконечно" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-always-move_to](@site/static/img/doc/actions/npc-always-move_to.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcAlwaysMoveTo.mp4").default} />
+  </div>
+  <div align="left" id="content">
 Есть за место `moveTo` написать `moveAlwaysTo`, то НИП будет двигаться до указанного - **Бесконечно**.
 
 Для того чтобы __остановить выполнение__, нужно прописать:  
@@ -162,7 +171,7 @@ npc moveAlwaysTo { player().first() }
 
 npc.stopMoveAlways()
 ```
-</div>
+  </div>
 </div>
 </TabItem>
 </Tabs>
@@ -172,19 +181,19 @@ npc.stopMoveAlways()
 <br />
 
 :::info Бегать
-
-НИП так же может бегать. Бег меняет анимацию и скорость передвижения.
-
-<div align="left">
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcRunningTo.mp4").default} />
+  </div>
+  <div align="left" id="content">
+НИП так же может бегать. Бег меняет скорость передвижения.
 ```kts
 <npcID>.isRunning = true // Вкл. режим бега
 
 <npcID>.isRunning = false // Выкл. режим бега. По умолчанию
 ```
-
+  </div>
 </div>
-
 :::
 
 <br />
@@ -199,15 +208,11 @@ npc.stopMoveAlways()
 
 <Tabs>
 <TabItem value="onPos" label="На позицию" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-move_to-pos](@site/static/img/doc/actions/npc-look_at-pos.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcLookAtPos.mp4").default} />
+  </div>
+  <div align="left" id="content">
 ```kts
 <npcID> lookAt { pos(x, y, z) }
 ```
@@ -219,109 +224,57 @@ npc.stopMoveAlways()
 ```kts title="Пример"
 npc lookAt { pos(-361, 83, 23) }
 ```
-
-</div>
+  </div>
 </div>
 </TabItem>
 <TabItem value="onPlayer" label="На игрока" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-move_to-pos](@site/static/img/doc/actions/npc-look_at-player.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcLookAtPlayerNpc.mp4").default} />
+  </div>
+  <div align="left" id="content">
 ```kts
 <npcID> lookAt { <player> }
 ```
-
-<Random prct={70} prctMax={100}>
-<High>
-
-НИП будет идти на [**Определённого игрока**](@site/static/img/page-null.gif "Не кликай!").
-
-</High>
-<Low>
-
-НИП будет идти на [**Определённого игрока**](@site/static/img/page-null.png "Не кликай.").
-
-</Low>
-</Random>
+НИП будет смотреть на **Определённого игрока**.
 
 ---
 
 ```kts title="Пример"
 npc lookAt { player().first() }
 ```
-
-</div>
+  </div>
 </div>
 </TabItem>
 <TabItem value="onNpc" label="На Другого НИПа" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-<script src="random" defer></script>
-
-<Random prct={99} prctMax={100}>
-<Low>
-
-![npc-move_to-pos](@site/static/img/doc/actions/npc-look_at-npc.gif)
-
-</Low>
-<High>
-
-![npc-move_to-pos](@site/static/img/doc/actions/npc-look_at-npc-mem.gif)
-
-</High>
-</Random>
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcLookAtPlayerNpc.mp4").default} />
+  </div>
+  <div align="left" id="content">
 ```kts
-<npcID> lookAt { <any_npcID> }
+<npcID> lookAt <npcID>
 ```
 
-НИП будет смотреть на **Другого НИПа**.
+НИП будет смотреть на **Указанного НИПа**.
+
 
 ---
 
 ```kts title="Пример"
-npc lookAt { mike }
-```
+val hollowNpc by NPCEntity.creating {...}
 
-</div>
+npc lookAt hollowNpc
+```
+  </div>
 </div>
 </TabItem>
 <TabItem value="onEntity" label="На сущность" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-move_to-pos](@site/static/img/doc/actions/npc-look_at-entity.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
-```kts
-<npcID> lookAt { <Entity> }
-```
-
-НИП будет смотреть на Сущность.
-
----
-
-```kts title="Пример"
-/* IDK */
-```
-
----
-
-Если же нужно, что бы НПС смотрел на любую сущность одного типа
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcLookAtEntityType.mp4").default} />
+  </div>
+  <div align="left" id="content">
 ```kts
 <npcID> lookAtEntityType { "<entityID>" }
 ```
@@ -332,22 +285,17 @@ npc lookAt { mike }
 ---
 
 ```kts title="Пример"
-npc lookAtEntityType { "cow" }
+npc lookAtEntityType { "dog" }
 ```
-
-</div>
+  </div>
 </div>
 </TabItem>
 <TabItem value="alwaysOn" label="Бесконечно" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-move_to-pos](@site/static/img/doc/actions/npc-always-look_at.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcAlwaysLookAt.mp4").default} />
+  </div>
+  <div align="left" id="content">
 ```kts
 <npcID> lookAlwaysAt { <target> }
 ```
@@ -366,8 +314,7 @@ npc lookAlwaysAt { player().first() }
 
 npc.stopLookAlways()
 ```
-
-</div>
+  </div>
 </div>
 </TabItem>
 </Tabs>
