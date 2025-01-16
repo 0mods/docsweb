@@ -47,6 +47,8 @@ import Player from '@site/src/components/video_player/VideoPlayer.tsx';
     <Player url={require("@site/static/img/doc/actions/NpcMoveToPos.mp4").default} />
   </div>
   <div align="left" id="content">
+    <div align="center" style={{ "color": "red", "font-weight": "700" }}>Стандартый метод может работать криво. Используйте из пака `HollowEngine: Fixer` на дискорд сервере в канале `#script-templates`!</div>
+    <br />
 ```kts
 <npcID> moveTo { pos(x, y, z) }
 ```
@@ -330,15 +332,13 @@ npc.stopLookAlways()
 ## Телепорт
 
 :::info Телепорт
-
-<div style={{"display": "flex"}}>
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-move_to-pos](@site/static/img/doc/actions/npc-tp.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcTpTo.mp4").default} />
+  </div>
+  <div align="left" id="content">
+<div align="center" style={{ "color": "yellow", "font-weight": "700" }}>Частицы в подписку не входят!</div>
+<br />
 ```kts
 <npcID> tpTo {
   pos = pos(x, y, z)
@@ -353,10 +353,8 @@ npc.stopLookAlways()
 > - `vec(pitch, yaw)` - Куда будет смотреть НИП после телепорта.  
 > - `dimentionID` - Мир, в который нужно телепортировать НИПа. Если оно не указано - берётся тот мир,
 в котором находится НИП в данный момент.
-
+  </div>
 </div>
-</div>
-
 :::
 
 <br />
@@ -372,15 +370,15 @@ npc.stopLookAlways()
 ### Сломать блок
 
 :::info Сломать блок
-
-<div style={{"display": "flex"}}>
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-move_to-pos](@site/static/img/doc/actions/npc-destroy_block.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcDestroyBlock.mp4").default} />
+  </div>
+  <div align="left" id="content">
+    <div align="center" style={{ "color": "yellow", "font-weight": "700" }}>Кирки в подписку не входят!</div>
+    <br />
+    <div align="center" style={{ "color": "red", "font-weight": "700" }}>Стандартый метод может работать криво. Используйте из пака `HollowEngine: Fixer` на дискорд сервере в канале `#script-templates`!</div>
+    <br />
 ```kts
 <npcID> destroyBlock { pos(x, y, z) }
 ```
@@ -394,10 +392,8 @@ npc.stopLookAlways()
 ```kts title="Пример"
 npc destroyBlock { pos(10, 35, 221) }
 ```
-
+  </div>
 </div>
-</div>
-
 :::
 
 <br />
@@ -405,15 +401,13 @@ npc destroyBlock { pos(10, 35, 221) }
 ### Взаимодейтсвие с блоком
 
 :::info Взаимодействие с блоком
-
-<div style={{"display": "flex"}}>
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-move_to-pos](@site/static/img/doc/actions/npc-use_block.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcUseBlock.mp4").default} />
+  </div>
+  <div align="left" id="content">
+    <div align="center" style={{ "color": "yellow", "font-weight": "700" }}>Игра в подписку не входит!</div>
+    <br />
 ```kts
 <npcID> useBlock { pos(x, y, z) }
 ```
@@ -427,10 +421,8 @@ npc destroyBlock { pos(10, 35, 221) }
 ```kts title="Пример"
 npc useBlock { pos(19, 73. 94) }
 ```
-
+  </div>
 </div>
-</div>
-
 :::
 
 <br />
@@ -442,15 +434,13 @@ npc useBlock { pos(19, 73. 94) }
 ## Атаковать
 
 :::info Атаковать цель
-
-<div style={{"display": "flex"}}>
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-move_to-pos](@site/static/img/null.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcTarget.mp4").default} />
+  </div>
+  <div align="left" id="content">
+    <div align="center" style={{ "color": "yellow", "font-weight": "700" }}>Мита в подписку не входит!</div>
+    <br />
 ```kts
 <npcID> setTarget { <target> }
 ```
@@ -467,20 +457,17 @@ npc useBlock { pos(19, 73. 94) }
 > [**Определённого игрока**](@site/static/img/page-null.png "Не кликай.").
 > </Low>
 > </Random>
-> - Другой НИП - Нужно за место `<target>` указать `npcID` другого НИПа.
-> - Сущность - Нужно за место `<target>` указать `Entity`. (IDK)
+> - Другой НИП - Нужно за место `<target>` указать `npcID` другого НИПа в виде лямбы.
+>   ```kts
+>   npcId setTarget { otheNpcId() }
+>   ```
+> - Сущность - Нужно за место `<target>` указать `LivingEntity`. (IDK)
 
 ---
 
-```kts
-<npcID> setTarget { null }
-
-// или
-
-<npcID> clearTarget()
+```kts title="Перестать атаковать цель"
+<npcID>.clearTarget()
 ```
-
-Перестать атаковать цель
 
 ---
 
@@ -489,10 +476,11 @@ npc setTarget { player().first() }
 
 npc clearTarget()
 ```
+> Имейте в виду что данный метод не ждёт когда цель - умрёт. Скрипт продолжится дальше.
+> Если вам нужно ждать, то используйте один из [триггеров](../5-triggers.mdx#обратное-условие).
 
+  </div>
 </div>
-</div>
-
 :::
 
 </div>
