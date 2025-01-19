@@ -196,6 +196,16 @@ import net.minecraft.world.level.block.SoundTypes
 :::warning Работоспособность
 Т.к. компилятор работает немного криво, не факт что все ниже перечесленные методы будут работать
 в принцепе.
+---
+Для некоторых методов возможна потребуется аннотация:
+```kts
+@Deprecated(message: String)
+
+// Пример //
+
+@Deprecated("Этот метод - устарел")
+override fun use(...) {...}
+```
 :::
 :::tip Как использовать
 Для начала вам нужно заменить:
@@ -814,13 +824,14 @@ import net.minecraft.network.chat.Component
 import ru.hollowhorizon.hollowengine.common.tabs.HOLLOWENGINE_TAB
 
 fun init() {
-  val ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "test")
+  val BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "test")
 
-  ITEMS.register("amogus") {
+  BLOCKS.register("amogus") {
     object: Item(Item.Properties()
       .stacksTo(8)
       .tab(HOLLOWENGINE_TAB)
     ) {
+      @Deprecated("Ok")
       override fun use(
         pLevel: Level,
         pPlayer: Player,

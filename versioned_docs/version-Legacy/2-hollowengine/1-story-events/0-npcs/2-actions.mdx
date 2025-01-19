@@ -437,20 +437,14 @@ npc useBlock { pos(19, 73. 94) }
 НИП будет атаковать цель до последнего, пока цель не умрёт.
 
 Целью может быть:  
-> - Игрок - Нужно за место `<target>` указать
-> <Random prct={70} prctMax={100}>
-> <High>
-> [**Определённого игрока**](@site/static/img/page-null.gif "Не кликай!").
-> </High>
-> <Low>
-> [**Определённого игрока**](@site/static/img/page-null.png "Не кликай.").
-> </Low>
-> </Random>
+> - Игрок - Нужно за место `<target>` указать  
+>   - [**Определённого игрока**](../3-player/0-get_player.mdx#получить-игрока-ов).
 > - Другой НИП - Нужно за место `<target>` указать `npcID` другого НИПа в виде лямбы.
->   ```kts
->   npcId setTarget { otheNpcId() }
->   ```
-> - Сущность - Нужно за место `<target>` указать `LivingEntity`. (IDK)
+>     ```kts
+>     npcId setTarget { otheNpcId() }
+>     ```
+> - Сущность - Нужно за место `<target>` указать
+>   - `LivingEntity` (Для прошаренных).
 
 ---
 
@@ -461,7 +455,9 @@ npc useBlock { pos(19, 73. 94) }
 ---
 
 ```kts title="Пример"
-npc setTarget { player().first() }
+val players by server.players
+
+npc setTarget { player()[0] }
 
 npc clearTarget()
 ```
