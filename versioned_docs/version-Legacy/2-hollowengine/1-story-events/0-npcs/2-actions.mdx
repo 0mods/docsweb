@@ -73,7 +73,7 @@ npc moveTo { pos(13, 65, 235) }
 <npcID> moveTo { <player> }
 ```
 
-НИП будет идти до **Указанного игрока** .
+НИП будет идти до [**Указанного игрока**](../3-player/0-get_player.mdx).
 
 ---
 
@@ -123,36 +123,25 @@ npc moveTo { kolya().position() }
   </div>
 </div>
 </TabItem>
-{/*
+
 <TabItem value="toEntity" label="До сущности" attributes={{className: tab.def}}>
-<div style={{"display": "flex"}}>
-
-<div atyle={{"margin": "20px", "align-items": "flex-start"}}>
-
-![npc-move_to-pos](@site/static/img/doc/actions/npc-move_to-entity.gif)
-
-</div>
-<div align="left" style={{"margin": "10px", "align-items": "flex-end"}}>
-
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcMoveToPlayerNpc.mp4").default} />
+  </div>
+  <div align="left" id="content">
+:::warning Тема для прошаренных
 ```kts
+<npcID> moveTo <Entity>
+// или
 <npcID> moveTo { <Entity> }
 ```
-
-НИП будет идти до **Определённой сущности**.
-
----
-
-```kts title="Пример"
-npc moveTo { <IDK> }
-```
-</div>
-</div>
-:::warning СТОЯТЬ!!!
-Если ты на серьёзных щах думаешь что "я вот впишу сейчас 'minecraft:cow' то всё будет ок" - это **ФАТАЛЬНАЯ ОШИБКА**!  
-Твоих коров в мире дохрена. К какой идти ему?
+НИП может идти до конкретной сущности.
 :::
+  </div>
+</div>
 </TabItem>
-*/}
+
 <TabItem value="alwaysMoveTo" label="Бесконечно" attributes={{className: tab.def}}>
 <div id="preview-content">
   <div id="preview">
@@ -238,7 +227,7 @@ npc lookAt { pos(-361, 83, 23) }
 ```kts
 <npcID> lookAt { <player> }
 ```
-НИП будет смотреть на **Определённого игрока**.
+НИП будет смотреть на [**Определённого игрока**](../3-player/0-get_player.mdx).
 
 ---
 
@@ -406,7 +395,7 @@ npc destroyBlock { pos(10, 35, 221) }
     <Player url={require("@site/static/img/doc/actions/NpcUseBlock.mp4").default} />
   </div>
   <div align="left" id="content">
-    <div align="center" style={{ "color": "yellow", "font-weight": "700" }}>Игра в подписку не входит!</div>
+    <div align="center" style={{ "color": "yellow", "font-weight": "700" }}>Игра с ИИ в подписку не входит!</div>
     <br />
 ```kts
 <npcID> useBlock { pos(x, y, z) }

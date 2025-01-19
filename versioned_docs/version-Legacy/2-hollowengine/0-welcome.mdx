@@ -7,38 +7,14 @@ description: ''
 ---
 
 import '@site/src/css/pages/img-show.css';
-import { Random, Part } from '@site/src/packs/random_new.js';
-import PlayerNoBar from '@site/src/components/video_player/VideoPlayerNoBar.tsx';
+import DateContent from '@site/src/components/ny_cnt.jsx';
 
 <div align="center">
 
 # Добро пожаловать
 **на документацию по моду __`HollowEngine`__!**
 
-{/*
-<link rel="prefetch" as="image" href="@site/static/img/doc/titles/Welcome0.webp" />
-<div className="cont">
-<div className="show" id="mask">
-
-  <Random max="100">
-  <Part low="0" high="99">
-
-  ![Welcome](@site/static/img/doc/titles/Welcome0.webp)
-
-  </Part>
-  <Part low="100" high="100">
-
-  ![Welcum](@site/static/img/doc/titles/Welcum.png)
-
-  </Part>
-  </Random>
-</div>
-</div>
-*/}
-
-<div className="show" id="mask">
-  <PlayerNoBar url={require("@site/static/img/doc/titles/WelcomeCrismas.mp4").default} />
-</div>
+<DateContent />
 
 ---
 
