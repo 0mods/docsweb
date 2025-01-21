@@ -7,6 +7,7 @@ desc: 'NaN'
 ---
 
 import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
+import Player from '@site/src/components/video_player/VideoPlayer.tsx';
 
 <div align="center" id="dont-copy">
 
@@ -478,18 +479,16 @@ fun init() {
 }
 ```
 </div>
-:::
-:::note Скриншот
-<div style={{ "display": "flex", "align-items": "center", "height": "100%" }}>
-<div style={{ "width": "50%", "margin": "8px" }}>
-![item](@site/static/img/doc/mod/testModelItem.png "Правда же милашка?)")
-</div>
-<div style={{ "width": "50%", "items-align": "center", "margin": "8px" }}>
-![hotbar](@site/static/img/doc/mod/itemUsePreview.gif "Взаимодействие с предметом на ПКМ")
-</div>
-<div style={{ "width": "25%", "items-align": "flex-end", "align-items": "center", "margin": "8px" }}>
-![hotbar](@site/static/img/doc/mod/testModelHotbar.png "Предмет в хотбаре")
-</div>
+<div style={{ "display": "flex", "align-items": "center" }}>
+  <Player url={require("@site/static/img/doc/mod/ItemDemo0.mp4").default} />
+  <div>
+    <div style={{ "width": "50%", "items-align": "flex-end", "align-items": "center", "margin": "8px" }}>
+      ![hotbar](@site/static/img/doc/mod/testModelHotbar.png "Предмет в хотбаре")
+    </div>
+    <div style={{ "width": "50%", "margin": "8px" }}>
+      ![item](@site/static/img/doc/mod/testModelItem.png "Правда же милашка?)")
+    </div>
+  </div>
 </div>
 :::
 

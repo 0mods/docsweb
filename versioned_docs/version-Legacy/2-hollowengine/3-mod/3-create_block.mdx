@@ -7,6 +7,7 @@ desc: 'NaN'
 ---
 
 import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
+import Player from '@site/src/components/video_player/VideoPlayer.tsx';
 
 <div align="center" id="dont-copy">
 
@@ -659,14 +660,16 @@ BLOCKS.register(MOD_BUS)
 Не бойтесь. Прибегать к команде `/setblock x y z <modId>:<newBlockId>` не придётся)
 <div align="left">
 ```kts title="Создаём блок-предмет"
-// Создаём регистрато для предметов //
-val ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, modId: String)
+// Создаём регистраторы для предметов //
+val ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "best_mod")
+val BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "best_mod")
 
 // Записываем наш блок в переменную. Сам блок долнех находится в скрипте - выше блока-предмета //
 val COOL_BLOCK = BLOCKS.register("cool_block") {...}
 
 // Создаём наш блок-предмет. ID предмета должен быть тот же, что и у блока ?/
 ITEMS.register("cool_block") {
+
   // Обычный предмет //
   BlockItem(
     COOL_BLOCK.get(), // Передаём блок через переменную
@@ -700,7 +703,7 @@ BLOCKS.register(MOD_BUS)
 <br />
 
 ## Ресурсы для предмета
-::::info ресурсы для предмета
+::::info ресурсы для блока
 ### Модель
 Теперь если вам вдруг не понравился красивый и сочый куб с фиолетово-чёрными четверть
 кадратиками, то следуйте иструкции ниже:
@@ -814,53 +817,105 @@ BLOCKS.register(MOD_BUS)
 ```kts title="Пример"
 import net.minecraftforge.registries.DeferredRegister
 import net.minecraftforge.registries.ForgeRegistries
+import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.BlockGetter
+import net.minecraft.world.level.block.state.BlockBehaviour
+import net.minecraft.world.level.block.state.BlockState
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.ItemStack
+import net.minecraft.world.item.BlockItem
+import net.minecraft.world.item.TooltipFlag
+import net.minecraft.world.level.material.Material
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.InteractionHand
 import net.minecraft.world.InteractionResultHolder
 import net.minecraft.world.level.Level
 import net.minecraft.network.chat.Component
+import net.minecraft.core.BlockPos
+import net.minecraft.world.phys.BlockHitResult
+import net.minecraft.world.InteractionResult
+import net.minecraft.core.particles.ParticleTypes
 import ru.hollowhorizon.hollowengine.common.tabs.HOLLOWENGINE_TAB
 
 fun init() {
+  val ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "test") // Для блок-предмета
   val BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "test")
 
-  BLOCKS.register("amogus") {
-    object: Item(Item.Properties()
-      .stacksTo(8)
-      .tab(HOLLOWENGINE_TAB)
+  val AMOGUS_BLOCK = BLOCKS.register("amogus") {
+    object: Block(
+      BlockBehaviour.Properties.of(Material.CLOTH_DECORATION)
+      .noCollission()
+      .destroyTime(1f)
+      .explosionResistance(1f)
     ) {
       @Deprecated("Ok")
       override fun use(
+        pState: BlockState,
+        pLevel: Level,
+        pPos: BlockPos,
+        pPlayer: Player,
+        pHand: InteractionHand,
+        pHit: BlockHitResult
+      ): InteractionResult {
+        if(pLevel.isClientSide && pHand == InteractionHand.MAIN_HAND) {
+          pLevel.addParticle(
+            ParticleTypes.NOTE,
+            pPos.x.toDouble(), pPos.y.toDouble(), pPos.z.toDouble(),
+            0.0, 0.5, 0.0
+          )
+          pPlayer.swing(pHand)
+          
+          return InteractionResult.SUCCESS
+        } else
+          return InteractionResult.PASS
+      }
+    }
+  }
+  // Блок-предмет //
+  val AMOGUS_ITEM = ITEMS.register("amogus") {
+    object: BlockItem(
+      AMOGUS_BLOCK.get(),
+      Item.Properties()
+      .stacksTo(8)
+      .tab(HOLLOWENGINE_TAB)
+    ) {
+      override fun use(
         pLevel: Level,
         pPlayer: Player,
-        pUseHand: InteractionHand
+        pHand: InteractionHand
       ): InteractionResultHolder<ItemStack> {
-        if(pLevel.isClientSide && pUseHand == InteractionHand.MAIN_HAND)
-          pPlayer.sendSystemMessage(Component.literal("*Писк*"))
+        if(pLevel.isClientSide && pHand == InteractionHand.MAIN_HAND) {
+          val pPos = pPlayer.position()
+          val pVec = pPlayer.getViewVector(1f)
+          val handOffset = -0.3
+          val particlePos = pPos.add(
+            pVec.x * 0.5 + handOffset,
+            pVec.y * 0.5,
+            pVec.z * 0.5
+          )
 
-        return super.use(pLevel, pPlayer, pUseHand)
+          pLevel.addParticle(
+            ParticleTypes.NOTE,
+            particlePos.x, particlePos.y + 1, particlePos.z,
+            0.0, 0.5, 0.0
+          )
+          pPlayer.swing(pHand)
+        }
+        return super.use(pLevel, pPlayer, pHand)
       }
     }
   }
 
-  ITEMS.register(MOD_BUS)
+  BLOCKS.register(MOD_BUS)
+  ITEMS.register(MOD_BUS) // Для блок-предмета
 }
 ```
 </div>
-:::
-:::note Скриншот
-<div style={{ "display": "flex", "align-items": "center", "height": "100%" }}>
-<div style={{ "width": "50%", "margin": "8px" }}>
-![item](@site/static/img/doc/mod/testModelItem.png "Правда же милашка?)")
-</div>
-<div style={{ "width": "50%", "items-align": "center", "margin": "8px" }}>
-![hotbar](@site/static/img/doc/mod/itemUsePreview.gif "Взаимодействие с предметом на ПКМ")
-</div>
-<div style={{ "width": "25%", "items-align": "flex-end", "align-items": "center", "margin": "8px" }}>
-![hotbar](@site/static/img/doc/mod/testModelHotbar.png "Предмет в хотбаре")
-</div>
+<div style={{ "display": "flex", "align-items": "center" }}>
+  <Player url={require("@site/static/img/doc/mod/ItemDemo0.mp4").default} />
+  <div style={{ "margin-left": "16px" }}>
+    ![hotbar](@site/static/img/doc/mod/testModelHotbar.png "Предмет в хотбаре")
+  </div>
 </div>
 :::
 
