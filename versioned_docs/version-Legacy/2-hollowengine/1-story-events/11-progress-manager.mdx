@@ -47,14 +47,16 @@ desc: 'NaN'
 <div align="left" id="dont-copy">
 
 ```kts
-<player>.progressManager.addMessage { "<text>" } // Добавляет сообщение в менеджер ивентов
-<player>.progressManager.removeMessage { "<text>" } // Удаляет сообщение из менеджера ивентов
-<player>.progressManager.clear() // Очищает менеджер ивентов
+<players>.progressManager.addMessage { "<text>" } // Добавляет сообщение в менеджер ивентов
+<players>.progressManager.removeMessage { "<text>" } // Удаляет сообщение из менеджера ивентов
+<players>.progressManager.clear() // Очищает менеджер ивентов
 ```
 
 ---
 
 ```kts title="Пример"
+val players by server.plaeyrs
+
 players.progressManager.addMessage { "Hello World!" }
 players.progressManager.addMessage { "[Новый друг] Принеси к себе в хату нового друга." }
 ```
