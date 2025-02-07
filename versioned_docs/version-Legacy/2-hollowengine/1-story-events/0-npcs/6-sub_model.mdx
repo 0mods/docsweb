@@ -27,14 +27,29 @@ desc: 'Возможность приодеть НИПа'
 
 <div id="dont-copy">
 
-# Добавление модели
+## Добавление модели
 
 ::::info Добавление модели
 Дополнительную модель ты можешь наложить только либо на кость, либо на группу
 <div align="left">
 ```kts
 subModel["<bone/group>"] = SubModel(
-  model = "<path/to/model>"
+  model = "<path/to/model>", // Модель
+  textures["<>textureName>"] = "<path/to/texture>", // Текстура для модели
+  layers = mutableListOf( // Анимации
+    AnimationLayer(
+      animation = "<animationName>", // Название анимации
+      layerMode = LayerMode.<TYPE>, // Режим смешивания
+      playMode = PlayType.<TYPE>, // Режим воспроизведени
+      speed = <Float> // Скорость воспроизведения
+    ) // Если нужно запустить несколько анимаций, то пишете через запятую
+  ),
+  transform = Transform( // Трансформация
+    tX = <Float>, tY = <Float>, tZ = <Float>, // Смещение
+    rX = <Float>, rY = <Float>, rZ = <Float>, // Поворот
+    sX = <Float>, sY = <Float>, sZ = <Float> // Масштаб
+  ),
+  subModel = SubModel(...) // Под-модель для модели. Тот же синтакс
 )
 ```
 > `bone/group` - Название кости или группы в модели.
@@ -50,25 +65,21 @@ subModel["<bone/group>"] = SubModel(
 
 <br />
 
-## Анимации модели
+## Пустые значения
 
-::::info Анимации модели
-Так же, если у модели есть анимации, ты можешь их воспроизводить
-:::warning
-Писать нужно там же, но после `model` (на новой строке)
-:::
+:::tip Пустые значения
+Установить модель без всех значений - нельзя. Так что нужно указать хотя бы
+значения у параметров - по умолчанию.
+
 <div align="left">
 ```kts
-layer += AnimationLayer(
-  animation = "<animationName" // Название анимации
-  layerMode = LayerMode.<TYPE> // Режим смешивания
-  playMode = PlayType.<TYPE> // Режим воспроизведени
-  speed = <Float> // Скорость воспроизведения
-)
+layers = ArrayList() // Модель без анимаций
+textures = HashMap() // Модель без дополнительных текстур
+transform = Transform() // Без трансформации
+subModel = HashMap() // Без дополнительной под-модели
 ```
 </div>
-Всё как и в [Анимациях у НИПа](./3-animations.mdx)
-::::
+:::
 
 <br />
 
@@ -82,12 +93,18 @@ layer += AnimationLayer(
 
 ```kts
 subModel["Head"] = SubModel(
-  model = "models:decores/tophead_black,gltf"
-  layer += AnimationLayer(
-    animation = "levitation"
-    layerMode = LayerMode.ADD
-    playMode = PlayType.LOOPED
-  )
+  "models:decores/tophead_black,gltf", // model
+  mutableListOf( // layers
+    AnimationLayer(
+      animation = "levitation"
+      layerMode = LayerMode.ADD
+      playMode = PlayType.LOOPED
+    )
+  ),
+  HashMap(), // textures
+  Transform(), // transform
+  HashMap() // subModel
+
 )
 ```
 </div>
