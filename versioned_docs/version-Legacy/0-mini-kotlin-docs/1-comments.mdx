@@ -40,7 +40,7 @@ println("Goodbye world!")
 doSomething(a, b, /* Такие комментарии могут быть где угодно */ c, d, e)
 ```
 
-## Комментарии-подсказки
+## KDoc (JavaDoc)
 
 Задаются выражением:
 <div align="left">
@@ -65,6 +65,21 @@ fun exampleFunction(a: Int, b: String): String = "$a | $b"
 ```
 Если програма - умная, то она сможет правильно прочитать такие комментарии и правильно
 показывать их пользователю.
+:::tip Блок-теги
+```kts
+// Описание для конкретного параметра //
+@param [value] [description]
+```
+```kts
+// Описание для того, что возвращает //
+@return [description]
+```
+```kts
+// Можно указать автора //
+@author [text]
+```
+Из больше, но этих хватит вам :)
+:::
 </div>
 <div style={{ "items-align": "flex-end", "width": "150%", "margin-left": "8pd", "border-radius": "2rem" }}>
 ![0](@site/static/img/doc/mini_kotlin_docs/example_comment_helper_0.png)
