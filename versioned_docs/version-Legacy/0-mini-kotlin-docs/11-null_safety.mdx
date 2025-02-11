@@ -1,0 +1,237 @@
+---
+sidebar_position: 11
+title: Работа с Null
+id: kotlin-null-safety
+description: 'Как безопасно работать с nullable-типами в Kotlin.'
+---
+
+{/* Спасибо 'dan_bat' за данную страничку :) */}
+
+<div align="center">
+
+# Null-безопасность в `Kotlin`
+
+---
+
+<br />
+
+:::tip Почему это важно?
+Kotlin предотвращает `NullPointerException` на уровне типов. Если переменная может быть `null`, это явно указывается в её типе через `?`.
+Кроме переменных, nullable-значения можно использовать в параметрах и возвращаемом типе функций.
+:::
+
+<br />
+
+---
+
+<br />
+
+## Объявление nullable-переменных
+
+<div align="left">
+
+```kts title="Пример: базовые типы"
+val name: String? = null  // Строка или null
+val age: Int? = 25        // Число или null
+val list: List<String>? = listOf("A", "B") // Список или null
+```
+
+</div>
+
+<br />
+
+---
+
+<br />
+
+## Проверки на null
+
+### 1. Явная проверка через `if`
+
+<div align="left">
+
+```kts title="Пример: проверка длины строки"
+val text: String? = "Hello"
+
+if (text != null) {
+    println("Длина текста: ${text.length}") // Безопасный доступ
+} else {
+    println("Текст равен null")
+}
+```
+
+```console title="В консоли"
+Длина текста: 5
+```
+
+> **Комментарий:**  
+> Проверка `text != null` позволяет использовать переменную как non-null внутри блока `if`.
+
+</div>
+
+<br />
+
+---
+
+<br />
+
+### 2. Безопасный вызов (`?.`)
+
+<div align="left">
+
+```kts title="Пример: получение длины строки"
+val text: String? = null
+val length = text?.length // Если text = null, вернет null
+
+println("Длина: ${length ?: "неизвестна"}")
+```
+
+```console title="В консоли"
+Длина: неизвестна
+```
+
+> **Комментарий:**  
+> `text?.length` возвращает `null`, если `text` равен `null`.  
+> `?:` задаёт значение по умолчанию.
+
+</div>
+
+<br />
+
+---
+
+<br />
+
+### 3. Оператор `!!`
+
+<div align="left">
+
+```kts title="Пример: явное преобразование"
+val text: String? = "Kotlin"
+val forcedLength = text!!.length // Уверены, что text != null
+
+println(forcedLength) // 6
+
+// Но если text = null:
+// val error = text!!.length // Выбросит NullPointerException
+```
+
+> **Комментарий:**  
+> Используйте `!!` только если уверены, что переменная не `null`. В противном случае — крах программы.
+
+</div>
+
+<br />
+
+---
+
+<br />
+
+## Nullable-типы в функциях
+
+Nullable-значения можно использовать не только в переменных, но и в параметрах и возвращаемом типе функции.
+
+<div align="left">
+
+```kts title="Пример: nullable параметры и возвращаемый тип"
+fun greet(name: String?): String? {
+    return if (name != null) "Привет, $name!" else null
+}
+
+val message = greet(null) ?: "Имя не указано"
+println(message)
+```
+
+```console title="В консоли"
+Имя не указано
+```
+
+> **Комментарий:**  
+> Функция `greet` принимает `name: String?` и возвращает `String?`.  
+> Если `name == null`, функция тоже возвращает `null`.
+
+</div>
+
+<br />
+
+---
+
+<br />
+
+## Примеры логики
+
+### Пример 1: обработка чисел
+
+<div align="left">
+
+```kts title="Сумма двух nullable-чисел"
+val a: Int? = 10
+val b: Int? = 5
+
+val sum = (a ?: 0) + (b ?: 0) // Если a или b = null, считаем их как 0
+println("Сумма: $sum")
+```
+
+```console title="В консоли"
+Сумма: 15
+```
+
+</div>
+
+<br />
+
+---
+
+<br />
+
+### Пример 2: работа со списками
+
+<div align="left">
+
+```kts title="Поиск элемента в nullable-списке"
+val list: List<String>? = listOf("Apple", "Banana")
+
+val firstItem = list?.firstOrNull() ?: "Список пуст"
+println("Первый элемент: $firstItem")
+```
+
+```console title="В консоли"
+Первый элемент: Apple
+```
+
+> **Комментарий:**  
+> `list?.firstOrNull()` вернет `null`, если список `null` или пуст.  
+> Оператор `?:` заменяет `null` на строку "Список пуст".
+
+</div>
+
+<br />
+
+---
+
+<br />
+
+### Пример 3: цепочка вызовов
+
+<div align="left">
+
+```kts title="Безопасный доступ к свойствам"
+data class User(val name: String?, val age: Int?)
+
+val user: User? = User(name = null, age = 30)
+
+val userName = user?.name?.uppercase() ?: "Имя не указано"
+println(userName)
+```
+
+```console title="В консоли"
+Имя не указано
+```
+
+> **Комментарий:**  
+> Если `user`, `user.name` или любое звено цепочки равно `null`, результат — `null`.  
+> Оператор Элвиса заменяет итоговый `null` на дефолтное значение.
+
+</div>
+
+</div>
