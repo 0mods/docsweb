@@ -152,8 +152,7 @@ npc.waitInteract()
 <players>.input("<arg0>", "<arg1>", ...) // Конктректное сообщение из списка
 
 /*Запись в переменную */
-val myValue = <players>.input().message // Запишет в переменную сообщение
-val myValue = <players>.input().player // Запишет в переменную игрока, который отправил сообщение
+val myValue by <players>.input() // Запишет в переменную содержание сообщение
 ```
 
 ---
@@ -166,8 +165,7 @@ players.input()
 players.input("Привет")
 players.input("Привет", "Hello")
 
-val meMessage = players.input().message
-val mePlayer = players.input().player
+val meMessage by players.input()
 ```
 
 </div>
