@@ -1,0 +1,11 @@
+#ver-full { display: block }
+#ver-cut { display: block }
+
+@media screen and (max-width: 1204px) {
+  #ver-full { display: none }
+  #ver-cut { display: block }
+}
+@media screen and (min-width: 1205px) {
+  #ver-full { display: block }
+  #ver-cut { display: none }
+}

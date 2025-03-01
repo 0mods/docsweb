@@ -1,0 +1,6 @@
+position: 1
+label: Начало
+link:
+  type: generated-index
+customProps:
+  description: 'Перед началом лучше стоит ознакомится с внешней оболочкой мода'

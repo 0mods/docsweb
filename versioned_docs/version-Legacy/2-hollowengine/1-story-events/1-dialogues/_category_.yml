@@ -1,0 +1,6 @@
+position: 1
+label: 'Диалоги'
+link:
+  type: generated-index
+customProps:
+  description: 'Поговорить охотно'

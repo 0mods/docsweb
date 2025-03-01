@@ -1,0 +1,27 @@
+.i-txt-img {
+  @media screen and (max-width: 780px) {
+    display: block;
+
+    margin: 10px;
+  }
+  @media screen and (min-width: 781px) {
+    display: flex;
+
+    margin: 20px;
+
+    justify-content: flex-start;
+  }
+}
+
+.i-txt {
+  @media screen and (max-width: 780px) {
+    margin-right: 10px;
+  }
+  @media screen and (min-width: 781px) {
+    margin-right: 20px;
+  }
+}
+
+.i-img {
+  justify-content: flex-end;
+}

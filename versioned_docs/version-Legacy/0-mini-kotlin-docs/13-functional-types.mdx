@@ -1,0 +1,109 @@
+---
+sidebar_position: 13
+title: Функциональные типы
+id: mkd-functional-types
+description: "Использование функций как объектов: лямбды, анонимные функции и высший порядок."
+---
+
+{/* Спасибо 'dan_bat' за данную страничку :) */}
+
+<div align="center">
+
+# Функциональные типы в `Kotlin`
+
+---
+
+</div>
+
+## Общее описание
+
+Функциональные типы позволяют работать с функциями как с объектами: передавать их в аргументы, возвращать из других функций и сохранять в переменных.
+
+### Синтаксис
+
+```kotlin
+(A, B, C) -> R  // Параметры A, B, C. Возвращает R
+() -> R         // Без параметров. Возвращает R
+(A) -> Unit     // Принимает A. Ничего не возвращает
+```
+
+---
+
+## Примеры
+
+### 1. Функция с параметрами и возвращаемым значением
+
+```kotlin
+val sum: (Int, Int) -> Int = { a, b -> a + b }
+println(sum(2, 3)) // Вывод: 5
+```
+
+### 2. Функция без параметров
+
+```kotlin
+val greet: () -> String = { "Hello, Kotlin!" }
+println(greet()) // Вывод: Hello, Kotlin!
+```
+
+### 3. Функция без возвращаемого значения
+
+```kotlin
+val printMessage: (String) -> Unit = { message -> println(message) }
+printMessage("Привет!") // Вывод: Привет!
+```
+
+---
+
+## Лямбда-выражения
+
+Упрощённый синтаксис для функциональных типов:
+
+```kotlin
+fun operate(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+    return operation(a, b)
+}
+
+val result = operate(5, 3) { x, y -> x * y }
+println(result) // Вывод: 15
+```
+
+---
+
+## Анонимные функции
+
+Явное объявление функционального типа:
+
+```kotlin
+val multiply: (Int, Int) -> Int = fun(a: Int, b: Int): Int {
+    return a * b
+}
+println(multiply(4, 5)) // Вывод: 20
+```
+
+---
+
+## Функции высшего порядка
+
+Функции, принимающие или возвращающие другие функции:
+
+```kotlin
+fun applyOperation(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+    return operation(a, b)
+}
+
+val sumResult = applyOperation(10, 5) { x, y -> x + y }
+println(sumResult) // Вывод: 15
+```
+
+---
+
+## Особенности
+
+1. **First-class citizens**: Функции равноправны с другими типами данных.
+2. **Стандартное применение**: Используются в `map`, `filter`, `forEach`:
+
+```kotlin
+listOf(1, 2, 3).map { it * 2 } // [2, 4, 6]
+```
+
+3. **Гибкость**: Позволяют создавать модульные и переиспользуемые компоненты.

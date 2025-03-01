@@ -1,0 +1,37 @@
+:root[data-theme="dark"] {
+  --background-color: #313eb588;
+  --border-color: #3847cf77;
+}
+:root[data-theme="light"] {
+  --background-color: #5b63aacc;
+  --border-color: #747ed955;
+}
+
+.toggle-button {
+  background-color: var(--background-color);
+
+  font-size: 20px;
+  font-weight: normal;
+
+  padding: 10px;
+
+  margin-bottom: 20px;
+
+  border-width: 10px;
+  border-color: var(--border-color);
+  border-radius: 10px;
+
+  color: #d1d1d1;
+
+  transition:
+    font-size 0.25s ease-in-out,
+    border-width 0.25s ease-in-out,
+    color 0.5s ease-in-out,
+    font-weight 0.25s ease-in-out;
+}
+.toggle-button:hover {
+  font-size: 22px;
+  border-width: 5px;
+  color: #ffffff;
+  font-weight: bold;
+}

@@ -1,0 +1,80 @@
+---
+sidebar_position: 2
+
+title: Тряска камеры
+id: camera-shake
+desc: 'Немного потрясёт и перестанет'
+---
+
+import '@site/src/pages/dont_copy.js';
+import '@site/src/pages/dont_copy_style.css';
+import Player from '@site/src/components/video_player/VideoPlayer';
+
+<div align="center">
+
+# Тряска камеры
+
+Немного потрясёт
+
+<div className="show" id="mask">
+
+![camera-shake](@site/static/img/doc/titles/CameraShake0.webp)
+
+</div>
+
+и перестанет
+
+---
+
+<br />
+
+<div id="dont-copy">
+
+## Настройка тряски
+
+<br />
+
+:::info Настройка тряски
+
+Простая тряска экрана
+
+<div align="left">
+
+```kts
+shake {
+  duration = <time> // Время действия тряски
+  intensity1 = <Float> // Сила тряски в начале
+  intensity2 = <Float> // Сила тряски в середине
+  intensity3 = <Float> // Сила тряски в конце
+  intensityStart = Interpolation.QUAD_OUT // Плавность перехода от начала к середине
+  intensityEnd = Interpolation.QUAD_IN // Плавность перехода от середины к концу
+  targets = listOf(<ShakeTarget>) // То, что будет трястись
+}
+```
+
+---
+
+```kts title="Пример"
+shake {
+  duration = 5.sec
+  intensity1 = 0f
+  intensity2 = 2f
+  intensity3 = 0f
+  intensityStart = Interpolation.QUAD_OUT
+  intensityEnd = Interpolation.QUAD_IN
+  targets = listOf(
+    ShakeTarget.POS,
+    ShakeTarget.ROT
+    )
+}
+```
+
+</div>
+
+<Player url={require("@site/static/img/doc/cutscenes/CameraShakePreview.mp4").default} />
+
+:::
+
+</div>
+
+</div>
