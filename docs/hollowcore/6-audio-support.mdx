@@ -1,0 +1,138 @@
+---
+sidebar_position: 6
+
+title: Поддержка Аудио
+id: support-audio
+desc: 'NaN'
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import tab from '@site/src/css/tabs/tabs.module.css';
+
+<div align="center">
+
+# Поддержка аудио
+
+---
+
+:::note
+`HollowCore` позволяет использовать не только `ogg` формат аудио, но так же `mp3` и `wav`.
+К тому же - без необходимости регистрации звука.
+:::
+
+<br />
+
+## Чтение аудио файлов
+:::info Чтение аудио файлов
+<div id="dont-copy">
+<Tabs>
+  <TabItem value="ogg-audio" label="'ogg' формат" attributes={{className: tab.def}}>
+
+```kts
+val audio = OggFormat.read(stream) // stream - всё как в Java: InputStream, поток ввода данных
+```
+
+  </TabItem>
+  <TabItem value="mp3-audio" label="'mp3' формат" attributes={{className: tab.def}}>
+
+```kts
+val audio = Mp3Format.read(stream) // stream - всё как в Java: InputStream, поток ввода данных
+```
+
+  </TabItem>
+  <TabItem value="wav-audio" label="'wav' формат" attributes={{className: tab.def}}>
+
+```kts
+val audio = WavFormat.read(stream) // stream - всё как в Java: InputStream, поток ввода данных
+```
+
+  </TabItem>
+</Tabs>
+</div>
+:::
+
+<br />
+
+## Проигрывание звука
+
+<br />
+
+### Создание плеера
+<div id="dont-copy">
+```kts title="Пример"
+val buffer = AudioPlayer(audio) // Создание буфера для звука
+val player = AudioPlayer(buffer) // Создание проигрывателя звука
+```
+</div>
+
+<br />
+
+### Функции плеера
+:::info Фкнции плеера
+<div id="dont-copy">
+<Tabs>
+  <TabItem value="aplayer-play" label="Воспроизведение" attributes={{className: tab.def}}>
+
+```kts
+player.play()
+```
+
+  </TabItem>
+  <TabItem value="aplayer-pause" label="Пауза" attributes={{className: tab.def}}>
+
+```kts
+player.pause()
+```
+
+  </TabItem>
+  <TabItem value="aplayer-stop" label="Стоп" attributes={{className: tab.def}}>
+
+```kts
+player.stop()
+```
+
+  </TabItem>
+  <TabItem value="aplayer-set_volume" label="Громкость" attributes={{className: tab.def}}>
+
+```kts
+// Громкость ставится в %, т.е: "1f = 100%", а "0.32f = 32%" //
+player.setVolume(volume: Float)
+```
+
+  </TabItem>
+  <TabItem value="aplayer-set_pitch" label="Высота" attributes={{className: tab.def}}>
+
+```kts
+// Громкость ставится в %, т.е: "1f = 100%", а "0.32f = 32%" //
+player.setPitch(pitch: Float)
+```
+
+  </TabItem>
+  <TabItem value="aplayer-set_loop_mode" label="В цикле" attributes={{className: tab.def}}>
+
+```kts
+player.setLooping(loop: Boolean)
+```
+
+  </TabItem>
+  <TabItem value="aplayer-set_pos" label="Координаты" attributes={{className: tab.def}}>
+
+```kts
+player.setPosition(x: Float, y: Float, z: Float)
+```
+
+  </TabItem>
+<TabItem value="aplayer-set_relative" label="Относительно игрока" attributes={{className: tab.def}}>
+
+```kts
+player.setRelative(relative: Boolean)
+// При "true" - будут использованы координаты не относительно мира, а относительно игрока //
+```
+
+  </TabItem>
+</Tabs>
+</div>
+:::
+
+</div>

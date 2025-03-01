@@ -1,0 +1,70 @@
+---
+sidebar_position: 11
+
+title: 'Менеджер ивентов'
+id: progress-manager
+desc: 'NaN'
+---
+
+<div align="center">
+
+# Менеджер ивентов
+
+[Задание] Найти кота "Бориса"
+
+<div className="show" id="mask">
+
+![progress-manager](@site/static/img/doc/titles/EventManager0.webp)
+
+</div>
+
+[Вопрос] Кто такой "Борис"?
+
+---
+
+<br />
+
+## Меню
+
+:::info Меню
+Есть специальное меню, где будет список всего что вы добавили в менеджер ивентов. Открывается оно
+на клавишу `Ё` (по умолчанию).
+
+![ProgressManagerMenu](@site/static/img/doc/ProgressManager.png)
+
+:::
+
+<br />
+
+---
+
+<br />
+
+## Управление ивентами
+
+:::info Управление ивентами
+
+<div align="left" id="dont-copy">
+
+```kts
+<players>.progressManager.addMessage { "<text>" } // Добавляет сообщение в менеджер ивентов
+<players>.progressManager.removeMessage { "<text>" } // Удаляет сообщение из менеджера ивентов
+<players>.progressManager.clear() // Очищает менеджер ивентов
+```
+
+---
+
+```kts title="Пример"
+val players by server.plaeyrs
+
+players.progressManager.addMessage { "Hello World!" }
+players.progressManager.addMessage { "[Новый друг] Принеси к себе в хату нового друга." }
+```
+
+</div>
+
+![ProgressManagerMenu](@site/static/img/doc/ProgressManager.png)
+
+:::
+
+</div>

@@ -1,0 +1,6 @@
+position: 0
+label: 'KotlinScript'
+link:
+  type: generated-index
+customProps:
+  description: 'Документация по основам языка Kotlin в рамках скриптов для HollowEngine.'

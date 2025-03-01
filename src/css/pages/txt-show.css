@@ -1,0 +1,128 @@
+.title-show {
+  position: relative;
+
+  min-width: 110%;
+
+  animation: show 1s;
+  animation-timing-function: cubic-bezier(0, 1, 0, 1);
+}
+.title-txt {
+  color: var(--title-txt-color);
+}
+.title-bg {
+  display: relative;
+
+  width: 100%;
+  height: 100%;
+
+  background: var(--title-txt-color-def) no-repeat center center;
+
+  animation: lightting 1s 0s 1 linear;
+}
+.title-light {
+  display: flex;
+
+  position: absolute;
+
+  left: -50px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  width: 25%;
+  height: 100%;
+
+  background: linear-gradient(75deg, rgba(255,255,255,0) 10%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 65%) no-repeat center center;
+
+  transform: translateX(var(--pos));
+
+  animation: light-move 0.75s 0s 1 ease-in-out;
+}
+
+@keyframes show {
+  0% { transform: translateY(-100px);  opacity: 0; }
+  100% { transform: translateY(0px); opacity: 1; }
+}
+@keyframes lightting {
+  0%, 25%, 50%, 75% { background-color: var(--title-txt-color-morph) }
+  100% { background-color: var(--title-txt-color-def) }
+}
+@keyframes light-move {
+  0% { transform: translateX(10%) }
+  100% { transform: translateX(400%) }
+}
+
+/* FUCKING MASK */
+
+.title-mask {
+  display: relative;
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+}
+
+.title-txt {
+  color: transparent;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(237,237,237,1) 0%,
+      rgba(237,237,237,1) 50%,
+      rgba(237,237,237,1) 100%
+    );
+
+  background-clip: text;
+
+  animation: colorGradLightMove 1s ease-in-out;
+}
+@keyframes colorGradLightMove {
+  0% {
+    background:
+    linear-gradient(
+      90deg,
+      rgba(237,237,237,1) 0%,
+      rgba(237,237,237,1) 50%,
+      rgba(237,237,237,1) 100%
+    );
+
+  }
+  10% {
+    background:
+    linear-gradient(
+      90deg,
+      rgba(159,159,159,1) 0%,
+      rgba(237,237,237,1) 1%,
+      rgba(159,159,159,1) 5%
+    );
+  }
+  50% {
+    background:
+    linear-gradient(
+      90deg,
+      rgba(159,159,159,1) 15%,
+      rgba(237,237,237,1) 40,
+      rgba(159,159,159,1) 50%
+    );
+  }
+  90% {
+    background:
+    linear-gradient(
+      90deg,
+      rgba(159,159,159,1) 95%,
+      rgba(237,237,237,1) 99%,
+      rgba(159,159,159,1) 100%
+    );
+  }
+  100% {
+    background:
+    linear-gradient(
+      90deg,
+      rgba(237,237,237,1) 0%,
+      rgba(237,237,237,1) 50%,
+      rgba(237,237,237,1) 100%
+    );
+  }
+}

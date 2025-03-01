@@ -1,0 +1,6 @@
+position: 3
+label: 'Игрок'
+link:
+  type: generated-index
+customProps:
+  description: 'А чё говорить...'

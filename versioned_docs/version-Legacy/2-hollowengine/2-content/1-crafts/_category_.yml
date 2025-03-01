@@ -1,0 +1,6 @@
+position: 1
+label: 'Рецепты крафта'
+link:
+  type: generated-index
+customProps:
+  description: 'Создавать, менять и удалять крафты для мредметов'

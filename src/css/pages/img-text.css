@@ -1,0 +1,55 @@
+[data-theme="dark"] {
+  --bg-col: #262626;
+  --bg-col-grad: linear-gradient(-90deg, rgb(46, 51, 63) 0%, rgb(70, 79, 101) 100%);
+  --brd-col: #ffffff;
+  --txt-bg-col: #505050;
+  --txt-bg-col-grad: linear-gradient(-90deg, rgb(56, 67, 84) 0%, rgb(45, 50, 65) 100%);
+  --txt-col: #ffffff;
+
+  --display-hiden-text: none !important;
+}
+[data-theme="light"] {
+  --bg-col: #9a9a9a;
+  --bg-col-grad: #b9b9b9;
+  --brd-col: #6b6b6b;
+  --txt-bg-col: #c9c9c9;
+  --txt-bg-col-grad: #9aa9b2;
+  --txt-col: #000000;
+
+  --display-hiden-text: block;
+}
+
+itext {
+  display: block;
+
+  background: var(--bg-col);
+  background: var(--bg-col-grad);
+
+  border-color: var(--brd-col);
+  border-width: 4px;
+  border-radius: 1rem;
+
+  padding: 10px;
+}
+
+gimg { min-width: 128px; max-width: 512px; }
+
+gtxt {
+  display: inline-flex;
+
+  width: 100%;
+
+  text-align: left;
+  font-size: 16px;
+  padding: 7px;
+
+  background: var(--txt-bg-col);
+  background: var(--txt-bg-col-grad);
+  color: var(--txt-col);
+
+  border-radius: 8px;
+}
+
+.hide-theme {
+  display: var(--display-hiden-text);
+}

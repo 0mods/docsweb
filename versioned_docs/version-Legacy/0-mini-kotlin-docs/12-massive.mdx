@@ -1,0 +1,190 @@
+---
+sidebar_position: 12
+title: Работа с массивами
+id: mkd-arrays
+description: 'Использование массивов для хранения и обработки данных'
+---
+
+{/* Спасибо 'dan_bat' за данную страничку :) */}
+
+<div align="center">
+
+# Массивы в `Kotlin`
+
+---
+
+<br />
+
+:::tip Что такое массивы?
+Массивы — структуры данных с **фиксированным размером**, хранящие элементы одного типа.  
+Идеальны для работы с примитивными типами и алгоритмами, требующими высокой производительности.
+:::
+
+<br />
+
+---
+
+<br />
+
+## Создание массивов
+
+<div align="left">
+
+### Базовые способы
+
+```kts title="Примеры инициализации"
+val numbers = arrayOf(1, 2, 3) // Array<Int>
+val names = arrayOf("Аня", "Петя") // Array<String>
+val emptyArray = emptyArray<String>() // Пустой массив
+```
+
+### Примитивные массивы
+
+```kts title="Оптимизация для примитивов"
+val intArray = intArrayOf(10, 20, 30) // IntArray
+val charArray = charArrayOf('a', 'b') // CharArray
+```
+
+### Динамическое создание
+
+```kts title="Использование лямбд"
+val squares = Array(5) { i -> (i + 1) * (i + 1) } // [1, 4, 9, 16, 25]
+```
+
+</div>
+
+<br />
+
+---
+
+<br />
+
+## Основные операции
+
+<div align="left">
+
+### Доступ к элементам
+
+```kts title="Индексация и изменение"
+val fruits = arrayOf("Яблоко", "Груша")
+println(fruits[0]) // Яблоко
+fruits[1] = "Банан" // Теперь массив: ["Яблоко", "Банан"]
+```
+
+### Итерация по элементам
+
+```kts title="Циклы for и forEach"
+for (fruit in fruits) {
+    println(fruit)
+}
+
+fruits.forEachIndexed { index, value ->
+    println("$index: $value")
+}
+```
+
+### Размер массива
+
+```kts title="Свойство size"
+println(fruits.size) // 2
+```
+
+</div>
+
+<br />
+
+---
+
+<br />
+
+## Продвинутые методы
+
+<div align="left">
+
+### Поиск элементов
+
+```kts title="Примеры"
+val numbers = intArrayOf(5, 3, 8)
+println(numbers.indexOf(3)) // 1
+println(numbers.contains(10)) // false
+```
+
+### Фильтрация и преобразование
+
+```kts title="Создание нового массива"
+val filtered = numbers.filter { it > 4 }.toTypedArray() // [5, 8]
+val doubled = numbers.map { it * 2 } // [10, 6, 16]
+```
+
+### Сортировка
+
+```kts title="Изменяет исходный массив"
+numbers.sort() // [3, 5, 8]
+numbers.reverse() // [8, 5, 3]
+```
+
+</div>
+
+<br />
+
+---
+
+<br />
+
+## Особые сценарии
+
+<div align="left">
+
+### Многомерные массивы
+
+```kts title="Матрица 3x3"
+val matrix = Array(3) { IntArray(3) { 0 } }
+matrix[1][2] = 5 // Вторая строка, третий столбец
+```
+
+### Конвертация в коллекции
+
+```kts title="Примеры преобразований"
+val list = numbers.toList() // List<Int>
+val mutableList = numbers.toMutableList() // MutableList<Int>
+```
+
+### Сравнение массивов
+
+```kts title="Используйте contentEquals"
+val a = intArrayOf(1, 2)
+val b = intArrayOf(1, 2)
+println(a.contentEquals(b)) // true (в отличие от ==)
+```
+
+</div>
+
+<br />
+
+---
+
+<br />
+
+:::warning Важные нюансы
+<div align="left">
+1. **Фиксированный размер**: Нельзя добавить/удалить элементы после создания.
+2. **Примитивы vs Обертки**:  
+   `IntArray` работает быстрее, чем `Array<Int>` (нет боксинга).
+3. **Null-безопасность**: Для nullable-элементов используйте специальные массивы:
+   ```kts
+   val nullableArray = arrayOfNulls<String>(3) // [null, null, null]
+   ```
+4. **Передача в Java-код**:  
+    `IntArray` конвертируется в `int[]`, `Array<String>` — в `String[]`.
+</div>
+:::
+<br />
+
+:::tip Когда использовать массивы?
+<div align="left">
+- Работа с графикой, математическими вычислениями
+- Работа с данными, например для базы данных
+</div>  
+:::
+
+</div>
