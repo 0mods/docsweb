@@ -1,0 +1,84 @@
+---
+sidebar_position: 0
+
+title: 'Создание'
+id: npc-create
+desc: 'NaN'
+---
+
+import '@site/src/css/pages/img-show.css';
+import '@site/src/css/pages/txt-img.css';
+
+<div align="center">
+
+# Создание НИПа
+
+Первая, "живая", функциональная сущность
+
+<div className="show" id="mask">
+
+![susu](@site/static/img/doc/titles/create_npc0001.webp)
+
+</div>
+
+---
+
+<br />
+
+<div align="left" id="dont-copy">
+
+```kts title="Шаблон"
+fun npc(
+  pos: Vec3,
+  name: String = "NPC",
+  model: String = "hollowengine:models/entity/player_model.gltf",
+  rotation: Vec2 = rotation(0, 0),
+  world: String = "minecraft:overworld",
+  size: Pair<Float, Float> = 0.6f to 1.8f,
+  attributes: Map<String, Float> = emptyMap(),
+  textures: Map<String, String> = emptyMap(),
+  animations: Map<AnimationType, String> = emptyMap(),
+  tranfsorm: Transform = Transform(),
+  showName: Boolean = true,
+  inverseHeadRotation: Boolean = false
+): NPCEntity
+```
+
+<br />
+
+```kts title="Пример"
+val npcID = npc(
+  pos = pos(29, 85, 23), // Координаты спавна НИПа
+  name = "НИП", // Имя НИПа, которое будет видно в чате и над головой (если не отключено отображение Имени над головой)
+  model = "my_mo_id:path/to/my_top_model.gltf", // Путь до модели для НИПа
+  rotation = rotation(180, 0), // В какрую сторону будет смотреть НИП когда заспавнится по оси pitch и yaw
+  world = "my_mod_id:my_dimension_id", // Изщмерение, в котором будет заспавнени НИП
+  size = 1f to 1.2f, // Размер хитбокса НИПа по Ширине и Высоте
+  attributes = mapOf( // Атрибуты НИПа
+    "my_mod_id:my.best.attrubute_one" to 10f,
+    "my_mod_id:my.best.attribute_two" to 0.5f,
+    ...
+  ),
+  textures = mapOf( // Текстуры для модели НИПа
+    "model/texture_id_one" to "my_mod_id:path/to/my_best_texture.png",
+    "model/texture_id_two" to "my_mod_id:path/to/my_another_texture.png",
+    ...
+  ),
+  animations = mapOf( // Установка кастомных анимаций для модели НИПа
+    AnimationType.IDLE to "bestIdleAnimation",
+    AnimationType.WALK to "walkAnimLoop",
+    ...
+  ),
+  transform = Transform( // Трансформация модели НИПа
+    tX = 1.1f, tY = 0.4f, tZ = 3f, // Смещение модели по осям X, Y и Z
+    rX = 90f, rY = 2.4f, rZ = 194f, // Поворот модели по осям X, y и Z
+    sX = 0.1f, sY = 1.001f, sZ = 9.2f // Размер модели по осям X, Y и Z
+  ),
+  showName = false, // Отключить отображение имени НИПа над его головой
+  inverseHeadRotation = true // Если голова модели НИПа поворачивается некорректно
+)
+```
+
+</div>
+
+</div>

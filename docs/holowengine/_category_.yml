@@ -1,0 +1,10 @@
+position: 2
+label: HollowEngine
+#collapsible: true # Collapsible
+#collapsed: false # Collapsed by default
+#className: class name
+link:
+  type: generated-index
+#  title: 'Hollow Core'
+customProps:
+  description: Nothing is there

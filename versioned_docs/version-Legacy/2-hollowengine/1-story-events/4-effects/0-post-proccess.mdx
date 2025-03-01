@@ -1,0 +1,72 @@
+---
+sidebar_position: 0
+
+title: Пост-процессинг
+id: post-proccess
+desc: 'NaN'
+---
+
+<div align="center" id="dont-copy">
+
+# Пост-процессинг
+
+Искажения, размытия и свечение, всё как ты захочешь
+
+<div className="show" id="mask">
+
+![post-proccessing](@site/static/img/doc/titles/PostProccessing0.webp)
+
+</div>
+
+Или просто проведи опыт по "Выжиганию глаз" другого человека)
+
+---
+
+<br />
+
+:::tip Что такое Пост-процессинг
+Это вид эффекта, который накладывается после отрисовки кадра, что-то вроде фильтров.
+:::
+
+<br />
+
+## Использование эффекта
+
+:::info Использование эффекта
+```kts
+<team> postEffect { PostEffect.<TYPE> }
+```
+<div align="left">
+
+> Типы эффектов, которые уже вшити в мод:
+> - `SEPIA` - Эффект сепии.
+> - `GRAY` - Оттенки серого.
+> - `SHAKE` - Эффект тряски камеры.
+> - `VIGNETTE` - Виньетка по краям.
+> - `BLUR` - Размытие.
+
+</div>
+
+---
+
+```kts title="Пример"
+player postEffect { PostEffect.BLUR }
+```
+:::
+
+<br />
+
+## Создание своего эффекта
+:::info Создание своего эффекта
+```kts
+val MY_EFFECT = PostEffect.create(path: ResourceLocation)
+```
+
+---
+
+```kts title="Пример"
+val BLOOM = PostEffect.create("my_mod:shaders/post/my_bloom.json")
+```
+:::
+
+</div>

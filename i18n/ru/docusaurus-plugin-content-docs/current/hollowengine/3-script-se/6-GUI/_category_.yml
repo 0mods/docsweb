@@ -1,6 +1,0 @@
-position: 6
-label: gui
-link:
-  type: generated-index
-customProps:
-  description: 'Кастомный интерфейс.'

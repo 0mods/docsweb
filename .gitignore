@@ -25,3 +25,9 @@ yarn-error.log*
 *_lock.*
 .vscode/
 !yarn.lock
+/package-lock.json
+
+# Анти-Алго-убивалка меня
+src/css/suite.css
+src/css/suite.css
+src/css/suite.css

@@ -1,0 +1,18 @@
+.play-type-show {
+  position: relative;
+  animation: play-type-show 2s;
+  animation-timing-function: cubic-bezier(0, 1, 0, 1);
+}
+
+@keyframes play-type-show {
+  from { transform: scaleY(0); opacity: 0; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+
+#play-type-mask {
+  width: auto;
+  height: auto;
+
+  mask-image: url('./cube_mask.png');
+  mask-size: cover;
+}

@@ -1,0 +1,61 @@
+---
+sidebar_position: 8
+
+title: 'Воспроизведение звука'
+id: playsound
+desc: 'NaN'
+---
+
+<div align="center" id="dont-copy">
+
+# Воспроизведение звука
+
+Шумит, орёт, гудит
+
+<link rel="preload" as="image" href="@site/static/img/doc/titles/PlaySound0.webp" />
+
+<div className="show">
+
+![playsound](@site/static/img/doc/titles/PlaySound1.webp)
+
+</div>
+
+кричит, и не только :)
+
+---
+
+<br />
+
+:::info Воспроизведение звука
+
+<div align="left">
+
+```kts
+playSound {
+  sound = "sound_name"
+  volume = <Float> // Не обязательно. По умолчанию: 1f
+  pitch = <Float> // Не обязательно. По умолчанию: 1f
+  pos = pos(x, y, z) // Не обязательно
+}
+```
+
+> Параметры:
+> - `sound` - Имя звука, которое нужно воспроизвести. Узнать можно либо вспомнив как вы его обозвали
+в `sounds.json` или посмотрев через команду `/playsound`.
+> - `volume` - Громкость звука.
+> - `pitch` - Тональность/Высота звука.
+> - `pos` - Источник звука в мире. Если не указан - то звук будет воспроизводиться от игрока.
+
+---
+
+```kts title="Пример"
+playSound {
+  sound = "minecraft:entity.enderman.teleport"
+}
+```
+
+</div>
+
+:::
+
+</div>

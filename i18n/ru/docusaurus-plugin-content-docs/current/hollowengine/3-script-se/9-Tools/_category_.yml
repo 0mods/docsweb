@@ -1,6 +1,0 @@
-position: 9
-label: toolchain
-link:
-  type: generated-index
-customProps:
-  description: 'Здесь рассписаны вещи, которые не попали под остальные категории, но могут пригодиться вам.'

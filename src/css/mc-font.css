@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'monocraft';
+  src: url(/static/font/Monocraft.ttf);
+}
+
+.font {
+  font-family: 'monocraft';
+  font-size: 14px;
+  color: #d0d0d0;
+}

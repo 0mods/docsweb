@@ -1,0 +1,28 @@
+[data-theme='light'] {
+  --bg-color: #c3c3c3;
+  --brd-color: #888888;
+}
+[data-theme='dark'] {
+  --bg-color: #303030;
+  --brd-color: #777777;
+}
+
+.img {
+  display: flex;
+
+  background-color: var(--bg-color);
+
+  align-items: flex-end;
+  justify-content: center;
+
+  margin: 10px;
+  padding-top: 20px;
+
+  border-radius: 12px;
+  border: 4px solid var(--brd-color);
+
+  width: auto;
+  height: auto;
+
+  max-width: 360px;
+}
