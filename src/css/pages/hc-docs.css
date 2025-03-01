@@ -1,0 +1,22 @@
+[data-theme="dark"] {
+  --hc-background-color: #334433;
+  --hc-margin: 5px;
+  --hc-padding: 10px;
+  --hc-border-radius: 10px;
+  --hc-font-weight: 600
+}
+[data-theme="light"] {
+  --hc-background-color: #b1d0b1;
+  --hc-margin: 5px;
+  --hc-padding: 10px;
+  --hc-border-radius: 10px;
+  --hc-font-weight: 600
+}
+
+#hc-box {
+  background-color: var(--hc-background-color);
+  margin: var(--hc-margin);
+  padding: var(--hc-padding);
+  border-radius: var(--hc-border-radius);
+  font-weight: var(--hc-font-weight);
+}

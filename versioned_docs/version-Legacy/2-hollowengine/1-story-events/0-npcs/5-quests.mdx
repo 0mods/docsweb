@@ -1,0 +1,78 @@
+---
+sidebar_position: 5
+
+title: Задания
+id: quests
+desc: 'Задания от НИПа, которое ты должен выполнить'
+---
+
+<div align="center">
+
+# Задания
+
+Ты должен отдать НИПу то-то
+
+<link rel="preload" as="image" href="@site/static/img/doc/titles/Quests0.webp" />
+<div className="show" id="mask">
+
+![quests](@site/static/img/doc/titles/NpcQuests0.webp)
+
+</div>
+
+и таких-то количествах
+
+---
+
+<br />
+
+<div id="dont-copy">
+
+# Создание списка заданий
+
+<br />
+
+:::::info Создание списка заданий
+Для создания такого списка, используйтесь методом:
+<div align="left">
+```kts
+<npcID>.requestItems {
+  ... // Список требований
+}
+```
+</div>
+
+::::note Добавления нового требования с список
+Чтобы добавить в список новое требование
+```kts
++item("<itemID>", <count>, "<nbt_tags>")
+```
+<div align="left">
+> `itemID` - id предмета (да ладно, а ты что думал?),  
+> `count`- количество требуемого предмета,  
+> `nbt_tags` - NBT-теги предмета. На случай если нужно какой-то определённый предмет с определёнными данными.
+</div>
+:::warning И ещё
+У вас нет лимитов в количестве требований к заданию. Добавляйте сколько влезет через новую строку.
+```kts
++item("item_id", 12)
++item("item_id", 16)
+... // И так далее
+```
+:::
+::::
+---
+<div align="left">
+```kts title="Пример"
+npc.requestItems {
+  +item("wooden_planks", 16)
+  +item("st:skint_crystal", 4)
+}
+```
+</div>
+:::::
+
+---
+
+</div>
+
+</div>

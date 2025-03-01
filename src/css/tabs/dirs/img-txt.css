@@ -1,0 +1,70 @@
+[data-theme='light'] {
+  --bg-color: #b8b8b8;
+  --brd-color: #ffffff;
+
+  --txt-bg-color: #8a8a8a;
+
+  --sel-bg-color: #ffffff;
+  --sel-color: #000000;
+}
+[data-theme='dark'] {
+  --bg-color: #373737;
+  --brd-color: #ffffff;
+
+  --txt-bg-color: #1e1e1e;
+
+  --sel-bg-color: #686868;
+  --sel-color: #ffffff;
+}
+
+.img-txt {
+  display: flex;
+  align-items: flex-start;
+
+  background-color: var(--bg-color);
+
+  border: 2px solid var(--brd-color);
+  border-radius: 12px;
+}
+.img-txt img {
+  display: block;
+  align-items: flex-start;
+  object-fit: contain;
+
+  width: auto;
+
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.txt {
+  align-items: flex-start;
+
+  padding: 20px;
+
+  margin-top: 20px;
+  margin-right: 20px;
+
+  background-color: var(--txt-bg-color) !important;
+  color: #ffffff !important;
+
+  border-color: #00000000 !important;
+  border-radius: 8px;
+}
+
+.sel {
+  display: inline-block;
+
+  background-color: var(--sel-bg-color);
+  color: var(--sel-color);
+
+  border-radius: 8px;
+
+  width: auto;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

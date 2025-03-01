@@ -1,0 +1,24 @@
+.helper {
+  display: inline-block;
+
+  float: right;
+
+  position: relative;
+
+  background-color: #ebedf0;
+
+  width: auto;
+  height: auto;
+
+  color: #000000;
+
+  padding: 5px 5px;
+
+  font-size: 16px;
+  font-width: 700;
+
+  line-height: 1;
+
+  border: 4px solid #000000;
+  border-radius: 10px;
+}

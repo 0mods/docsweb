@@ -1,0 +1,43 @@
+---
+sidebar_position: 0
+
+title: Зависимости мода
+id: mod-requests
+desc: 'NaN'
+---
+
+<div align="center">
+
+:::warning Только для бустеров и тестеров
+Данная страница может изменится в будущем, так что не думайте что то как оно сейчас - будет всегда.
+:::
+
+# Зависимости мода
+
+<div className="show" id="mask">
+
+![title](@site/static/img/doc/titles/ForgeCrush0.webp)
+
+</div>
+
+---
+
+<br />
+
+:::info Зависимости мода в виде графика
+```mermaid
+graph TD;
+
+  HE[HollowEngine]; HC[HollowCore]; KFF[KotlinForFabric]; KSFF[KotlinScripForFabric];
+  
+  HE-->|Требует|HC
+  HE-->|Требует|KFF
+  HE-->|Требует|KSFF
+  
+  KSFF-->|Требует|HC
+  
+  HC-->|Требует|KFF
+```
+:::
+
+</div>
