@@ -29,7 +29,7 @@ const ToBeta = ({ url }) => {
     window.location.href = link
     console.log('Open beta docs from link: '+link)
     */
-    throw new Error(messages[Math.floor(Math.random() * messages.length)]);
+    //throw new Error(messages[Math.floor(Math.random() * messages.length)]);
   }, [url])
   return null;
 }
