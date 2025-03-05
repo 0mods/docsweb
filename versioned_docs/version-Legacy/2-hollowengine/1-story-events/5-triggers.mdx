@@ -180,7 +180,7 @@ val meMessage by players.input()
 
 ## Ожидание позиции
 
-:::info Ожидание позиции
+::::info Ожидание позиции
 Ждёт, пока любой из игроков не будет в указанных координатах.
 
 <div align="left" id="dont-copy">
@@ -197,6 +197,13 @@ val meMessage by players.input()
 }
 ```
 
+:::warn Импорт
+Не забудьте импортировать класс `ResourceLocation`:
+```kts
+import net.minecraft.resources.ResourceLocation
+```
+:::
+
 ---
 
 ```kts title="Пример"
@@ -211,7 +218,7 @@ players.waitPos {
 
 </div>
 
-:::
+::::
 
 <br />
 
