@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: '[BETA] 0mods',
+  title: '0mods',
   tagline: 'The website for 0mods\'s project\'s and not only :)',
   favicon: 'img/favicon.ico',
   url: 'https://0mods.team',
@@ -111,11 +111,6 @@ const config: Config = {
         {
           to: 'https://kotlinlang.org/docs/basic-syntax.html',
           label: 'KotlinScript',
-          position: 'left'
-        },
-        {
-          to: 'https://0mods.team',
-          label: 'Stable',
           position: 'left'
         },
         {

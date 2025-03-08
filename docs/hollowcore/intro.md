@@ -5,10 +5,6 @@ title: HollowCore Docs
 description: Хотите писать моды, но не хотите рутины?
 ---
 
-import ToBeta from '@site/src/components/NewDocs.js';
-
-<ToBeta url='welcome' />
-
 Итак, начнём с того, зачем вам может потребоваться этот мод.
 
 ## Возможности HollowCore
@@ -36,14 +32,14 @@ import ToBeta from '@site/src/components/NewDocs.js';
 
 ### Установка для игры
 
-Скачать HollowCore можно на [GitHub](https://github.com/HollowHorizon/HollowCore/releases/tag/latest-1.19.2).
+Скачать HollowCore можно на [GitHub](https://github.com/HollowHorizon/HollowCore/releases).
 
 ### Установка для разработки
 
 Добавьте в ваш проект репозиторий **0mods.team**:
 ```kotlin
 repositories {
-    maven("https://jitpack.io")
+    maven("https://maven.0mods.team")
 }
 ```
 

@@ -1,6 +1,0 @@
-position: 99
-label: Дополнительно
-link:
-  type: generated-index
-customProps:
-  description: 'Дополнительная информация для HollowCore Docs'

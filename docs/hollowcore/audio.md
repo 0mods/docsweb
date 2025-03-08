@@ -2,12 +2,8 @@
 sidebar_position: 5
 id: audio
 title: Поддержка Аудио
-description: Я есть Гуи!
+description: Я есть звук!
 ---
-
-import ToBeta from '@site/src/components/NewDocs.js';
-
-<ToBeta url='welcome' />
 
 HollowCore позволяет использовать не только `.ogg` аудио, но и также `.mp3` и `.wav`. К тому же без необходимости регистрации звуков.
 

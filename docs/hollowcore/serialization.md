@@ -13,8 +13,7 @@ import ToBeta from '@site/src/components/NewDocs.js';
 
 Итак, прежде всего создайте класс, который в последствии можно будет сериализовать в NBT.
 
-:::info Пример
-
+### Пример
 ```kt
 @Serializable
 class User(
@@ -25,12 +24,9 @@ class User(
 )
 ```
 
-:::
-
 ## Сериализовать простой класс
 
 Теперь мы можем запросто преобразовать этот класс в NBT:
-
 ```kt
 import ru.hollowhorizon.hc.client.utils.nbt.NBTFormat
 import ru.hollowhorizon.hc.client.utils.nbt.serialize
@@ -55,7 +51,6 @@ val nbt = NBTFormat.serialize(user) // В результате вы получи
 ## Десериализовать простой класс
 
 Предположим у нас есть некоторый NBT тэг, преобразуем его обратно в объект класса User:
-
 ```kotlin
 import ru.hollowhorizon.hc.client.utils.nbt.NBTFormat
 import ru.hollowhorizon.hc.client.utils.nbt.deserialize
@@ -66,7 +61,6 @@ val user = NBTFormat.deserialize(tag) // В результате вы получ
 ```
 
 ## Сериализация с наследованием
-
 Иногда может потребоваться сериализовать класс или интерфейс, у которого могут быть потомки.
 В этом случае вам нужно добавить для каждого потомка аннотацию `@Polymorphic(Parent::class)`, где Parent - ваш исходный
 класс от которого происходит наследование.
