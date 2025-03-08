@@ -62,7 +62,7 @@ const config: Config = {
           routeBasePath: '/docs',
           sidebarPath: './sidebars.ts',
           editUrl:
-            'https://github.com/0mods/docsweb-beta/edit/main/',
+            'https://github.com/0mods/docsweb/edit/main/',
         },
         blog: {
           showReadingTime: true,
@@ -79,7 +79,7 @@ const config: Config = {
       appId: 'S11JTLUN4G',
       apiKey: 'f5ae02919fe4c00ba622ff8d88e9ce08',
       indexName: '0mods',
-      contextualSearch: false,
+      /*contextualSearch: false,*/
     },
     liveCodeBlock: {
       playgroundPosition: 'bottom',
@@ -104,7 +104,7 @@ const config: Config = {
           position: 'left'
         },
         {
-          to: 'http://maven.0mods.team/',
+          to: 'https://maven.0mods.team/',
           label: 'Maven',
           position: 'left'
         },
@@ -146,7 +146,7 @@ const config: Config = {
             },
             {
               label: '0mods Discord',
-              href: 'https://discord.gg/YCj7JBNVAt',
+              href: 'https://discord.0mods.team',
             },
           ],
         },

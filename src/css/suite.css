@@ -43,7 +43,6 @@ html[data-theme="dark"] {
   }
 }
 
-
 .menu__caret:before {
   background: var(--ifm-menu-link-sublist-icon) 50%/1.65rem;
 }
@@ -68,12 +67,6 @@ a.no-underline {
 
 .link-card {
   transition: transform 450ms ease-in-out;
-}
-
-h2 {
-  margin: 48px 0 16px;
-  padding-top: 24px;
-  border-top: 1px solid var(--context-divier);
 }
 /*
 /* My Custom Theme DONT COMMIT & PUSH Меня Алго убъёт \-/
