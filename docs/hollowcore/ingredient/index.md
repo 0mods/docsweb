@@ -26,9 +26,9 @@ NBT-ингредиенты позволяют задать специальны�
   "ingredients": [
     {
       // Тип ингредиента
-      "hollowcore:type": "nbt",
+      "hollowcore:type": "hollowcore:nbt",
       // Оригинальный ингредиент
-      "item": {
+      "base": {
         "item": "minecraft:stick"
       },
       // Есть альтернативный вариант: "nbt":"\"Enchantments\":[{\"id\":\"efficiency\",\"lvl\":3}]"
@@ -68,7 +68,7 @@ AllIngredient (Все ингредиенты) – это составной ин
   "ingredients": [
     {
       // Тип ингредиента
-      "hollowcore:type": "all",
+      "hollowcore:type": "hollowcore:all",
       "ingredients": [
         // Первый ингредиент
         {
@@ -102,7 +102,7 @@ AnyIngredient (Любой ингредиент) – это составной и
   "ingredients": [
     {
       // Тип ингредиента
-      "hollowcore:type": "any",
+      "hollowcore:type": "hollowcore:any",
       "ingredients": [
         // Первый ингредиент
         {
@@ -137,7 +137,7 @@ AnyIngredient (Любой ингредиент) – это составной и
   "ingredients": [
     {
       // Тип ингредиента
-      "hollowcore:type": "difference",
+      "hollowcore:type": "hollowcore:difference",
       // Любой ингредиент
       "base": {
         "tag": "minecraft:items/planks"
