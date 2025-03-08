@@ -10,7 +10,7 @@ To do this, HollowCore provides a Capability system with automatic data storage 
 
 ## Creating a Capability
 
-First, inherit from the `CapabilityInstance` class and add some serializable parameter. (with @Serializable annotation or inherited from `en.hollowhorizon.hc.client.utils.nbt.INBTSerializable`)
+First, inherit from the `CapabilityInstance` class and add some serializable parameter. (with @Serializable annotation or inherited from `ru.hollowhorizon.hc.client.utils.nbt.INBTSerializable`)
 
 Next, add the `@HollowCapabilityV2` annotation with the parameters of the object to which the Capability will be bound to all objects inherited from the specified one.
 The available options are `Entity`, `BlockEntity`, `Level`.

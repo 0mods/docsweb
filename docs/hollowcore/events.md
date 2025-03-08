@@ -9,7 +9,7 @@ All sorts of events are constantly happening in the game, HollowCore allows you 
 
 ## List of all events
 
-You can't find all the events right away, some of them may be provided by other mods or created by you. But you can find the main ones in the 'en.hollowhorizon.hc.common.events' package.
+You can't find all the events right away, some of them may be provided by other mods or created by you. But you can find the main ones in the 'ru.hollowhorizon.hc.common.events' package.
 
 ## Creating an Event Handler
 
@@ -25,7 +25,7 @@ fun onPlayerJoin(event: PlayerEvent.Join) { // The method will run when a player
 
 ## Creating Your Own Events
 
-If you need to create your own events, implement the interface 'en.hollowhorizon.hc.common.events.Event' and, if necessary, 'en.hollowhorizon.hc.common.events.Cancelable' (If your event can be canceled)
+If you need to create your own events, implement the interface 'ru.hollowhorizon.hc.common.events.Event' and, if necessary, 'ru.hollowhorizon.hc.common.events.Cancelable' (If your event can be canceled)
 
 Then, to raise the event, create a new instance of the class and call the 'EventBus.post(event)' method, where the event is an instance of your class.
 If someone cancels your event, the value of the 'isCanceled' variable will change to 'true'.

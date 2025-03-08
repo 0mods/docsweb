@@ -13,7 +13,7 @@ not to worry about registering objects for each loader by providing a convenient
 
 ## Creating a New Registrar
 
-So, first, create an object class inherited from 'HollowRegistry', in which all registrations will take place.
+So, first, create an object class inherited from `HollowRegistry`, in which all registrations will take place.
 
 ### Example
 ```kt
@@ -24,7 +24,7 @@ object ModItems : HollowRegistry() {
 
 ## Registration of a game object
 
-HollowCore allows you to register almost all game objects. It determines the type of registrar automatically, you just need to create a delegate using the 'register(location: ResourceLocation, () -> T): RegistryObject<T>' method, where T is the class of your object.
+HollowCore allows you to register almost all game objects. It determines the type of registrar automatically, you just need to create a delegate using the `register(location: ResourceLocation, () -> T): RegistryObject<T>` method, where T is the class of your object.
 
 ### Example
 ```kt
@@ -38,7 +38,7 @@ object ModItems : HollowRegistry() {
 All other game objects are registered in the same way, just pass the desired object.
 
 :::tip
-If you don't want to keep specifying 'modid:' for every object you register, you can add your mod id to the HollowRegistry constructor:
+If you don`t want to keep specifying `modid:` for every object you register, you can add your mod id to the HollowRegistry constructor:
 ```kt
 object ModItems : HollowRegistry("modid") {
     val MY_ITEM by register("my_item") {
@@ -50,7 +50,7 @@ object ModItems : HollowRegistry("modid") {
 
 ## Using Game Objects
 
-Now that the object is registered, you can retrieve it using the '<T>RegistryObject.get()' method.
+Now that the object is registered, you can retrieve it using the `<T>RegistryObject.get()` method.
 
 ### Example
 ```kt
