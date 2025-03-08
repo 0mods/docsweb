@@ -1,14 +1,14 @@
 ---
 sidebar_position: 6
 id: custom
-title: Свои Ингредиенты
-description: А это легально?
+title: Your Ingredients
+description: Is it legal?
 ---
 
-Вы можете создавать свои ингредиенты, наследуя `HollowIngredient`
+You can create your ingredients by inheriting 'HollowIngredient'
 
 :::warning 
-Эта страница не дописана :(
+This page is not finished :(
 
-Будет исправлено в скором времени
+To be fixed soon
 :::

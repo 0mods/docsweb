@@ -5,10 +5,6 @@ title: Универсальные События
 description: Как в Forge, но для любых загрузчиков модов!
 ---
 
-import ToBeta from '@site/src/components/NewDocs.js';
-
-<ToBeta url='welcome' />
-
 В игре постоянно проиходят всякие события, HollowCore позволяет ловить некоторые из них или даже отменять, если это возможно.
 
 ## Список всех событий

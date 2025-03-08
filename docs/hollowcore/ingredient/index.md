@@ -1,38 +1,38 @@
 ---
 sidebar_position: 6
 id: audio
-title: Ингредиенты
-description: Так.. ага, nbt...
+title: Ingredients
+description: So.. yes, NBT...
 ---
 
-Начиная с версии 2.2.8a [AlgorithmLX](https://github.com/AlgorithmLX) добавил систему ингредиентов, аналогичной той, что находится в [Fabric API](https://github.com/FabricMC/fabric/tree/1.21.4/fabric-recipe-api-v1/src)
+Starting with version 2.2.8a, [AlgorithmLX](https://github.com/AlgorithmLX) added an ingredient system similar to the one found in [Fabric API](https://github.com/FabricMC/fabric/tree/1.21.4/fabric-recipe-api-v1/src)
 
 ## NBTIngredient
 
-NBT-ингредиенты позволяют задать специальные NBT-теги, которые должны присутствовать в предмете для его использования в рецептах.
-Это особенно полезно, когда требуется учитывать дополнительные характеристики предметов, такие как чары, персонализированные имена,
-метаданные или другие свойства, записанные в NBT.
+NBT Ingredients allow you to set specific NBT tags that must be present in an item in order to be used in recipes.
+This is especially useful when you need to take into account additional characteristics of items, such as enchantments, personalized names,
+metadata or other properties recorded in NBT.
 
-Например, можно создать рецепт, который позволяет использовать только палку с чаром "Добыча III" для крафта алмаза, 
-или ограничить использование предметов с определёнными владельцами, уровнем прочности или уникальными метками.
+For example, you can create a recipe that only allows you to use a stick with the "Mining III" enchantment to craft a diamond, 
+or restrict the use of items with specific owners, durability levels, or unique markers.
 
-Таким образом, NBT-ингредиенты позволяют создавать более сложные и гибкие механики крафта,
-учитывая свойства предметов, а не только их базовый тип.
+Thus, NBT ingredients allow you to create more complex and flexible crafting mechanics,
+considering the properties of items, not just their base type.
 
-Пример использования:
+Example of use:
 ```json 
 {
-  // ваш код выше
+  // Your code above
   "ingredients": [
     {
-      // Тип ингредиента
+      // Ingredient Type
       "hollowcore:type": "hollowcore:nbt",
-      // Оригинальный ингредиент
+      // Original Ingredient
       "base": {
         "item": "minecraft:stick"
       },
-      // Есть альтернативный вариант: "nbt":"\"Enchantments\":[{\"id\":\"efficiency\",\"lvl\":3}]"
-      // Но я не думаю, что это слишком удобно..
+      // There is an alternative: "nbt":"\"Enchantments\":[{\"id\":\"efficiency\",\"lvl\":3}]"
+      // But I don't think it's too convenient.
       "nbt": {
         "Enchantments": [
           {
@@ -41,44 +41,44 @@ NBT-ингредиенты позволяют задать специальны�
           }
         ]
       },
-      
-      // Дает сериализатору понять, стоит ли проверять соответсвтие NBT предмета и NBT в рецепте
-      // Значение true - вернет положительное значение, если NBT предмета и NBT, указанный в рецепте, совпадут
-      // Значение false - вернет положительное значение, если есть любой NBT на предмете
+
+      // Lets the serializer know if it is worth checking the correspondence between the NBT of the item and the NBT in the recipe
+      // true - will return a positive value if the item's NBT and the NBT specified in the recipe match
+      // false - will return a positive value if there is any NBT on the item
       "strict": false
     }
   ]
 }
 ```
 ## ArrayIngredient 
-Ингредиенты, связанные с массивами. К таким относится AllIngredient и AnyIngredient
+Ingredients related to arrays. These include AllIngredient and AnyIngredient
 
 ### AllIngredient
-AllIngredient (Все ингредиенты) – это составной ингредиент, который проходит проверку, 
-только если предмет соответствует всем указанным ингредиентам одновременно. 
-При получении списка возможных предметов он оставляет только те, которые присутствуют во всех входных ингредиентах. 
-Это позволяет создавать рецепты с более строгими условиями, например, 
-если предмет должен обладать сразу несколькими свойствами.
+AllIngredient is a compound ingredient that is tested, 
+only if the item meets all of the specified ingredients at the same time. 
+When retrieving a list of possible items, it leaves only those that are present in all input ingredients. 
+This allows you to create recipes with more stringent conditions, such as 
+if the item must have several properties at once.
 
-Пример использования:
+Example of use:
 
 ```json
 {
-  // ваш код выше
+  // Your code above
   "ingredients": [
     {
-      // Тип ингредиента
+      // Ingredient Type
       "hollowcore:type": "hollowcore:all",
       "ingredients": [
-        // Первый ингредиент
+        // First Ingredient
         {
           "item": "minecraft:apple"
         },
-        // Второй ингредиент
+        // Second Ingredient
         {
           "item": "minecraft:gold_apple"
         },
-        // Третий ингредиент
+        // Third Ingredient
         {
           "item": "minecraft:diamond"
         }
@@ -89,30 +89,30 @@ AllIngredient (Все ингредиенты) – это составной ин
 ```
 
 ### AnyIngredient
-AnyIngredient (Любой ингредиент) – это составной ингредиент, который проходит проверку, 
-если предмет соответствует хотя бы одному из заданных ингредиентов. 
-Он объединяет все возможные варианты в один список, позволяя гибко определять крафтовые рецепты. 
-Например, если в составе указаны "камень" и "железо", то для крафта можно использовать любой из этих материалов.
+AnyIngredient is a compound ingredient that is tested, 
+if the item matches at least one of the specified ingredients. 
+It combines all possible options into one list, allowing you to flexibly define crafting recipes. 
+For example, if the composition contains "stone" and "iron", then you can use any of these materials for crafting.
 
-Пример использования:
+Example of use:
 
 ```json
 {
-  // ваш код выше
+  // Your code above
   "ingredients": [
     {
-      // Тип ингредиента
+      // Ingredient Type
       "hollowcore:type": "hollowcore:any",
       "ingredients": [
-        // Первый ингредиент
+        // First Ingredient
         {
           "item": "minecraft:apple"
         },
-        // Второй ингредиент
+        // Second Ingredient
         {
           "item": "minecraft:gold_apple"
         },
-        // Третий ингредиент
+        // Third Ingredient
         {
           "item": "minecraft:diamond"
         }
@@ -123,30 +123,30 @@ AnyIngredient (Любой ингредиент) – это составной и
 ```
 
 ## DifferenceIngredient
-Исключаемый ингредиент - это специальный тип ингредиента, который позволяет создавать составные рецепты с исключением 
-определённых элементов. Он принимает два ингредиента: базовый (base) и исключаемый (subtracted). 
-В процессе проверки (test) он проверяет, соответствует ли предмет базовому ингредиенту и не принадлежит ли к исключаемому.
+An excluded ingredient is a special type of ingredient that allows the creation of composite recipes with exclusion 
+certain elements. It accepts two ingredients: base and subtracted. 
+In the test process, it checks whether the item matches the base ingredient and does not belong to the excluded ingredient.
 
-Этот механизм позволяет гибко настраивать рецепты, убирая нежелательные компоненты.
-Например, если базовый ингредиент – все виды дерева, а исключаемый – дуб, 
-то в рецепте можно использовать любые деревянные блоки, кроме дуба.
+This mechanism allows you to flexibly customize recipes, removing unwanted components.
+For example, if the base ingredient is all types of wood, and the excluded ingredient is oak, 
+then in the recipe you can use any wooden blocks, except oak.
 
 ```json
 {
-  // ваш код выше
+  // Your code above
   "ingredients": [
     {
-      // Тип ингредиента
+      // Ingredient Type
       "hollowcore:type": "hollowcore:difference",
-      // Любой ингредиент
+      // Any Ingredient
       "base": {
         "tag": "minecraft:items/planks"
       },
-      // Любой ингредиент-исключитель
+      // Any ingredient is exclusive
       "subtracted": {
         "hollowcore:type": "any",
         "ingredients": [
-          // Исключаем Дубовые доски и Акациевые доски
+          // Exclude Oak planks and Acacia planks
           {
             "item": "minecraft:oak_planks"
           },

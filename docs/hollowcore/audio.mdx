@@ -1,91 +1,91 @@
 ---
 sidebar_position: 5
 id: audio
-title: Поддержка Аудио
-description: Я есть звук!
+title: Audio Support
+description: I am sound!
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-HollowCore позволяет использовать не только `.ogg` аудио, но и также `.mp3` и `.wav`. К тому же без необходимости регистрации звуков.
+HollowCore allows you to use not only '.ogg' audio, but also '.mp3' and '.wav'. In addition, there is no need to register sounds.
 
-## Чтение аудио файлов
+## Read audio files
 
 <Tabs>
     <TabItem value="audio-ogg" label="ogg">
         ```kotlin
-        val audio = OggFormat.read(stream) // stream - всё как в Java: InputStream, поток ввода данных.
+        val audio = OggFormat.read(stream) // stream - everything is like in Java: InputStream, data input stream.
         ```
     </TabItem>
 
     <TabItem value="audio-mp3" label="mp3">
         ```kotlin
-        val audio = Mp3Format.read(stream) // stream - всё как в Java: InputStream, поток ввода данных.
+        val audio = Mp3Format.read(stream) // stream - everything is like in Java: InputStream, data input stream.
         ```
     </TabItem>
 
     <TabItem value="audio-wav" label="wav">
         ```kotlin
-        val audio = WavFormat.read(stream) // stream - всё как в Java: InputStream, поток ввода данных.
+        val audio = WavFormat.read(stream) // stream - everything is like in Java: InputStream, data input stream.
         ```
     </TabItem>
 </Tabs>
 
-## Проигрывание звука
+## Sound playback
 
-### Создаём проигрыватель
+### Creating a Player
 
 <Tabs>
     <TabItem value="audio-ogg" label="ogg">
         ```kotlin
-        val audio = OggFormat.read(stream) // stream - всё как в Java: InputStream, поток ввода данных.
-        val buffer = AudioBuffer(audio) // Создаём буфер для вашего звука
-        val player = AudioPlayer(buffer) // Создаём проигрыватель звука
+        val audio = OggFormat.read(stream) // stream - everything is like in Java: InputStream, data input stream.
+        val buffer = AudioBuffer(audio) // Create a buffer for your sound
+        val player = AudioPlayer(buffer) // Create a sound player
         ```
     </TabItem>
 
     <TabItem value="audio-mp3" label="mp3">
         ```kotlin
-        val audio = Mp3Format.read(stream) // stream - всё как в Java: InputStream, поток ввода данных.
-        val buffer = AudioBuffer(audio) // Создаём буфер для вашего звука
-        val player = AudioPlayer(buffer) // Создаём проигрыватель звука
+        val audio = Mp3Format.read(stream) // stream - everything is like in Java: InputStream, data input stream.
+        val buffer = AudioBuffer(audio) // Create a buffer for your sound
+        val player = AudioPlayer(buffer) // Create a sound player
         ```
     </TabItem>
 
     <TabItem value="audio-wav" label="wav">
         ```kotlin
-        val audio = WavFormat.read(stream) // stream - всё как в Java: InputStream, поток ввода данных.
-        val buffer = AudioBuffer(audio) // Создаём буфер для вашего звука
-        val player = AudioPlayer(buffer) // Создаём проигрыватель звука
+        val audio = WavFormat.read(stream) // stream - everything is like in Java: InputStream, data input stream.
+        val buffer = AudioBuffer(audio) // Create a buffer for your sound
+        val player = AudioPlayer(buffer) // Create a sound player
         ```
     </TabItem>
 </Tabs>
 
-### Функции для плеера
+### Features for the player
 
-Запуск: `player.play()`
+Launch: 'player.play()'
 
-Пауза: `player.pause()`
+Pause: 'player.pause()'
 
-Остановка: `player.stop()`
+Stop: 'player.stop()'
 
-Громкость: `player.setVolume(volume: Float)`
+Volume: 'player.setVolume(volume: Float)'
 
-Высота звука: `player.setPitch(pitch: Float)`
+Pitch: 'player.setPitch(pitch: Float)'
 
-Зациклить звук: `player.setLooping(loop: Boolean)`
+Loop Audio: 'player.setLooping(loop: Boolean)'
 
-Координаты: `player.setPosition(x: Float, y: Float, z: Float)`
+Coordinates: 'player.setPosition(x: Float, y: Float, z: Float)'
 
-Звук относительно игрока: `player.setRelative(relative: Boolean)` - При `true` будут использованы координаты не относительно мира, а относительно игрока. 
+Sound relative to player: 'player.setRelative(relative: Boolean)' - If 'true', the coordinates will be used not relative to the world, but relative to the player.
 
-### Переменные для плеера
+### Variables for the player
 
-`player.isPlaying` - Проигрывается ли сейчас этот звук.
+'player.isPlaying' - Whether this sound is currently playing.
 
-`player.isPaused` - На паузе ли сейчас этот звук.
+'player.isPaused' - Is this sound paused.
 
-`player.isStoped` - Остановлен ли сейчас этот звук.
+'player.isStopped' - Is this sound stopped now.
 
-`player.playbackPosition` - "Текущая секунда звука".
+'player.playbackPosition' - "Current second of sound".

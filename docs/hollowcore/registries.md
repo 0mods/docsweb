@@ -1,55 +1,58 @@
 ---
 sidebar_position: 1
 id: registries
-title: Универсальная регистрация
-description: Создано благодаря Kotlin!
+title: Universal Registration
+description: Made thanks to Kotlin!
 ---
 
-Те, кто когда-либо писал моды под разные загрузчики наверняка заметили, что у каждого из них есть свои уникальные инструменты для регистрации игровых объектов (блоки, предметы, мобы и т.п.)
-HollowCore позволяет вам не париться с регистрацией объектов под каждый загрузчик, предоставляя удобную систему регистрации.
+Those who have ever written mods for different loaders have probably noticed that each of them has its own unique tools
+for registering game objects
+(blocks, items, mobs, etc.)
+HollowCore allows you
+not to worry about registering objects for each loader by providing a convenient registration system.
 
-## Создание нового регистратора
+## Creating a New Registrar
 
-Итак, прежде всего создайте object-класс, наследуемый от `HollowRegistry`, в нём и будет проходить вся регистрация.
+So, first, create an object class inherited from 'HollowRegistry', in which all registrations will take place.
 
-### Пример
+### Example
 ```kt
 object ModItems : HollowRegistry() {
 
 }
 ```
 
-## Регистрация игрового объекта
+## Registration of a game object
 
-HollowCore позволяет регистрировать практически все игровые объекты. Определяет тип регистратора он автоматически, вам лишь нужно создать делегат с помощью метода `register(location: ResourceLocation, () -> T): RegistryObject<T>`, где T - класс вашего объекта.
+HollowCore allows you to register almost all game objects. It determines the type of registrar automatically, you just need to create a delegate using the 'register(location: ResourceLocation, () -> T): RegistryObject<T>' method, where T is the class of your object.
 
-### Пример
+### Example
 ```kt
 object ModItems : HollowRegistry() {
-    val MY_ITEM by register("modid:my_item".rl) { // .rl - сокращение от ResourceLocation. На разных версиях он создаётся по-разному, так что был создан универсальный вариант. 
-        MyItem() // Объект вашего предмета
+    val MY_ITEM by register("modid:my_item".rl) { // .rl is short for ResourceLocation. 
+        MyItem() // The object of your item
     }
 }
 ```
 
-Аналогично регистрируются и все остальные игровые объекты, просто передаёте нужный объект.
+All other game objects are registered in the same way, just pass the desired object.
 
 :::tip
-Если вы не хотите постоянно прописывать `modid:` для каждого регистрируемого объекта, вы можете добавить ваш mod id в конструктор HollowRegistry:
+If you don't want to keep specifying 'modid:' for every object you register, you can add your mod id to the HollowRegistry constructor:
 ```kt
 object ModItems : HollowRegistry("modid") {
     val MY_ITEM by register("my_item") {
-        MyItem() // Объект вашего предмета
+        MyItem() // The object of your item
     }
 }
 ```
 :::
 
-## Использование игрововых объектов
+## Using Game Objects
 
-Теперь, когда объект зарегистрирован вы можете его получить с помощью метода `RegistryObject<T>.get()`.
+Now that the object is registered, you can retrieve it using the '<T>RegistryObject.get()' method.
 
-### Пример
+### Example
 ```kt
 fun getMyItem(): MyItem {
     return ModItems.MY_ITEM.get()

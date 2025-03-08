@@ -2,58 +2,58 @@
 sidebar_position: 0
 id: hollowcore
 title: HollowCore Docs
-description: Хотите писать моды, но не хотите рутины?
+description: Do you want to write mods, but don't want a routine?
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Итак, начнём с того, зачем вам может потребоваться данный мод.
+So, let's start with why you might need this mod.
 
-## Возможности HollowCore
+## HollowCore Features
 
-### Поддержка нескольких модлоадеров
-- [x] Универсальная система регистрации игрового контента с помощью Kotlin делегатов.
-- [x] Универасльная система пакетов с автоматической сериализацией и регистрацией пакета.
-- [x] Универсальная система хранилища nbt данных для блоков, сущностей и измерений.
-- [x] Универсальная система событий, а также поддержка корутин.
+### Multi-modloader support
+- [x] A universal system for registering game content using Kotlin delegates.
+- [x] Universal package system with automatic serialization and package registration.
+- [x] Universal nbt data storage system for blocks, entities, and dimensions.
+- [x] Universal event system, as well as support for coroutines.
 
-### Упрощение разработки
-- [x] Автоматическая генерация шаблонных моделей для блоков и предметов через встроенный ресурспак.
-- [x] Сериализация любых объектов в nbt при помощи KotlinX Serialization.
-- [x] Система Toml конфигова основанная на KotlinX Serialization.
-- [x] Автоматическая генерация шаблонного sounds.json.
+### Simplify development
+- [x] Automatic generation of template models for blocks and items via the built-in resource pack.
+- [x] Serialize any objects in nbt using KotlinX Serialization.
+- [x] Toml config system based on KotlinX Serialization.
+- [x] Automatic generation of template sounds.json.
 
-### Графика
-- [x] Библиотека UI основанная на ImGui, отрисовка: базовых виджетов, предметов, блоков, контейнеров, слотов и т.д.
-- [x] Многопоточный загрузчик GLTF моделей с поддержкой: скелетной анимации, скиннинга, morph target'ы и PBR материалов для Iris/Oculus.
-- [x] Поддержка эффектов из Effekseer.
-- [x] Поддержка текстур: (a)png, gif, jpeg, tiff и т.п.
-- [x] Поддержка аудио: ogg, wav и mp3.
+### Graphics
+- [x] UI library based on ImGui, rendering: basic widgets, items, blocks, containers, slots, etc.
+- [x] Multi-threaded loader for GLTF models with support for: skeletal animation, skinning, morph targets and PBR materials for Iris/Oculus.
+- [x] Support for effects from Effekseer.
+- [x] Support for textures: (a)png, gif, jpeg, tiff, etc.
+- [x] Audio support: ogg, wav, and mp3.
 
-## Установка HollowCore
+## Installing HollowCore
 
-### Установка для игры
+### Install to play
 
-Скачать HollowCore можно на [GitHub](https://github.com/HollowHorizon/HollowCore/releases).
+You can download HollowCore from [GitHub](https://github.com/HollowHorizon/HollowCore/releases).
 
-### Установка для разработки
+### Installation for development
 
-Добавьте в ваш проект репозиторий **0mods.team**:
+Add the **0mods.team** repository to your project:
 ```kotlin
 repositories {
     maven("https://maven.0mods.team/releases")
 }
 ```
 
-После чего установите сам HollowCore:
+After that, install HollowCore itself:
 <Tabs>
     <TabItem value="loom" label="Loom">
         ```kotlin
         dependencies {
-            // Замените modLoader на Forge/Fabric, в зависимости от среды
-            // Замените minecraftVersion на версию игры, для которой будете разрабатывать
-            // Замените hcVersion на любую версию модификации
+            // Replace modLoader with Forge/Fabric, depending on the environment
+            // Replace minecraftVersion with the version of the game you'll be developing for
+            // Replace hcVersion with any modification version
             modCompileOnly("ru.hollowhorizon:HollowCore-$modLoader-$minecraftVersion:$hcVersion:dev")
             modRuntimeOnly("ru.hollowhorizon:HollowCore-$modLoader-$minecraftVersion:$hcVersion")
         }
@@ -62,9 +62,9 @@ repositories {
     <TabItem value="fg" label="ForgeGradle">
         ```kotlin
         dependencies {
-            // Замените modLoader на Forge/Fabric, в зависимости от среды
-            // Замените minecraftVersion на версию игры, для которой будете разрабатывать
-            // Замените hcVersion на любую версию модификации
+            // Replace modLoader with Forge/Fabric, depending on the environment
+            // Replace minecraftVersion with the version of the game you'll be developing for
+            // Replace hcVersion with any modification version
             compileOnly(fg.deobf("ru.hollowhorizon:HollowCore-$modLoader-$minecraftVersion:$hcVersion:dev"))
             runtimeOnly(fg.deobf("ru.hollowhorizon:HollowCore-$modLoader-$minecraftVersion:$hcVersion"))
         }

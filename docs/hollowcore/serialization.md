@@ -1,15 +1,15 @@
 ---
 sidebar_position: 0
 id: serialization
-title: Сериализация в NBT
-description: Больше никакой мороки!
+title: Serialization in NBT
+description: No more hassle!
 ---
 
-## Подготовка класса
+## Preparing the Class
 
-Итак, прежде всего создайте класс, который в последствии можно будет сериализовать в NBT.
+So, first, create a class that can later be serialized to NBT.
 
-### Пример
+### Example
 ```kt
 @Serializable
 class User(
@@ -20,46 +20,46 @@ class User(
 )
 ```
 
-## Сериализовать простой класс
+## Serialize a simple class
 
-Теперь мы можем запросто преобразовать этот класс в NBT:
+Now we can easily convert this class to NBT:
 ```kt
 import ru.hollowhorizon.hc.client.utils.nbt.NBTFormat
 import ru.hollowhorizon.hc.client.utils.nbt.serialize
 
-val user = User("Виталик", 21, "Млечный Путь, Земля", arrayOf("Халва", "Алгоритм", "Бармакс"))
+val user = User("Vitalik", 21, "Milky Way, Earth", arrayOf("Halva", "Algorithm", "Barmax"))
 
-val nbt = NBTFormat.serialize(user) // В результате вы получите объект класса net.minecraft.nbt.Tag
+val nbt = NBTFormat.serialize(user) // As a result, you will get an object of the class net.minecraft.nbt.Tag
 
-/* Выглядеть оно будет примерно так: 
+/* It will look something like this: 
 {
-    address: "Млечный Путь, Земля",
+    address: "Milky Way, Earth",
     age: 21,
     friends: [
-        "Халва",
-        "Алгоритм",
-        "Бармакс"
-        ]
-    }
- */
+        "Halva",
+        "Algorithm",
+        "Barmax"
+    ]
+}
+*/
 ```
 
-## Десериализовать простой класс
+## Deserialize a simple class
 
-Предположим у нас есть некоторый NBT тэг, преобразуем его обратно в объект класса User:
+Suppose we have some NBT tag, convert it back to an object of the User class:
 ```kotlin
 import ru.hollowhorizon.hc.client.utils.nbt.NBTFormat
 import ru.hollowhorizon.hc.client.utils.nbt.deserialize
 
-val tag: Tag //Это наша переменная с NBT, получить её вы можете откуда хотите
+val tag: Tag //This is our variable with NBT, you can get it from anywhere
 
-val user = NBTFormat.deserialize(tag) // В результате вы получите объект класса User
+val user = NBTFormat.deserialize(tag) // As a result, you will get an object of the User class
 ```
 
-## Сериализация с наследованием
-Иногда может потребоваться сериализовать класс или интерфейс, у которого могут быть потомки.
-В этом случае вам нужно добавить для каждого потомка аннотацию `@Polymorphic(Parent::class)`, где Parent - ваш исходный
-класс от которого происходит наследование.
-Не забудьте её импортировать: `import ru.hollowhorizon.hc.api.utils.Polymorphic`.
+## Serialization with inheritance
+Sometimes you may want to serialize a class or interface that may have children.
+In this case, you need to add an annotation for each child '@Polymorphic(Parent::class)', where Parent is your original
+the class from which the inheritance originates.
+Don't forget to import it: 'import ru.hollowhorizon.hc.api.utils.Polymorphic'.
 
-В качестве примера можете посмотреть как в HollowCore реализованы [виджеты](https://github.com/HollowHorizon/HollowCore/blob/1.19.2/src/main/java/ru/hollowhorizon/hc/common/ui/Widget.kt).
+As an example, you can see how HollowCore implements [widgets](https://github.com/HollowHorizon/HollowCore/blob/1.19.2/src/main/java/ru/hollowhorizon/hc/common/ui/Widget.kt).

@@ -1,57 +1,53 @@
 ---
 sidebar_position: 4
 id: events
-title: Универсальные События
-description: Как в Forge, но для любых загрузчиков модов!
+title: Universal Events
+description: Like in Forge, but for any mod loaders!
 ---
 
-import ToBeta from '@site/src/components/NewDocs.js';
+All sorts of events are constantly happening in the game, HollowCore allows you to catch some of them or even cancel them if possible.
 
-<ToBeta url='welcome' />
+## List of all events
 
-В игре постоянно проиходят всякие события, HollowCore позволяет ловить некоторые из них или даже отменять, если это возможно.
+You can't find all the events right away, some of them may be provided by other mods or created by you. But you can find the main ones in the 'en.hollowhorizon.hc.common.events' package.
 
-## Список всех событий
+## Creating an Event Handler
 
-Все события так сразу и не найдёшь, некоторые из них могут предоставляться другими модами или быть созданы вами. Но основные из них вы можете найти в пакете `ru.hollowhorizon.hc.common.events`.
+First, create a method and specify the class of the event you want as the first argument. After that, add the '@SubscribeEvent' annotation, if necessary, specify the priority in its parameters. The lower it is, the earlier it will be summoned compared to the events of other mods. (This is so that you can cancel the event before other mods if it is very important to you)
 
-## Создание обработчика событий
-
-Для начала создайте метод и в качестве первого аргумента укажите класс нужного вам события. После чего добавьте аннотацию `@SubscribeEvent`, при необходимости в её параметрах укажите приоритет. Чем он ниже, тем раньше будет вызван в сравнении с событиями других модов. (Это нужно чтобы вы могли отменить событие раньше других модов, если вам это очень важно)
-
-### Пример
+### Example
 ```kt
 @SubscribeEvent
-fun onPlayerJoin(event: PlayerEvent.Join) { // Метод запустится при входе игрока на сервер.
+fun onPlayerJoin(event: PlayerEvent.Join) { // The method will run when a player logs in to the server.
 
 }
 ```
 
-## Создание своих событий
+## Creating Your Own Events
 
-Если вам нужно создать своё события, то реализуйте интерфейс `ru.hollowhorizon.hc.common.events.Event` и при необходимости `ru.hollowhorizon.hc.common.events.Cancelable` (Если ваше событие можно будет отменить)
+If you need to create your own events, implement the interface 'en.hollowhorizon.hc.common.events.Event' and, if necessary, 'en.hollowhorizon.hc.common.events.Cancelable' (If your event can be canceled)
 
-После чего для вызова события создайте новый экземпляр класса и вызовите метод `EventBus.post(event)`, где event - экземпляр вашего класса.
-Если ваше событие кто-то отменил, то значение переменной `isCanceled` изменится на `true`.
+Then, to raise the event, create a new instance of the class and call the 'EventBus.post(event)' method, where the event is an instance of your class.
+If someone cancels your event, the value of the 'isCanceled' variable will change to 'true'.
 
-### Пример
+### Example
 ```kt
 class UniverseCollapseEvent(val message: String): Event, Cancelable {
-    override var isCanceled: Boolean = false // Начальное значение отменяемого события должно быть - false (иначе смысл его отменять, не так ли?)
+    override var isCanceled: Boolean = false // The initial value of the canceled event must be - false (otherwise it makes sense to cancel it, right?)
 }
 
-// Пример запуска вашего события
+// Example of running your event
 fun somewhereInYourCode() {
-    val event = UniverseCollapseEvent("Ой...") // Создаём событие
+    val event = UniverseCollapseEvent("Oops...") // Create an event
 
-    EventBus.post(event) // Вызываем событие
+    EventBus.post(event) // Calling the event
 
-    if(event.isCanceled) return // Если событие отменено, то завершаем метод
+    if(event.isCanceled) return // If the event is canceled, then complete the
 
-    Minecraft.crash(...) // Событие не завершено, делайте дальше, что хотите
+    Minecraft.crash(...) // The event is not over, do what you want
 }
 
-// Пример использования вашего события
+Example of using your event
 @SubscribeEvent
 fun onUniverseCollapse(event: UniverseCollapseEvent) {
     event.isCanceled = true

@@ -1,74 +1,77 @@
 ---
 sidebar_position: 2
 id: packets
-title: Универсальные пакеты
-description: Тут всё автоматизировано!
+title: Universal Packages
+description: Everything is automated here!
 ---
 
-HollowCore предоставляет вам удобную систему пакетов, вам необходимо лишь создать сериализуемый класс с данными и наследовать метод для обработки данных на другой стороне.
+HollowCore provides you with a convenient package system,
+you need to create a serializable class with data and inherit the method to process the data on the other side.
 
-## Создание класса
+## Creating a Class
 
-Итак, прежде всего создайте класс, который будет сериализуем и реализуйте в нём интерфейс `HollowPacket`, где generic-параметр - ваш класс.
-После чего добавьте аннотацию `@HollowPacketHandler` и по желанию укажите сторону, на которую пакет сможет быть отправлен.
-(Если её не указывать, то пакет сможет быть отправлен как с клиента на сервер, так и наоборот.)
+So, first, create a class that will be serializable and implement the 'HollowPacket' interface in it,
+where the generic parameter is your class.
+Then add the annotation '@HollowPacketHandler' and optionally specify the side to which the package can be sent.
+(If you don't specify it, the packet can be sent from the client to the server, or vice versa.)
 
 :::warning
-В версиях до **2.2.8a** (в том числе 2.2.8), HollowPacketHandler называется HollowPacketV2, а HollowPacket - HollowPacketV3
+In versions prior to **2.2.8a** (including 2.2.8), HollowPacketHandler is called HollowPacketV2,
+and HollowPacket is called HollowPacketV3
 :::
 
-### Пример
+### Example
 ```kt
 @HollowPacketHandler(HollowPacketHandler.Direction.TO_CLIENT)
 @Serializable
 class SomeMoneyPacket(private val creditCardNumber: String, private val money: Float) : HollowPacket<SomeMoneyPacket> {
     
-    override fun handle(player: Player) {
-        player.sendSystemMessage("У игрока ${player.name.string} на карте ${creditCardNumber} денег: ${money}".literal)
+override fun handle(player: Player) {
+        player.sendSystemMessage("Player ${player.name.string} has ${creditCardNumber} money on his card: ${money}".literal)
     }
 }
 ```
 
-## Отправка пакета
+## Sending a package
 
-Для отправки пакета создайте объект вашего пакета и вызовете один из следующих методов:
-- send() - отправить пакет на сервер.
-- send(player1: Player, player2: Player, ...) - отправить пакет с сервера определённым игрокам.
-- sendTrackingEntity(entity: Entity) - отправить пакет всем, кто может видеть определённого моба.
-- sendAllInDimension(level: Level) - отправить пакет всем игрокам в указанном измерении.
+To send a package, create an object in your package and call one of the following methods:
+- `send()` - send the packet to the server.
+- `send(player1: Player, player2: Player, ...)` - send a packet from the server to specific players.
+- `sendTrackingEntity(entity: Entity)` - send the packet to everyone who can see a particular mob.
+- `sendAllInDimension(level: Level)` - send the packet to all players in the specified dimension.
 
-### Пример
+### Example
 ```kt
-val packet = SomeMoneyPacket("2200########", -120000) // Создаём пакет (см. прошлый пример)
+val packet = SomeMoneyPacket("2200########", -120000) // Create a package (see previous example)
 
-packet.send(player) // Отправляем пакет определённому игроку
+packet.send(player) // Send the package to a specific player
 ```
 
-## Обработка пакета
+## Batch Processing
 
-Для обработки пакета вам необходимо лишь реализовать метод `handle(player: Player)` в вашем классе с пакетом, написав что будет происходить, когда пакет пришёл на клиент. Здесь, player - переменная игрока.
-Если пакет пришёл с сервера на клиент, то player имеет тип LocalPlayer и обозначает игрока, которому пришёл пакет.
-Если пакет пришёл с клиента на сервер, то player имеет тип ServerPlayer и обозначает игрока, который отправил пакет.
+To process a package, you only need to implement the 'handle(player: Player)' method in your class with the package, writing what will happen when the package arrives at the client. Here, player is the player variable.
+If the package came from the server to the client, then the player is of type LocalPlayer and indicates the player to whom the package arrived.
+If the packet came from the client to the server, then the player is of type ServerPlayer and indicates the player who sent the packet.
 
-Пример
+Example
 
 ```kt
-// Внутри вашего класса, реализующего интерфейс: HollowPacket. 
+// Inside your class that implements the interface: HollowPacket. 
 override fun handle(player: Player) {
-    player.sendSystemMessage("У игрока ${player.name.string} на карте $creditCardNumber денег: $money".literal)
+    player.sendSystemMessage("Player has ${player.name.string} on the card $creditCardNumber money: $money".literal)
 }
 ```
 
-## Пакет-запрос и корутины
+## Request Packet and Coroutines
 
-Иногда вам может потребоваться сделать один или несколько запросов на сервер и получить с него какие-либо данные. HollowCore имеет в себе отдельный под-тип пакета специализированный как раз под такие задачи.
+Sometimes you may need to make one or more requests to the server and get some data from it. HollowCore has a separate sub-type of package specialized just for such tasks.
 
-### Создание пакета-запроса
+### Creating a Request Package
 
-Для начала создайте класс с параметрами, которые хотите получить от сервера и наследуйте абстрактный класс `RequestPacket<T>`, где T - ваш пакет. 
-После чего наследуйте функцию `retrieveValue(player: ServerPlayer)`, в ней вам нужно получить нужные вам параметры и записать их в параметры класса.
+First, create a class with the parameters you want to get from the server and inherit the abstract 'RequestPacket<T>' class, where T is your package. 
+After that, inherit the 'retrieveValue(player: ServerPlayer)' function, in which you need to get the parameters you need and write them to the class parameters.
 
-#### Пример
+#### Example
 ```kt
 @HollowPacketHandler
 @Serializable
@@ -79,18 +82,18 @@ class GiveMyMoneyPacket(private var money: Float = 0f) : RequestPacket<SomeMoney
 }
 ```
 
-### Отправка и получение данных через корутины
+### Sending and receiving data via coroutines
 
-Теперь вы можете создать пакет на клиенте с шаблонными данными (они не будут использованы на сервере) и вызвать suspend метод `request()` для отправки запроса и ожидания ответа соответственно.
+Now you can create a package on the client with template data (it will not be used on the server) and call the suspend 'request()' method to send a request and wait for a response, respectively.
 
-#### Пример
+#### Example
 ```kt
-// Лучше используйте ваш собственный обработчик корутин
+Better use your own coroutine handler
 GlobalScope.launch {
-    val packet = GiveMyMoneyPacket() // Создаём пакет (см. прошлый пример)
+    val packet = GiveMyMoneyPacket() // Create a packet (see previous example)
 
-    val result = packet.request() // Вызываем suspend метод для отпраки запроса и получения ответа. Корутина будет приостановлена до получения ответа, а в результате вы получите пакет с сервера с уже заполненными данными
+val result = packet.request() // Call the suspend method to send the request and get a response. The coroutine will be suspended until you receive a response, and as a result, you will receive a packet from the server with already filled data
 
-    val money = result.money // Дальше делайте с этими данными, что хотите.
+val money = result.money // Then do what you want with this data.
 }
 ```
