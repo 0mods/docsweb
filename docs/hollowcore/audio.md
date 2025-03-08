@@ -7,32 +7,36 @@ description: Я есть звук!
 
 HollowCore позволяет использовать не только `.ogg` аудио, но и также `.mp3` и `.wav`. К тому же без необходимости регистрации звуков.
 
-# Чтение аудио файлов
+:::warning 
+Будет переработано в скором времени
+:::
 
-## OGG
+## Чтение аудио файлов
+
+### OGG
 
 Пример:
 ```kotlin
 val audio = OggFormat.read(stream) // stream - всё как в Java: InputStream, поток ввода данных. 
 ```
 
-## MP3
+### MP3
 
 Пример:
 ```kotlin
 val audio = Mp3Format.read(stream) // stream - всё как в Java: InputStream, поток ввода данных. 
 ```
 
-## WAV
+### WAV
 
 Пример:
 ```kotlin
 val audio = WavFormat.read(stream) // stream - всё как в Java: InputStream, поток ввода данных. 
 ```
 
-# Проигрывание звука
+## Проигрывание звука
 
-## Создаём проигрыватель
+### Создаём проигрыватель
 
 Пример:
 ```kotlin
@@ -40,7 +44,7 @@ val buffer = AudioBuffer(audio) // Создаём буфер для вашего
 val player = AudioPlayer(buffer) // Создаём проигрыватель звука
 ```
 
-## Функции для плеера
+### Функции для плеера
 
 Запуск: `player.play()`
 
@@ -58,7 +62,7 @@ val player = AudioPlayer(buffer) // Создаём проигрыватель з
 
 Звук относительно игрока: `player.setRelative(relative: Boolean)` - При `true` будут использованы координаты не относительно мира, а относительно игрока. 
 
-## Переменные для плеера
+### Переменные для плеера
 
 `player.isPlaying` - Проигрывается ли сейчас этот звук.
 

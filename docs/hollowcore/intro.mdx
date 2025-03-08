@@ -5,7 +5,10 @@ title: HollowCore Docs
 description: Хотите писать моды, но не хотите рутины?
 ---
 
-Итак, начнём с того, зачем вам может потребоваться этот мод.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Итак, начнём с того, зачем вам может потребоваться данный мод.
 
 ## Возможности HollowCore
 
@@ -39,16 +42,32 @@ description: Хотите писать моды, но не хотите рути
 Добавьте в ваш проект репозиторий **0mods.team**:
 ```kotlin
 repositories {
-    maven("https://maven.0mods.team")
+    maven("https://maven.0mods.team/releases")
 }
 ```
 
 После чего установите сам HollowCore:
-```kotlin
-dependencies {
-    implementation("ru.hollowhorizon:HollowCore-forge-1.19.2:2.0.4:dev")
-}
-```
-
-Вместо `forge` вы можете указать любой из загрузчиков. (`fabric`, `neoforge`)
-А в качестве версии поддерживается `1.19.2`, `1.20.1` и `1.21`.
+<Tabs>
+    <TabItem value="loom" label="Loom">
+        ```kotlin
+        dependencies {
+            // Замените modLoader на Forge/Fabric, в зависимости от среды
+            // Замените minecraftVersion на версию игры, для которой будете разрабатывать
+            // Замените hcVersion на любую версию модификации
+            modCompileOnly("ru.hollowhorizon:HollowCore-$modLoader-$minecraftVersion:$hcVersion:dev")
+            modRuntimeOnly("ru.hollowhorizon:HollowCore-$modLoader-$minecraftVersion:$hcVersion")
+        }
+        ```
+    </TabItem>
+    <TabItem value="fg" label="ForgeGradle">
+        ```kotlin
+        dependencies {
+            // Замените modLoader на Forge/Fabric, в зависимости от среды
+            // Замените minecraftVersion на версию игры, для которой будете разрабатывать
+            // Замените hcVersion на любую версию модификации
+            compileOnly(fg.deobf("ru.hollowhorizon:HollowCore-$modLoader-$minecraftVersion:$hcVersion:dev"))
+            runtimeOnly(fg.deobf("ru.hollowhorizon:HollowCore-$modLoader-$minecraftVersion:$hcVersion"))
+        }
+        ```
+    </TabItem>
+</Tabs>

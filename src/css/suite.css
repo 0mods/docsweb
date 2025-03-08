@@ -1,58 +1,79 @@
 @import "https://unpkg.com/@egjs/view3d@latest/css/view3d-bundle.min.css";
 
-@font-face {
-  font-family: 'vksans-medium';
-  src: url(font/vksans/medium.ttf);
-}
-@font-face {
-  font-family: 'vksans-demibold';
-  src: url(font/vksans/demibold.otf);
-}
-/* мне сказали что - это говно.
-@font-face {
-  font-family: 'monocraft';
-  src: url(font/monocraft.ttf);
-}
-*/
 :root {
-  font-family: 'vksans-medium';
-  --ifm-color-primary: #4b5fcf;
-  --ifm-color-primary-dark: #3c588b;
-  --ifm-color-primary-darker: #3c588b;
-  --ifm-color-primary-darkest: #283a5c;
-  --ifm-color-primary-light: #4f61c9;
-  --ifm-color-primary-lighter: #4f61c9;
-  --ifm-color-primary-lightest: #4f61c9;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 51, 102, 0.1);
-}
-/*:root[data-theme='light'] {
-  --docsearch-searchbox-background: #4f93be;
-  --docsearch-searchbox-focus-background: #40a8ea;
-  --docsearch-text-color: #40a8ea;
-  --docsearch-muted-color: #40a8ea;
-}*/
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  /*--ifm-color-primary: #33408d;*/
-  --ifm-color-primary: #576cec;
-  --ifm-color-primary-dark: #2b477c;
-  --ifm-color-primary-darker: #314774;
-  --ifm-color-primary-darkest: #101f38;
-  --ifm-color-primary-light: #344396;
-  --ifm-color-primary-lighter: #344396;
-  --ifm-color-primary-lightest: #344396;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 51, 102, 0.3);
-  background-color: hsla( 225deg ,15%,14%,1);
+  --ifm-color-primary: #3819d2;
+  --ifm-color-primary-dark: #3217bd;
+  --ifm-color-primary-darker: #3015b3;
+  --ifm-color-primary-darkest: #271193;
+  --ifm-color-primary-light: #3f1ee4;
+  --ifm-color-primary-lighter: #4829e5;
+  --ifm-color-primary-lightest: #1f0e73;
+  --ifm-code-font-size: 90%;
+
+  --context-divier: #e2e2e3;
+
+  --ifm-color-warning-contrast-background: rgb(254, 243, 213);
+  --ifm-code-border-radius: 0.55rem;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.125);
 }
 
-[data-theme='dark'] .navbar {
-  background-color: #4051b5;
+html[data-theme="dark"] {
+  --ifm-color-primary: #0896d4;
+  --ifm-color-primary-dark: #0891ce;
+  --ifm-color-primary-darker: #088ec9;
+  --ifm-color-primary-darkest: #078ac3;
+  --ifm-color-primary-light: #09a5e9;
+  --ifm-color-primary-lighter: #09acf4;
+  --ifm-color-primary-lightest: #27b8f7;
+
+  --ifm-background-color: #121214;
+  --ifm-background-surface-color: #1b1b1b;
+
+  --ifm-color-secondary-contrast-background: rgba(72, 71, 71, 0.55);
+  --ifm-color-warning-contrast-background: rgba(77, 56, 0, 0.55);
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.45);
+  --ifm-code-background: rgba(255, 255, 255, 0.08);
+
+  --content-divier: #2e2e32;
+
+  .footer--dark {
+    --ifm-footer-background-color: rgb(27, 27, 27);
+  }
 }
 
-[data-theme='light'] .navbar {
-  --docsearch-primary-color: rgb(50, 109, 151);
-  background-color: #526cfe;
+
+.menu__caret:before {
+  background: var(--ifm-menu-link-sublist-icon) 50%/1.65rem;
+}
+
+.menu__link--sublist-caret:after {
+  background: var(--ifm-menu-link-sublist-icon) 50%/1.65rem;
+}
+
+.hash-link:link {
+  text-decoration: none;
+}
+
+a.no-underline {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.link-card:hover {
+  transform: scale(1.05);
+  border: 1px solid var(--ifm-color-primary-light);
+}
+
+.link-card {
+  transition: transform 450ms ease-in-out;
+}
+
+h2 {
+  margin: 48px 0 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--context-divier);
 }
 /*
 /* My Custom Theme DONT COMMIT & PUSH Меня Алго убъёт \-/

@@ -75,12 +75,12 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // algolia: {
-    //   appId: 'S11JTLUN4G',
-    //   apiKey: 'f5ae02919fe4c00ba622ff8d88e9ce08',
-    //   indexName: '0mods',
-    //   contextualSearch: false,
-    // },
+    algolia: {
+      appId: 'S11JTLUN4G',
+      apiKey: 'f5ae02919fe4c00ba622ff8d88e9ce08',
+      indexName: '0mods',
+      contextualSearch: false,
+    },
     liveCodeBlock: {
       playgroundPosition: 'bottom',
     },

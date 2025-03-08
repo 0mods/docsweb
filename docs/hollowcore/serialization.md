@@ -5,10 +5,6 @@ title: Сериализация в NBT
 description: Больше никакой мороки!
 ---
 
-import ToBeta from '@site/src/components/NewDocs.js';
-
-<ToBeta url='welcome' />
-
 ## Подготовка класса
 
 Итак, прежде всего создайте класс, который в последствии можно будет сериализовать в NBT.
