@@ -1,0 +1,10 @@
+position: 1
+label: HollowCore
+#collapsible: true # Collapsible
+#collapsed: false # Collapsed by default
+#className: class name
+link:
+  type: generated-index
+#  title: 'Hollow Core'
+customProps:
+  description: HollowCore using documentation

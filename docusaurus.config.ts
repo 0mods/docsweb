@@ -21,21 +21,21 @@ const config: Config = {
   },
 
   i18n: {
-    defaultLocale: 'en-US',
-    locales: ['en-US', 'ru-RU'],
+    defaultLocale: 'en',
+    locales: ['en', 'ru'],
     path: 'i18n',
     localeConfigs: {
-      'en-US': {
+      en: {
         label: 'English',
         direction: 'ltr',
-        htmlLang: 'en-US',
+        htmlLang: 'en',
         calendar: 'gregory',
         path: 'en',
       },
-      'ru-RU': {
+      ru: {
         label: 'Русский',
         direction: 'ltr',
-        htmlLang: 'ru-RU',
+        htmlLang: 'ru',
         calendar: 'gregory',
         path: 'ru',
       },
