@@ -58,8 +58,8 @@ val user = NBTFormat.deserialize(tag) // As a result, you will get an object of 
 
 ## Serialization with inheritance
 Sometimes you may want to serialize a class or interface that may have children.
-In this case, you need to add an annotation for each child '@Polymorphic(Parent::class)', where Parent is your original
+In this case, you need to add an annotation for each child `@Polymorphic(Parent::class)`, where `Parent` is your original
 the class from which the inheritance originates.
-Don't forget to import it: 'import ru.hollowhorizon.hc.api.utils.Polymorphic'.
+Remember to import it: `import ru.hollowhorizon.hc.api.utils.Polymorphic`.
 
 As an example, you can see how HollowCore implements [widgets](https://github.com/HollowHorizon/HollowCore/blob/1.19.2/src/main/java/ru/hollowhorizon/hc/common/ui/Widget.kt).

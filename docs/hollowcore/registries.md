@@ -24,7 +24,10 @@ object ModItems : HollowRegistry() {
 
 ## Registration of a game object
 
-HollowCore allows you to register almost all game objects. It determines the type of registrar automatically, you just need to create a delegate using the `register(location: ResourceLocation, () -> T): RegistryObject<T>` method, where T is the class of your object.
+HollowCore allows you to register almost all game objects.
+It determines the type of registrar automatically;
+you need to create a delegate using the `register(location: ResourceLocation, () -> T): RegistryObject<T>` method,
+where T is the class of your object.
 
 ### Example
 ```kt
@@ -35,10 +38,11 @@ object ModItems : HollowRegistry() {
 }
 ```
 
-All other game objects are registered in the same way, just pass the desired object.
+All other game objects are registered in the same way, pass the desired object.
 
 :::tip
-If you don`t want to keep specifying `modid:` for every object you register, you can add your mod id to the HollowRegistry constructor:
+If you don't want to keep specifying `modid:` for every object you register,
+you can add your mod id to the HollowRegistry constructor:
 ```kt
 object ModItems : HollowRegistry("modid") {
     val MY_ITEM by register("my_item") {
