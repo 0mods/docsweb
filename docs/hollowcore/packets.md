@@ -1,18 +1,18 @@
 ---
 sidebar_position: 2
 id: packets
-title: Universal Packages
+title: Universal Packets
 description: Everything is automated here!
 ---
 
-HollowCore provides you with a convenient package system,
+HollowCore provides you with a convenient packet system,
 you need to create a serializable class with data and inherit the method to process the data on the other side.
 
 ## Creating a Class
 
 So, first, create a class that will be serializable and implement the `HollowPacket` interface in it,
 where the generic parameter is your class.
-Then add the annotation `@HollowPacketHandler` and optionally specify the side to which the package can be sent.
+Then add the annotation `@HollowPacketHandler` and optionally specify the side to which the packet can be sent.
 (If you don`t specify it, the packet can be sent from the client to the server, or vice versa.)
 
 :::warning
@@ -31,9 +31,9 @@ class SomeMoneyPacket(private val creditCardNumber: String, private val money: F
 }
 ```
 
-## Sending a package
+## Sending a packet
 
-To send a package, create an object in your package and call one of the following methods:
+To send a packet, create an object in your packet and call one of the following methods:
 - `send()` - send the packet to the server.
 - `send(player1: Player, player2: Player, ...)` - send a packet from the server to specific players.
 - `sendTrackingEntity(entity: Entity)` - send the packet to everyone who can see a particular mob.
@@ -48,8 +48,8 @@ packet.send(player) // Send the package to a specific player
 
 ## Batch Processing
 
-To process a package, you only need to implement the `handle(player: Player)` method in your class with the package, writing what will happen when the package arrives at the client. Here, player is the player variable.
-If the package came from the server to the client, then the player is of type LocalPlayer and indicates the player to whom the package arrived.
+To process a packet, you only need to implement the `handle(player: Player)` method in your class with the packet, writing what will happen when the packet arrives at the client. Here, player is the player variable.
+If the packet came from the server to the client, then the player is of type LocalPlayer and indicates the player to whom the packet arrived.
 If the packet came from the client to the server, then the player is of type ServerPlayer and indicates the player who sent the packet.
 
 Example
@@ -67,7 +67,7 @@ Sometimes you may need to make one or more requests to the server and get some d
 
 ### Creating a Request Package
 
-First, create a class with the parameters you want to get from the server and inherit the abstract `RequestPacket<T>` class, where T is your package. 
+First, create a class with the parameters you want to get from the server and inherit the abstract `RequestPacket<T>` class, where T is your packet. 
 After that, inherit the `retrieveValue(player: ServerPlayer)` function, in which you need to get the parameters you need and write them to the class parameters.
 
 #### Example
@@ -83,7 +83,7 @@ class GiveMyMoneyPacket(private var money: Float = 0f) : RequestPacket<SomeMoney
 
 ### Sending and receiving data via coroutines
 
-Now you can create a package on the client with template data (it will not be used on the server) and call the suspend `request()` method to send a request and wait for a response, respectively.
+Now you can create a packet on the client with template data (it will not be used on the server) and call the suspend `request()` method to send a request and wait for a response, respectively.
 
 #### Example
 ```kt
