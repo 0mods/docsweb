@@ -88,12 +88,12 @@ Now you can create a package on the client with template data (it will not be us
 
 #### Example
 ```kt
-Better use your own coroutine handler
+//Better use your own coroutine handler
 GlobalScope.launch {
     val packet = GiveMyMoneyPacket() // Create a packet (see previous example)
 
-val result = packet.request() // Call the suspend method to send the request and get a response. The coroutine will be suspended until you receive a response, and as a result, you will receive a packet from the server with already filled data
+    val result = packet.request() // Call the suspend method to send the request and get a response. The coroutine will be suspended until you receive a response, and as a result, you will receive a packet from the server with already filled data
 
-val money = result.money // Then do what you want with this data.
+    val money = result.money // Then do what you want with this data.
 }
 ```
