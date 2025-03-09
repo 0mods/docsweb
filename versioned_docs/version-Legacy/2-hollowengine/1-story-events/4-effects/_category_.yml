@@ -1,6 +1,0 @@
-position: 4
-label: 'Эффекты'
-link:
-  type: generated-index
-customProps:
-  description: 'NaN'

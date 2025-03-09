@@ -1,0 +1,70 @@
+{
+  "version.label": {
+    "message": "Legacy",
+    "description": "The label for version Legacy"
+  },
+  "sidebar.zeroSidebar.category.KotlinScript": {
+    "message": "KotlinScript",
+    "description": "The label for category KotlinScript in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.HollowCore": {
+    "message": "HollowCore",
+    "description": "The label for category HollowCore in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Дополнительно": {
+    "message": "Дополнительно",
+    "description": "The label for category Дополнительно in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.HollowEngine": {
+    "message": "HollowEngine",
+    "description": "The label for category HollowEngine in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Начало": {
+    "message": "Начало",
+    "description": "The label for category Начало in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Скрипт: Сюжетные события": {
+    "message": "Скрипт: Сюжетные события",
+    "description": "The label for category Скрипт: Сюжетные события in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.НИП": {
+    "message": "НИП",
+    "description": "The label for category НИП in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Диалоги": {
+    "message": "Диалоги",
+    "description": "The label for category Диалоги in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Кат-сцены": {
+    "message": "Кат-сцены",
+    "description": "The label for category Кат-сцены in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Игрок": {
+    "message": "Игрок",
+    "description": "The label for category Игрок in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Эффекты": {
+    "message": "Эффекты",
+    "description": "The label for category Эффекты in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Скрипт: Контент": {
+    "message": "Скрипт: Контент",
+    "description": "The label for category Скрипт: Контент in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Рецепты крафта": {
+    "message": "Рецепты крафта",
+    "description": "The label for category Рецепты крафта in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Скрипт: Модификация": {
+    "message": "Скрипт: Модификация",
+    "description": "The label for category Скрипт: Модификация in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Доп. ресурсы": {
+    "message": "Доп. ресурсы",
+    "description": "The label for category Доп. ресурсы in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.link.Kotlin Script": {
+    "message": "Kotlin Script",
+    "description": "The label for link Kotlin Script in sidebar zeroSidebar, linking to https://kotlinlang.org/docs/basic-syntax.html"
+  }
+}

@@ -1,0 +1,116 @@
+---
+sidebar_position: 7
+
+title: Торговец
+id: trader
+desc: 'Иметь связи в торговле - полезно'
+---
+
+import { Random, Part } from '@site/src/packs/random_new.js';
+
+<div align="center">
+
+# Торговец
+
+Только у нас
+
+<div className="show" id="mask">
+
+<Random max="100">
+  <Part low="0" high="94">
+<link rel="preload" as="image" href="@site/static/img/doc/titles/NpcTrader0.webp" />
+
+![trader-0-0](@site/static/img/doc/titles/NpcTrader0.webp)
+
+  </Part>
+  <Part low="95" high="99">
+<link rel="preload" as="image" href="@site/static/img/doc/titles/NpcTrader1.webp" />
+
+![trader-0-1](@site/static/img/doc/titles/NpcTrader1.webp)
+
+  </Part>
+  <Part low="100" High="100">
+<link rel="preload" as="image" href="@site/static/img/doc/titles/NpcTrader4.webp" />
+
+![trader-1-0](@site/static/img/doc/titles/NpcTrader4.webp)
+
+  </Part>
+</Random>
+
+</div>
+
+Самые высокие цены!
+
+---
+
+<br />
+
+<div id="dont-copy">
+
+# Создать торговца
+
+<br />
+
+::::info Создать торговца
+Для создания торговка НИпа - существует метод:
+<div align="left">
+```kts
+<npcID> addTrade(
+  MerchantOffer(
+    item("<itemID>", <count>, "<nbtTags>"), // Требуемая вещь #1
+    item("<itemID>", <count>, "<nbtTags>"), // Требуемая вещь #2
+    item("<itemID>", <count>, "<nbtTags>"), // Продаваемая вещь
+    <maxTrades>, // Макс количество торгов
+    <xpTrade>, // Количество опыта для прокачки торговца
+    <priceMultiple> // Процент скидки
+  )
+)
+```
+</div>
+:::warning Имейте в виду
+Если вы хотите добавить ещё трейды, то нужно вызывать метод по новому:
+```kts
+<npcID> addTrade(...) // Трейд #1
+<npdID> addTrade(...) // Трейд #2
+... // И так далее
+```
+:::
+::::
+
+<br />
+
+---
+
+<br />
+
+## Возобновление торгов
+
+<br />
+
+:::info Возобновление торгов
+Чтобы возобновить торги, а именно снова иметь возможность торговаться - есть метод
+```kts
+<npcID>.clearTradesUses() // Обнуляет счётчик торгов
+```
+:::
+
+<br />
+
+---
+
+<br />
+
+## Удалить возможность торговли
+
+<br />
+
+:::info
+Так же можно у Торговца НИПа отобрать возможность торговатсья и сделать его снова обычным
+```kts
+<npcID>.clearTrades()
+```
+:::
+
+</div>
+
+</div>

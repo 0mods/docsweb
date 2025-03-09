@@ -70,5 +70,29 @@
   "sidebar.zeroSidebar.link.Kotlin Script": {
     "message": "Kotlin Script",
     "description": "The label for link Kotlin Script in sidebar zeroSidebar, linking to https://kotlinlang.org/docs/basic-syntax.html"
+  },
+  "sidebar.zeroSidebar.category.HollowCore": {
+    "message": "HollowCore",
+    "description": "The label for category HollowCore in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Ингредиенты": {
+    "message": "Ингредиенты",
+    "description": "The label for category Ингредиенты in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.HollowEngine": {
+    "message": "HollowEngine",
+    "description": "The label for category HollowEngine in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Начало": {
+    "message": "Начало",
+    "description": "The label for category Начало in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.Сюжетный (Story)": {
+    "message": "Сюжетный (Story)",
+    "description": "The label for category Сюжетный (Story) in sidebar zeroSidebar"
+  },
+  "sidebar.zeroSidebar.category.НИПы": {
+    "message": "НИПы",
+    "description": "The label for category НИПы in sidebar zeroSidebar"
   }
 }

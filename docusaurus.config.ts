@@ -54,9 +54,9 @@ const config: Config = {
             current: {
               label: '2.0'
             },
-            Legacy: {
+            legacy: {
               label: 'Legacy',
-              path: 'Legacy'
+              path: 'legacy'
             }
           },
           routeBasePath: '/docs',

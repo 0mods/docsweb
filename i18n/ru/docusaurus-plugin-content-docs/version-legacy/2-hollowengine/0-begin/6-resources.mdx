@@ -1,0 +1,241 @@
+---
+sidebar_position: 6
+
+title: Ресурсы (Assets)
+id: resources
+description: Как правильно размещать ресурсы чтобы потом не было ошибок
+---
+
+import '@site/src/css/pages/img-show.css';
+import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
+import '@site/src/packs/toggle_text/toggle_button.css';
+
+<div align="center">
+
+# Ресурсы (или же `Assets`)
+
+Просто кинуть файл, в папку `assets` - это глупая ошибка.
+
+<link rel="preload" as="image" href="@site/static/img/doc/titles/Assets0.webp" />
+<div className="show" id="mask">
+
+![resources](@site/static/img/doc/titles/Assets0.webp)
+
+</div>
+
+Повторюсь: Папка `Assets` работает как и Ресурс паки, но без необходимости создавать под это дело архив и файл `pack.mcmeta`.
+
+Работает это по принципу `ResourceLocation`, так думаю с него и стоит начать объяснение.
+
+<br />
+
+---
+
+<br />
+
+:::warning Папка `assets`
+Все ресурсы размещаются в отдельной папке [`assets`](./1-new-directory.mdx)
+:::
+
+## Об `ResourceLocation`...
+
+::::info `ResourceLocation`
+Через `ResourceLocation` мы указываем путь по директориям, откуда брать тот или иной файл.
+
+:::warning !!! ОСТОРОЖНО !!!
+Обзывать файлы и папки как вам хочется — ***не выйдет***, для этого есть строгие правила.
+<div align="left">
+> "В ваших именах папок и файлов могут входить только следующие символы":
+> - Все буквы Английского алфавита `от a до z` **!ТОЛЬКО НИЖНЕГО РЕГИСТРА!**
+> - Все цифры `от 0 до 9`
+> - и допустимый символ `_`
+</div>
+
+<br />
+
+Кратно записывают так: `[a-z, 0-9, _]`
+:::
+
+<br />
+
+<ToggleText buttonText="Как работает 'ResourceLocation'">
+
+Путь к ресурсу указывается по такому шаблону: `modID:path/to/resource.format`.
+
+Сразу приведу пример и разъясню его - `hollowengine:models/entity/player.gltf`:
+
+Задав в начале перед символом `:` - мы указываем, из какого мода искать требуемый ресурс, `hollowengine` - это `MOD_ID`, а `MOD_ID` - это уникальное не повторяющиеся имя для директории.
+
+Дальше после символа `:` мы указываем — по каким директориям нужно двигаться, чтобы найти этот ресурс.
+
+И уже после мы указываем имя требуемого файла, и главное **его формат**. Ведь имён может быть много, а форматов всего несколько.
+
+И того получается: Идём в моде с `modID: hollowengine`, двигаемся по директориям `models/entity` и ищем файл `player.gltf`.
+
+</ToggleText>
+::::
+
+<br />
+
+---
+
+<br />
+
+## Ресурсы
+
+:::info Ресурсы
+Хранить ресурсы вы можете как душе вам угодно.
+
+Ниже буду приведены поддерживаемые форматы (если таковы есть) и то как размещать ресурсы,
+если вы не сильно в этом разбираетесь.
+:::
+
+<br />
+<br />
+<br />
+
+### Модели
+
+:::note Модели
+<div align="left">
+> Список поддерживаемых форматов:
+> - `glTF [.gltf]`
+> - `GLB [.glb]`
+</div>
+
+<br />
+
+<ToggleText buttonText="Я не понимаю где размещать модели">
+
+Модели хранятся в пути: `assets/hollowengine/models/`.
+
+Под модели для НИПов есть подпапка `entity` (т.к. НИПы — это сущности), и в этой папке вы можете размещать уже свои модели.
+
+Вам останется указать правильно путь до модели. По этому правилу будет: `hollowengine:models/entity/<имя_файла_модели>.<формат_модели>`.
+
+Пример: `hollowengine:models/entity/pirate_capitan.gltf`.
+
+</ToggleText>
+
+:::
+
+<br />
+
+### Текстуры
+
+:::note Текстуры
+<div align="left">
+> Список поддерживаемых текстур:
+> - `Png [.png]`
+> - `Gif [.gif]`
+</div>
+
+<br />
+
+<ToggleText buttonText="Я не понимаю где размещать текстуры">
+
+Текстуры хранятся в пути: `assets/hollowengine/textures/`.
+
+Под текстуры для НИПов есть подпапка `entity` (т.к. НИПы — это сущности), и в этой папке вы можете размещать уже свои текстуры.
+
+Вам остаётся указать правильно путь до текстуры. По этому правилу будет: `hollowengine:textures/entity/<имя_файла_текстуры>.<формат_текстуры>`.
+
+Пример: `hollowengine:textures/entity/pirate_capitan_map.png`
+
+</ToggleText>
+
+:::
+
+<br />
+
+### Звуки
+
+::::note Звуки
+<div align="left">
+> Список поддерживаемых звуков:
+> - `Ogg [.ogg]`
+</div>
+
+<br />
+
+Все звуки хранятся строго в папке `assets/<mod_id>/sounds`.
+
+Тут всё не так просто как кажется.
+
+<ToggleText buttonText="Ручная регистрация">
+Для этого вам нужно создать файл `sounds.json` в вашей директории `<mod_id>/`
+<div align="left">
+
+```js lines title="Содержимое файла"
+{
+  "sound_name": {
+    "category": "<sound_category>",
+    "subtitle": "<translation_text>",
+    "sounds": [
+      // Простое добавление звука
+      "<mod_id>>:<path/to/sound>",
+
+      // Расширенное добавление звука
+      {
+        "name": "<mod_id>>:<path/to/sound>",
+        "volume": <Double>,
+        "pitch": <Double>,
+        "weight": <Int>,
+        "stream": <Boolean>
+      }
+    ]
+  }
+}
+```
+> - `sound_category` - Категория звука. Все категории можно узанать из команды `/playsound <sound> <sound_category>`.
+> - `subtitle` - Переводимый текст для субтитров.
+> - **!`mod_id`!** - Уникальное имя мода, откуда брать звук.
+> - **!`path/to/sound`!** - Указываете путь относительно папки `sounds`. **Указывать без расширения**!
+> - `volume` - Громкость.
+> - `pitch` - Тональность/Высота.
+> - `weight` - Не эбу за что отвечает.
+> - `stream` - Тоже не эбу за что отвечает.
+
+---
+
+> Пример того, как оно должно быть:
+```directory title="Директории с файлами"
+assets
+\- my_mod_id
+   |- sounds
+   |  |- by_best
+   |  |  \- best_0.ogg
+   |  \- funny.ogg
+   \- sounds.json
+```
+```js title="В файле 'sounds.json'. Минимальное что нужно для звука"
+{
+  "best_sound": {
+    "sounds": [ "my_mod_id:by_best/best_0" ]
+  },
+  {
+    "funny_music": {
+      "sounds": [ "my_mod_id:funny" ]
+    }
+  }
+}
+```
+
+</div>
+</ToggleText>
+
+<br />
+
+<ToggleText buttonText="Автоматическая регистрация">
+Для этого вам достаточно лишь в директорию `hollowengine/sounds` закинуть сами звуки и всё.
+
+**HollowEngine** сам определит звуки и сам из зарегестрирует.
+</ToggleText>
+
+:::warning ВНИМАНИЕ
+После изменения что-то в ресурсах - требуется перезагрузка ресурсов на комбинацию клавиш  
+`F3 + T`!
+:::
+
+::::
+</div>
