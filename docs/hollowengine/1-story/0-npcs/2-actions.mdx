@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 
-title: Дейтсвия
+title: Actions
 id: npc-actions
 desc: 'NaN'
 ---
@@ -10,13 +10,13 @@ import '@site/src/css/pages/pc-phone-ver.css';
 
 <div align="center">
 
-# Действия для НИПа
+# NPC actions
 
 ---
 
 <br />
 
-## Двигаться
+## Walk
 
 <div align="left" id="dont-copy">
 
@@ -25,7 +25,7 @@ import '@site/src/css/pages/pc-phone-ver.css';
 <div style={{ "display": "flex" }}>
   <div style={{ "align-items": "flex-start", "width": "100%", "margin-right": "5px" }}>
   
-  ```kts title="Функция по позиции"
+  ```kts title="Function to positon"
   fun NPCEntity.move(
     pos: Vec3,
     dist: Double = 1.5,
@@ -36,7 +36,7 @@ import '@site/src/css/pages/pc-phone-ver.css';
   </div>
   <div style={{ "align-items": "flex-end", "width": "100%", "margin-left": "5px" }}>
   
-  ```kts title="Функция по сущности"
+  ```kts title="Function to entity"
   fun NPCEntity.move(
     entity: Entity,
     dist: Double = 1.5,
@@ -50,14 +50,14 @@ import '@site/src/css/pages/pc-phone-ver.css';
 
 <div id="ver-cut">
 
-```kts title="Функция по позиции"
+```kts title="Function to positon"
 fun NPCEntity.move(
   pos: Vec3,
   dist: Double = 1.5,
   speed: Double = 1.0
 )
 ```
-```kts title="Функция по сущности"
+```kts title="Function to entity"
 fun NPCEntity.move(
   entity: Entity,
   dist: Double = 1.5,
@@ -67,18 +67,18 @@ fun NPCEntity.move(
 
 </div>
 
-```kts title="Примеры"
-// НИП будет двигаться до точки
+```kts title="Examples"
+// NPC will moves to position
 npcID move pos(92, 23, 56)
 
-// НИП будет идти за игроком
+// NPC will follow player
 val player = server.playerList.players.first() // Получаем первого игрока из списка
 npcID move player
 
-// НИП будет двигаться до точки пока расстояние не будет меньше 3.0 блоков, со скоростью 2.0
+// The NPC will move to the point until the distance is less than 3.0 blocks, with a speed of 2.0
 npcID.move(pos(25, 64, 2), 3.0, 2.0)
 
-// НИП будет двигаться до игрока пока расстояние не будет меньше 3.0 блоков, со скоростью 2.0
+// The NPC will move towards the player until the distance is less than 3.0 blocks, at a speed of 2.0
 npcID.move(player, 3.0, 2.0)
 ```
 
@@ -88,7 +88,7 @@ npcID.move(player, 3.0, 2.0)
 ---
 <br />
 
-## Смотреть
+## Look
 
 <div align="left" id="dont-copy">
 
@@ -97,14 +97,14 @@ npcID.move(player, 3.0, 2.0)
 <div style={{ "display": "flex" }}>
   <div style={{ "align-items": "flex-start", "width": "100%", "margin-right": "5px" }}>
   
-  ```kts title="Функция по позиции"
+  ```kts title="Function to positon"
   fun NPCEntity.look(pos: Vec3)
   ```
   
   </div>
   <div style={{ "align-items": "flex-end", "width": "100%", "margin-left": "5px" }}>
   
-  ```kts title="Функция по сущности"
+  ```kts title="Function to entity"
   fun NPCEntity.look(entity: Entity)
   ```
   
@@ -114,20 +114,20 @@ npcID.move(player, 3.0, 2.0)
 
 <div id="ver-cut">
 
-```kts title="Функция по позиции"
+```kts title="Function to positon"
 fun NPCEntity.look(pos: Vec3)
 ```
-```kts title="Функция по сущности"
+```kts title="Function to entity"
 fun NPCEntity.look(entity: Entity)
 ```
 
 </div>
 
-```kts title="Пример"
+```kts title="Example"
 // НИП посмотрит в точку
 npcID look pos(92, 3, 24)
 
-// НИП посмотрит на игрока
+// NPC looks to player
 val player = server.playerList.player.first() // Получаем первого игрока из списка
 npcID look player
 ```
@@ -138,17 +138,17 @@ npcID look player
 ---
 <br />
 
-## Взаимодействие с миром
+## Interaction with the world
 
-### Взаимодействие с блоком
+### Interaction with the player
 
 <div align="left" id="dont-copy">
 
-```kts title="Функция"
+```kts title="Function"
 fun NPCEntity.useBlock(pos: Vec3)
 ```
-```kts title="Пример"
-// НИП с имитирует нажатие ПКМ по блоку
+```kts title="Example"
+// NPC simulates right-clicking on a block
 npcID useBlock pos(92, 93, 241)
 ```
 
@@ -156,15 +156,15 @@ npcID useBlock pos(92, 93, 241)
 
 <br />
 
-## Сломать блок
+## Destroy block
 
 <div align="left" id="dont-copy">
 
-```kts title="Функция"
+```kts title="Function"
 fun NPCEntity.destroyBlock(pos: Vec3)
 ```
-```kts title="Пример"
-// НИП сломает блок
+```kts title="Example"
+// NPC destroy block
 npcID destroyBlock pos(92, 46, 24)
 ```
 
@@ -174,15 +174,15 @@ npcID destroyBlock pos(92, 46, 24)
 ---
 <br />
 
-## Бросить предмет
+## Drop item
 
 <div align="left" id="dont-copy">
 
-```kts title="Функция"
+```kts title="Function"
 fun NPCEntity.dropItem(item: ItemStack)
 ```
-```kts title="Пример"
-// НИП бросит предмет "Золотое яблоко"
+```kts title="Example"
+// NPC will drop item "Golden Apple'
 npcID dropItem item("golden_apple")
 ```
 
@@ -192,15 +192,15 @@ npcID dropItem item("golden_apple")
 ---
 <br />
 
-## Сказать
+## Say
 
 <div align="left" id="dont-copy">
 
-```kts title="Функция"
+```kts title="Function"
 fun NPCEntity.say(text: String)
 ```
-```kts title="Пример"
-npcID say "Привет"
+```kts title="Example"
+npcID say "Hello!"
 ```
 
 </div>

@@ -1,7 +1,7 @@
 ---
 sidebar_position: 0
 
-title: 'Создание'
+title: 'Creating'
 id: npc-create
 desc: 'NaN'
 ---
@@ -11,9 +11,9 @@ import '@site/src/css/pages/txt-img.css';
 
 <div align="center">
 
-# Создание НИПа
+# Creating NPC-s
 
-Первая, "живая", функциональная сущность
+First, "alive", person
 
 <div className="show" id="mask">
 
@@ -27,7 +27,7 @@ import '@site/src/css/pages/txt-img.css';
 
 <div align="left" id="dont-copy">
 
-```kts title="Шаблон"
+```kts title="Sample"
 fun npc(
   pos: Vec3,
   name: String = "NPC",
@@ -46,36 +46,36 @@ fun npc(
 
 <br />
 
-```kts title="Пример"
+```kts title="Example"
 val npcID = npc(
-  pos = pos(29, 85, 23), // Координаты спавна НИПа
-  name = "НИП", // Имя НИПа, которое будет видно в чате и над головой (если не отключено отображение Имени над головой)
-  model = "my_mo_id:path/to/my_top_model.gltf", // Путь до модели для НИПа
-  rotation = rotation(180, 0), // В какрую сторону будет смотреть НИП когда заспавнится по оси pitch и yaw
-  world = "my_mod_id:my_dimension_id", // Изщмерение, в котором будет заспавнени НИП
-  size = 1f to 1.2f, // Размер хитбокса НИПа по Ширине и Высоте
-  attributes = mapOf( // Атрибуты НИПа
+  pos = pos(29, 85, 23), // Coordinates what NPC will spawns.
+  name = "НИП", // The NPC name, for chat and nametag (nametag can be turned off)
+  model = "my_mo_id:path/to/my_top_model.gltf", // Resource path to model.
+  rotation = rotation(180, 0), // Witch position will look npc with `pitch` and `yaw`.
+  world = "my_mod_id:my_dimension_id", // Dimension, what npc will spawn in.
+  size = 1f to 1.2f, // Scale of HitBox by width and height.
+  attributes = mapOf( // NPC Attributes.
     "my_mod_id:my.best.attrubute_one" to 10f,
     "my_mod_id:my.best.attribute_two" to 0.5f,
     ...
   ),
-  textures = mapOf( // Текстуры для модели НИПа
+  textures = mapOf( // Textures for NPC model.
     "model/texture_id_one" to "my_mod_id:path/to/my_best_texture.png",
     "model/texture_id_two" to "my_mod_id:path/to/my_another_texture.png",
     ...
   ),
-  animations = mapOf( // Установка кастомных анимаций для модели НИПа
+  animations = mapOf( // Parenting custom NPC animations.
     AnimationType.IDLE to "bestIdleAnimation",
     AnimationType.WALK to "walkAnimLoop",
     ...
   ),
-  transform = Transform( // Трансформация модели НИПа
-    tX = 1.1f, tY = 0.4f, tZ = 3f, // Смещение модели по осям X, Y и Z
-    rX = 90f, rY = 2.4f, rZ = 194f, // Поворот модели по осям X, y и Z
-    sX = 0.1f, sY = 1.001f, sZ = 9.2f // Размер модели по осям X, Y и Z
+  transform = Transform( // Transformation of NPC model
+    tX = 1.1f, tY = 0.4f, tZ = 3f, // Position model with X, Y и Z
+    rX = 90f, rY = 2.4f, rZ = 194f, // Rotation with X, y и Z
+    sX = 0.1f, sY = 1.001f, sZ = 9.2f // Scale with X, Y и Z
   ),
-  showName = false, // Отключить отображение имени НИПа над его головой
-  inverseHeadRotation = true // Если голова модели НИПа поворачивается некорректно
+  showName = false, // Turn NPC-s nametag off
+  inverseHeadRotation = true // If NPC-s head rotate wrongly
 )
 ```
 

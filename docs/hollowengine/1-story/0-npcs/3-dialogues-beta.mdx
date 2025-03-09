@@ -1,14 +1,14 @@
 ---
 sidebar_position: 3
 
-title: 'Диалоги'
+title: 'Dialogues'
 id: dialogues
 desc: 'NaN'
 ---
 
 <div align="center">
 
-# Создание диалога
+# Creating Dialogues
 
 ---
 
@@ -16,32 +16,32 @@ desc: 'NaN'
 
 <div align="left" id="dont-copy">
 
-:::warning !!БЕТА!!
-Страница может стать не актуальной из-за внезапных обновлений HollowEngine, потому что новые функции быстро перерабатываются!
+:::warning !!BETA!!
+This page may become out of date due to sudden HollowEngine updates as new features are quickly processed!
 P.s. uertyk_
 :::
 
 <br />
 
-```kts title="Основа диалога"
-// P.s. Как я знаю, это бета функция и неизвестно как работает, до официального релиза движка на 2.0 она может поменяться полностью!
-// v2P.s. Так же ЭТО ШАБЛОН, И ЕГО НЕ НУЖНО ВСТАВЛЯТЬ В КОД ВМЕСТЕ С "<>" !!!
-dialogue {<ващ скрипт для диалога тут>}
+```kts title="The basis of dialogue"
+// P.s. As far as I know, this is a beta function and it is unknown how it works, before the official release of the engine on 2.0 it can change completely!
+// v2P.s. Also THIS IS A TEMPLATE, AND IT DOESN'T NEED TO BE INSERTED INTO THE CODE TOGETHER WITH "<>" !!!
+dialogue {<yours dialogue sctipt, LoL kek>}
 ```
 
 <br />
 
-```kts title="Шаблон диалога"
+```kts title="Example of Dialog"
 dialogue {
-        <npcID> say "Привет"
+        <npcID> say "Hallo!"
 
         choices {
-            "<Выбор 1>" {
-                // P.s. <Последствия..>
+            "<Choice 1>" {
+                // P.s. <After..>
             }
 
-            "<Выбор 2>" {
-                // P.s. <Последствия..>
+            "<Choice 2>" {
+                // P.s. <After..>
             }
         }
     }
@@ -49,23 +49,23 @@ dialogue {
 
 <br />
 
-:::info Это шаблон!
-В шаблон за место "Выбор" какой-то там вы ставите "Ыыы, ваши 💀 , слишком 💀 , чтобы быть 💀"
+:::info Its just an example!
+In the template, instead of "Choice" you can put "your 💀 are too 💀 to be 💀"
 :::
 
 <br />
 
-```kts title="Пример диалога"
+```kts title="Example"
 dialogue {
-        npc say "Привет"
+        npc say "Hallo!"
 
         choices {
-            "Хм, здрасте" {
-                npc say "Ты хто?"
+            "Ok, hello!" {
+                npc say "You who?"
             }
 
-            "Пока" {
-                npc say "Ээ, куда?"
+            "Bye-bye" {
+                npc say "NO!"
             }
         }
     }

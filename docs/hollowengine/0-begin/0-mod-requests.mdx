@@ -1,18 +1,18 @@
 ---
 sidebar_position: 0
 
-title: Зависимости мода
+title: Mod dependencies
 id: mod-requests
 desc: 'NaN'
 ---
 
 <div align="center">
 
-:::warning Только для бустеров и тестеров
-Данная страница может изменится в будущем, так что не думайте что то как оно сейчас - будет всегда.
+:::warning Only for sponsors and testers!
+This page can be changed in future, so don`t think, now - is the final result.
 :::
 
-# Зависимости мода
+# Mod dependencies
 
 <div className="show" id="mask">
 
@@ -24,19 +24,19 @@ desc: 'NaN'
 
 <br />
 
-:::info Зависимости мода в виде графика
+:::info Mod dependencies in graph
 ```mermaid
 graph TD;
 
   HE[HollowEngine]; HC[HollowCore]; KFF[KotlinForFabric]; KSFF[KotlinScripForFabric];
   
-  HE-->|Требует|HC
-  HE-->|Требует|KFF
-  HE-->|Требует|KSFF
+  HE-->|requires|HC
+  HE-->|requires|KFF
+  HE-->|requires|KSFF
   
-  KSFF-->|Требует|HC
+  KSFF-->|requires|HC
   
-  HC-->|Требует|KFF
+  HC-->|requires|KFF
 ```
 :::
 
