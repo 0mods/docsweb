@@ -11,7 +11,7 @@ const config: Config = {
   organizationName: '0mods',
   projectName: '0mods_site',
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'ignore',
   onBrokenMarkdownLinks: 'ignore',
   onBrokenAnchors: 'warn',
 
