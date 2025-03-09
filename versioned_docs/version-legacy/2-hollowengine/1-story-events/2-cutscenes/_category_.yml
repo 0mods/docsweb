@@ -1,0 +1,6 @@
+position: 2
+label: 'Кат-сцены'
+link:
+  type: generated-index
+customProps:
+  description: 'Хз чё сказать...'

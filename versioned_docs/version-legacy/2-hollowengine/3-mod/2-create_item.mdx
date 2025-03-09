@@ -1,0 +1,543 @@
+---
+sidebar_position: 2
+
+title: Добавляем новый предмет
+id: create-item
+desc: 'NaN'
+---
+
+import ToggleText from '@site/src/packs/toggle_text/toggle_text.js';
+import Player from '@site/src/components/video_player/VideoPlayer.tsx';
+
+<div align="center" id="dont-copy">
+
+# Добавляем новый предмет
+
+![no-title](@site/static/img/doc/titles/NO_TITLE.webp)
+
+---
+
+<br />
+
+:::warning Важное правило
+Всё ниже написанное пишется в методе `init()`:
+<div align="left">
+```kts
+fun init() {
+  // Тут всё ниже написанное //
+}
+```
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## Создание регистратора предметов
+:::info Создание регистратора предметов
+Для начала нужно создать регистратор, чтоб в последующем создавать новые предметы и добавлять
+их в игру.
+<div align="left">
+```kts
+import net.minecraftforge.registries.DeferredRegister
+import net.minecraftforge.registries.ForgeRegistries
+
+val ITEMS = DefferedRegister.create(ForgeRegistries.ITEMS, modId: String)
+```
+> `modId` - это куда будет добавлятся предмет. Можно вписать сюда `"hollowengine"` и тогда все
+предметы будут из мода `HollowEngine`.
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## Создание предмета
+::::info Регистрация предмета
+Теперь можно создать предмет и задать ему параметры.
+<div align="left">
+```kts
+import net.minecraft.world.item.Item
+import ru.hollowhorizon.hollowengine.common.tabs.HOLLOWENGINE_TAB
+
+ITEMS.register(newItemId: String) {
+  Item(Item.Properties()
+    <Параметры предмета>
+  )
+}
+```
+---
+<div align="center">
+### Параметры предмета
+<ToggleText buttonText="Возможные параметры для предмета">
+<div align="left">
+```kts title="Предмет является едой и можно съесть"
+import net.minecraft.world.food.FoodProperties
+import net.minecraft.world.effect.MobEffectInstance
+import net.minecraft.world.effect.MobEffects
+
+.food(
+  FoodProperties.Builder()
+    .meat() // Это мясо
+    .nutrition(count: Float) // Количество единиц голода, которых восстановит
+    .saturationMod(percent: Float) // Процент сытости, от востанавливаемого голода, который будет восстановлен
+    .alwaysEat() // Можно съесть даже если шкала голода - полная
+    .fast() // Можно съесть быстро
+    .effect(MobEffectInstance( // После съедения - на игрока наложатся эффекты
+      effect: MobEffects, // Сам эффект
+      long: Int, // Продолжительность эффекта в тиках
+      level: Int // Уровень эффекта
+    ))
+    .build() // ОБЯЗАТЕЛЬНО | Завершить настройку еды
+)
+```
+```kts title="Количество предметов в ячейке (Кол-во в стаке)"
+.stacksTo(count: Float)
+```
+```kts title="Прочность предмета"
+.durability(value: Int)
+```
+```kts title="Прочность предмета по умолчанию"
+.defaultDurability(value: Int)
+```
+```kts title="Творческая вкладка"
+.tab(tab: CreativeModeTab)
+```
+```kts title="Устойчивость к огню и лаве"
+.fireResistant()
+```
+```kts title="Невозможно починить"
+.setNoRepair()
+```
+```kts title="Предмет, получаемый после использования в крафтах"
+.craftRemainder(item: Item)
+```
+```kts title="Редкость предмета"
+.rarity(type: Rarity)
+```
+</div>
+</ToggleText>
+
+<br />
+
+### Методы предмета
+<ToggleText buttonText="Возможные функции для предмета">
+:::warning Работоспособность
+Т.к. компилятор работает немного криво, не факт что все ниже перечесленные методы будут работать
+в принцепе.
+---
+Для некоторых методов возможна потребуется аннотация:
+```kts
+@Deprecated(message: String)
+
+// Пример //
+
+@Deprecated("Этот метод - устарел")
+override fun use(...) {...}
+```
+:::
+:::tip Как использовать
+Для начала вам нужно заменить:
+<div align="left">
+```kts
+Item(Item.Properties()
+  <ваши параметры для предмета>
+)
+```
+</div>
+на следующее:
+<div align="left">
+```kts
+object: Item(Item.Properties()
+  <Ваши параметры для предмета>
+) {
+  <Ниже перечисленные методы>
+}
+```
+</div>
+
+---
+
+так же не забывайте что все импорты пишутся в самом начале скрипта.
+Исключение только если вы используете импорт `@file:Import()`, то вот этот импорт должен быть
+в самом начале, а уже после него - обычные импорты.
+:::
+<div align="left">
+```kts title="Взаимодействие с предметом"
+import net.minecraft.world.entity.player.Player
+import net.minecraft.world.InteractionHand
+import net.minecraft.world.InteractionResultHolder
+import net.minecraft.world.level.Level
+
+override fun use(
+  pLevel: Level,
+  pPlayer: Player,
+  pUseHand: InteractionHand
+): InteractionResultHolder<ItemStack> {
+  // Что должно произойти при взаимодействии //
+
+  super.use(pLevel, pPlayer, pUseHand)
+}
+```
+```kts title="Взаимодействие с предметом по блоку"
+import net.minecraft.world.item.context.UseOnContext
+import net.minecraft.world.InteractionResult
+
+override fun useOn(pContext: UseOnContext): InteractionResult {
+  // Что должно произойти при взаимодействии по блоку //
+  
+  super.useOn(pContext)
+}
+```
+```kts title="Лежачий предмет уничтожен"
+import net.minecraft.world.entity.item.ItemEntity
+
+override fun onDestroyed(itemEntity: ItemEntity) {
+  // Что должно произойти, когда лежачий предмет будет уничтожен //
+}
+```
+```kts title="Может ли предмет атаковать блоки"
+import net.minecraft.world.entity.player.Player
+import net.minecraft.world.level.Level
+import net.minecraft.core.BlockPos
+import net.minecraft.world.block.state.BlockState
+
+override fun canAttackBlock(
+  pState: BlockState,
+  pLevel: Level,
+  pPos: BlockPos,
+  pPlayer: Player
+): Boolean {
+  return true // Может атаковать блоки
+}
+```
+```kts title="Скорость разрушения блока"
+import net.minecraft.world.block.state.BlockState
+import net.minecraft.world.item.ItemStack
+
+override fun getDestroySpeed(
+  pStack: ItemStack,
+  pState: BlockState
+): Float {
+  return 1.0f // Ломает все блоки со скорость 1
+}
+```
+```kts title="Конец взаимодействия с предметом"
+import net.minecraft.world.level.Level
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.entity.LivingEntity
+
+override fun finishUsingItem(
+  pStack: ItemStack,
+  pLevel: Level,
+  pLivingEntity: LivingEntity
+): itemStack {
+  // Что должно произойти когда закончил взаимодействовать с предметом //
+
+  super.finishUsingItem(pStack, pLevel, pLivingEntity)
+}
+```
+```kts title="Наносит ли предмет урон мобу"
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.entity.LivingEntity
+
+override fun hurtEntity(
+  pStack: ItemStack,
+  pTarget: LivingEntity,
+  pAttacker: LivingEntity
+): Boolean {
+  return true // Может нанести урон мобу
+}
+```
+```kts title="Описание к предмету"
+import net.minecraft.network.chat.Component
+
+override fun getDescription(): Component {
+  return Component.literal("Описание к предмету")
+}
+```
+```kts title="Пока предмет находится в инвентаре"
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.Level
+import net.minecraft.world.entity.Entity
+
+override fun inventoryTick(
+  pStack: ItemStack,
+  pLevel: Level,
+  pEntity: Entity,
+  pSlotId: Int,
+  pIsSelected: Boolean
+) {
+  // Что должно происходить, пока предмет ледит в инвентаре //
+}
+```
+```kts title="Когда предмет скрафчен"
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.Level
+import net.minecraft.world.entity.player.Player
+
+override fun onCraftBy(
+  pStack: ItemStack,
+  pLevel: Level,
+  pPlayer: Player
+) {
+  // Что должно произойти, когда предмет был скрафчен (переплавлен)
+}
+```
+```kts title="Анимация использования"
+import net.minecraft.world.item.ItemStack
+
+override fun getUseAnimation(pStack: ItemStack): UseAnim {
+  return UseAnim.<AnimType>
+}
+```
+```kts title="Время использования предмета"
+import net.minecraft.world.item.ItemStack
+
+override fun getUseDuration(pStack: ItemStack): Int {
+  return value: Int // Время, необходимое для использования предмета
+}
+```
+```kts title="Время использования предмета"
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.Level
+import net.minecraft.world.entity.LivingEntity
+
+override fun releaseUsing(
+  pStack: ItemStack,
+  pLevel: Level,
+  pLivingEntity: LivingEntity,
+  pTimeCharged: Int
+) {
+  // Что должно произойти, когда закончили взаимодействовать с предметом до конца //
+}
+```
+```kts title="Дополнительно описание к предмету"
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.level.Level
+import net.minecraft.network.chat.Component
+import net.minecraft.world.item.TooltipFlag
+
+override fun appendHoverText(
+  pStack: ItemStack,
+  pLevel: Level,
+  pTooltipComponent: List<Component>,
+  pIsAdvanced: TooltipFlag
+) {
+  pTooltipComponent.add(Component.literal("Дополнительное описание"))
+
+  if(pIsAdvanced)
+    pTooltipComponent.add(Component.literal("Расширенное дополнительное описание"))
+}
+```
+</div>
+</ToggleText>
+</div>
+
+</div>
+::::
+
+<br />
+
+---
+
+<br />
+
+## Финальная реuистрация всех предметов
+:::info Финальная регистрация всех предметов
+Теперь для регистрации всех созданных предметов в конце приписываем следующее:
+<div align="left">
+```kts
+ITEMS.register(MOD_BUS)
+```
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## Ресурсы для предмета
+::::info ресурсы для предмета
+### Модель
+Теперь если вам вдруг не понравился красивый и сочый куб с фиолетово-чёрными четверть
+кадратиками, то нужно поместить модель с именем, который вы указали в скрипте `newItemId` сюда:
+<div align="left">
+> `assets/<modID>/models/item/<newItemId>.json`, где за место `<modId>` должна стоять папка с
+именем, который вы указали при создании регистратора.
+</div>
+:::note Пример
+<div align="left">
+> Если регистраторе указан `best_mod`:
+> ```kts
+> DefferedRegister.create(ForgeRegistries.ITEMS, "best_mod")
+> ```
+> то за место `modId` - ставлю `best_mod`: `assets/best_mod/models/item`.
+> 
+> ---
+> И если создал предмет с `ID` `cool_item`:
+> ```kts
+> ITEMS.register("cool_item") {...}
+> ```
+> то имя модели должно быть именно `cool_item.json`: `assets/best_mod/models/item/cool_item.json`.
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+### Текстура
+Текстуру вы можеет размещать где угодно, всё потому что путь к текстуре указывается в файле
+модели предмета. Так что если вдруг модель встала, а текстуры нету (вы всё равно выдете
+фиолетово-чёрные четверть квадратики на модели) - то проверье, что текстура правильно определила
+свои `META-данные`:
+<div style={{ "display": "flex" }}>
+<div style={{ "items-align": "left", "width": "50%", "margin-right": "8px" }}>
+
+![texture-metadatas](@site/static/img/doc/mod/texture_metadatas.png)
+
+---
+
+<div align="right">
+Если вдруг `META-данные` вдруг не соответствуют, то сначала сохраните текстуру там, где вам
+нужно, а уже после уже - сохраните модель.
+
+Если и после `META-данные` не изменились, то придётся вам изменять вручную.
+</div>
+
+</div>
+<div align="left" style={{ "items-align": "left", "width": "50%", "margin-left": "8px" }}>
+
+> Имя: Убедитесь что имя текстуры, совпадает с именем файла текстуры,
+> 
+> ---
+> Папка: Убедитесь что папка указана правильно, где находита текстура (путь указывается
+относительно папки `modId`),
+>
+> ---
+> Пространство имён: это `modId`. Убедитесь что оно указано правильно и совпадает с указанным
+`modId` который вы указали в регистраторе `DefferedRegister`.
+
+</div>
+</div>
+::::
+
+<br />
+
+---
+
+<br />
+
+## Результат (Пример)
+:::note Скрипт
+<div align="left">
+```kts title="Пример"
+import net.minecraftforge.registries.DeferredRegister
+import net.minecraftforge.registries.ForgeRegistries
+import net.minecraft.world.item.Item
+import net.minecraft.world.item.ItemStack
+import net.minecraft.world.entity.player.Player
+import net.minecraft.world.InteractionHand
+import net.minecraft.world.InteractionResultHolder
+import net.minecraft.world.level.Level
+import net.minecraft.network.chat.Component
+import ru.hollowhorizon.hollowengine.common.tabs.HOLLOWENGINE_TAB
+
+fun init() {
+  val ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "test")
+
+  ITEMS.register("amogus") {
+    object: Item(Item.Properties()
+      .stacksTo(8)
+      .tab(HOLLOWENGINE_TAB)
+    ) {
+      override fun use(
+        pLevel: Level,
+        pPlayer: Player,
+        pUseHand: InteractionHand
+      ): InteractionResultHolder<ItemStack> {
+        if(pLevel.isClientSide && pUseHand == InteractionHand.MAIN_HAND)
+          pPlayer.sendSystemMessage(Component.literal("*Писк*"))
+
+        return super.use(pLevel, pPlayer, pUseHand)
+      }
+    }
+  }
+
+  ITEMS.register(MOD_BUS)
+}
+```
+</div>
+<div style={{ "display": "flex", "align-items": "center" }}>
+  <Player url={require("@site/static/img/doc/mod/ItemDemo0.mp4").default} />
+  <div>
+    <div style={{ "width": "50%", "items-align": "flex-end", "align-items": "center", "margin": "8px" }}>
+      ![hotbar](@site/static/img/doc/mod/testModelHotbar.png "Предмет в хотбаре")
+    </div>
+    <div style={{ "width": "50%", "margin": "8px" }}>
+      ![item](@site/static/img/doc/mod/testModelItem.png "Правда же милашка?)")
+    </div>
+  </div>
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## Перевод предмета
+:::info Перевод предмета
+<div style={{ "display": "flex" }}>
+<div style={{ "items-align": "flex-start", "width": "50%", "margin-right": "8px" }}>
+![badName](@site/static/img/doc/mod/badItemName.png "Не обращайте внимание на `block`. Я создавал предмет вместе с блоком, так что у вас скорее всего будет именно `item`.")
+</div>
+<div align="left" style={{ "items-align": "flex-end", "width": "50%", "margin-left": "8px" }}>
+> Если вас вдруг не устраивает такое имя предмета, то это легко решается.
+>
+> ---
+> Создайте файл `ru_ru.json` - для Русского языка, или(и) `en_us.json` - для Англиского языка по
+следующему пути: `assets/<modId>/lang/*` и впишите в эти файлы следующее:
+> ```json title="lang/ru_ru.json и lang/en_us.json"
+> {
+>   "item.<modId>.<newItemId>": "<TranslationText>"
+> }
+> ```
+> Где за место `<modID>` - вставте `id` вашего мода (в моём случает - это `test`) и за место
+> `<newItemId>` - `id` предмета, который вы добавили (в моём случае - это `amogus`).
+</div>
+</div>
+---
+<div style={{ "display": "flex" }}>
+<div style={{ "items-align": "flex-end", "width": "50%", "margin-right": "8px" }}>
+![goodName](@site/static/img/doc/mod/goodItemName.png "Как видно, перевод работает)")
+</div>
+<div align="left" style={{ "items-align": "flex-start", "width": "50%", "margin-left": "8px" }}>
+> У меня получилось так:
+> ```kts title="В ru_ru.json"
+> {
+>   "item.test.amogus": "Амогус"
+> }
+> ```
+> ```kts title="В en_us.json"
+> {
+>   "item.test.amogus": "Amogus"
+> }
+> ```
+</div>
+</div>
+:::
+
+</div>

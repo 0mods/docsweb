@@ -1,0 +1,473 @@
+---
+sidebar_position: 2
+
+title: Действия
+id: actions
+desc: 'Разные задачки которые вы можете задать'
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import tab from '@site/src/css/tabs/tabs.module.css';
+import { Random, High, Low } from '@site/src/packs/random.js';
+import '@site/src/css/pages/img-show.css';
+import '@site/src/css/pages/preview_content.css';
+
+import Player from '@site/src/components/video_player/VideoPlayer.tsx';
+
+<div align="center">
+
+# Действия
+
+Возможность управлять вашими НИПами
+
+<link rel="preload" as="image" href="@site/static/img/doc/titles/NpcActions0.webp" />
+<div className="show" id="mask">
+
+![actions](@site/static/img/doc/titles/NpcActions0.webp)
+
+</div>
+
+Скажи им прямо так: "Иди туда - не знаю куда"
+
+---
+
+<br />
+
+<div id="dont-copy">
+
+## Двигаться
+
+::::info Двигаться
+
+<Tabs>
+<TabItem value="toPosition" label="До позиции" attributes={{className: tab.def}}>
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcMoveToPos.mp4").default} />
+  </div>
+  <div align="left" id="content">
+    <div align="center" style={{ "color": "red", "font-weight": "700" }}>Стандартый метод может работать криво. Используйте из пака `HollowEngine: Fixer` на дискорд сервере в канале `#scripting-templates`!</div>
+    <br />
+```kts
+<npcID> moveTo { pos(x, y, z) }
+```
+
+НИП будет идти до **Указанных координат** в `pos(x, y, z)`.
+
+---
+
+```kts title="Пример"
+npc moveTo { pos(13, 65, 235) }
+```
+  </div>
+</div>
+</TabItem>
+<TabItem value="toPlayer" label="До игрока" attributes={{className: tab.def}}>
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcMoveToPlayerNpc.mp4").default} />
+  </div>
+  <div align="left" id="content">
+```kts
+<npcID> moveTo { <player> }
+```
+
+НИП будет идти до [**Указанного игрока**](../3-player/0-get_player.mdx).
+
+---
+
+```kts title="Пример"
+val players by server.players
+
+npc moveTo { players.first() }
+
+// ИЛИ //
+
+val me by server.players.filter { it.name.string == "_BENDY659_" }
+
+npc moveTo { me }
+```
+  </div>
+</div>
+</TabItem>
+<TabItem value="toNpc" label="До Другого НИПа" attributes={{className: tab.def}}>
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcMoveToPlayerNpc.mp4").default} />
+  </div>
+  <div align="left" id="content">
+```kts
+<npcID> moveTo <npcID>
+```
+
+НИП будет идти до **Указанных НИПа** .
+
+---
+
+```kts title="Пример"
+val kolya by NPCEntity.creating {...}
+
+npc moveTo kolya
+```
+:::warning Беда
+Есть шанс что НИП скорее всего не до конца дойдёт до НИПа, и из-за этого скрипт никуда дальше не пойдёт.
+
+Можно избежать этого, если передвижение НИПа сделать через:
+```kts title="Пример"
+val kolya by NPCEntity.creating {...}
+
+npc moveTo { kolya().position() }
+```
+:::
+  </div>
+</div>
+</TabItem>
+
+<TabItem value="toEntity" label="До сущности" attributes={{className: tab.def}}>
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcMoveToPlayerNpc.mp4").default} />
+  </div>
+  <div align="left" id="content">
+:::warning Тема для прошаренных
+```kts
+<npcID> moveTo <Entity>
+// или
+<npcID> moveTo { <Entity> }
+```
+НИП может идти до конкретной сущности.
+:::
+  </div>
+</div>
+</TabItem>
+
+<TabItem value="alwaysMoveTo" label="Бесконечно" attributes={{className: tab.def}}>
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcAlwaysMoveTo.mp4").default} />
+  </div>
+  <div align="left" id="content">
+Есть за место `moveTo` написать `moveAlwaysTo`, то НИП будет двигаться до указанного - **Бесконечно**.
+
+Для того чтобы __остановить выполнение__, нужно прописать:  
+```kts
+<npdID>.stopMoveAlways()
+```
+
+---
+
+```kts title="Пример"
+npc moveAlwaysTo { player().first() }
+
+npc.stopMoveAlways()
+```
+  </div>
+</div>
+</TabItem>
+</Tabs>
+
+::::
+
+<br />
+
+:::info Бегать
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcRunningTo.mp4").default} />
+  </div>
+  <div align="left" id="content">
+НИП так же может бегать. Бег меняет скорость передвижения.
+```kts
+<npcID>.isRunning = true // Вкл. режим бега
+
+<npcID>.isRunning = false // Выкл. режим бега. По умолчанию
+```
+  </div>
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## Смотреть
+
+::::info Смотреть
+
+<Tabs>
+<TabItem value="onPos" label="На позицию" attributes={{className: tab.def}}>
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcLookAtPos.mp4").default} />
+  </div>
+  <div align="left" id="content">
+```kts
+<npcID> lookAt { pos(x, y, z) }
+```
+
+НИП будет смотреть на **Указанные координаты** в `pos(x, y, z)`.
+
+---
+
+```kts title="Пример"
+npc lookAt { pos(-361, 83, 23) }
+```
+  </div>
+</div>
+</TabItem>
+<TabItem value="onPlayer" label="На игрока" attributes={{className: tab.def}}>
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcLookAtPlayerNpc.mp4").default} />
+  </div>
+  <div align="left" id="content">
+```kts
+<npcID> lookAt { <player> }
+```
+НИП будет смотреть на [**Определённого игрока**](../3-player/0-get_player.mdx).
+
+---
+
+```kts title="Пример"
+npc lookAt { player().first() }
+```
+  </div>
+</div>
+</TabItem>
+<TabItem value="onNpc" label="На Другого НИПа" attributes={{className: tab.def}}>
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcLookAtPlayerNpc.mp4").default} />
+  </div>
+  <div align="left" id="content">
+```kts
+<npcID> lookAt <npcID>
+```
+
+НИП будет смотреть на **Указанного НИПа**.
+
+
+---
+
+```kts title="Пример"
+val hollowNpc by NPCEntity.creating {...}
+
+npc lookAt hollowNpc
+```
+  </div>
+</div>
+</TabItem>
+<TabItem value="onEntity" label="На сущность" attributes={{className: tab.def}}>
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcLookAtEntityType.mp4").default} />
+  </div>
+  <div align="left" id="content">
+```kts
+<npcID>.lookAtEntityType { "<entityID>" }
+```
+
+Здесь вы можете указать уже именно `ID` сущности.  
+Тогда НИП будет смотреть на ту, которая к нему ближе.
+
+---
+
+```kts title="Пример"
+npc.lookAtEntityType { "dog" }
+```
+  </div>
+</div>
+</TabItem>
+<TabItem value="alwaysOn" label="Бесконечно" attributes={{className: tab.def}}>
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcAlwaysLookAt.mp4").default} />
+  </div>
+  <div align="left" id="content">
+```kts
+<npcID> lookAlwaysAt { <target> }
+```
+
+Есть за место `lookAt` написать `alwaysLookAt`, то НИП будет смотреть на указанное - **Бесконечно**.
+
+Для того чтобы __остановить выполнение__, нужно прописать:  
+```kts
+<npcID>.stopLookAlways()
+```
+
+---
+
+```kts title="Пример"
+npc lookAlwaysAt { player().first() }
+
+npc.stopLookAlways()
+```
+  </div>
+</div>
+</TabItem>
+</Tabs>
+
+::::
+
+<br />
+
+---
+
+<br />
+
+## Телепорт
+
+:::info Телепорт
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcTpTo.mp4").default} />
+  </div>
+  <div align="left" id="content">
+<div align="center" style={{ "color": "yellow", "font-weight": "700" }}>Частицы в подписку не входят!</div>
+<br />
+```kts
+<npcID> tpTo {
+  pos = pos(x, y, z)
+  vec = vec(pitch, yaw)
+  world = "<dimentionID>"
+}
+```
+
+Телепортирует НИПа на указанные координаты и в указанный мир (опционально).
+
+> - `pos(x, y, z)` - Координаты, куда нужно телепортировать.  
+> - `vec(pitch, yaw)` - Куда будет смотреть НИП после телепорта.  
+> - `dimentionID` - Мир, в который нужно телепортировать НИПа. Если оно не указано - берётся тот мир,
+в котором находится НИП в данный момент.
+  </div>
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## Взаимодействие с миром
+
+<br />
+
+### Сломать блок
+
+:::info Сломать блок
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcDestroyBlock.mp4").default} />
+  </div>
+  <div align="left" id="content">
+    <div align="center" style={{ "color": "yellow", "font-weight": "700" }}>Кирки в подписку не входят!</div>
+    <br />
+    <div align="center" style={{ "color": "red", "font-weight": "700" }}>Стандартый метод может работать криво. Используйте из пака `HollowEngine: Fixer` на дискорд сервере в канале `#scripting-templates`!</div>
+    <br />
+```kts
+<npcID> destroyBlock { pos(x, y, z) }
+```
+
+Сломать блок на указанных координатах.
+
+НИП подойдёт к заданным координатам как можно ближе и после сломает блок.
+
+---
+
+```kts title="Пример"
+npc destroyBlock { pos(10, 35, 221) }
+```
+  </div>
+</div>
+:::
+
+<br />
+
+### Взаимодейтсвие с блоком
+
+:::info Взаимодействие с блоком
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcUseBlock.mp4").default} />
+  </div>
+  <div align="left" id="content">
+    <div align="center" style={{ "color": "yellow", "font-weight": "700" }}>Игра с ИИ в подписку не входит!</div>
+    <br />
+```kts
+<npcID> useBlock { pos(x, y, z) }
+```
+
+Взаимодействовать с блоком на указанных координатах.
+
+НИП подойдёт к заданным координатам как можно ближе и повзаимодействует с блоком.
+
+---
+
+```kts title="Пример"
+npc useBlock { pos(19, 73. 94) }
+```
+  </div>
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## Атаковать
+
+:::info Атаковать цель
+<div id="preview-content">
+  <div id="preview">
+    <Player url={require("@site/static/img/doc/actions/NpcTarget.mp4").default} />
+  </div>
+  <div align="left" id="content">
+    <div align="center" style={{ "color": "yellow", "font-weight": "700" }}>Мита в подписку не входит!</div>
+    <br />
+```kts
+<npcID> setTarget { <target> }
+```
+
+НИП будет атаковать цель до последнего, пока цель не умрёт.
+
+Целью может быть:  
+> - Игрок - Нужно за место `<target>` указать  
+>   - [**Определённого игрока**](../3-player/0-get_player.mdx#получить-игрока-ов).
+> - Другой НИП - Нужно за место `<target>` указать `npcID` другого НИПа в виде лямбы.
+>     ```kts
+>     npcId setTarget { otheNpcId() }
+>     ```
+> - Сущность - Нужно за место `<target>` указать
+>   - `LivingEntity` (Для прошаренных).
+
+---
+
+```kts title="Перестать атаковать цель"
+<npcID>.clearTarget()
+```
+
+---
+
+```kts title="Пример"
+val players by server.players
+
+npc setTarget { player()[0] }
+
+npc clearTarget()
+```
+> Имейте в виду что данный метод не ждёт когда цель - умрёт. Скрипт продолжится дальше.
+> Если вам нужно ждать, то используйте один из [триггеров](../5-triggers.mdx#обратное-условие).
+
+  </div>
+</div>
+:::
+
+</div>
+
+</div>
