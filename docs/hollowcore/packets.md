@@ -25,8 +25,7 @@ and HollowPacket is called HollowPacketV3
 @HollowPacketHandler(HollowPacketHandler.Direction.TO_CLIENT)
 @Serializable
 class SomeMoneyPacket(private val creditCardNumber: String, private val money: Float) : HollowPacket<SomeMoneyPacket> {
-    
-override fun handle(player: Player) {
+    override fun handle(player: Player) {
         player.sendSystemMessage("Player ${player.name.string} has ${creditCardNumber} money on his card: ${money}".literal)
     }
 }
