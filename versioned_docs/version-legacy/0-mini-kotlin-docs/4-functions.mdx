@@ -30,7 +30,7 @@ author: 'dan_bat'
 
         ```kts title="Пример создания функции"
         fun sayHello() {
-        println("Hello, Kotlin!")
+          println("Hello, Kotlin!")
     }
         ```
 
@@ -54,7 +54,7 @@ author: 'dan_bat'
 
         ```kts title="Аргументы в функции"
         fun greet(name: String, age: Int) {
-        println("Привет, $name! Тебе $age лет.")
+          println("Привет, $name! Тебе $age лет.")
     }
 
         greet("Анна", 25) // или greet(age = 25, name = "Анна")
@@ -73,7 +73,7 @@ author: 'dan_bat'
 
         ```kts title="Переменное количество параметров"
         fun sum(vararg numbers: Int): Int {
-        return numbers.sum()
+          return numbers.sum()
     }
 
         println("Сумма: ${sum(1, 2, 3, 4)}") // Сумма: 10
@@ -92,11 +92,11 @@ author: 'dan_bat'
 
         ```kts title="Тип Unit"
         fun printMessage(message: String): Unit {
-        println(message)
+          println(message)
     }
 
         fun printAnotherMessage(message: String) {
-        println(message)
+          println(message)
     }
 
         printMessage("Привет, мир!")
@@ -132,8 +132,8 @@ author: 'dan_bat'
 
         ```kts title="Локальные функции"
         fun outerFunction() {
-        fun innerFunction(x: Int): Int = x + 1 // можно вызвать только в outerFunction
-        println("innerFunction(5): ${innerFunction(5)}")
+          fun innerFunction(x: Int): Int = x + 1 // можно вызвать только в outerFunction
+          println("innerFunction(5): ${innerFunction(5)}")
     }
 
         outerFunction() // Выведет: innerFunction(5): 6
@@ -152,11 +152,11 @@ author: 'dan_bat'
 
         ```kts title="Функции-члены"
         class Calculator {
-        fun add(a: Int, b: Int): Int = a + b
+          fun add(a: Int, b: Int): Int = a + b
     }
 
         val calc = Calculator()
-        println("Сумма: ${calc.add(3, 4)}") // Сумма: 7
+          println("Сумма: ${calc.add(3, 4)}") // Сумма: 7
         ```
 
     </div>
