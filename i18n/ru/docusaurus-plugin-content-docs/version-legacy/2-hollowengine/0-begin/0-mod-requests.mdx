@@ -1,0 +1,64 @@
+---
+sidebar_position: 0
+
+title: Зависимости `HollowEngine`
+id: mod-requests
+description: Перед началом установки, стоит убедится что имеются остальные моды для корректной работы
+---
+
+import '@site/src/css/pages/img-show.css';
+
+<div align="center">
+
+# Зависимости мода `HollowEngine`
+
+Просто установить 1 мод и думать что всё будет окей - неверное утверждение!
+
+<link rel="preload" as="image" href="@site/static/img/doc/titles/ForgeCrush0.webp" />
+<div className="show" id="mask">
+
+![forge-crush](@site/static/img/doc/titles/ForgeCrush0.webp "Ой. Крашнулся)")
+
+</div>
+
+Вам разве не показалось странным, что такой БОЛЬШОЙ мод весит как-то мало?
+
+---
+
+<br />
+
+## График зависимостей
+
+:::info Зависимости мода HollowEngine в виде графика
+```mermaid
+graph TD;
+    
+    HE[HollowEngine]; HC[HollowCore]; KFF[Kotlin For Forge]; KSFF[Kotlin Scripts];
+    
+    HE-->|Требует|HC
+    HE-->|Требует|KSFF
+    HE-->|Требует|KFF
+    
+    KSFF-->|Требует|HC
+    
+    HC-->|Требует|KFF
+```
+:::
+
+<br />
+
+:::warning по поводу `KotlinScripts`
+⚠️ Скачивать нужно ***полную*** версию, без таких тегов как: [**no-compiler**, **lite**, **original**, и т.д.] ⚠️
+:::
+
+<br />
+
+---
+
+<br />
+
+## Скачать зависимости
+
+Скачать все зависимые моды вы можете [**здесь**](../../98-downloads-mods.mdx)
+
+</div>
