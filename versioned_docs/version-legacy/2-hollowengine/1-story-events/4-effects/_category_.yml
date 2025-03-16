@@ -1,0 +1,6 @@
+position: 4
+label: 'VFX'
+link:
+  type: generated-index
+customProps:
+  description: 'NaN'

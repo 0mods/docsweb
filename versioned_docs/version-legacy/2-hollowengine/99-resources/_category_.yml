@@ -1,5 +1,5 @@
 position: 99
-label: Доп. ресурсы
+label: Add resources
 link:
   type: generated-index
 customProps:

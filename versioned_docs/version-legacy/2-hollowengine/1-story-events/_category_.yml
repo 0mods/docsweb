@@ -1,5 +1,5 @@
 position: 1
-label: 'Скрипт: Сюжетные события'
+label: 'Script: Story Events'
 link:
   type: generated-index
 customProps:

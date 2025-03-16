@@ -1,5 +1,5 @@
 position: 1
-label: 'Рецепты крафта'
+label: 'Crafting recipes'
 link:
   type: generated-index
 customProps:

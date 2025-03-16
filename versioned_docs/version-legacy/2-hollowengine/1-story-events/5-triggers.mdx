@@ -1,0 +1,243 @@
+---
+sidebar_position: 5
+
+title: Триггеры
+id: triggers
+desc: 'NaN'
+---
+
+{/* Спасибо адекватному человеку "QuillishMorrison" за исправление граматических ошибок :) */}
+
+<div align="center" id="dont-copy">
+
+# Триггеры
+
+Ждать определённого действия
+
+![NO_TITLE](@site/static/img/doc/titles/NO_TITLE.webp)
+
+чтоб потом продолжить работу
+
+---
+
+<br />
+
+## Автоматический запуск скрипта
+
+:::::note Автоматический запуск скрипта
+:::warning Местоположение в скрипте
+Данные триггеры должны находится в самом начале скрипта, выше обычных `import`!
+:::
+:::info При самом первом входе в мир
+```kts
+@file:EntryPoint
+```
+:::
+:::info При обычном входе в мир
+```kts
+@file:JoinScript
+```
+:::
+:::info Запуск **этого** скрипта, после окончания работы *указанного скрипта в параметрах*
+```kts
+@file:AfterScript("<path/to/script>")
+```
+:::
+:::info Цикличный скрипт. После завершения работы - скрипт запустится ещё раз и так по кругу
+```kts
+@file:RepeatableScript
+```
+:::
+:::::
+
+<br />
+
+---
+
+<br />
+
+## Ожидание конца таймера
+
+:::info Таймер
+Ждёт, пока не пройдёт указанное время.
+
+<div align="left" id="dont-copy">
+```kts
+wait { time }
+```
+
+> `time` - [**Время**](../99-resources/4-time_value.mdx), которое должно пройти, чтобы
+скрипт продолжил свою работу.
+
+```kts title="Пример"
+wait { 5.sec }
+```
+
+</div>
+
+:::
+
+<br />
+
+---
+
+<br />
+
+## Ожидание нажатия клавиши
+
+:::info Нажатие клавиши
+Ждёт, пока указанная клавиша не будет нажата.
+
+<div align="left" id="dont-copy">
+
+```kts
+keybind { Keybind.<KEY> }
+```
+
+> `KEY` - ID клавиши. [`Клавиши`](../99-resources/8-keybinds.mdx)
+---
+
+```kts title="Пример"
+keybind { Keybind.H }
+```
+
+</div>
+:::
+
+<br />
+
+---
+
+<br />
+
+## Ожидание взаимодействия с НИПом
+
+:::info Взаимодействие с НИПом
+Ждёт, пока любой игрок не повзаимодействует с определённым НИПом.
+
+<div align="left" id="dont-copy">
+
+```kts
+<npcID>.waitInteract()
+```
+
+---
+
+```kts title="Пример"
+npc.waitInteract()
+```
+
+</div>
+
+:::
+
+<br />
+
+---
+
+<br />
+
+## Ожидание сообщения
+
+:::info Ожидание сообщения
+Ждёт, пока любой игрок не отправит какое-то сообщение в чат.
+
+<div align="left" id="dont-copy">
+
+```kts
+<players>.input() // Любое сообщение
+// или
+<players>.input("<text>") // Конктректное сообщение
+// или
+<players>.input("<arg0>", "<arg1>", ...) // Конктректное сообщение из списка
+
+/*Запись в переменную */
+val myValue by <players>.input() // Запишет в переменную содержание сообщение
+```
+
+---
+
+```kts title="Пример"
+val players by server.players
+
+players.input()
+
+players.input("Привет")
+players.input("Привет", "Hello")
+
+val meMessage by players.input()
+```
+
+</div>
+
+:::
+
+<br />
+
+---
+
+<br />
+
+## Ожидание позиции
+
+:::info Ожидание позиции
+Ждёт, пока любой из игроков не будет в указанных координатах.
+
+<div align="left" id="dont-copy">
+
+```kts
+<players>.waitPos {
+  pos = pos(x, y, z) // Позиция, где будет ожидатся игрок
+  radius = <Double> // Радиус от центра координат pos
+  ignoreY = <Boolean> // Если true - триггер будет ждать игрока в форме шара, если false - в форме цилиндра, который протягивается от низа мира (Y=-64) до верха (Y=312)
+  createIcon = <Boolean> // Если true - будет создана иконка в позиции pos
+  icon = ResourceLocation("<mod_id>:<path/to/texture>") // Не обязательно. Кастомная иконка
+  world = "<dimension_id>" // ID измерения
+  inverse = <Boolean> // Если true - игрок должен покинуть территорию в этом радиусе
+}
+```
+
+---
+
+```kts title="Пример"
+players.waitPos {
+  pos = pos(-235, 82, 882)
+  radius = 10.5
+  ignoreY = true
+  createIcon = true
+  world = "overworld"
+}
+```
+
+</div>
+
+:::
+
+<br />
+
+---
+
+<br />
+
+## Обратное условие
+
+:::info Обратное условие
+Ждёт, пока условие не вернёт false.
+
+<div align="left" id="dont-copy">
+
+```kts
+await { <Условие> }
+```
+
+---
+
+```kts title="Пример"
+await { npc().isAlive } // Скрипт не продолжит свою работу, пока НИП не умрёт
+```
+
+</div>
+
+:::
+
+</div>
