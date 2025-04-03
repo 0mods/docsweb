@@ -223,7 +223,7 @@ npc playFreeze {"hug"}
 <npcID>.play {
   animation = "<animation_name>" // Имя анимации
   layerMode = LayerMode.<TYPE> // Режим наложения
-  playMode = PlayType.<TYPE> // Режим воспроизведения
+  playType = PlayMode.<TYPE> // Режим воспроизведения
   speed = <Float> // Скорость воспроизведения
 }
 ```
@@ -231,7 +231,7 @@ npc playFreeze {"hug"}
 - `layerMode` - Отвечает за то - как будут накладываться несколько анимаций.
 О [классе `LayerMode`](../../99-resources/3-layer-mode.mdx).
 - `playMode` - Отвечает за то - как будет воспроизводится анимация.
-О [классе `PlayType`](../../99-resources/2-play-type.mdx).
+О [классе `PlayMode`](../../99-resources/2-play-type.mdx).
 - `speed` - Отвечает за то = с какой скоростью будет воспроизводится анимация.
 Указывается в значении `Float`.
 
@@ -241,7 +241,7 @@ npc playFreeze {"hug"}
 npc.play {
   animation = "punch"
   layerMode = LayerMode.OVERWRITE
-  playTode = PlayMode.ONCE
+  playType = PlayMode.ONCE
   speed = 1.16f
 }
 ```
