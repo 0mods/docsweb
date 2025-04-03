@@ -38,7 +38,7 @@ fun npc(
   attributes: Map<String, Float> = emptyMap(),
   textures: Map<String, String> = emptyMap(),
   animations: Map<AnimationType, String> = emptyMap(),
-  tranfsorm: Transform = Transform(),
+  transform: Transform = Transform(),
   showName: Boolean = true,
   inverseHeadRotation: Boolean = false
 ): NPCEntity
@@ -51,11 +51,11 @@ val npcID = npc(
   pos = pos(29, 85, 23), // Координаты спавна НИПа
   name = "НИП", // Имя НИПа, которое будет видно в чате и над головой (если не отключено отображение Имени над головой)
   model = "my_mo_id:path/to/my_top_model.gltf", // Путь до модели для НИПа
-  rotation = rotation(180, 0), // В какрую сторону будет смотреть НИП когда заспавнится по оси pitch и yaw
-  world = "my_mod_id:my_dimension_id", // Измерение, в котором будет заспавнени НИП
+  rotation = rotation(180, 0), // В какую сторону будет смотреть НИП когда заспавнится по осям pitch и yaw
+  world = "my_mod_id:my_dimension_id", // Измерение, в котором будет заспавнен НИП
   size = 1f to 1.2f, // Размер хитбокса НИПа по Ширине и Высоте
   attributes = mapOf( // Атрибуты НИПа
-    "my_mod_id:my.best.attrubute_one" to 10f,
+    "my_mod_id:my.best.attribute_one" to 10f,
     "my_mod_id:my.best.attribute_two" to 0.5f,
     ...
   ),
@@ -71,7 +71,7 @@ val npcID = npc(
   ),
   transform = Transform( // Трансформация модели НИПа
     tX = 1.1f, tY = 0.4f, tZ = 3f, // Смещение модели по осям X, Y и Z
-    rX = 90f, rY = 2.4f, rZ = 194f, // Поворот модели по осям X, y и Z
+    rX = 90f, rY = 2.4f, rZ = 194f, // Поворот модели по осям X, Y и Z
     sX = 0.1f, sY = 1.001f, sZ = 9.2f // Размер модели по осям X, Y и Z
   ),
   showName = false, // Отключить отображение имени НИПа над его головой
