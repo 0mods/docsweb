@@ -189,7 +189,7 @@ val meMessage by players.input()
 <players>.waitPos {
   pos = pos(x, y, z) // Позиция, где будет ожидатся игрок
   radius = <Double> // Радиус от центра координат pos
-  ignoreY = <Boolean> // Если true - триггер будет ждать игрока в форме шара, если false - в форме цилиндра, который протягивается от низа мира (Y=-64) до верха (Y=312)
+  ignoreY = <Boolean> // Игнорирует высоту при вычислении расстояния до точки, при true.
   createIcon = <Boolean> // Если true - будет создана иконка в позиции pos
   icon = "<mod_id>:<path/to/texture>".rl // Не обязательно. Кастомная иконка
   world = "<dimension_id>" // ID измерения
